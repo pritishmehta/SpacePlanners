@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case Studies - Space Planners India. Real-world success stories of storage solution implementations across various industries.">
+    <meta name="keywords" content="case studies, storage solutions, implementation, success stories">
+    <title>Case Studies - Space Planners India</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: white;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+
+        .header-top {
+            background: #f5f5f5;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+            overflow-x: auto;
+        }
+
+        .header-top a {
+            color: #e53935;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #e53935;
+        }
+
+        .cta-button {
+            background: #e53935;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ===== WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .whatsapp-btn {
+            width: 55px;
+            height: 55px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* ===== HERO ===== */
+        .hero-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 30px 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .accent-line {
+            width: 50px;
+            height: 4px;
+            background: #e53935;
+            margin: 0 auto 30px;
+        }
+
+        /* ===== CASES GRID ===== */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: slideInCards 0.6s ease backwards;
+        }
+
+        .case-card:nth-child(1) { animation-delay: 0.05s; }
+        .case-card:nth-child(2) { animation-delay: 0.1s; }
+        .case-card:nth-child(3) { animation-delay: 0.15s; }
+        .case-card:nth-child(4) { animation-delay: 0.2s; }
+        .case-card:nth-child(5) { animation-delay: 0.25s; }
+        .case-card:nth-child(6) { animation-delay: 0.3s; }
+
+        @keyframes slideInCards {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .case-card:active {
+            transform: scale(0.98);
+        }
+
+        .case-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .case-info {
+            padding: 20px;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .case-subtitle {
+            font-size: 12px;
+            color: #e53935;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .case-text {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .case-text strong {
+            color: #333;
+        }
+
+        .read-more-btn {
+            width: 100%;
+            padding: 10px;
+            background: #e53935;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 20px;
+            max-width: 500px;
+            width: 95%;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            margin-bottom: 40px;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            margin-top: 10px;
+        }
+
+        .modal-subtitle {
+            font-size: 13px;
+            color: #e53935;
+            font-weight: 600;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .modal-section {
+            margin-bottom: 18px;
+        }
+
+        .modal-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .modal-text {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .result-text {
+            color: #e53935;
+            font-weight: 600;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e53935;
+            background: white;
+            color: #e53935;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .modal-btn.primary {
+            background: #e53935;
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-link {
+            color: #e53935;
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #999;
+            margin: 10px 0;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 15px 0;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .case-title {
+                font-size: 16px;
+            }
+
+            .case-text {
+                font-size: 12px;
+            }
+
+            .read-more-btn {
+                font-size: 11px;
+            }
+
+            .modal-title {
+                font-size: 22px;
+            }
+
+            .modal-label {
+                font-size: 10px;
+            }
+
+            .modal-text {
+                font-size: 12px;
+            }
+
+            .modal-btn {
+                font-size: 11px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <span>Real-World Success Stories</span>
+            <a href="tel:+912240033385">📞 +91-22-40033385</a>
+        </div>
+        <div class="header-main">
+            <a href="index.html" class="logo">Space<span>Planners</span></a>
+            <button class="cta-button" onclick="openInquiryModal()">Get Inquiry</button>
+        </div>
+    </header>
+
+    <!-- FLOATING WHATSAPP -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank">💬</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <h1 class="hero-title">Case Studies</h1>
+        <p class="hero-subtitle">Proven Success in Storage Solutions</p>
+    </section>
+
+    <!-- CASES SECTION -->
+    <section class="section">
+        <h2 class="section-title">Our Success Stories</h2>
+        <div class="accent-line"></div>
+        <div class="cases-grid" id="casesGrid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-title">Space Planners India</div>
+        <p class="footer-text">Proven Storage Solutions</p>
+        <a href="tel:+912240033385" class="footer-link">📞 +91-22-40033385</a>
+        <a href="mailto:sales@spaceplannersindia.in" class="footer-link">📧 sales@spaceplannersindia.in</a>
+        <div class="footer-divider"></div>
+        <p class="footer-text">Copyright © 2026 Space Planners India. All rights reserved.</p>
+    </footer>
+
+    <!-- CASE DETAIL MODAL -->
+    <div class="modal" id="caseModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeCaseModal()">×</button>
+            <div id="caseDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- INQUIRY MODAL -->
+    <div class="modal" id="inquiryModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeInquiryModal()">×</button>
+            <h2 class="modal-title">Send Inquiry</h2>
+            <form onsubmit="submitInquiry(event)">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Name</label>
+                    <input type="text" placeholder="Your name" required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Email</label>
+                    <input type="email" placeholder="Your email" required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Phone</label>
+                    <input type="tel" placeholder="Your phone" required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Message</label>
+                    <textarea placeholder="Your message..." required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px; min-height: 80px;"></textarea>
+                </div>
+                <button type="submit" style="width: 100%; padding: 12px; background: #e53935; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const caseStudies = [
+            { title: "Banking Sector", subtitle: "Secure Document Management", challenge: "Bank needed secure, organized storage for millions of documents with quick retrieval capability", solution: "Implemented mobile compactor system with climate control, creating efficient workflow", result: "60% space reduction, 100% document accessibility" },
+            { title: "Government", subtitle: "Archive Digitization", challenge: "Historical records spanning 200+ years required specialized, climate-controlled secure storage", solution: "Custom heavy-duty compactors with advanced climate control features installed", result: "200+ years of archives preserved, 90% space saved" },
+            { title: "Healthcare", subtitle: "Patient Records System", challenge: "HIPAA-compliant storage required for 500K+ patient files with restricted access control", solution: "Integrated locker system with multi-level access control and audit trails", result: "Full compliance achieved, 40% faster record retrieval" },
+            { title: "Retail", subtitle: "Inventory Management", challenge: "Multi-warehouse coordination needed across 50+ locations with real-time tracking", solution: "Standardized rack system with integrated inventory tracking across all locations", result: "25% inventory accuracy improvement, 15% cost reduction" },
+            { title: "Education", subtitle: "University Library System", challenge: "Accommodate 2M+ books and media across 3 campuses with 24/7 access needs", solution: "Mobile carriage system integrated with digital catalog and access system", result: "30% more books stored, 24/7 self-service access enabled" },
+            { title: "Manufacturing", subtitle: "Parts Storage Optimization", challenge: "High-volume parts storage with picking accuracy issues affecting production timelines", solution: "Heavy-duty racks with advanced bin location system and workflow optimization", result: "50% picking time reduction, zero lost parts" }
+        ];
+
+        function renderCases() {
+            document.getElementById('casesGrid').innerHTML = caseStudies.map(c => `
+                <div class="case-card" onclick="openCaseModal(${JSON.stringify(c).replace(/"/g, '&quot;')})">
+                    <div class="case-image">${c.title}</div>
+                    <div class="case-info">
+                        <h3 class="case-title">${c.title}</h3>
+                        <p class="case-subtitle">${c.subtitle}</p>
+                        <p class="case-text"><strong>Challenge:</strong> ${c.challenge.substring(0, 60)}...</p>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openCaseModal(caseStudy) {
+            document.getElementById('caseDetailContent').innerHTML = `
+                <h2 class="modal-title">${caseStudy.title}</h2>
+                <p class="modal-subtitle">${caseStudy.subtitle}</p>
+                
+                <div class="modal-section">
+                    <p class="modal-label">Challenge</p>
+                    <p class="modal-text">${caseStudy.challenge}</p>
+                </div>
+
+                <div class="modal-section">
+                    <p class="modal-label">Solution</p>
+                    <p class="modal-text">${caseStudy.solution}</p>
+                </div>
+
+                <div class="modal-section">
+                    <p class="modal-label">Result</p>
+                    <p class="modal-text result-text">${caseStudy.result}</p>
+                </div>
+
+                <div class="modal-buttons">
+                    <button class="modal-btn" onclick="openInquiryModal()">📧 Inquiry</button>
+                    <button class="modal-btn primary" onclick="window.open('https://wa.me/919876543210', '_blank')">💬 WhatsApp</button>
+                </div>
+            `;
+            document.getElementById('caseModal').classList.add('active');
+        }
+
+        function closeCaseModal() {
+            document.getElementById('caseModal').classList.remove('active');
+        }
+
+        function openInquiryModal() {
+            document.getElementById('inquiryModal').classList.add('active');
+        }
+
+        function closeInquiryModal() {
+            document.getElementById('inquiryModal').classList.remove('active');
+        }
+
+        function submitInquiry(e) {
+            e.preventDefault();
+            alert('Thank you! We will contact you soon.');
+            closeInquiryModal();
+        }
+
+        document.getElementById('caseModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCaseModal();
+        });
+
+        document.getElementById('inquiryModal').addEventListener('click', function(e) {
+            if (e.target === this) closeInquiryModal();
+        });
+
+        document.addEventListener('DOMContentLoaded', renderCases);
+    </script>
+</body>
+</html>

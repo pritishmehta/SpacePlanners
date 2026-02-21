@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Space Planners India - Premium storage solutions, industrial racks, lockers, and compactors. Serving India with best storage systems.">
+    <meta name="keywords" content="storage solutions, industrial racks, compactors, lockers, storage systems">
+    <title>Space Planners India - Premium Storage Solutions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: white;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-top {
+            background: #f5f5f5;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .header-top a {
+            color: #e53935;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .header-top a:hover {
+            transform: translateX(5px);
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .logo span {
+            color: #e53935;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e53935;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e53935;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: #e53935;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+            transition: left 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #c92a1f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.3);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: floatIn 0.6s ease 1s both;
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn:hover::before {
+            opacity: 1;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #25d366;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* ===== MODAL STYLES ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            animation: fadeInBg 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeInBg {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: #e53935;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #f0f0f0;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e53935;
+            box-shadow: 0 0 10px rgba(229, 57, 53, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #e53935;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background: #c92a1f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.3);
+        }
+
+        /* ===== PRODUCT MODAL ===== */
+        .product-modal-content {
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .product-detail-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .product-detail-features {
+            margin: 20px 0;
+        }
+
+        .product-detail-features h4 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: #e53935;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e53935;
+            background: white;
+            color: #e53935;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .modal-btn:hover {
+            background: #e53935;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .modal-btn.primary {
+            background: #e53935;
+            color: white;
+            border-color: #e53935;
+        }
+
+        /* ===== CAROUSEL ===== */
+        .carousel-section {
+            padding: 0;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .carousel-slide svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+            z-index: 5;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 60px;
+            left: 80px;
+            right: 80px;
+            color: white;
+            z-index: 20;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .slide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .slide-description {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 30;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 24px;
+            border: none;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev { left: 30px; }
+        .carousel-nav.next { right: 30px; }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 30;
+        }
+
+        .control-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-dot.active {
+            background: white;
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            padding: 60px 40px;
+            background: linear-gradient(to bottom, #fff, #f9f9f9);
+        }
+
+        .map-section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            animation: slideInDown 0.8s ease;
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 24px;
+            animation: fadeIn 0.8s ease 0.1s both;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: #e53935;
+            margin: 0 auto;
+            border-radius: 2px;
+            animation: scaleIn 0.6s ease 0.2s both;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 550px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #e8f4f8 0%, #f5e8fc 100%);
+            animation: zoomIn 0.8s ease;
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .map-container svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .pin-wrapper {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        .pin-circle {
+            width: 14px;
+            height: 14px;
+            background: #e53935;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 20px rgba(229, 57, 53, 0.7);
+            animation: pinPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pinPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .pin-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+
+        .pin-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid rgba(0, 0, 0, 0.9);
+        }
+
+        .pin-wrapper:hover .pin-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: 110%;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects-section {
+            padding: 60px 40px;
+        }
+
+        .projects-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header-small {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 50px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .sidebar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            margin-bottom: 12px;
+        }
+
+        .category-btn {
+            width: 100%;
+            text-align: left;
+            padding: 12px 16px;
+            border: 2px solid #f0f0f0;
+            background: white;
+            color: #333;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #e53935;
+            transform: scaleY(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        .category-btn:hover {
+            border-color: #e53935;
+            background: #f9f9f9;
+        }
+
+        .category-btn:hover::before {
+            transform: scaleY(1);
+        }
+
+        .category-btn.active {
+            background: #e53935;
+            color: white;
+            border-color: #e53935;
+        }
+
+        .category-btn.active::before {
+            transform: scaleY(1);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            animation: slideInCards 0.6s ease backwards;
+            cursor: pointer;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.05s; }
+        .project-card:nth-child(2) { animation-delay: 0.1s; }
+        .project-card:nth-child(3) { animation-delay: 0.15s; }
+        .project-card:nth-child(4) { animation-delay: 0.2s; }
+
+        @keyframes slideInCards {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #e53935;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 10;
+            animation: popIn 0.4s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .project-content {
+            padding: 32px 24px;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .project-scale {
+            display: inline-block;
+            background: #f5f5f5;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* ===== CASE STUDIES ===== */
+        .case-studies-section {
+            padding: 60px 40px;
+            background: linear-gradient(to bottom, #f9f9f9, #fff);
+        }
+
+        .case-studies-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-studies-wrapper {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .case-studies-scroll {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            scrollbar-width: none;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .case-studies-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .case-study-card {
+            flex: 0 0 380px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+        }
+
+        .case-study-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .case-study-content {
+            padding: 28px 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .case-study-subtitle {
+            font-size: 13px;
+            color: #e53935;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .case-study-section {
+            margin-bottom: 16px;
+        }
+
+        .case-study-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .case-study-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .scroll-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            background: white;
+            border: 1px solid #ddd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #e53935;
+            font-size: 18px;
+            border: none;
+        }
+
+        .scroll-nav:hover {
+            background: #f5f5f5;
+            border: 1px solid #e53935;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-nav.left { left: -60px; }
+        .scroll-nav.right { right: -60px; }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-section {
+            padding: 60px 40px;
+        }
+
+        .products-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            gap: 50px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            animation: slideInCards 0.6s ease backwards;
+            cursor: pointer;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.05s; }
+        .product-card:nth-child(2) { animation-delay: 0.1s; }
+        .product-card:nth-child(3) { animation-delay: 0.15s; }
+        .product-card:nth-child(4) { animation-delay: 0.2s; }
+
+        .product-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border-color: #e53935;
+            transform: translateY(-6px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-info {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .product-features {
+            margin-bottom: 16px;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #333;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .feature-tag {
+            background: #e53935;
+            color: white;
+        }
+
+        .product-applications {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .applications-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .applications-text {
+            font-size: 13px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .right-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+            animation: slideInRight 0.8s ease;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            padding: 60px 40px;
+            background: #f9f9f9;
+        }
+
+        .faq-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-list {
+            list-style: none;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            animation: slideInCards 0.6s ease backwards;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.05s; }
+        .faq-item:nth-child(2) { animation-delay: 0.1s; }
+        .faq-item:nth-child(3) { animation-delay: 0.15s; }
+        .faq-item:nth-child(4) { animation-delay: 0.2s; }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .faq-question:hover {
+            background: #f5f5f5;
+            padding-left: 24px;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            color: #e53935;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 20px 20px 20px;
+        }
+
+        .faq-answer-text {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-top { display: none; }
+            .header-main { padding: 15px 20px; }
+            nav ul { display: none; }
+
+            .carousel-container { height: 350px; }
+            .slide-title { font-size: 28px; }
+            .slide-content { bottom: 40px; left: 40px; right: 40px; }
+
+            .map-section,
+            .projects-section,
+            .case-studies-section,
+            .products-section,
+            .faq-section { padding: 40px 20px; }
+
+            .projects-container,
+            .products-container { grid-template-columns: 1fr; gap: 30px; }
+
+            .sidebar,
+            .right-sidebar { position: static; }
+
+            .projects-grid,
+            .products-grid { grid-template-columns: 1fr; }
+
+            .project-image { height: 180px; }
+            .product-image { height: 150px; }
+
+            .case-study-card { flex: 0 0 100%; }
+            .scroll-nav { display: none; }
+
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <span>Manufacturer, Supplier and Dealer of High-Quality Storage Systems.</span>
+            <a href="tel:+912240033385">📞 +91-22-40033385</a>
+        </div>
+        <div class="header-main">
+            <a href="#" class="logo">Space<span>Planners</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button" onclick="openInquiryModal()">Get Inquiry Form</button>
+        </div>
+    </header>
+
+    <!-- FLOATING WHATSAPP -->
+    <div class="whatsapp-float">
+        <div class="pulse-ring"></div>
+        <a href="https://wa.me/919876543210?text=Hi%20Space%20Planners%2C%20I%20want%20to%20know%20more%20about%20your%20storage%20solutions" class="whatsapp-btn" target="_blank">
+            <span style="font-size: 32px;">💬</span>
+        </a>
+    </div>
+
+    <!-- INQUIRY MODAL -->
+    <div class="modal" id="inquiryModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeInquiryModal()">×</button>
+            <h2 class="modal-title">Send Inquiry</h2>
+            <form onsubmit="submitInquiry(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="Your phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Tell us about your storage needs..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal" id="productModal">
+        <div class="modal-content product-modal-content">
+            <button class="close-btn" onclick="closeProductModal()">×</button>
+            <div id="productDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- CAROUSEL -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-slide active" id="slide0">
+                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="600" fill="url(#grad1)"/>
+                </svg>
+            </div>
+            <div class="carousel-slide" id="slide1">
+                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="600" fill="url(#grad2)"/>
+                </svg>
+            </div>
+            <div class="carousel-slide" id="slide2">
+                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#30cfd0;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#330867;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="600" fill="url(#grad3)"/>
+                </svg>
+            </div>
+            <div class="carousel-slide" id="slide3">
+                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="600" fill="url(#grad4)"/>
+                </svg>
+            </div>
+
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2 class="slide-title" id="slideTitle">Mobile Compactor Storage</h2>
+                <p class="slide-description" id="slideDesc">Space-saving solutions for maximum storage capacity</p>
+            </div>
+
+            <button class="carousel-nav prev" onclick="prevSlide()">❮</button>
+            <button class="carousel-nav next" onclick="nextSlide()">❯</button>
+
+            <div class="carousel-controls">
+                <button class="control-dot active" onclick="goToSlide(0)"></button>
+                <button class="control-dot" onclick="goToSlide(1)"></button>
+                <button class="control-dot" onclick="goToSlide(2)"></button>
+                <button class="control-dot" onclick="goToSlide(3)"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="map-section" id="about">
+        <div class="map-section-content">
+            <div class="section-header">
+                <h2 class="section-title">Our Global Reach</h2>
+                <p class="section-subtitle">Serving clients across India with premium storage solutions</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="map-container">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e8f4f8;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f5e8fc;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" fill="url(#mapGrad)" />
+                    <path d="M 35,15 L 45,12 L 52,18 L 55,25 L 58,32 L 60,40 L 58,48 L 55,52 L 48,54 L 40,56 L 35,52 L 32,45 L 30,35 L 32,25 Z" fill="rgba(200,200,200,0.1)" stroke="#ccc" stroke-width="0.8"/>
+                </svg>
+
+                <div class="pin-wrapper" style="left: 45%; top: 65%;"><div class="pin-circle"></div><div class="pin-tooltip">Mumbai • 250+</div></div>
+                <div class="pin-wrapper" style="left: 55%; top: 25%;"><div class="pin-circle"></div><div class="pin-tooltip">Delhi • 180+</div></div>
+                <div class="pin-wrapper" style="left: 60%; top: 78%;"><div class="pin-circle"></div><div class="pin-tooltip">Bangalore • 150+</div></div>
+                <div class="pin-wrapper" style="left: 68%; top: 80%;"><div class="pin-circle"></div><div class="pin-tooltip">Chennai • 120+</div></div>
+                <div class="pin-wrapper" style="left: 75%; top: 45%;"><div class="pin-circle"></div><div class="pin-tooltip">Kolkata • 100+</div></div>
+                <div class="pin-wrapper" style="left: 48%; top: 68%;"><div class="pin-circle"></div><div class="pin-tooltip">Pune • 140+</div></div>
+                <div class="pin-wrapper" style="left: 42%; top: 50%;"><div class="pin-circle"></div><div class="pin-tooltip">Ahmedabad • 110+</div></div>
+                <div class="pin-wrapper" style="left: 50%; top: 32%;"><div class="pin-circle"></div><div class="pin-tooltip">Jaipur • 85+</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section" id="projects">
+        <div class="projects-content">
+            <div class="section-header-small">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcase of our most impactful installations</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="projects-container">
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="category-list">
+                        <li class="category-item"><button class="category-btn active" onclick="filterProjects('Enterprise')">Enterprise</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Government')">Government</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Industrial')">Industrial</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Education')">Education</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Healthcare')">Healthcare</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Retail')">Retail</button></li>
+                    </ul>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES SECTION -->
+    <section class="case-studies-section" id="case-studies">
+        <div class="case-studies-content">
+            <div class="section-header">
+                <h2 class="section-title">Case Studies</h2>
+                <p class="section-subtitle">Real-world success stories and client transformations</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="case-studies-wrapper">
+                <button class="scroll-nav left" onclick="scrollCaseStudies(-400)">❮</button>
+                <div class="case-studies-scroll" id="caseStudiesScroll"></div>
+                <button class="scroll-nav right" onclick="scrollCaseStudies(400)">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div class="products-content">
+            <div class="section-header-small">
+                <h2 class="section-title">Our Products</h2>
+                <p class="section-subtitle">Comprehensive range of storage solutions</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="products-container">
+                <div class="products-grid" id="productsGrid"></div>
+
+                <div class="right-sidebar">
+                    <h3 class="sidebar-title">Filters</h3>
+                    <ul class="category-list">
+                        <li class="category-item"><button class="category-btn active" onclick="filterProducts('Storage')">Storage</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProducts('Racks')">Racks</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProducts('Lockers')">Lockers</button></li>
+                        <li class="category-item"><button class="category-btn" onclick="filterProducts('Systems')">Systems</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+        <div class="faq-content">
+            <div class="faq-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Common questions about our storage solutions</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <ul class="faq-list" id="faqList"></ul>
+        </div>
+    </section>
+
+    <script>
+        const slides = [
+            { title: "Mobile Compactor Storage", desc: "Space-saving solutions for maximum storage capacity" },
+            { title: "Industrial Storage Racks", desc: "Heavy-duty systems for warehouse optimization" },
+            { title: "Professional Lockers", desc: "Secure storage solutions for every industry" },
+            { title: "Filing Cabinets", desc: "Organized document management systems" }
+        ];
+
+        const projects = [
+            { id: 1, title: "Fortune 500 Corporate HQ", category: "Enterprise", desc: "Complete storage for major financial institution", scale: "50,000 sq ft" },
+            { id: 2, title: "Government Archives Facility", category: "Government", desc: "Secure document management for national archives", scale: "75,000 sq ft" },
+            { id: 3, title: "Manufacturing Warehouse Complex", category: "Industrial", desc: "High-density storage for automotive supplier", scale: "100,000 sq ft" },
+            { id: 4, title: "University Library Network", category: "Education", desc: "Integrated system for multi-campus library", scale: "35,000 sq ft" },
+            { id: 5, title: "Hospital Medical Records", category: "Healthcare", desc: "HIPAA-compliant secure storage solution", scale: "20,000 sq ft" },
+            { id: 6, title: "Retail Chain Hub", category: "Retail", desc: "Mobile compactors for inventory management", scale: "60,000 sq ft" },
+            { id: 7, title: "Tech Startup Office", category: "Enterprise", desc: "Modern storage integration for fast-growing company", scale: "25,000 sq ft" },
+            { id: 8, title: "Manufacturing Plant", category: "Industrial", desc: "High-capacity storage for production facility", scale: "120,000 sq ft" }
+        ];
+
+        const caseStudies = [
+            { title: "Banking Sector", subtitle: "Secure Document Management", challenge: "Bank needed secure storage for millions of documents", solution: "Mobile compactor system with climate control", result: "60% space reduction, 100% accessibility" },
+            { title: "Government", subtitle: "Archive Digitization", challenge: "Historical records required specialized storage", solution: "Custom heavy-duty compactors", result: "200+ years preserved, 90% space saved" },
+            { title: "Healthcare", subtitle: "Patient Records System", challenge: "HIPAA-compliant storage for 500K+ files", solution: "Integrated locker system with access control", result: "Full compliance, 40% faster retrieval" },
+            { title: "Retail", subtitle: "Inventory Management", challenge: "Multi-warehouse coordination across 50+ locations", solution: "Standardized rack system with tracking", result: "25% accuracy improvement, 15% cost reduction" },
+            { title: "Education", subtitle: "University Library System", challenge: "Accommodate 2M+ books across 3 campuses", solution: "Mobile carriage system with digital catalog", result: "30% more books, 24/7 self-service access" },
+            { title: "Manufacturing", subtitle: "Parts Storage", challenge: "High-volume parts storage with quick access", solution: "Heavy-duty racks with bin location system", result: "50% picking time reduction, zero lost parts" }
+        ];
+
+        const products = [
+            { id: 1, name: "Mobile Compactors", type: "Storage", desc: "Space-saving mobile storage systems that maximize floor space usage", features: ["Motorized movement", "Adjustable shelves", "Security locks", "Climate control compatible"], apps: "Documents, Archives, Library Systems", seo: "Best mobile compactor storage system in India" },
+            { id: 2, name: "Industrial Racks", type: "Racks", desc: "Heavy-duty racks designed for warehouse and manufacturing operations", features: ["High load capacity", "Galvanized steel", "Customizable heights", "Rust resistant"], apps: "Warehouses, Manufacturing, Distribution", seo: "Industrial storage racks manufacturer in India" },
+            { id: 3, name: "Storage Lockers", type: "Lockers", desc: "Secure individual lockers for staff and personal item storage", features: ["Digital locks", "Ventilation system", "Durable finish", "Multiple sizes"], apps: "Offices, Gyms, Hospitals, Institutes", seo: "Professional storage lockers supplier" },
+            { id: 4, name: "Filing Cabinets", type: "Storage", desc: "Professional filing solutions for organized document storage", features: ["Multiple drawers", "Label slots", "Anti-tilt mechanism", "Locking system"], apps: "Corporate, Legal firms, Government", seo: "High-quality filing cabinets India" },
+            { id: 5, name: "Storage Cupboards", type: "Storage", desc: "Versatile cupboards for general storage needs", features: ["Adjustable shelves", "Door locks", "Steel construction", "Compact design"], apps: "Offices, Retail, Institutions", seo: "Steel storage cupboards manufacturer" },
+            { id: 6, name: "Pallet Racks", type: "Racks", desc: "Specialized racks for pallet storage in warehouses", features: ["Forklift compatible", "Stackable design", "Industrial grade", "Heavy duty"], apps: "Warehouses, Distribution, Logistics", seo: "Pallet racks supplier India" },
+            { id: 7, name: "Slotted Angle Racks", type: "Racks", desc: "Modular racking system with flexible configuration", features: ["Tool-free assembly", "Expandable", "Cost-effective", "Easy to modify"], apps: "Retail, Workshops, Small warehouses", seo: "Modular slotted angle racks" },
+            { id: 8, name: "Mezzanine Systems", type: "Systems", desc: "Multi-level storage systems maximizing vertical space", features: ["Steel platform", "High capacity", "Custom design", "Professional installation"], apps: "Large warehouses, Factories, Distribution hubs", seo: "Mezzanine floor systems manufacturer" }
+        ];
+
+        const faqs = [
+            { q: "What products does Space Planners offer?", a: "We offer a comprehensive range of storage solutions including mobile compactors, industrial racks, storage lockers, filing cabinets, cupboards, pallet racks, slotted angle racks, and mezzanine systems." },
+            { q: "Are your products suitable for industrial use?", a: "Yes, all our products are designed and tested for industrial and heavy-duty applications. They are made from high-quality materials and built to last." },
+            { q: "Do you provide installation services?", a: "Yes, we provide professional installation services for all our storage systems. Our team ensures proper setup and safety compliance." },
+            { q: "Can your products be customized?", a: "Absolutely! We offer custom solutions tailored to your specific storage needs. Contact our team for personalized design consultation." },
+            { q: "What is your warranty policy?", a: "All our products come with a comprehensive warranty covering manufacturing defects. Contact us for detailed warranty information." },
+            { q: "How can I get a quotation?", a: "You can request a quotation by filling out our inquiry form or contacting us directly via phone, email, or WhatsApp." }
+        ];
+
+        let currentSlide = 0;
+        let currentProjectCategory = "Enterprise";
+        let currentProductType = "Storage";
+
+        // CAROUSEL
+        function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
+        function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlide(); }
+        function goToSlide(n) { currentSlide = n; updateSlide(); }
+
+        function updateSlide() {
+            document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            document.getElementById('slideTitle').textContent = slides[currentSlide].title;
+            document.getElementById('slideDesc').textContent = slides[currentSlide].desc;
+        }
+
+        // MODALS
+        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); }
+        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); }
+        function submitInquiry(e) { e.preventDefault(); alert('Thank you! We will contact you soon.'); closeInquiryModal(); }
+
+        function openProductModal(product) {
+            document.getElementById('productDetailContent').innerHTML = `
+                <h2 class="modal-title">${product.name}</h2>
+                <div class="product-detail-image">${product.type}</div>
+                <p style="color: #666; margin-bottom: 20px;">${product.desc}</p>
+                <div class="product-detail-features">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        ${product.features.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="product-detail-features">
+                    <h4>Applications</h4>
+                    <p style="color: #666; margin: 0;">${product.apps}</p>
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-btn" onclick="openInquiryModal()">📧 Send Inquiry</button>
+                    <button class="modal-btn primary" onclick="window.open('https://wa.me/919876543210?text=I%20am%20interested%20in%20${product.name}', '_blank')">💬 WhatsApp</button>
+                </div>
+            `;
+            document.getElementById('productModal').classList.add('active');
+        }
+
+        function closeProductModal() { document.getElementById('productModal').classList.remove('active'); }
+
+        // PROJECTS FILTER
+        function filterProjects(category) {
+            currentProjectCategory = category;
+            document.querySelectorAll('.projects-section .category-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === category));
+            renderProjects();
+        }
+
+        function renderProjects() {
+            const filtered = projects.filter(p => p.category === currentProjectCategory);
+            document.getElementById('projectsGrid').innerHTML = filtered.map(p => `
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-badge">${p.category}</div>
+                    <div class="project-content">
+                        <h3 class="project-title">${p.title}</h3>
+                        <p class="project-description">${p.desc}</p>
+                        <span class="project-scale">${p.scale}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // CASE STUDIES
+        function renderCaseStudies() {
+            document.getElementById('caseStudiesScroll').innerHTML = caseStudies.map(c => `
+                <div class="case-study-card">
+                    <div class="case-study-image"></div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">${c.title}</h3>
+                        <p class="case-study-subtitle">${c.subtitle}</p>
+                        <div class="case-study-section"><p class="case-study-label">Challenge</p><p class="case-study-text">${c.challenge}</p></div>
+                        <div class="case-study-section"><p class="case-study-label">Solution</p><p class="case-study-text">${c.solution}</p></div>
+                        <div class="case-study-section"><p class="case-study-label">Result</p><p class="case-study-text" style="color: #e53935; font-weight: 600;">${c.result}</p></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function scrollCaseStudies(amount) { document.getElementById('caseStudiesScroll').scrollBy({ left: amount, behavior: 'smooth' }); }
+
+        // PRODUCTS FILTER
+        function filterProducts(type) {
+            currentProductType = type;
+            document.querySelectorAll('.products-section .category-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === type));
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const filtered = products.filter(p => p.type === currentProductType);
+            document.getElementById('productsGrid').innerHTML = filtered.map(p => `
+                <div class="product-card" onclick="openProductModal(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+                    <div class="product-image">${p.type}</div>
+                    <div class="product-info">
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-description">${p.desc}</p>
+                        <div class="product-features">${p.features.slice(0, 2).map(f => `<span class="feature-tag">${f}</span>`).join('')}</div>
+                        <div class="product-applications">
+                            <p class="applications-label">Applications</p>
+                            <p class="applications-text">${p.apps}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // FAQ
+        function renderFAQ() {
+            document.getElementById('faqList').innerHTML = faqs.map((faq, i) => `
+                <li class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>${faq.q}</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">${faq.a}</p>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        function toggleFAQ(element) {
+            element.parentElement.classList.toggle('active');
+        }
+
+        // INITIALIZE
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSlide();
+            renderProjects();
+            renderCaseStudies();
+            renderProducts();
+            renderFAQ();
+            
+            setInterval(() => { nextSlide(); }, 5000);
+
+            // Close modals on outside click
+            document.getElementById('inquiryModal').addEventListener('click', function(e) {
+                if (e.target === this) closeInquiryModal();
+            });
+            document.getElementById('productModal').addEventListener('click', function(e) {
+                if (e.target === this) closeProductModal();
+            });
+        });
+    </script>
+</body>
+</html>

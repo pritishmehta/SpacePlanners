@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Space Planners Products - Premium storage solutions including compactors, racks, lockers, and filing cabinets. Find the perfect storage system for your needs.">
+    <meta name="keywords" content="storage products, industrial racks, lockers, compactors, filing cabinets">
+    <title>Products - Space Planners India</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: white;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+
+        .header-top {
+            background: #f5f5f5;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+            overflow-x: auto;
+        }
+
+        .header-top a {
+            color: #e53935;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #e53935;
+        }
+
+        .cta-button {
+            background: #e53935;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .whatsapp-btn {
+            width: 55px;
+            height: 55px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:active {
+            transform: scale(0.9);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        /* ===== FILTER SECTION ===== */
+        .filter-section {
+            padding: 20px;
+            background: #f9f9f9;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 5px 0;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            background: white;
+            color: #333;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 12px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .filter-btn:active {
+            transform: scale(0.95);
+        }
+
+        .filter-btn.active {
+            background: #e53935;
+            color: white;
+            border-color: #e53935;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: 30px 20px;
+            max-width: 100%;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: slideInDown 0.6s ease;
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .accent-line {
+            width: 50px;
+            height: 4px;
+            background: #e53935;
+            margin: 0 auto 30px;
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @media (min-width: 600px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
+            animation: slideInCards 0.6s ease backwards;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.05s; }
+        .product-card:nth-child(2) { animation-delay: 0.1s; }
+        .product-card:nth-child(3) { animation-delay: 0.15s; }
+        .product-card:nth-child(4) { animation-delay: 0.2s; }
+        .product-card:nth-child(5) { animation-delay: 0.25s; }
+        .product-card:nth-child(6) { animation-delay: 0.3s; }
+        .product-card:nth-child(7) { animation-delay: 0.35s; }
+        .product-card:nth-child(8) { animation-delay: 0.4s; }
+
+        @keyframes slideInCards {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-card:active {
+            transform: scale(0.98);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .product-type {
+            display: inline-block;
+            background: #e53935;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .product-features {
+            margin-bottom: 12px;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .view-more-btn {
+            width: 100%;
+            padding: 10px;
+            background: #e53935;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .view-more-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 20px;
+            max-width: 500px;
+            width: 95%;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            margin-bottom: 40px;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        .modal-section {
+            margin-bottom: 20px;
+        }
+
+        .modal-section-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .feature-list {
+            list-style: none;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .feature-list li::before {
+            content: '✓ ';
+            color: #e53935;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e53935;
+            background: white;
+            color: #e53935;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .modal-btn:active {
+            transform: scale(0.95);
+        }
+
+        .modal-btn.primary {
+            background: #e53935;
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-link {
+            color: #e53935;
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #999;
+            margin: 10px 0;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 15px 0;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .filter-section {
+                top: 70px;
+                padding: 15px;
+            }
+
+            .product-name {
+                font-size: 16px;
+            }
+
+            .product-description {
+                font-size: 12px;
+            }
+
+            .feature-tag {
+                font-size: 10px;
+                padding: 3px 6px;
+            }
+
+            .view-more-btn {
+                padding: 8px;
+                font-size: 11px;
+            }
+
+            .modal-title {
+                font-size: 22px;
+            }
+
+            .modal-section-title {
+                font-size: 13px;
+            }
+
+            .feature-list {
+                font-size: 12px;
+            }
+
+            .modal-btn {
+                font-size: 11px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <span>Premium Storage Solutions</span>
+            <a href="tel:+912240033385">📞 +91-22-40033385</a>
+        </div>
+        <div class="header-main">
+            <a href="index.html" class="logo">Space<span>Planners</span></a>
+            <button class="cta-button" onclick="openInquiryModal()">Get Inquiry</button>
+        </div>
+    </header>
+
+    <!-- FLOATING WHATSAPP -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank">💬</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <h1 class="hero-title">Our Products</h1>
+        <p class="hero-subtitle">Comprehensive Storage Solutions for Every Need</p>
+    </section>
+
+    <!-- FILTER SECTION -->
+    <div class="filter-section">
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProducts('All')">All Products</button>
+            <button class="filter-btn" onclick="filterProducts('Storage')">Storage</button>
+            <button class="filter-btn" onclick="filterProducts('Racks')">Racks</button>
+            <button class="filter-btn" onclick="filterProducts('Lockers')">Lockers</button>
+            <button class="filter-btn" onclick="filterProducts('Systems')">Systems</button>
+        </div>
+    </div>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="section">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="accent-line"></div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-title">Space Planners India</div>
+        <p class="footer-text">Manufacturer of Premium Storage Systems</p>
+        <a href="tel:+912240033385" class="footer-link">📞 +91-22-40033385</a>
+        <a href="mailto:sales@spaceplannersindia.in" class="footer-link">📧 sales@spaceplannersindia.in</a>
+        <div class="footer-divider"></div>
+        <p class="footer-text">Copyright © 2026 Space Planners India. All rights reserved.</p>
+    </footer>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeProductModal()">×</button>
+            <div id="productDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- INQUIRY MODAL -->
+    <div class="modal" id="inquiryModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeInquiryModal()">×</button>
+            <h2 class="modal-title">Send Inquiry</h2>
+            <form onsubmit="submitInquiry(event)">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Name</label>
+                    <input type="text" placeholder="Your name" required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Email</label>
+                    <input type="email" placeholder="Your email" required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Phone</label>
+                    <input type="tel" placeholder="Your phone" required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Message</label>
+                    <textarea placeholder="Your message..." required style="width: 100%; padding: 10px; border: 2px solid #f0f0f0; border-radius: 6px; font-size: 14px; min-height: 80px;"></textarea>
+                </div>
+                <button type="submit" style="width: 100%; padding: 12px; background: #e53935; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: "Mobile Compactors", type: "Storage", desc: "Space-saving mobile storage systems", fullDesc: "Advanced motorized storage systems that maximize floor space utilization through intelligent design and engineering.", features: ["Motorized movement", "Adjustable shelves", "Security locks", "Climate control compatible"], apps: "Documents, Archives, Library Systems", seo: "Mobile compactor storage India" },
+            { id: 2, name: "Industrial Racks", type: "Racks", desc: "Heavy-duty warehouse racks", fullDesc: "Engineered for maximum load capacity and durability in demanding industrial environments.", features: ["High load capacity", "Galvanized steel", "Customizable heights", "Rust resistant"], apps: "Warehouses, Manufacturing, Distribution", seo: "Industrial racks manufacturer" },
+            { id: 3, name: "Storage Lockers", type: "Lockers", desc: "Secure individual lockers", fullDesc: "Professional-grade lockers designed for secure storage of personal items and valuables.", features: ["Digital locks", "Ventilation system", "Durable finish", "Multiple sizes"], apps: "Offices, Gyms, Hospitals, Institutes", seo: "Storage lockers India" },
+            { id: 4, name: "Filing Cabinets", type: "Storage", desc: "Professional filing solutions", fullDesc: "Organized document management with multiple drawer configurations and security features.", features: ["Multiple drawers", "Label slots", "Anti-tilt mechanism", "Locking system"], apps: "Corporate, Legal firms, Government", seo: "Filing cabinets manufacturer" },
+            { id: 5, name: "Storage Cupboards", type: "Storage", desc: "Versatile storage cupboards", fullDesc: "Flexible cupboards ideal for diverse storage requirements in offices and retail spaces.", features: ["Adjustable shelves", "Door locks", "Steel construction", "Compact design"], apps: "Offices, Retail, Institutions", seo: "Steel cupboards India" },
+            { id: 6, name: "Pallet Racks", type: "Racks", desc: "Specialized pallet storage", fullDesc: "Purpose-built for efficient pallet storage and retrieval in high-volume warehouse operations.", features: ["Forklift compatible", "Stackable design", "Industrial grade", "Heavy duty"], apps: "Warehouses, Distribution, Logistics", seo: "Pallet racks supplier" },
+            { id: 7, name: "Slotted Angle Racks", type: "Racks", desc: "Modular racking system", fullDesc: "Flexible, cost-effective modular system with tool-free assembly and infinite reconfiguration options.", features: ["Tool-free assembly", "Expandable", "Cost-effective", "Easy to modify"], apps: "Retail, Workshops, Small warehouses", seo: "Slotted angle racks" },
+            { id: 8, name: "Mezzanine Systems", type: "Systems", desc: "Multi-level storage", fullDesc: "Advanced multi-level platforms maximizing vertical space utilization in warehouses and factories.", features: ["Steel platform", "High capacity", "Custom design", "Professional installation"], apps: "Large warehouses, Factories, Distribution hubs", seo: "Mezzanine floor systems" }
+        ];
+
+        let currentFilter = "All";
+
+        function filterProducts(type) {
+            currentFilter = type;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', (type === 'All' && btn.textContent === 'All Products') || btn.textContent === type);
+            });
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const filtered = currentFilter === 'All' ? products : products.filter(p => p.type === currentFilter);
+            document.getElementById('productsGrid').innerHTML = filtered.map(p => `
+                <div class="product-card" onclick="openProductModal(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+                    <div class="product-image">${p.type}</div>
+                    <div class="product-info">
+                        <span class="product-type">${p.type}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-description">${p.desc}</p>
+                        <div class="product-features">
+                            ${p.features.slice(0, 2).map(f => `<span class="feature-tag">${f}</span>`).join('')}
+                        </div>
+                        <button class="view-more-btn">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openProductModal(product) {
+            document.getElementById('productDetailContent').innerHTML = `
+                <h2 class="modal-title">${product.name}</h2>
+                <p style="color: #666; margin-bottom: 15px; font-size: 13px;">${product.fullDesc}</p>
+                
+                <div class="modal-section">
+                    <div class="modal-section-title">Key Features</div>
+                    <ul class="feature-list">
+                        ${product.features.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">Applications</div>
+                    <p style="color: #666; font-size: 13px;">${product.apps}</p>
+                </div>
+
+                <div class="modal-buttons">
+                    <button class="modal-btn" onclick="openInquiryModal()">📧 Inquiry</button>
+                    <button class="modal-btn primary" onclick="window.open('https://wa.me/919876543210?text=Interested%20in%20${product.name}', '_blank')">💬 WhatsApp</button>
+                </div>
+            `;
+            document.getElementById('productModal').classList.add('active');
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('active');
+        }
+
+        function openInquiryModal() {
+            document.getElementById('inquiryModal').classList.add('active');
+        }
+
+        function closeInquiryModal() {
+            document.getElementById('inquiryModal').classList.remove('active');
+        }
+
+        function submitInquiry(e) {
+            e.preventDefault();
+            alert('Thank you! We will contact you soon.');
+            closeInquiryModal();
+        }
+
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) closeProductModal();
+        });
+
+        document.getElementById('inquiryModal').addEventListener('click', function(e) {
+            if (e.target === this) closeInquiryModal();
+        });
+
+        document.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>
