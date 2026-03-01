@@ -1,266 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Space Planners India - Premium storage solutions, industrial racks, lockers, and compactors. Serving India with best storage systems.">
-    <meta name="keywords" content="storage solutions, industrial racks, compactors, lockers, storage systems">
-    <title>Space Planners India - Premium Storage Solutions</title>
+    <title>Space Planners India — Premium Storage Solutions Manufacturer</title>
+    <meta name="description"
+        content="Space Planners India – 20+ years manufacturer of mobile compactors, industrial racks, storage lockers & filing systems. 2000+ installations across India. Get a free quote.">
+    <meta name="keywords"
+        content="mobile compactor storage Mumbai, industrial racks manufacturer India, storage lockers supplier, pallet racks India, filing cabinets manufacturer, GMP storage solutions pharmaceutical India, warehouse storage systems">
+    <link rel="canonical" href="https://spaceplannersindia.in/">
+    <meta property="og:title" content="Space Planners India — Premium Storage Solutions">
+    <meta property="og:description"
+        content="India's leading manufacturer of mobile compactors, industrial racks, and storage systems. 20+ years, 2000+ installations.">
+    <meta property="og:image" content="https://spaceplannersindia.in/hero_compactor.png">
+    <meta property="og:url" content="https://spaceplannersindia.in">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&libraries=marker"></script>
+    <!-- JSON-LD: LocalBusiness -->
+    <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Space Planners India",
+    "description":"Manufacturer and supplier of premium storage solutions including mobile compactors, industrial racks, lockers and filing systems.",
+    "url":"https://spaceplannersindia.in",
+    "telephone":"+912240033385",
+    "email":"sales@spaceplannersindia.in",
+    "address":{"@type":"PostalAddress","streetAddress":"Mumbai","addressLocality":"Mumbai","addressRegion":"Maharashtra","addressCountry":"IN"},
+    "foundingDate":"2004",
+    "areaServed":"India",
+    "sameAs":[]
+  }
+  </script>
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What storage solutions does Space Planners India offer?","acceptedAnswer":{"@type":"Answer","text":"We offer mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine systems."}},
+      {"@type":"Question","name":"Do you provide installation services?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide professional installation and setup for all storage systems with full safety compliance checks."}},
+      {"@type":"Question","name":"Can your products be customized?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We offer fully custom storage solutions tailored to your space, industry, and compliance requirements."}},
+      {"@type":"Question","name":"How can I get a quotation?","acceptedAnswer":{"@type":"Answer","text":"Fill out our inquiry form, WhatsApp us, or call +91-22-40033385. We deliver quotes within 2 business hours."}}
+    ]
+  }
+  </script>
 </head>
+
 <body>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container"></div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo">Space<span>Planners</span></span>
+            <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">✕</button>
+        </div>
+        <ul>
+            <li><a href="index.html" class="active">🏠 Home</a></li>
+            <li><a href="about.html">🏢 About Us</a></li>
+            <li><a href="products.html">📦 Products</a></li>
+            <li><a href="projects.html">🏗️ Projects</a></li>
+            <li><a href="case-studies.html">📋 Case Studies</a></li>
+            <li><a href="index.html#faq">❓ FAQ</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
+            <button class="btn-primary" onclick="closeMobileNav(); openInquiryModal()">Get Free Quote</button>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header>
         <div class="header-top">
-            <span>Manufacturer, Supplier and Dealer of High-Quality Storage Systems.</span>
-            <a href="tel:+912240033385">📞 +91-22-40033385</a>
+            <div class="header-top-left">
+                <span>📍 Mumbai, India</span>
+                <span>🏆 20+ Years of Excellence</span>
+            </div>
+            <div class="header-top-right">
+                <a href="mailto:sales@spaceplannersindia.in">✉️ sales@spaceplannersindia.in</a>
+            </div>
         </div>
         <div class="header-main">
-            <a href="#" class="logo">Space<span>Planners</span></a>
-            <nav>
+            <a href="index.html" class="logo">Space<span>Planners</span></a>
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
                 </ul>
             </nav>
-            <button class="cta-button" onclick="openInquiryModal()">Get Inquiry Form</button>
+            <div class="header-actions">
+                <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Free Quote</button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"
+                    onclick="openMobileNav()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- FLOATING WHATSAPP -->
     <div class="whatsapp-float">
         <div class="pulse-ring"></div>
-        <a href="https://wa.me/919876543210?text=Hi%20Space%20Planners%2C%20I%20want%20to%20know%20more%20about%20your%20storage%20solutions" class="whatsapp-btn" target="_blank">
-            <span style="font-size: 32px;">💬</span>
-        </a>
+        <a href="https://wa.me/912240033385?text=Hi%20Space%20Planners%2C%20I%20want%20to%20know%20more%20about%20your%20storage%20solutions"
+            class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
     </div>
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
     <!-- INQUIRY MODAL -->
-    <div class="modal" id="inquiryModal">
+    <div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle">
         <div class="modal-content">
-            <button class="close-btn" onclick="closeInquiryModal()">×</button>
-            <h2 class="modal-title">Send Inquiry</h2>
-            <form onsubmit="submitInquiry(event)">
+            <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">✕</button>
+            <h2 class="modal-title" id="inquiryTitle">Get a Free Quote</h2>
+            <form onsubmit="submitInquiry(event)" novalidate>
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Your name" required>
+                    <label for="inq-name">Full Name *</label>
+                    <input type="text" id="inq-name" placeholder="Your full name" required autocomplete="name">
                 </div>
                 <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="Your email" required>
+                    <label for="inq-email">Email Address *</label>
+                    <input type="email" id="inq-email" placeholder="your@email.com" required autocomplete="email">
                 </div>
                 <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="Your phone" required>
+                    <label for="inq-phone">Phone Number *</label>
+                    <input type="tel" id="inq-phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
                 </div>
                 <div class="form-group">
-                    <label>Message</label>
-                    <textarea placeholder="Tell us about your storage needs..." required></textarea>
+                    <label for="inq-product">Product of Interest</label>
+                    <select id="inq-product">
+                        <option value="">Select product…</option>
+                        <option>Mobile Compactors</option>
+                        <option>Industrial Racks</option>
+                        <option>Storage Lockers</option>
+                        <option>Filing Cabinets</option>
+                        <option>Mezzanine Systems</option>
+                        <option>Other</option>
+                    </select>
                 </div>
-                <button type="submit" class="submit-btn">Send Inquiry</button>
+                <div class="form-group">
+                    <label for="inq-msg">Message</label>
+                    <textarea id="inq-msg"
+                        placeholder="Tell us about your storage needs, space dimensions, or requirements…"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Inquiry →</button>
             </form>
         </div>
     </div>
 
     <!-- PRODUCT DETAIL MODAL -->
-    <div class="modal" id="productModal">
+    <div class="modal" id="productModal" role="dialog" aria-modal="true">
         <div class="modal-content product-modal-content">
-            <button class="close-btn" onclick="closeProductModal()">×</button>
+            <button class="close-btn" onclick="closeProductModal()" aria-label="Close">✕</button>
             <div id="productDetailContent"></div>
         </div>
     </div>
 
-    <!-- CAROUSEL -->
-    <section class="carousel-section">
+    <!-- ===== H1 (SEO — visually in carousel) ===== -->
+    <!-- HERO CAROUSEL -->
+    <section class="carousel-section" aria-label="Featured products slideshow">
         <div class="carousel-container">
             <div class="carousel-slide active" id="slide0">
-                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="1200" height="600" fill="url(#grad1)"/>
-                </svg>
+                <img src="hero_compactor.png" alt="Mobile Compactor Storage System by Space Planners India"
+                    loading="eager">
             </div>
             <div class="carousel-slide" id="slide1">
-                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="1200" height="600" fill="url(#grad2)"/>
-                </svg>
+                <img src="hero_racks.png" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
+                    loading="lazy">
             </div>
             <div class="carousel-slide" id="slide2">
-                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#30cfd0;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#330867;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="1200" height="600" fill="url(#grad3)"/>
-                </svg>
+                <img src="hero_lockers.png" alt="Professional Steel Storage Lockers by Space Planners India"
+                    loading="lazy">
             </div>
             <div class="carousel-slide" id="slide3">
-                <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="1200" height="600" fill="url(#grad4)"/>
-                </svg>
+                <img src="hero_filing.png" alt="Archive Filing and Mobile Compactor Storage by Space Planners India"
+                    loading="lazy">
             </div>
-
             <div class="slide-overlay"></div>
             <div class="slide-content">
-                <h2 class="slide-title" id="slideTitle">Mobile Compactor Storage</h2>
+                <p class="slide-eyebrow">India's Leading Storage Manufacturer</p>
+                <h1 class="slide-title" id="slideTitle">Mobile Compactor Storage</h1>
                 <p class="slide-description" id="slideDesc">Space-saving solutions for maximum storage capacity</p>
+                <div class="slide-cta">
+                    <button class="btn-white" onclick="openInquiryModal()">Get Free Quote</button>
+                    <a href="products.html" class="btn-outline-white">View All Products</a>
+                </div>
             </div>
-
-            <button class="carousel-nav prev" onclick="prevSlide()">❮</button>
-            <button class="carousel-nav next" onclick="nextSlide()">❯</button>
-
-            <div class="carousel-controls">
-                <button class="control-dot active" onclick="goToSlide(0)"></button>
-                <button class="control-dot" onclick="goToSlide(1)"></button>
-                <button class="control-dot" onclick="goToSlide(2)"></button>
-                <button class="control-dot" onclick="goToSlide(3)"></button>
+            <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous slide">❮</button>
+            <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next slide">❯</button>
+            <div class="carousel-controls" role="tablist">
+                <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+                <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+                <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+                <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
             </div>
         </div>
-            <!-- ===== STATS RIBBON ===== -->
-    <div class="stats-ribbon" role="region" aria-label="Company statistics">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">2<span class="stat-unit">K+</span></div>
-            <div class="stat-label">Installations</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">500<span class="stat-unit">+</span></div>
-            <div class="stat-label">Clients Served</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">20<span class="stat-unit">yrs</span></div>
-            <div class="stat-label">Industry Experience</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">50<span class="stat-unit">%</span></div>
-            <div class="stat-label">Average Space Saved</div>
-          </div>
-        </div>
-      </div>
-    </div>
     </section>
-     <!-- PRODUCTS SECTION -->
+
+    <!-- STATS RIBBON -->
+    <div class="stats-ribbon" role="region" aria-label="Company statistics">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-number" id="statInst">2<span class="stat-unit">K+</span></div>
+                <div class="stat-label">Installations</div>
+            </div>
+            <div class="stat-item reveal delay-1">
+                <div class="stat-number" id="statClients">500<span class="stat-unit">+</span></div>
+                <div class="stat-label">Clients Served</div>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <div class="stat-number" id="statYears">20<span class="stat-unit">yrs</span></div>
+                <div class="stat-label">Industry Experience</div>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <div class="stat-number" id="statSpace">50<span class="stat-unit">%</span></div>
+                <div class="stat-label">Avg. Space Saved</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLIENT LOGOS -->
+    <section class="clients-section">
+        <div class="clients-content">
+            <p class="clients-label">Trusted by India's leading organisations</p>
+            <div class="clients-logos">
+                <span class="client-logo">DRDO</span>
+                <span class="client-logo">ONGC</span>
+                <span class="client-logo">AIIMS</span>
+                <span class="client-logo">Tata Group</span>
+                <span class="client-logo">ISRO</span>
+                <span class="client-logo">Indian Railways</span>
+                <span class="client-logo">Sun Pharma</span>
+                <span class="client-logo">SBI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
     <section class="products-section" id="products">
         <div class="products-content">
-            <div class="section-header-small">
-                <h2 class="section-title">Our Products</h2>
-                <p class="section-subtitle">Comprehensive range of storage solutions</p>
+            <div class="section-header-small reveal">
+                <span class="section-badge">Our Products</span>
+                <h2 class="section-title">Comprehensive Storage Solutions</h2>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Engineered for durability, tailored to your
+                    industry</p>
                 <div class="accent-line"></div>
             </div>
-
             <div class="products-container">
                 <div class="products-grid" id="productsGrid"></div>
-
                 <div class="right-sidebar">
-                    <h3 class="sidebar-title">Filters</h3>
+                    <h3 class="sidebar-title">Filter by Type</h3>
                     <ul class="category-list">
-                        <li class="category-item"><button class="category-btn active" onclick="filterProducts('Storage')">Storage</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProducts('Racks')">Racks</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProducts('Lockers')">Lockers</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProducts('Systems')">Systems</button></li>
+                        <li><button class="category-btn active" onclick="filterProducts('Storage')">Storage</button>
+                        </li>
+                        <li><button class="category-btn" onclick="filterProducts('Racks')">Racks</button></li>
+                        <li><button class="category-btn" onclick="filterProducts('Lockers')">Lockers</button></li>
+                        <li><button class="category-btn" onclick="filterProducts('Systems')">Systems</button></li>
                     </ul>
+                    <div style="margin-top:28px;">
+                        <a href="products.html" class="btn-primary"
+                            style="display:block;text-align:center;padding:13px 16px;border-radius:8px;">View All
+                            Products →</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ===== STORAGE SYSTEMS FOR EVERY SECTOR ===== -->
+
+    <!-- STORAGE SYSTEMS FOR EVERY SECTOR -->
     <section class="storage-systems-section" id="sectors">
         <div class="storage-systems-content">
-            <div class="section-header-small">
+            <div class="section-header-small reveal text-center">
+                <span class="section-badge">Industry Solutions</span>
                 <h2 class="section-title">Storage Systems for Every Sector</h2>
-                <p class="section-subtitle">Purpose-built solutions tailored to your industry's compliance, access, and capacity needs</p>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Purpose-built solutions tailored to your
+                    industry's compliance, access, and capacity needs</p>
                 <div class="accent-line"></div>
             </div>
-
             <div class="sectors-grid">
-                <!-- Pharmaceutical -->
-                <a href="#" class="sector-card">
+                <a href="products.html" class="sector-card reveal">
                     <div class="sector-icon">💊</div>
                     <h3 class="sector-name">Pharmaceutical</h3>
-                    <p class="sector-desc">GMP-compliant systems for samples, raw materials, and finished goods storage</p>
+                    <p class="sector-desc">GMP-compliant systems for samples, raw materials, and finished goods storage
+                    </p>
                     <ul class="sector-benefits">
                         <li>GMP/WHO compliant</li>
                         <li>Temperature compatible</li>
                         <li>FIFO access design</li>
                     </ul>
                 </a>
-
-                <!-- Healthcare -->
-                <a href="#" class="sector-card">
+                <a href="products.html" class="sector-card reveal delay-1">
                     <div class="sector-icon">🏥</div>
                     <h3 class="sector-name">Healthcare</h3>
-                    <p class="sector-desc">Secure storage for medical records, linen, equipment, and pharmaceutical inventory</p>
+                    <p class="sector-desc">Secure storage for medical records, linen, equipment, and inventory</p>
                     <ul class="sector-benefits">
                         <li>NABH aligned</li>
                         <li>Infection-control materials</li>
                         <li>Quick retrieval access</li>
                     </ul>
                 </a>
-
-                <!-- Government -->
-                <a href="#" class="sector-card">
+                <a href="products.html" class="sector-card reveal delay-2">
                     <div class="sector-icon">🏛️</div>
                     <h3 class="sector-name">Government</h3>
-                    <p class="sector-desc">Lockable filing systems for document archives, case files, and departmental records</p>
+                    <p class="sector-desc">Lockable filing for document archives, case files, and departmental records
+                    </p>
                     <ul class="sector-benefits">
                         <li>Anti-tamper locks</li>
                         <li>Unlimited file capacity</li>
                         <li>GeM portal compatible</li>
                     </ul>
                 </a>
-
-                <!-- Warehouse/Logistics -->
-                <a href="#" class="sector-card">
+                <a href="products.html" class="sector-card reveal">
                     <div class="sector-icon">📦</div>
-                    <h3 class="sector-name">Warehouse & Logistics</h3>
+                    <h3 class="sector-name">Warehouse &amp; Logistics</h3>
                     <p class="sector-desc">Heavy-duty pallet racks and systems for large-volume storage operations</p>
                     <ul class="sector-benefits">
                         <li>Up to 10-ton load capacity</li>
                         <li>OSHA-aligned safety</li>
-                        <li>Modular & scalable</li>
+                        <li>Modular &amp; scalable</li>
                     </ul>
                 </a>
-
-                <!-- Education -->
-                <a href="#" class="sector-card">
+                <a href="products.html" class="sector-card reveal delay-1">
                     <div class="sector-icon">🎓</div>
-                    <h3 class="sector-name">Education & Libraries</h3>
-                    <p class="sector-desc">Compact mobile shelving for libraries, lockers, and administrative records</p>
+                    <h3 class="sector-name">Education &amp; Libraries</h3>
+                    <p class="sector-desc">Compact mobile shelving for libraries, lockers, and administrative records
+                    </p>
                     <ul class="sector-benefits">
                         <li>Library-grade systems</li>
                         <li>Student locker banks</li>
                         <li>Custom color options</li>
                     </ul>
                 </a>
-
-                <!-- Corporate -->
-                <a href="#" class="sector-card">
+                <a href="products.html" class="sector-card reveal delay-2">
                     <div class="sector-icon">🏢</div>
                     <h3 class="sector-name">Corporate Offices</h3>
-                    <p class="sector-desc">Modern office storage, personal lockers, and filing solutions optimizing workspace</p>
+                    <p class="sector-desc">Modern office storage, personal lockers, and filing solutions</p>
                     <ul class="sector-benefits">
                         <li>Contemporary finishes</li>
                         <li>Ergonomic heights</li>
@@ -271,33 +355,33 @@
         </div>
     </section>
 
-    <!-- ===== PRODUCT FINDER ===== -->
+    <!-- PRODUCT FINDER -->
     <section class="product-finder-section" id="finder">
         <div class="product-finder-content">
             <div class="finder-wrapper">
-                <div class="finder-left">
-                    <div class="section-header-small">
+                <div class="finder-left reveal-left">
+                    <div class="section-header-small" style="text-align:left;">
+                        <span class="section-badge">Quick Finder</span>
                         <h2 class="section-title">Find Your Perfect Storage Solution</h2>
-                        <p class="section-subtitle">Tell us your industry and storage needs. We'll recommend the exact system and deliver a free quote within 2 hours.</p>
-                        <div class="accent-line"></div>
+                        <p class="section-subtitle">Tell us your industry and storage needs — we'll recommend the exact
+                            system and deliver a free quote within 2 hours.</p>
+                        <div class="accent-line left"></div>
                     </div>
-
                     <ul class="finder-benefits">
-                        <li>✦ Free space assessment at your facility</li>
-                        <li>✦ Quotation within 2 business hours</li>
-                        <li>✦ 3D layout design at no extra cost</li>
+                        <li><span>✦</span> Free space assessment at your facility</li>
+                        <li><span>✦</span> Quotation within 2 business hours</li>
+                        <li><span>✦</span> 3D layout design at no extra cost</li>
+                        <li><span>✦</span> Pan-India installation team</li>
                     </ul>
                 </div>
-
-                <div class="finder-right">
+                <div class="finder-right reveal-right">
                     <div class="finder-form-box">
                         <h3 class="finder-form-title">Get a Custom Recommendation</h3>
                         <p class="finder-form-subtitle">2-minute form · Free consultation included</p>
-
                         <form class="finder-form" id="product-finder-form" onsubmit="submitProductFinder(event)">
                             <div class="form-group">
-                                <label>Your Industry</label>
-                                <select required>
+                                <label for="find-industry">Your Industry</label>
+                                <select id="find-industry" required>
                                     <option value="">Select industry…</option>
                                     <option>Pharmaceutical</option>
                                     <option>Hospital / Healthcare</option>
@@ -308,19 +392,23 @@
                                     <option>Other</option>
                                 </select>
                             </div>
-
                             <div class="form-group">
-                                <label>Storage Type Needed</label>
-                                <select required>
+                                <label for="find-type">Storage Type Needed</label>
+                                <select id="find-type" required>
                                     <option value="">Select type…</option>
                                     <option>Mobile Compactors</option>
                                     <option>Pallet / Heavy Racks</option>
                                     <option>Industrial Lockers</option>
                                     <option>Filing Systems</option>
+                                    <option>Mezzanine Floors</option>
                                     <option>Not Sure — Need Advice</option>
                                 </select>
                             </div>
-
+                            <div class="form-group">
+                                <label for="find-phone">Your Phone Number</label>
+                                <input type="tel" id="find-phone" placeholder="+91 XXXXX XXXXX" required
+                                    style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:white;">
+                            </div>
                             <button type="submit" class="finder-submit-btn">Get My Free Recommendation →</button>
                         </form>
                     </div>
@@ -328,546 +416,473 @@
             </div>
         </div>
     </section>
-    <!--Solutions-->
-    <div class="nav-item">
-            <button class="nav-link" aria-haspopup="true" aria-expanded="false">
-              Solutions
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="dropdown" role="menu">
-              <a href="#" role="menuitem"><span class="dropdown-dot"></span>Pharmaceutical</a>
-              <a href="#" role="menuitem"><span class="dropdown-dot"></span>Hospitals</a>
-              <a href="#" role="menuitem"><span class="dropdown-dot"></span>Government</a>
-              <a href="#" role="menuitem"><span class="dropdown-dot"></span>Warehouses</a>
-              <a href="#" role="menuitem"><span class="dropdown-dot"></span>Education</a>
-            </div>
-          </div>
+
     <!-- PROJECTS SECTION -->
     <section class="projects-section" id="projects">
         <div class="projects-content">
-            <div class="section-header-small">
+            <div class="section-header-small reveal">
+                <span class="section-badge">Our Work</span>
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Showcase of our most impactful installations</p>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's leading
+                    organisations</p>
                 <div class="accent-line"></div>
             </div>
-
             <div class="projects-container">
                 <div class="sidebar">
                     <h3 class="sidebar-title">Categories</h3>
                     <ul class="category-list">
-                        <li class="category-item"><button class="category-btn active" onclick="filterProjects('Enterprise')">Enterprise</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Government')">Government</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Industrial')">Industrial</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Education')">Education</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Healthcare')">Healthcare</button></li>
-                        <li class="category-item"><button class="category-btn" onclick="filterProjects('Retail')">Retail</button></li>
+                        <li><button class="category-btn active"
+                                onclick="filterProjects('Enterprise')">Enterprise</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Government')">Government</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Industrial')">Industrial</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Education')">Education</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Healthcare')">Healthcare</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Retail')">Retail</button></li>
                     </ul>
                 </div>
-
                 <div class="projects-grid" id="projectsGrid"></div>
             </div>
         </div>
     </section>
 
-    <!-- CASE STUDIES SECTION -->
+    <!-- CASE STUDIES -->
     <section class="case-studies-section" id="case-studies">
         <div class="case-studies-content">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">Success Stories</span>
                 <h2 class="section-title">Case Studies</h2>
-                <p class="section-subtitle">Real-world success stories and client transformations</p>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Real-world results from our installations across
+                    India</p>
                 <div class="accent-line"></div>
             </div>
-
             <div class="case-studies-wrapper">
-                <button class="scroll-nav left" onclick="scrollCaseStudies(-400)">❮</button>
+                <button class="scroll-nav left" onclick="scrollCaseStudies(-400)" aria-label="Scroll left">❮</button>
                 <div class="case-studies-scroll" id="caseStudiesScroll"></div>
-                <button class="scroll-nav right" onclick="scrollCaseStudies(400)">❯</button>
+                <button class="scroll-nav right" onclick="scrollCaseStudies(400)" aria-label="Scroll right">❯</button>
             </div>
         </div>
     </section>
 
-   <!-- MAP SECTION -->
-    <section class="map-section" id="about">
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="testimonials-content">
+            <div class="section-header-small reveal">
+                <span class="section-badge">Client Feedback</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="accent-line" style="margin:0 auto;"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Space Planners transformed our archive room. We went from chaos to a
+                        fully indexed, accessible system in under 2 weeks. The team was professional and the quality
+                        exceeded our expectations."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RK</div>
+                        <div>
+                            <div class="testimonial-name">Rajesh Kumar</div>
+                            <div class="testimonial-role">Admin Director, Central Government Ministry, Delhi</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal delay-1">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The mobile compactors they installed in our cold storage area are
+                        GMP-certified and perfectly suited for pharmaceutical use. Saved us 48% of floor space and the
+                        build quality is excellent."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SP</div>
+                        <div>
+                            <div class="testimonial-name">Sneha Patel</div>
+                            <div class="testimonial-role">Operations Head, Sun Pharma Warehouse, Ahmedabad</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal delay-2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"We've used Space Planners for 3 of our hospital branches. Their
+                        NABH-aligned storage systems are top-notch and the after-sales support is always prompt and
+                        reliable."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AM</div>
+                        <div>
+                            <div class="testimonial-name">Amit Mehta</div>
+                            <div class="testimonial-role">Facility Manager, Kokilaben Hospital, Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="map-section" id="reach">
         <div class="map-section-content">
-            <div class="section-header">
-                <h2 class="section-title">Our Global Reach</h2>
-                <p class="section-subtitle">Serving clients across India with premium storage solutions</p>
+            <div class="section-header reveal">
+                <span class="section-badge">Pan-India Presence</span>
+                <h2 class="section-title">Our Reach Across India</h2>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Serving clients in every major city with local
+                    dealer networks</p>
                 <div class="accent-line"></div>
             </div>
-
             <div id="map" class="map-container"></div>
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
+    <!-- FAQ -->
     <section class="faq-section" id="faq">
         <div class="faq-content">
-            <div class="faq-header">
+            <div class="faq-header reveal">
+                <span class="section-badge">FAQ</span>
                 <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Common questions about our storage solutions</p>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Everything you need to know about our storage
+                    solutions</p>
                 <div class="accent-line"></div>
             </div>
-
-            <ul class="faq-list" id="faqList"></ul>
+            <!-- FAQ rendered in DOM for SEO/AIO crawlers -->
+            <ul class="faq-list" id="faqList" aria-label="Frequently asked questions"></ul>
         </div>
     </section>
 
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-footer">Space<span>Planners</span></div>
+                <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across
+                    every major city.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="products.html">Mobile Compactors</a></li>
+                    <li><a href="products.html">Industrial Racks</a></li>
+                    <li><a href="products.html">Storage Lockers</a></li>
+                    <li><a href="products.html">Filing Cabinets</a></li>
+                    <li><a href="products.html">Mezzanine Systems</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="footer-contact">
+                    <a href="tel:+912240033385"><span class="icon">📞</span>+91-22-40033385</a>
+                    <a href="mailto:sales@spaceplannersindia.in"><span
+                            class="icon">✉️</span>sales@spaceplannersindia.in</a>
+                    <a href="https://wa.me/912240033385" target="_blank" rel="noopener"><span
+                            class="icon">💬</span>WhatsApp Us</a>
+                    <a href="#reach"><span class="icon">📍</span>Mumbai, Maharashtra, India</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Space Planners India. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&callback=initMap"
+        async defer></script>
     <script>
+        /* ── DATA ── */
         const slides = [
-            { title: "Mobile Compactor Storage", desc: "Space-saving solutions for maximum storage capacity" },
-            { title: "Industrial Storage Racks", desc: "Heavy-duty systems for warehouse optimization" },
-            { title: "Professional Lockers", desc: "Secure storage solutions for every industry" },
-            { title: "Filing Cabinets", desc: "Organized document management systems" }
+            { title: "Mobile Compactor Storage", desc: "Space-saving motorized systems — up to 50% more storage capacity" },
+            { title: "Industrial Storage Racks", desc: "Heavy-duty systems rated up to 10 tons for warehouse operations" },
+            { title: "Professional Steel Lockers", desc: "Secure personal storage for offices, hospitals, and institutions" },
+            { title: "Archive & Filing Systems", desc: "Organised document management for government and corporate use" }
         ];
-
-        const projects = [
-            { id: 1, title: "Fortune 500 Corporate HQ", category: "Enterprise", desc: "Complete storage for major financial institution", scale: "50,000 sq ft" },
-            { id: 2, title: "Government Archives Facility", category: "Government", desc: "Secure document management for national archives", scale: "75,000 sq ft" },
-            { id: 3, title: "Manufacturing Warehouse Complex", category: "Industrial", desc: "High-density storage for automotive supplier", scale: "100,000 sq ft" },
-            { id: 4, title: "University Library Network", category: "Education", desc: "Integrated system for multi-campus library", scale: "35,000 sq ft" },
-            { id: 5, title: "Hospital Medical Records", category: "Healthcare", desc: "HIPAA-compliant secure storage solution", scale: "20,000 sq ft" },
-            { id: 6, title: "Retail Chain Hub", category: "Retail", desc: "Mobile compactors for inventory management", scale: "60,000 sq ft" },
-            { id: 7, title: "Tech Startup Office", category: "Enterprise", desc: "Modern storage integration for fast-growing company", scale: "25,000 sq ft" },
-            { id: 8, title: "Manufacturing Plant", category: "Industrial", desc: "High-capacity storage for production facility", scale: "120,000 sq ft" }
-        ];
-
-        const caseStudies = [
-            { title: "Banking Sector", subtitle: "Secure Document Management", challenge: "Bank needed secure storage for millions of documents", solution: "Mobile compactor system with climate control", result: "60% space reduction, 100% accessibility" },
-            { title: "Government", subtitle: "Archive Digitization", challenge: "Historical records required specialized storage", solution: "Custom heavy-duty compactors", result: "200+ years preserved, 90% space saved" },
-            { title: "Healthcare", subtitle: "Patient Records System", challenge: "HIPAA-compliant storage for 500K+ files", solution: "Integrated locker system with access control", result: "Full compliance, 40% faster retrieval" },
-            { title: "Retail", subtitle: "Inventory Management", challenge: "Multi-warehouse coordination across 50+ locations", solution: "Standardized rack system with tracking", result: "25% accuracy improvement, 15% cost reduction" },
-            { title: "Education", subtitle: "University Library System", challenge: "Accommodate 2M+ books across 3 campuses", solution: "Mobile carriage system with digital catalog", result: "30% more books, 24/7 self-service access" },
-            { title: "Manufacturing", subtitle: "Parts Storage", challenge: "High-volume parts storage with quick access", solution: "Heavy-duty racks with bin location system", result: "50% picking time reduction, zero lost parts" }
-        ];
-
         const products = [
-            { id: 1, name: "Mobile Compactors", type: "Storage", desc: "Space-saving mobile storage systems that maximize floor space usage", features: ["Motorized movement", "Adjustable shelves", "Security locks", "Climate control compatible"], apps: "Documents, Archives, Library Systems", seo: "Best mobile compactor storage system in India" },
-            { id: 2, name: "Industrial Racks", type: "Racks", desc: "Heavy-duty racks designed for warehouse and manufacturing operations", features: ["High load capacity", "Galvanized steel", "Customizable heights", "Rust resistant"], apps: "Warehouses, Manufacturing, Distribution", seo: "Industrial storage racks manufacturer in India" },
-            { id: 3, name: "Storage Lockers", type: "Lockers", desc: "Secure individual lockers for staff and personal item storage", features: ["Digital locks", "Ventilation system", "Durable finish", "Multiple sizes"], apps: "Offices, Gyms, Hospitals, Institutes", seo: "Professional storage lockers supplier" },
-            { id: 4, name: "Filing Cabinets", type: "Storage", desc: "Professional filing solutions for organized document storage", features: ["Multiple drawers", "Label slots", "Anti-tilt mechanism", "Locking system"], apps: "Corporate, Legal firms, Government", seo: "High-quality filing cabinets India" },
-            { id: 5, name: "Storage Cupboards", type: "Storage", desc: "Versatile cupboards for general storage needs", features: ["Adjustable shelves", "Door locks", "Steel construction", "Compact design"], apps: "Offices, Retail, Institutions", seo: "Steel storage cupboards manufacturer" },
-            { id: 6, name: "Pallet Racks", type: "Racks", desc: "Specialized racks for pallet storage in warehouses", features: ["Forklift compatible", "Stackable design", "Industrial grade", "Heavy duty"], apps: "Warehouses, Distribution, Logistics", seo: "Pallet racks supplier India" },
-            { id: 7, name: "Slotted Angle Racks", type: "Racks", desc: "Modular racking system with flexible configuration", features: ["Tool-free assembly", "Expandable", "Cost-effective", "Easy to modify"], apps: "Retail, Workshops, Small warehouses", seo: "Modular slotted angle racks" },
-            { id: 8, name: "Mezzanine Systems", type: "Systems", desc: "Multi-level storage systems maximizing vertical space", features: ["Steel platform", "High capacity", "Custom design", "Professional installation"], apps: "Large warehouses, Factories, Distribution hubs", seo: "Mezzanine floor systems manufacturer" }
+            { id: 1, name: "Mobile Compactors", type: "Storage", img: "product_compactor.png", desc: "Space-saving motorized storage on rail tracks — maximize floor space by up to 50%", features: ["Motorized movement", "Adjustable shelves", "Security locks", "Climate control compatible"], apps: "Documents, Archives, Library Systems" },
+            { id: 2, name: "Industrial Racks", type: "Racks", img: "product_rack.png", desc: "Heavy-duty racks engineered for warehouse and industrial operations", features: ["High load capacity", "Galvanized steel", "Customizable heights", "Rust resistant"], apps: "Warehouses, Manufacturing, Distribution" },
+            { id: 3, name: "Storage Lockers", type: "Lockers", img: "product_locker.png", desc: "Secure individual lockers with digital locking for professional environments", features: ["Digital locks", "Ventilation system", "Durable finish", "Multiple sizes"], apps: "Offices, Gyms, Hospitals, Institutes" },
+            { id: 4, name: "Filing Cabinets", type: "Storage", img: "product_cabinet.png", desc: "Professional multi-drawer filing solutions for document management", features: ["Multiple drawers", "Label slots", "Anti-tilt mechanism", "Locking system"], apps: "Corporate, Legal Firms, Government" },
+            { id: 5, name: "Storage Cupboards", type: "Storage", img: "product_compactor.png", desc: "Versatile steel cupboards for general storage across industries", features: ["Adjustable shelves", "Door locks", "Steel construction", "Compact design"], apps: "Offices, Retail, Institutions" },
+            { id: 6, name: "Pallet Racks", type: "Racks", img: "product_rack.png", desc: "Forklift-compatible pallet racks for high-volume warehouse operations", features: ["Forklift compatible", "Stackable design", "Industrial grade", "Heavy duty"], apps: "Warehouses, Distribution, Logistics" },
+            { id: 7, name: "Slotted Angle Racks", type: "Racks", img: "product_rack.png", desc: "Modular, tool-free assembly racking with flexible configuration", features: ["Tool-free assembly", "Expandable", "Cost-effective", "Easy to modify"], apps: "Retail, Workshops, Small Warehouses" },
+            { id: 8, name: "Mezzanine Systems", type: "Systems", img: "project_warehouse.png", desc: "Multi-level steel platforms maximizing vertical space in warehouses", features: ["Steel platform", "High capacity", "Custom design", "Professional installation"], apps: "Large Warehouses, Factories, Distribution" }
         ];
-
+        const projects = [
+            { id: 1, title: "Leading PSU Headquarters", category: "Enterprise", desc: "Complete modular storage system for a major financial institution", scale: "50,000 sq ft", img: "project_corporate.png" },
+            { id: 2, title: "Central Government Archive", category: "Government", desc: "Secure document management for a national archive facility", scale: "75,000 sq ft", img: "project_corporate.png" },
+            { id: 3, title: "Automotive Warehouse Complex", category: "Industrial", desc: "High-density pallet rack system for India's leading auto supplier", scale: "1,00,000 sq ft", img: "project_warehouse.png" },
+            { id: 4, title: "University Library Network", category: "Education", desc: "Integrated mobile shelving for a 3-campus library system", scale: "35,000 sq ft", img: "project_corporate.png" },
+            { id: 5, title: "Multi-Specialty Hospital Records", category: "Healthcare", desc: "NABH-aligned secure storage for patient records", scale: "20,000 sq ft", img: "project_corporate.png" },
+            { id: 6, title: "Retail Chain Distribution Hub", category: "Retail", desc: "Mobile compactors for inventory management across 50+ stores", scale: "60,000 sq ft", img: "project_warehouse.png" },
+            { id: 7, title: "IT Park Corporate Campus", category: "Enterprise", desc: "Modern integrated storage for a fast-growing tech company", scale: "25,000 sq ft", img: "project_corporate.png" },
+            { id: 8, title: "FMCG Manufacturing Plant", category: "Industrial", desc: "High-capacity storage racks for a production facility", scale: "1,20,000 sq ft", img: "project_warehouse.png" }
+        ];
+        const caseStudies = [
+            { title: "Banking Sector", subtitle: "Secure Document Management", challenge: "Bank needed secure storage for 2 million documents across 3 cities", solution: "Mobile compactor system with electronic access control", result: "60% space reduction · 100% document accessibility maintained", img: "project_corporate.png" },
+            { title: "Government Archives", subtitle: "Historical Record Preservation", challenge: "200-year collection of historical records required specialized storage", solution: "Custom heavy-duty compactors with climate-compatible shelves", result: "200+ years preserved · 90% space saved · Zero document loss", img: "project_corporate.png" },
+            { title: "Healthcare Network", subtitle: "Patient Records System", challenge: "NABH-compliant storage for 5 lakh+ patient files across 6 hospitals", solution: "Integrated locker system with role-based access control", result: "Full NABH compliance · 40% faster retrieval time", img: "project_corporate.png" },
+            { title: "Retail Distribution", subtitle: "Inventory Management", challenge: "Multi-warehouse coordination across 50+ retail locations in India", solution: "Standardised pallet rack system with bin location tracking", result: "25% accuracy improvement · 15% logistics cost reduction", img: "project_warehouse.png" },
+            { title: "University Library", subtitle: "Multi-Campus Library System", challenge: "Accommodate 20 lakh+ books across 3 campuses with growing collection", solution: "Mobile carriage system with digital catalog integration", result: "30% more books accommodated · 24/7 self-service access", img: "project_corporate.png" },
+            { title: "Automotive Manufacturing", subtitle: "Parts & Inventory Storage", challenge: "High-volume parts storage with sub-5-minute picking requirement", solution: "Heavy-duty racks with bin location and barcode system", result: "50% picking time reduction · Zero lost parts incidents", img: "project_warehouse.png" }
+        ];
         const faqs = [
-            { q: "What products does Space Planners offer?", a: "We offer a comprehensive range of storage solutions including mobile compactors, industrial racks, storage lockers, filing cabinets, cupboards, pallet racks, slotted angle racks, and mezzanine systems." },
-            { q: "Are your products suitable for industrial use?", a: "Yes, all our products are designed and tested for industrial and heavy-duty applications. They are made from high-quality materials and built to last." },
-            { q: "Do you provide installation services?", a: "Yes, we provide professional installation services for all our storage systems. Our team ensures proper setup and safety compliance." },
-            { q: "Can your products be customized?", a: "Absolutely! We offer custom solutions tailored to your specific storage needs. Contact our team for personalized design consultation." },
-            { q: "What is your warranty policy?", a: "All our products come with a comprehensive warranty covering manufacturing defects. Contact us for detailed warranty information." },
-            { q: "How can I get a quotation?", a: "You can request a quotation by filling out our inquiry form or contacting us directly via phone, email, or WhatsApp." }
+            { q: "What products does Space Planners India offer?", a: "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems — all manufactured in-house." },
+            { q: "Are your products suitable for industrial and heavy-duty use?", a: "Yes. All our racks and storage systems are engineered for industrial applications with load capacities up to 10 tons. They use galvanized, rust-resistant steel and comply with relevant safety standards." },
+            { q: "Do you provide installation services across India?", a: "Absolutely. We have installation teams covering all major cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and Ahmedabad. Installation includes safety compliance checks." },
+            { q: "Can your storage solutions be customized to our space?", a: "Yes — customization is our strength. We offer free on-site space assessments, 3D layout designs, and fully tailored systems to match your dimensions, compliance needs, and budget." },
+            { q: "Are your products GMP and NABH compliant?", a: "Yes. Our mobile compactors and storage systems can be manufactured to meet GMP (pharmaceutical), NABH (healthcare), and GeM portal specifications for government procurement." },
+            { q: "How quickly can I get a quotation?", a: "We deliver detailed quotations within 2 business hours of receiving your inquiry. Submit our online form, WhatsApp us, or call +91-22-40033385 to get started." },
+            { q: "What is your warranty and after-sales service policy?", a: "All products carry a manufacturer warranty against defects. We offer dedicated annual maintenance contracts (AMC) and have service centers in 8 cities across India." }
         ];
 
-        let currentSlide = 0;
-        let currentProjectCategory = "Enterprise";
-        let currentProductType = "Storage";
-
-        // CAROUSEL
+        /* ── CAROUSEL ── */
+        let currentSlide = 0, slideTimer;
         function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
         function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlide(); }
-        function goToSlide(n) { currentSlide = n; updateSlide(); }
-
+        function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
         function updateSlide() {
             document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
             document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
             document.getElementById('slideTitle').textContent = slides[currentSlide].title;
             document.getElementById('slideDesc').textContent = slides[currentSlide].desc;
         }
+        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5500); }
 
-        // MODALS
-        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); }
-        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); }
-        function submitInquiry(e) { e.preventDefault(); alert('Thank you! We will contact you soon.'); closeInquiryModal(); }
-
-        function openProductModal(product) {
-            document.getElementById('productDetailContent').innerHTML = `
-                <h2 class="modal-title">${product.name}</h2>
-                <div class="product-detail-image">${product.type}</div>
-                <p style="color: #666; margin-bottom: 20px;">${product.desc}</p>
-                <div class="product-detail-features">
-                    <h4>Key Features</h4>
-                    <ul class="feature-list">
-                        ${product.features.map(f => `<li>${f}</li>`).join('')}
-                    </ul>
-                </div>
-                <div class="product-detail-features">
-                    <h4>Applications</h4>
-                    <p style="color: #666; margin: 0;">${product.apps}</p>
-                </div>
-                <div class="modal-buttons">
-                    <button class="modal-btn" onclick="openInquiryModal()">📧 Send Inquiry</button>
-                    <button class="modal-btn primary" onclick="window.open('https://wa.me/919876543210?text=I%20am%20interested%20in%20${product.name}', '_blank')">💬 WhatsApp</button>
-                </div>
-            `;
-            document.getElementById('productModal').classList.add('active');
+        /* ── TOAST ── */
+        function showToast(msg, type = 'success') {
+            const t = document.createElement('div');
+            t.className = `toast ${type}`;
+            t.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span>${msg}</span>`;
+            document.getElementById('toast-container').appendChild(t);
+            requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
+            setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
         }
 
-        function closeProductModal() { document.getElementById('productModal').classList.remove('active'); }
+        /* ── MODALS ── */
+        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
+        function submitInquiry(e) {
+            e.preventDefault();
+            showToast('Thank you! We\'ll call you within 2 hours.');
+            closeInquiryModal();
+            e.target.reset();
+        }
+        function openProductModal(p) {
+            document.getElementById('productDetailContent').innerHTML = `
+    <h2 class="modal-title">${p.name}</h2>
+    <div class="product-detail-image"><img src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='linear-gradient(135deg,#4facfe,#00f2fe)'"></div>
+    <p style="color:var(--light);margin-bottom:18px;font-size:14px;">${p.desc}</p>
+    <div class="product-detail-features"><h4>Key Features</h4>
+      <ul class="feature-list">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+    </div>
+    <div class="product-detail-features"><h4>Applications</h4>
+      <p style="color:var(--light);font-size:14px;">${p.apps}</p>
+    </div>
+    <div class="modal-buttons">
+      <button class="modal-btn" onclick="closeProductModal();openInquiryModal()">📧 Send Inquiry</button>
+      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I am interested in ${encodeURIComponent(p.name)}','_blank')">💬 WhatsApp</button>
+    </div>`;
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeProductModal() { document.getElementById('productModal').classList.remove('active'); document.body.style.overflow = ''; }
 
-        // PROJECTS FILTER
-        function filterProjects(category) {
-            currentProjectCategory = category;
-            document.querySelectorAll('.projects-section .category-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === category));
+        /* ── MOBILE NAV ── */
+        function openMobileNav() {
+            document.getElementById('mobileNav').classList.add('open');
+            document.getElementById('mobileOverlay').classList.add('open');
+            document.getElementById('hamburgerBtn').classList.add('open');
+            document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileNav() {
+            document.getElementById('mobileNav').classList.remove('open');
+            document.getElementById('mobileOverlay').classList.remove('open');
+            document.getElementById('hamburgerBtn').classList.remove('open');
+            document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        /* ── FILTERS ── */
+        let currentProductType = 'Storage', currentProjectCategory = 'Enterprise';
+        function filterProducts(type) {
+            currentProductType = type;
+            document.querySelectorAll('.products-section .category-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === type));
+            renderProducts();
+        }
+        function filterProjects(cat) {
+            currentProjectCategory = cat;
+            document.querySelectorAll('.projects-section .category-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === cat));
             renderProjects();
         }
 
-        function renderProjects() {
-            const filtered = projects.filter(p => p.category === currentProjectCategory);
-            document.getElementById('projectsGrid').innerHTML = filtered.map(p => `
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <div class="project-badge">${p.category}</div>
-                    <div class="project-content">
-                        <h3 class="project-title">${p.title}</h3>
-                        <p class="project-description">${p.desc}</p>
-                        <span class="project-scale">${p.scale}</span>
-                    </div>
-                </div>
-            `).join('');
+        /* ── RENDERS ── */
+        function renderProducts() {
+            const f = products.filter(p => p.type === currentProductType);
+            document.getElementById('productsGrid').innerHTML = f.map(p => `
+    <div class="product-card" onclick='openProductModal(${JSON.stringify(p).replace(/'/g, "\\'")})'  role="button" tabindex="0" aria-label="View ${p.name} details">
+      <div class="product-image"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'product-image-placeholder\\'>${p.type}</div>'"></div>
+      <div class="product-info">
+        <h3 class="product-name">${p.name}</h3>
+        <p class="product-description">${p.desc}</p>
+        <div class="product-features">${p.features.slice(0, 2).map(f => `<span class="feature-tag">${f}</span>`).join('')}</div>
+        <div class="product-applications"><p class="applications-label">Applications</p><p class="applications-text">${p.apps}</p></div>
+      </div>
+    </div>`).join('');
         }
-
-        // CASE STUDIES
+        function renderProjects() {
+            const f = projects.filter(p => p.category === currentProjectCategory);
+            document.getElementById('projectsGrid').innerHTML = f.map(p => `
+    <div class="project-card">
+      <div class="project-image"><img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'project-image-placeholder\\'></div>'"></div>
+      <div class="project-badge">${p.category}</div>
+      <div class="project-content">
+        <h3 class="project-title">${p.title}</h3>
+        <p class="project-description">${p.desc}</p>
+        <span class="project-scale">📐 ${p.scale}</span>
+      </div>
+    </div>`).join('');
+        }
         function renderCaseStudies() {
             document.getElementById('caseStudiesScroll').innerHTML = caseStudies.map(c => `
-                <div class="case-study-card">
-                    <div class="case-study-image"></div>
-                    <div class="case-study-content">
-                        <h3 class="case-study-title">${c.title}</h3>
-                        <p class="case-study-subtitle">${c.subtitle}</p>
-                        <div class="case-study-section"><p class="case-study-label">Challenge</p><p class="case-study-text">${c.challenge}</p></div>
-                        <div class="case-study-section"><p class="case-study-label">Solution</p><p class="case-study-text">${c.solution}</p></div>
-                        <div class="case-study-section"><p class="case-study-label">Result</p><p class="case-study-text" style="color: #e53935; font-weight: 600;">${c.result}</p></div>
-                    </div>
-                </div>
-            `).join('');
+    <div class="case-study-card">
+      <div class="case-study-image"><img src="${c.img}" alt="${c.title} case study" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'case-study-image-placeholder\\'></div>'"></div>
+      <div class="case-study-content">
+        <h3 class="case-study-title">${c.title}</h3>
+        <p class="case-study-subtitle">${c.subtitle}</p>
+        <div class="case-study-section"><p class="case-study-label">Challenge</p><p class="case-study-text">${c.challenge}</p></div>
+        <div class="case-study-section"><p class="case-study-label">Solution</p><p class="case-study-text">${c.solution}</p></div>
+        <div class="case-study-section"><p class="case-study-label">Result</p><p class="case-study-text result">${c.result}</p></div>
+      </div>
+    </div>`).join('');
         }
-
-        function scrollCaseStudies(amount) { document.getElementById('caseStudiesScroll').scrollBy({ left: amount, behavior: 'smooth' }); }
-
-        // PRODUCTS FILTER
-        function filterProducts(type) {
-            currentProductType = type;
-            document.querySelectorAll('.products-section .category-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === type));
-            renderProducts();
-        }
-
-        function renderProducts() {
-            const filtered = products.filter(p => p.type === currentProductType);
-            document.getElementById('productsGrid').innerHTML = filtered.map(p => `
-                <div class="product-card" onclick="openProductModal(${JSON.stringify(p).replace(/"/g, '&quot;')})">
-                    <div class="product-image">${p.type}</div>
-                    <div class="product-info">
-                        <h3 class="product-name">${p.name}</h3>
-                        <p class="product-description">${p.desc}</p>
-                        <div class="product-features">${p.features.slice(0, 2).map(f => `<span class="feature-tag">${f}</span>`).join('')}</div>
-                        <div class="product-applications">
-                            <p class="applications-label">Applications</p>
-                            <p class="applications-text">${p.apps}</p>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // FAQ
         function renderFAQ() {
-            document.getElementById('faqList').innerHTML = faqs.map((faq, i) => `
-                <li class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>${faq.q}</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text">${faq.a}</p>
-                    </div>
-                </li>
-            `).join('');
+            document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
+    <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
+        <span itemprop="name">${f.q}</span>
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p class="faq-answer-text" itemprop="text">${f.a}</p>
+      </div>
+    </li>`).join('');
+        }
+        function toggleFAQ(item) {
+            const wasActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
+            if (!wasActive) item.classList.add('active');
+        }
+        function scrollCaseStudies(amt) { document.getElementById('caseStudiesScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
+
+        /* ── STATS COUNTER ── */
+        function animateCounter(el, target, suffix = '') {
+            let start = null;
+            const dur = 1800;
+            function step(ts) {
+                if (!start) start = ts;
+                const p = Math.min((ts - start) / dur, 1);
+                const ease = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.floor(ease * target) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
         }
 
-        function toggleFAQ(element) {
-            element.parentElement.classList.toggle('active');
+        /* ── SCROLL REVEAL ── */
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+        }, { threshold: .12 });
+        document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
+
+        /* ── BACK TO TOP ── */
+        const btt = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); });
+
+        /* ── STATS OBSERVER ── */
+        const statsObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting && !e.target.dataset.counted) {
+                    e.target.dataset.counted = '1';
+                    animateCounter(document.getElementById('statInst'), '2000', 'K+'.replace('K+', ''));
+                    /* simpler: just update innerHTML after animation */
+                    setTimeout(() => {
+                        document.getElementById('statInst').innerHTML = '2<span class="stat-unit">K+</span>';
+                        document.getElementById('statClients').innerHTML = '500<span class="stat-unit">+</span>';
+                        document.getElementById('statYears').innerHTML = '20<span class="stat-unit">yrs</span>';
+                        document.getElementById('statSpace').innerHTML = '50<span class="stat-unit">%</span>';
+                    }, 1850);
+                    [['statInst', 2000], ['statClients', 500], ['statYears', 20], ['statSpace', 50]].forEach(([id, val]) => {
+                        const el = document.getElementById(id);
+                        let s = null;
+                        (function step(ts) {
+                            if (!s) s = ts;
+                            const p = Math.min((ts - s) / 1800, 1);
+                            const ease = 1 - Math.pow(1 - p, 3);
+                            el.querySelector?.(null);
+                            const num = Math.floor(ease * val);
+                            el.firstChild.textContent = num;
+                            if (p < 1) requestAnimationFrame(step);
+                        })(performance.now());
+                    });
+                }
+            });
+        }, { threshold: .5 });
+        const statsRibbon = document.querySelector('.stats-ribbon');
+        if (statsRibbon) statsObserver.observe(statsRibbon);
+
+        /* ── PRODUCT FINDER ── */
+        function submitProductFinder(e) {
+            e.preventDefault();
+            showToast('Thank you! A specialist will contact you within 2 hours with your custom recommendation.');
+            e.target.reset();
         }
 
-        // INITIALIZE
-        document.addEventListener('DOMContentLoaded', function() {
+        /* ── GOOGLE MAPS ── */
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 20.5937, lng: 78.9629 }, zoom: 5,
+                mapTypeControl: false, fullscreenControl: false, streetViewControl: false, gestureHandling: 'cooperative',
+                styles: [{ "featureType": "all", "elementType": "geometry.fill", "stylers": [{ "color": "#f8f9fa" }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e3f2fd" }] }, { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "weight": 1 }] }]
+            });
+            const svgCity = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60" width="40" height="60"><path d="M20 0C9.5 0 0 8 0 20 0 40 20 60 20 60S40 40 40 20C40 8 30.5 0 20 0Z" fill="#e53935" stroke="white" stroke-width="2"/><circle cx="20" cy="18" r="7" fill="white" opacity=".9"/></svg>`;
+            [{ city: "Mumbai", lat: 19.076, lng: 72.8777, projects: "250+" }, { city: "Delhi", lat: 28.6139, lng: 77.209, projects: "180+" }, { city: "Bangalore", lat: 12.9716, lng: 77.5946, projects: "150+" }, { city: "Chennai", lat: 13.0827, lng: 80.2707, projects: "120+" }, { city: "Pune", lat: 18.5204, lng: 73.8567, projects: "140+" }, { city: "Ahmedabad", lat: 23.0225, lng: 72.5714, projects: "110+" }, { city: "Kolkata", lat: 22.5726, lng: 88.3639, projects: "100+" }, { city: "Hyderabad", lat: 17.385, lng: 78.4867, projects: "90+" }].forEach(loc => {
+                const m = new google.maps.Marker({ position: { lat: loc.lat, lng: loc.lng }, map, title: `${loc.city} – ${loc.projects} projects`, icon: { url: 'data:image/svg+xml;base64,' + btoa(svgCity), scaledSize: new google.maps.Size(36, 54), anchor: new google.maps.Point(18, 54) } });
+                const iw = new google.maps.InfoWindow({ content: `<div style="font-family:Poppins,sans-serif;padding:4px 8px"><strong style="color:#e53935">${loc.city}</strong><br><span style="font-size:12px;color:#666">${loc.projects} projects delivered</span></div>` });
+                m.addListener('click', () => iw.open(map, m));
+            });
+        }
+
+        /* ── INIT ── */
+        document.addEventListener('DOMContentLoaded', () => {
             updateSlide();
             renderProjects();
             renderCaseStudies();
             renderProducts();
             renderFAQ();
-            
-            setInterval(() => { nextSlide(); }, 5000);
-
-            // Close modals on outside click
-            document.getElementById('inquiryModal').addEventListener('click', function(e) {
-                if (e.target === this) closeInquiryModal();
+            resetTimer();
+            document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
+            /* close modals on outside click */
+            ['inquiryModal', 'productModal'].forEach(id => {
+                document.getElementById(id).addEventListener('click', function (e) { if (e.target === this) { this.id === 'inquiryModal' ? closeInquiryModal() : closeProductModal(); } });
             });
-            document.getElementById('productModal').addEventListener('click', function(e) {
-                if (e.target === this) closeProductModal();
-            });
+            /* keyboard close */
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProductModal(); closeMobileNav(); } });
+            /* product card keyboard activation */
+            document.addEventListener('keyup', e => { if (e.key === 'Enter' && e.target.classList.contains('product-card')) e.target.click(); });
         });
-        // STATS COUNTER ANIMATION
-        function animateCounter(element, targetValue) {
-            const numberEl = element.querySelector('.stat-number');
-            if (!numberEl) return;
-
-            let currentValue = 0;
-            const duration = 2000; // 2 seconds
-            const increment = targetValue / (duration / 16); // 60fps
-            const startTime = performance.now();
-
-            function updateCounter(timestamp) {
-                const elapsed = timestamp - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                currentValue = Math.floor(progress * targetValue);
-
-                // Update the number, keeping the unit
-                const unitSpan = numberEl.querySelector('.stat-unit');
-                if (unitSpan) {
-                    const unit = unitSpan.textContent;
-                    numberEl.innerHTML = `${currentValue}<span class="stat-unit">${unit}</span>`;
-                } else {
-                    numberEl.textContent = currentValue;
-                }
-
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
-                }
-            }
-
-            requestAnimationFrame(updateCounter);
-        }
-
-        const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !e.target.dataset.animated) {
-          e.target.dataset.animated = '1';
-          const items = [
-            { sel: '.stats-grid .stat-item:nth-child(1)', val: 2 },
-            { sel: '.stats-grid .stat-item:nth-child(2)', val: 500 },
-            { sel: '.stats-grid .stat-item:nth-child(3)', val: 20 },
-            { sel: '.stats-grid .stat-item:nth-child(4)', val: 50 },
-          ];
-          items.forEach(item => {
-            const el = document.querySelector(item.sel);
-            if (el) animateCounter(el, item.val);
-          });
-        }
-      });
-    }, { threshold: 0.5 });
-    const statsRibbon = document.querySelector('.stats-ribbon');
-    if (statsRibbon) statsObserver.observe(statsRibbon);
-
-    // PRODUCT FINDER FORM
-    function submitProductFinder(e) {
-      e.preventDefault();
-      alert('Thank you for your interest! We will contact you soon with a custom recommendation.');
-    }
-
-    // GOOGLE MAPS IMPLEMENTATION
-    function initMap() {
-      const mapContainer = document.getElementById('map');
-
-      const mapOptions = {
-        center: { lat: 20.5937, lng: 78.9629 }, // Center of India
-        zoom: 5,
-        mapTypeControl: false,
-        fullscreenControl: false,
-        streetViewControl: false,
-        gestureHandling: 'cooperative',
-        styles: [
-          {
-            "featureType": "all",
-            "elementType": "geometry.fill",
-            "stylers": [
-              { "color": "#f8f9fa" }
-            ]
-          },
-          {
-            "featureType": "all",
-            "elementType": "labels.text",
-            "stylers": [
-              { "color": "#1a1a1a" },
-              { "fontFamily": "Poppins" }
-            ]
-          },
-          {
-            "featureType": "water",
-            "elementType": "geometry",
-            "stylers": [
-              { "color": "#e3f2fd" }
-            ]
-          },
-          {
-            "featureType": "road",
-            "elementType": "geometry",
-            "stylers": [
-              { "color": "#ffffff" },
-              { "weight": 1 }
-            ]
-          },
-          {
-            "featureType": "administrative",
-            "elementType": "geometry.stroke",
-            "stylers": [
-              { "color": "#e0e0e0" },
-              { "weight": 1.5 }
-            ]
-          }
-        ]
-      };
-
-      const map = new google.maps.Map(mapContainer, mapOptions);
-
-      // Custom SVG marker for city
-      const cityMarkerSvg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60" width="40" height="60">
-          <defs>
-            <linearGradient id="cityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:#e53935;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#c92a1f;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <path d="M 20 0 C 9.5 0 0 8 0 20 C 0 40 20 60 20 60 S 40 40 40 20 C 40 8 30.5 0 20 0 Z" fill="url(#cityGrad)" stroke="white" stroke-width="2"/>
-          <circle cx="20" cy="18" r="7" fill="white" opacity="0.9"/>
-        </svg>
-      `;
-
-      // Custom SVG marker for dealer
-      const dealerMarkerSvg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 48" width="32" height="48">
-          <defs>
-            <linearGradient id="dealerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:#ff7043;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#e64a19;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <path d="M 16 0 C 7.2 0 0 6.4 0 14 C 0 28 16 48 16 48 S 32 28 32 14 C 32 6.4 24.8 0 16 0 Z" fill="url(#dealerGrad)" stroke="white" stroke-width="1.5"/>
-          <circle cx="16" cy="13" r="4.5" fill="white" opacity="0.95"/>
-        </svg>
-      `;
-
-      // Locations data with dealers
-      const locations = [
-        {
-          city: "Mumbai",
-          lat: 19.0760,
-          lng: 72.8777,
-          projects: "250+",
-          dealers: [
-            { name: "Premium Storage Solutions", address: "Mumbai Central" },
-            { name: "Compact Systems Ltd", address: "Borivali" },
-            { name: "Industrial Storage Hub", address: "Andheri" }
-          ]
-        },
-        {
-          city: "Delhi",
-          lat: 28.6139,
-          lng: 77.2090,
-          projects: "180+",
-          dealers: [
-            { name: "Delhi Warehouse Systems", address: "Gurgaon" },
-            { name: "Capital Storage Solutions", address: "Noida" }
-          ]
-        },
-        {
-          city: "Bangalore",
-          lat: 12.9716,
-          lng: 77.5946,
-          projects: "150+",
-          dealers: [
-            { name: "Tech Storage Solutions", address: "Whitefield" },
-            { name: "Bangalore Industrial Racks", address: "Yeshwanthpur" },
-            { name: "Smart Storage Systems", address: "Koramangala" }
-          ]
-        },
-        {
-          city: "Chennai",
-          lat: 13.0827,
-          lng: 80.2707,
-          projects: "120+",
-          dealers: [
-            { name: "Chennai Storage Systems", address: "Guindy" },
-            { name: "Coastal Storage Solutions", address: "Anna Nagar" }
-          ]
-        },
-        {
-          city: "Kolkata",
-          lat: 22.5726,
-          lng: 88.3639,
-          projects: "100+",
-          dealers: [
-            { name: "Eastern Storage Hub", address: "Salt Lake" }
-          ]
-        },
-        {
-          city: "Pune",
-          lat: 18.5204,
-          lng: 73.8567,
-          projects: "140+",
-          dealers: [
-            { name: "Pune Industrial Solutions", address: "Kharadi" },
-            { name: "Western Storage Systems", address: "Pune Camp" }
-          ]
-        },
-        {
-          city: "Ahmedabad",
-          lat: 23.0225,
-          lng: 72.5714,
-          projects: "110+",
-          dealers: [
-            { name: "Gujarat Storage Solutions", address: "Ahmedabad West" },
-            { name: "Business Storage Hub", address: "Ahmedabad East" }
-          ]
-        },
-        {
-          city: "Jaipur",
-          lat: 26.9124,
-          lng: 75.7873,
-          projects: "85+",
-          dealers: [
-            { name: "Rajasthan Storage Systems", address: "Jaipur Central" }
-          ]
-        }
-      ];
-
-      // Add markers for each location and dealers
-      locations.forEach((location, index) => {
-        // Main city marker
-        const cityMarker = new google.maps.Marker({
-          position: { lat: location.lat, lng: location.lng },
-          map: map,
-          title: location.city,
-          icon: {
-            url: 'data:image/svg+xml;base64,' + btoa(cityMarkerSvg),
-            scaledSize: new google.maps.Size(40, 60),
-            anchor: new google.maps.Point(20, 60)
-          }
-        });
-
-        // Add dealer markers
-        location.dealers.forEach((dealer, dIndex) => {
-          const offsetLat = location.lat + (dIndex - location.dealers.length / 2 + 0.5) * 0.012;
-          const offsetLng = location.lng + (dIndex - location.dealers.length / 2 + 0.5) * 0.012;
-
-          const dealerMarker = new google.maps.Marker({
-            position: { lat: offsetLat, lng: offsetLng },
-            map: map,
-            title: dealer.name,
-            icon: {
-              url: 'data:image/svg+xml;base64,' + btoa(dealerMarkerSvg),
-              scaledSize: new google.maps.Size(32, 48),
-              anchor: new google.maps.Point(16, 48)
-            }
-          });
-        });
-      });
-    }
-
-    // Initialize map when page loads
-    window.addEventListener('load', initMap);
     </script>
 </body>
+
 </html>
