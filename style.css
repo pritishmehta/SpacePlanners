@@ -453,7 +453,8 @@ header {
 }
 
 /* ==============================================
-   FLOATING BUTTONS
+   FLOATING BUTTONS — Competitor-refined design
+   Based on Kompress, PRK Steel, Godrej patterns
 ==============================================*/
 /* ── Floating Buttons Stack ── */
 .float-stack {
@@ -463,43 +464,46 @@ header {
   z-index: 800;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  animation: floatIn .6s ease 1s both;
+  align-items: flex-end;
+  gap: 14px;
+  animation: floatIn .5s ease .8s both;
 }
 
 @keyframes floatIn {
   from {
     opacity: 0;
-    transform: translateY(40px) scale(0)
+    transform: translateY(30px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1)
+    transform: translateY(0);
   }
 }
 
-/* Floating Quick Inquiry Button */
+/* ── Floating Quick Inquiry Button ── */
 .float-inquiry-btn {
-  width: 48px;
-  height: 48px;
-  background: var(--red);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
   border-radius: 50%;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(229, 57, 53, .45);
+  box-shadow: 0 4px 14px rgba(229, 57, 53, .35);
   cursor: pointer;
-  transition: var(--trans);
+  transition: transform .25s ease, box-shadow .25s ease;
   position: relative;
 }
 
 .float-inquiry-btn:hover {
-  background: var(--red-dark);
-  transform: scale(1.1);
-  box-shadow: 0 6px 24px rgba(229, 57, 53, .55);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(229, 57, 53, .5);
+}
+
+.float-inquiry-btn:active {
+  transform: translateY(0) scale(.95);
 }
 
 .float-inquiry-btn svg {
@@ -508,21 +512,21 @@ header {
   fill: white;
 }
 
-/* Mini Inquiry Popup */
+/* ── Mini Inquiry Popup ── */
 .float-inquiry-popup {
   position: absolute;
   bottom: 68px;
   right: 0;
   width: 300px;
   background: var(--white);
-  border-radius: 14px;
-  box-shadow: 0 12px 50px rgba(0, 0, 0, .2);
-  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, .18), 0 2px 8px rgba(0, 0, 0, .06);
+  padding: 0;
   display: none;
   flex-direction: column;
-  gap: 12px;
-  animation: popupIn .3s cubic-bezier(.4, 0, .2, 1);
+  animation: popupIn .25s cubic-bezier(.4, 0, .2, 1);
   border: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .float-inquiry-popup.show {
@@ -532,153 +536,230 @@ header {
 @keyframes popupIn {
   from {
     opacity: 0;
-    transform: translateY(16px) scale(.96)
+    transform: translateY(12px) scale(.97);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1)
+    transform: translateY(0) scale(1);
   }
+}
+
+/* Red accent bar at top of popup — inspired by PRK Steel */
+.float-inquiry-popup::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red), var(--red-dark));
+  flex-shrink: 0;
 }
 
 .popup-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4px;
+  padding: 18px 22px 6px;
 }
 
 .popup-title {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--dark);
 }
 
 .popup-close {
-  background: none;
+  background: var(--bg);
   border: none;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--light);
   cursor: pointer;
   transition: var(--trans);
   line-height: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .popup-close:hover {
-  color: var(--red);
+  background: var(--red);
+  color: var(--white);
 }
 
 .popup-input {
-  width: 100%;
-  padding: 10px 14px;
+  width: calc(100% - 44px);
+  margin: 0 22px;
+  padding: 11px 14px;
   border: 2px solid var(--border);
   border-radius: 8px;
   font-family: var(--font-sans);
   font-size: 13px;
-  transition: var(--trans);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.popup-input+.popup-input {
+  margin-top: 10px;
 }
 
 .popup-input:focus {
   outline: none;
   border-color: var(--red);
-  box-shadow: 0 0 0 3px rgba(229, 57, 53, .1);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, .08);
 }
 
 .popup-submit {
-  width: 100%;
-  padding: 11px;
-  background: var(--red);
+  width: calc(100% - 44px);
+  margin: 14px 22px 0;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
   color: var(--white);
   border: none;
   border-radius: 8px;
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
-  transition: var(--trans);
+  transition: transform .2s ease, box-shadow .2s ease;
+  letter-spacing: .02em;
 }
 
 .popup-submit:hover {
-  background: var(--red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(229, 57, 53, .4);
 }
 
 .popup-note {
   font-size: 11px;
   color: var(--light);
   text-align: center;
+  padding: 10px 22px 18px;
 }
 
-/* WhatsApp button */
+/* ── WhatsApp Button — Clean professional style ── */
 .whatsapp-float {
-  display: contents;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
 }
 
 .whatsapp-btn {
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   background: #25d366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
-  transition: var(--trans);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, .35);
+  transition: transform .25s ease, box-shadow .25s ease;
   position: relative;
   flex-shrink: 0;
 }
 
 .whatsapp-btn:hover {
-  transform: scale(1.12);
-  box-shadow: 0 8px 30px rgba(37, 211, 102, .6);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, .5);
+}
+
+.whatsapp-btn:active {
+  transform: translateY(0) scale(.95);
 }
 
 .whatsapp-btn svg {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
 }
 
+/* ── Subtle glow ring instead of aggressive pulse ── */
+/* Inspired by Kompress India / Godrej Interio approach */
 .pulse-ring {
   position: absolute;
-  inset: 0;
+  inset: -4px;
   border-radius: 50%;
-  border: 2px solid #25d366;
-  animation: pulse 2.2s infinite;
+  border: none;
+  background: rgba(37, 211, 102, .18);
+  animation: subtleGlow 3s ease-in-out infinite;
   pointer-events: none;
+  z-index: -1;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1
-  }
+@keyframes subtleGlow {
 
+  0%,
   100% {
-    transform: scale(1.5);
-    opacity: 0
+    transform: scale(1);
+    opacity: .6;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: .2;
   }
 }
 
-/* Back to top */
+/* Tooltip label on hover — like Spanco/PRK patterns */
+.whatsapp-float::before {
+  content: 'Chat with us';
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+.whatsapp-float::after {
+  content: '';
+  position: absolute;
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  border: 5px solid transparent;
+  border-left-color: #1a1a1a;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.whatsapp-float:hover::before,
+.whatsapp-float:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ── Back to Top — Repositioned to not overlap ── */
 #back-to-top {
   position: fixed;
-  bottom: 96px;
-  right: 28px;
+  bottom: 28px;
+  left: 28px;
   z-index: 800;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   background: var(--dark);
   color: var(--white);
   border: none;
-  border-radius: 10px;
-  font-size: 18px;
+  border-radius: 50%;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   opacity: 0;
   transform: translateY(20px);
-  transition: var(--trans);
-  box-shadow: var(--shadow-md);
+  transition: all .3s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .15);
 }
 
 #back-to-top.visible {
@@ -688,6 +769,8 @@ header {
 
 #back-to-top:hover {
   background: var(--red);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 57, 53, .35);
 }
 
 /* ==============================================
@@ -1140,6 +1223,222 @@ header {
   color: rgba(255, 255, 255, .6);
   margin-top: 6px;
   font-weight: 500;
+}
+
+/* ==============================================
+   HOW IT WORKS — Montel-inspired process strip
+============================================== */
+.how-it-works-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.how-it-works-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.process-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin-top: 0;
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+  padding: 32px 24px;
+  position: relative;
+  max-width: 280px;
+}
+
+.step-number {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+  opacity: .6;
+}
+
+.step-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.step-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  font-size: 13px;
+  color: var(--light);
+  line-height: 1.7;
+}
+
+.process-connector {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--border), var(--red), var(--border));
+  margin-top: 72px;
+  flex-shrink: 0;
+  opacity: .5;
+}
+
+/* ==============================================
+   TRUST BADGES — SSI Schaefer / Dexion strip
+============================================== */
+.trust-badges-section {
+  padding: 28px 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.trust-badges-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trust-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.trust-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+.trust-sublabel {
+  font-size: 11px;
+  color: var(--light);
+  font-weight: 500;
+}
+
+/* ==============================================
+   FREE ASSESSMENT CTA — Spacesaver / Mecalux
+============================================== */
+.free-assessment-section {
+  padding: 0;
+}
+
+.free-assessment-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 60px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.free-assessment-content::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(229, 57, 53, .12);
+  pointer-events: none;
+}
+
+.assessment-left {
+  flex: 1;
+}
+
+.assessment-title {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin: 14px 0 16px;
+}
+
+.assessment-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, .7);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+
+.assessment-perks {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+
+.assessment-perks li {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .85);
+  font-weight: 500;
+}
+
+.assessment-right {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.assessment-cta {
+  display: inline-block;
+  padding: 16px 36px;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+  letter-spacing: .02em;
+}
+
+.assessment-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(229, 57, 53, .5);
+}
+
+.assessment-alt {
+  margin-top: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .5);
 }
 
 /* ==============================================
@@ -2845,6 +3144,57 @@ footer {
 
   .faq-content {
     padding: 0 20px;
+  }
+
+  /* How It Works — mobile */
+  .process-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .process-connector {
+    width: 2px;
+    height: 32px;
+    margin: 0;
+  }
+
+  .process-step {
+    padding: 20px 16px;
+    max-width: 100%;
+  }
+
+  /* Trust Badges — mobile */
+  .trust-badges-content {
+    gap: 16px 24px;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .trust-badge {
+    flex: 0 0 calc(50% - 12px);
+  }
+
+  /* Free Assessment — mobile */
+  .free-assessment-content {
+    flex-direction: column;
+    padding: 36px 24px;
+    margin: 24px 16px;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .assessment-left {
+    text-align: center;
+  }
+
+  .assessment-perks {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .assessment-cta {
+    width: 100%;
+    padding: 15px 24px;
   }
 }
 
