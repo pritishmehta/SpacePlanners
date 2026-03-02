@@ -1,62 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Planners</title>
-    <style>
-        /* Custom styles to address the requested changes */
-        header {
-            width: 100%; /* Made header wider */
-            text-align: center;
-        }
-        .carousel-dots {
-            display: flex;
-            justify-content: center; /* Center carousel dots */
-            margin-top: 10px;
-        }
-        .client-logos {
-            overflow-y: auto; /* Vertical scroll section for client logos */
-            height: 200px; /* Set height for vertical scrolling */
-        }
-        .section-container {
-            display: flex; /* To align sections side by side */
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .section {
-            width: 47%;
-        }
-    </style>
+    <title>Space Planners India — Premium Storage Solutions | Mobile Compactors, Racks & Lockers</title>
+    <meta name="description"
+        content="India's leading manufacturer of mobile compactors, industrial racks, storage lockers & filing systems. 2000+ installations, 500+ clients. Get a free quote today.">
+    <meta name="keywords"
+        content="mobile compactor storage, industrial racks India, storage lockers manufacturer, filing cabinets India, mezzanine systems">
+    <link rel="canonical" href="https://spaceplannersindia.in/">
+    <meta property="og:title" content="Space Planners India — Premium Storage Solutions">
+    <meta property="og:description"
+        content="India's leading manufacturer of mobile compactors, racks, lockers & storage systems. 20+ years, 500+ clients.">
+    <meta property="og:url" content="https://spaceplannersindia.in/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <div id="toast-container"></div>
+    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo">Space<span>Planners</span></span>
+            <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+        </div>
+        <ul>
+            <li><a href="index.html" class="active">🏠 Home</a></li>
+            <li><a href="about.html">🏢 About Us</a></li>
+            <li><a href="products.html">📦 Products</a></li>
+            <li><a href="projects.html">🏗️ Projects</a></li>
+            <li><a href="case-studies.html">📋 Case Studies</a></li>
+            <li><a href="index.html#faq">❓ FAQ</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
+            <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
+        </div>
+    </div>
+
     <header>
-        <h1>Welcome to Space Planners</h1>
+        <div class="header-top">
+            <div class="header-top-left">
+                <span>📍 Mumbai, India</span>
+                <span>🏆 20+ Years of Excellence</span>
+            </div>
+            <div class="header-top-right">
+                <a href="mailto:sales@spaceplannersindia.in">✉️ sales@spaceplannersindia.in</a>
+            </div>
+        </div>
+        <div class="header-main">
+            <a href="index.html" class="logo">Space<span>Planners</span></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Free Quote</button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"
+                    onclick="openMobileNav()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
     </header>
-    <div class="carousel">
-        <!-- Carousel Content -->
-        <div class="carousel-dots"> <!-- Centered dots for carousel --> </div>
-    </div>
-    <section class="testimonials">
-        <h2>Testimonials</h2>
-        <!-- Testimonial content here -->
-    </section>
-    <div class="client-logos">
-        <h3>Our Clients</h3>
-        <!-- Client logos content to scroll vertically -->
-    </div>
-    <div class="section-container">
-        <div class="section">
-            <h3>Schedule a Free Space Assessment</h3>
-            <!-- Content for space assessment -->
+
+    <div class="float-stack" id="floatStack">
+        <div style="position:relative;">
+            <div class="float-inquiry-popup" id="floatPopup">
+                <div class="popup-header">
+                    <p class="popup-title">Quick Enquiry</p>
+                    <button class="popup-close" onclick="toggleFloatPopup(event)">✕</button>
+                </div>
+                <input class="popup-input" type="text" id="pop-name" placeholder="Your name" autocomplete="name">
+                <input class="popup-input" type="tel" id="pop-phone" placeholder="+91 phone number" autocomplete="tel">
+                <input class="popup-input" type="email" id="pop-email" placeholder="Email address" autocomplete="email">
+                <button class="popup-submit" onclick="submitPopupInquiry()">Send Enquiry →</button>
+                <p class="popup-note">⚡ We reply within 2 hours</p>
+            </div>
+            <button class="float-inquiry-btn" onclick="toggleFloatPopup(event)" aria-label="Quick inquiry"
+                id="floatInqBtn" title="Quick Enquiry">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.79 1.79 3.75 3.75M3 17.25V21h3.75l11.06-11.06-3.75-3.75z"
+                        fill="white" />
+                </svg>
+            </button>
         </div>
-        <div class="section">
-            <h3>From Enquiry to Installation in 4 Steps</h3>
-            <!-- Content for installation steps -->
+        <div class="whatsapp-float">
+            <div class="pulse-ring"></div>
+            <a href="https://wa.me/912240033385?text=Hi%20Space%20Planners%2C%20I%20want%20a%20quote"
+                class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#fff"
+                        d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8 29.7 7 26.9 7 24 7 14.6 14.6 7 24 7s17 7.6 17 17-7.6 17-17 17z" />
+                    <path fill="#fff"
+                        d="M33.5 28.2c-.5-.3-2.9-1.4-3.3-1.6-.4-.1-.7-.2-1 .3-.3.5-1.2 1.6-1.5 1.9-.3.3-.5.3-1 .1-.5-.3-2-.7-3.8-2.4-1.4-1.3-2.4-2.9-2.6-3.4-.3-.5 0-.8.2-1l.9-1c.2-.3.2-.5.4-.8.1-.3 0-.6-.1-.8-.1-.3-1-2.5-1.4-3.4-.4-.9-.8-.8-1-.8h-.9c-.3 0-.8.1-1.2.6-.4.5-1.6 1.6-1.6 3.8s1.7 4.4 1.9 4.7c.2.3 3.3 5 8 7 1.1.5 2 .8 2.6 1 1.1.3 2.1.3 2.9.2.9-.1 2.9-1.2 3.3-2.3.4-1.2.4-2.1.3-2.3-.1-.2-.4-.4-.9-.6z" />
+                </svg>
+            </a>
         </div>
     </div>
-<<<<<<< HEAD
-=======
     <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
     <!-- INQUIRY MODAL -->
@@ -148,6 +200,36 @@
         </div>
     </section>
 
+    <!-- BRUYNZEEL-STYLE INDUSTRY ICON STRIP -->
+    <div class="industry-strip">
+        <div class="industry-strip-inner">
+            <a href="products.html" class="industry-icon-card">
+                <span class="ind-icon">💊</span>
+                <span class="ind-label">Pharmaceutical</span>
+            </a>
+            <a href="products.html" class="industry-icon-card">
+                <span class="ind-icon">🏥</span>
+                <span class="ind-label">Healthcare</span>
+            </a>
+            <a href="products.html" class="industry-icon-card">
+                <span class="ind-icon">🏛️</span>
+                <span class="ind-label">Government</span>
+            </a>
+            <a href="products.html" class="industry-icon-card">
+                <span class="ind-icon">📦</span>
+                <span class="ind-label">Warehouse</span>
+            </a>
+            <a href="products.html" class="industry-icon-card">
+                <span class="ind-icon">🎓</span>
+                <span class="ind-label">Education</span>
+            </a>
+            <a href="products.html" class="industry-icon-card">
+                <span class="ind-icon">🏢</span>
+                <span class="ind-label">Corporate</span>
+            </a>
+        </div>
+    </div>
+
     <!-- STATS RIBBON -->
     <div class="stats-ribbon" role="region" aria-label="Company statistics">
         <div class="stats-grid">
@@ -169,54 +251,6 @@
             </div>
         </div>
     </div>
-
-    <!-- CLIENT LOGOS -->
-    <section class="clients-section">
-        <div class="clients-content">
-            <p class="clients-label">Trusted by India's leading organisations</p>
-            <div class="clients-logos">
-                <span class="client-logo">DRDO</span>
-                <span class="client-logo">ONGC</span>
-                <span class="client-logo">AIIMS</span>
-                <span class="client-logo">Tata Group</span>
-                <span class="client-logo">ISRO</span>
-                <span class="client-logo">Indian Railways</span>
-                <span class="client-logo">Sun Pharma</span>
-                <span class="client-logo">SBI</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTS SECTION -->
-    <section class="products-section" id="products">
-        <div class="products-content">
-            <div class="section-header-small reveal">
-                <span class="section-badge">Our Products</span>
-                <h2 class="section-title">Comprehensive Storage Solutions</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Engineered for durability, tailored to your
-                    industry</p>
-                <div class="accent-line"></div>
-            </div>
-            <div class="products-container">
-                <div class="products-grid" id="productsGrid"></div>
-                <div class="right-sidebar">
-                    <h3 class="sidebar-title">Filter by Type</h3>
-                    <ul class="category-list">
-                        <li><button class="category-btn active" onclick="filterProducts('Storage')">Storage</button>
-                        </li>
-                        <li><button class="category-btn" onclick="filterProducts('Racks')">Racks</button></li>
-                        <li><button class="category-btn" onclick="filterProducts('Lockers')">Lockers</button></li>
-                        <li><button class="category-btn" onclick="filterProducts('Systems')">Systems</button></li>
-                    </ul>
-                    <div style="margin-top:28px;">
-                        <a href="products.html" class="btn-primary"
-                            style="display:block;text-align:center;padding:13px 16px;border-radius:8px;">View All
-                            Products →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- STORAGE SYSTEMS FOR EVERY SECTOR -->
     <section class="storage-systems-section" id="sectors">
@@ -296,110 +330,284 @@
         </div>
     </section>
 
-    <!-- PRODUCT FINDER -->
-    <section class="product-finder-section" id="finder">
-        <div class="product-finder-content">
-            <div class="finder-wrapper">
-                <div class="finder-left reveal-left">
-                    <div class="section-header-small" style="text-align:left;">
-                        <span class="section-badge">Quick Finder</span>
-                        <h2 class="section-title">Find Your Perfect Storage Solution</h2>
-                        <p class="section-subtitle">Tell us your industry and storage needs — we'll recommend the exact
-                            system and deliver a free quote within 2 hours.</p>
-                        <div class="accent-line left"></div>
+
+
+
+
+    <!-- FROM ENQUIRY TO INSTALLATION IN 4 STEPS -->
+
+    <section class="process-section" id="process">
+
+        <div class="process-section-content">
+
+            <div class="section-header-small reveal text-center">
+
+                <span class="section-badge">How It Works</span>
+
+                <h2 class="section-title">From Enquiry to Installation in 4 Steps</h2>
+
+                <p class="section-subtitle" style="margin:0 auto 24px;">A turnkey experience &#x2014; just like global leaders Montel and Spacesaver, we handle everything.</p>
+
+                <div class="accent-line"></div>
+
+            </div>
+
+            <div class="process-steps-row">
+
+                <div class="process-step-item reveal">
+
+                    <div class="process-step-num">0.1</div>
+
+                    <div class="process-step-circle">
+
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="6" width="28" height="36" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="13" y1="16" x2="31" y2="16" stroke="currentColor" stroke-width="2"/><line x1="13" y1="21" x2="31" y2="21" stroke="currentColor" stroke-width="2"/><line x1="13" y1="26" x2="24" y2="26" stroke="currentColor" stroke-width="2"/><path d="M32 10l2 2-10 10-4 1 1-4Z" fill="currentColor"/></svg>
+
                     </div>
-                    <ul class="finder-benefits">
-                        <li><span>✦</span> Free space assessment at your facility</li>
-                        <li><span>✦</span> Quotation within 2 business hours</li>
-                        <li><span>✦</span> 3D layout design at no extra cost</li>
-                        <li><span>✦</span> Pan-India installation team</li>
-                    </ul>
+
+                    <h4>Free Space Assessment</h4>
+
+                    <p>Our engineers visit your facility, measure every dimension, and understand your access and compliance needs &#x2014; at zero cost.</p>
+
                 </div>
+
+                <div class="process-connector"></div>
+
+                <div class="process-step-item reveal delay-1">
+
+                    <div class="process-step-num">0.2</div>
+
+                    <div class="process-step-circle">
+
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/><polyline points="12,36 20,26 26,32 34,18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="34" y1="12" x2="34" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="29" y1="17" x2="39" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+
+                    </div>
+
+                    <h4>3D Design &amp; Quote</h4>
+
+                    <p>Receive a detailed 3D layout, exact specifications, and transparent pricing within 48 hours. No obligation.</p>
+
+                </div>
+
+                <div class="process-connector"></div>
+
+                <div class="process-step-item reveal delay-2">
+
+                    <div class="process-step-num">0.3</div>
+
+                    <div class="process-step-circle">
+
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="10" y="22" width="8" height="20" rx="1" fill="currentColor" opacity=".7"/><rect x="20" y="16" width="8" height="26" rx="1" fill="currentColor" opacity=".85"/><rect x="30" y="10" width="8" height="32" rx="1" fill="currentColor"/><line x1="6" y1="42" x2="42" y2="42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="6" y1="8" x2="6" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+
+                    </div>
+
+                    <h4>In-House Manufacturing</h4>
+
+                    <p>Every system is precision-manufactured at our facility using heavy-gauge galvanised steel with rigorous quality checks.</p>
+
+                </div>
+
+                <div class="process-connector"></div>
+
+                <div class="process-step-item reveal delay-3">
+
+                    <div class="process-step-num">0.4</div>
+
+                    <div class="process-step-circle">
+
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><polyline points="14,24 21,31 34,17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+                    </div>
+
+                    <h4>Professional Installation</h4>
+
+                    <p>Our trained crew handles delivery, assembly, safety testing, and handover &#x2014; with dedicated after-sales support.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- SCHEDULE ASSESSMENT -->
+
+    <section class="product-finder-section" id="finder">
+
+        <!-- Decorative blue shapes -->
+        <svg class="deco-shape" style="position:absolute;top:40px;left:20px;width:120px;height:120px;opacity:.12"
+            viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="40" stroke="#2979FF" stroke-width="4" />
+        </svg>
+        <svg class="deco-shape" style="position:absolute;top:180px;left:60px;width:80px;height:80px;opacity:.1"
+            viewBox="0 0 100 100" fill="none">
+            <path d="M20 80 A40 40 0 0 1 80 20" stroke="#2979FF" stroke-width="5" stroke-linecap="round" />
+        </svg>
+        <svg class="deco-shape" style="position:absolute;bottom:60px;left:30px;width:100px;height:100px;opacity:.08"
+            viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="35" stroke="#2979FF" stroke-width="4" />
+        </svg>
+        <svg class="deco-shape" style="position:absolute;top:60px;right:30px;width:140px;height:140px;opacity:.1"
+            viewBox="0 0 100 100" fill="none">
+            <path d="M80 20 A40 40 0 0 1 20 80" stroke="#2979FF" stroke-width="4" stroke-linecap="round" />
+        </svg>
+        <svg class="deco-shape" style="position:absolute;top:220px;right:60px;width:90px;height:90px;opacity:.12"
+            viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="30" stroke="#2979FF" stroke-width="5" />
+        </svg>
+        <svg class="deco-shape" style="position:absolute;bottom:40px;right:80px;width:110px;height:110px;opacity:.07"
+            viewBox="0 0 100 100" fill="none">
+            <path d="M25 75 A35 35 0 0 1 75 25" stroke="#2979FF" stroke-width="4" stroke-linecap="round" />
+        </svg>
+
+        <div class="product-finder-content">
+
+            <div class="finder-wrapper">
+
+                <div class="finder-left reveal-left">
+
+                    <div class="section-header-small" style="text-align:left;">
+
+                        <span class="section-badge">Get Started</span>
+
+                        <h2 class="section-title">Schedule a Free Space Assessment</h2>
+
+                        <p class="section-subtitle">Tell us your industry and storage needs &#x2014; we will visit your
+                            facility, design a custom solution, and deliver a free quote within 2 hours.</p>
+
+                        <div class="accent-line left"></div>
+
+                    </div>
+
+                    <ul class="finder-benefits">
+
+                        <li><span>&#x2726;</span> Free on-site facility assessment</li>
+
+                        <li><span>&#x2726;</span> Detailed quotation within 2 hours</li>
+
+                        <li><span>&#x2726;</span> 3D layout design at no extra cost</li>
+
+                        <li><span>&#x2726;</span> Pan-India installation team</li>
+
+                    </ul>
+
+                </div>
+
                 <div class="finder-right reveal-right">
+
                     <div class="finder-form-box">
-                        <h3 class="finder-form-title">Get a Custom Recommendation</h3>
-                        <p class="finder-form-subtitle">2-minute form · Free consultation included</p>
+
+                        <h3 class="finder-form-title">Get Your Free Assessment</h3>
+
+                        <p class="finder-form-subtitle">2-minute form &#xB7; We will visit your facility at no cost</p>
+
                         <form class="finder-form" id="product-finder-form" onsubmit="submitProductFinder(event)">
+
                             <div class="form-group">
+
                                 <label for="find-industry">Your Industry</label>
+
                                 <select id="find-industry" required>
-                                    <option value="">Select industry…</option>
+
+                                    <option value="">Select industry&#x2026;</option>
+
                                     <option>Pharmaceutical</option>
+
                                     <option>Hospital / Healthcare</option>
+
                                     <option>Government / PSU</option>
+
                                     <option>Warehouse / Logistics</option>
+
                                     <option>Educational Institution</option>
+
                                     <option>Corporate Office</option>
+
                                     <option>Other</option>
+
                                 </select>
+
                             </div>
+
                             <div class="form-group">
+
                                 <label for="find-type">Storage Type Needed</label>
+
                                 <select id="find-type" required>
-                                    <option value="">Select type…</option>
+
+                                    <option value="">Select type&#x2026;</option>
+
                                     <option>Mobile Compactors</option>
+
                                     <option>Pallet / Heavy Racks</option>
+
                                     <option>Industrial Lockers</option>
+
                                     <option>Filing Systems</option>
+
                                     <option>Mezzanine Floors</option>
-                                    <option>Not Sure — Need Advice</option>
+
+                                    <option>Not Sure &#x2014; Need Advice</option>
+
                                 </select>
+
                             </div>
+
                             <div class="form-group">
+
                                 <label for="find-phone">Your Phone Number</label>
+
                                 <input type="tel" id="find-phone" placeholder="+91 XXXXX XXXXX" required
                                     style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:white;">
+
                             </div>
-                            <button type="submit" class="finder-submit-btn">Get My Free Recommendation →</button>
+
+                            <button type="submit" class="finder-submit-btn">Schedule My Free Assessment
+                                &#x2192;</button>
+
                         </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div class="products-content">
+            <div class="section-header-small reveal">
+                <span class="section-badge">Our Products</span>
+                <h2 class="section-title">Comprehensive Storage Solutions</h2>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Engineered for durability, tailored to your
+                    industry</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="products-container">
+                <div class="products-grid" id="productsGrid"></div>
+                <div class="right-sidebar">
+                    <h3 class="sidebar-title">Filter by Type</h3>
+                    <ul class="category-list">
+                        <li><button class="category-btn active" onclick="filterProducts('Storage')">Storage</button>
+                        </li>
+                        <li><button class="category-btn" onclick="filterProducts('Racks')">Racks</button></li>
+                        <li><button class="category-btn" onclick="filterProducts('Lockers')">Lockers</button></li>
+                        <li><button class="category-btn" onclick="filterProducts('Systems')">Systems</button></li>
+                    </ul>
+                    <div style="margin-top:28px;">
+                        <a href="products.html" class="btn-primary"
+                            style="display:block;text-align:center;padding:13px 16px;border-radius:8px;">View All
+                            Products →</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="projects-section" id="projects">
-        <div class="projects-content">
-            <div class="section-header-small reveal">
-                <span class="section-badge">Our Work</span>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's leading
-                    organisations</p>
-                <div class="accent-line"></div>
-            </div>
-            <div class="projects-container">
-                <div class="sidebar">
-                    <h3 class="sidebar-title">Categories</h3>
-                    <ul class="category-list">
-                        <li><button class="category-btn active"
-                                onclick="filterProjects('Enterprise')">Enterprise</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Government')">Government</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Industrial')">Industrial</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Education')">Education</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Healthcare')">Healthcare</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Retail')">Retail</button></li>
-                    </ul>
-                </div>
-                <div class="projects-grid" id="projectsGrid"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CASE STUDIES -->
-    <section class="case-studies-section" id="case-studies">
-        <div class="case-studies-content">
-            <div class="section-header reveal">
-                <span class="section-badge">Success Stories</span>
-                <h2 class="section-title">Case Studies</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Real-world results from our installations across
-                    India</p>
-                <div class="accent-line"></div>
-            </div>
-            <div class="case-studies-wrapper">
-                <button class="scroll-nav left" onclick="scrollCaseStudies(-400)" aria-label="Scroll left">❮</button>
-                <div class="case-studies-scroll" id="caseStudiesScroll"></div>
-                <button class="scroll-nav right" onclick="scrollCaseStudies(400)" aria-label="Scroll right">❯</button>
             </div>
         </div>
     </section>
@@ -456,17 +664,78 @@
         </div>
     </section>
 
-    <!-- MAP SECTION -->
-    <section class="map-section" id="reach">
-        <div class="map-section-content">
-            <div class="section-header reveal">
-                <span class="section-badge">Pan-India Presence</span>
-                <h2 class="section-title">Our Reach Across India</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Serving clients in every major city with local
-                    dealer networks</p>
+
+    <!-- CLIENT LOGOS - Horizontal Scroll with Local SVG Logos -->
+    <section class="clients-section">
+        <div class="clients-content">
+            <p class="clients-label">Trusted by India's leading organisations</p>
+            <div class="clients-scroll-wrapper">
+                <button class="clients-nav left" onclick="scrollClients(-300)" aria-label="Scroll left">&#x276E;</button>
+                <div class="clients-scroll" id="clientsScroll">
+                    <div class="client-logo-item"><img class="logo-img" src="logos/drdo.svg" alt="DRDO"><span class="logo-name">DRDO</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/ongc.svg" alt="ONGC"><span class="logo-name">ONGC</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/aiims.svg" alt="AIIMS"><span class="logo-name">AIIMS</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/tata.svg" alt="Tata Group"><span class="logo-name">Tata Group</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/isro.svg" alt="ISRO"><span class="logo-name">ISRO</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/indianrailways.svg" alt="Indian Railways"><span class="logo-name">Indian Railways</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/sunpharma.svg" alt="Sun Pharma"><span class="logo-name">Sun Pharma</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/sbi.svg" alt="SBI"><span class="logo-name">SBI</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/lt.svg" alt="L&amp;T"><span class="logo-name">L&amp;T</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/reliance.svg" alt="Reliance"><span class="logo-name">Reliance</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/kokilaben.svg" alt="Kokilaben"><span class="logo-name">Kokilaben</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/iitb.svg" alt="IIT Bombay"><span class="logo-name">IIT Bombay</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/ntpc.svg" alt="NTPC"><span class="logo-name">NTPC</span></div>
+                    <div class="client-logo-item"><img class="logo-img" src="logos/rbi.svg" alt="RBI"><span class="logo-name">RBI</span></div>
+                </div>
+                <button class="clients-nav right" onclick="scrollClients(300)" aria-label="Scroll right">&#x276F;</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section" id="projects">
+        <div class="projects-content">
+            <div class="section-header-small reveal">
+                <span class="section-badge">Our Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's leading
+                    organisations</p>
                 <div class="accent-line"></div>
             </div>
-            <div id="map" class="map-container"></div>
+            <div class="projects-container">
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="category-list">
+                        <li><button class="category-btn active"
+                                onclick="filterProjects('Enterprise')">Enterprise</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Government')">Government</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Industrial')">Industrial</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Education')">Education</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Healthcare')">Healthcare</button></li>
+                        <li><button class="category-btn" onclick="filterProjects('Retail')">Retail</button></li>
+                    </ul>
+                </div>
+                <div class="projects-grid" id="projectsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="case-studies-section" id="case-studies">
+        <div class="case-studies-content">
+            <div class="section-header reveal">
+                <span class="section-badge">Success Stories</span>
+                <h2 class="section-title">Case Studies</h2>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Real-world results from our installations across
+                    India</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="case-studies-wrapper">
+                <button class="scroll-nav left" onclick="scrollCaseStudies(-400)" aria-label="Scroll left">❮</button>
+                <div class="case-studies-scroll" id="caseStudiesScroll"></div>
+                <button class="scroll-nav right" onclick="scrollCaseStudies(400)" aria-label="Scroll right">❯</button>
+            </div>
         </div>
     </section>
 
@@ -726,6 +995,7 @@
             if (!wasActive) item.classList.add('active');
         }
         function scrollCaseStudies(amt) { document.getElementById('caseStudiesScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
+        function scrollClients(amt) { document.getElementById('clientsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
 
         /* ── STATS COUNTER ── */
         function animateCounter(el, target, suffix = '') {
@@ -880,6 +1150,6 @@
             document.addEventListener('keyup', e => { if (e.key === 'Enter' && e.target.classList.contains('product-card')) e.target.click(); });
         });
     </script>
->>>>>>> parent of 1b7a1b0 (Changes)
 </body>
+
 </html>

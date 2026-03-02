@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" fill="white"/>
+  <!-- Lightning bolt -->
+  <polygon points="34,8 18,42 28,42 22,72 46,34 34,34" fill="#FF6600"/>
+  <text x="58" y="38" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1A3A6A">NTPC</text>
+  <text x="58" y="56" font-family="Arial, sans-serif" font-size="10" fill="#555">National Thermal Power</text>
+</svg>

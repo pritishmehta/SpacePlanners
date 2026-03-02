@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" fill="white"/>
+  <!-- Simple ISRO emblem - orbit + dot -->
+  <circle cx="28" cy="40" r="8" fill="#FF6600"/>
+  <ellipse cx="28" cy="40" rx="24" ry="12" fill="none" stroke="#003087" stroke-width="3" transform="rotate(-30 28 40)"/>
+  <ellipse cx="28" cy="40" rx="24" ry="12" fill="none" stroke="#003087" stroke-width="3" transform="rotate(30 28 40)"/>
+  <text x="60" y="47" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#003087">ISRO</text>
+</svg>

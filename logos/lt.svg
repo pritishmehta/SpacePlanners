@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" fill="white"/>
+  <!-- L&T red diamond -->
+  <polygon points="28,8 48,40 28,72 8,40" fill="#CC0000"/>
+  <text x="28" y="48" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="white" text-anchor="middle">L&amp;T</text>
+  <text x="60" y="47" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#CC0000">Larsen &amp;</text>
+  <text x="60" y="64" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#CC0000">Toubro</text>
+</svg>

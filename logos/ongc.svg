@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" fill="white"/>
+  <circle cx="28" cy="40" r="22" fill="none" stroke="#006400" stroke-width="4"/>
+  <circle cx="28" cy="40" r="10" fill="#006400"/>
+  <text x="58" y="47" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#006400">ONGC</text>
+</svg>
