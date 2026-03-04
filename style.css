@@ -450,7 +450,7 @@ header {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, .5);
-  z-index: 850;
+  z-index: 950;
   opacity: 0;
   transition: opacity .3s;
 }
@@ -467,7 +467,7 @@ header {
   width: min(320px, 85vw);
   height: 100vh;
   background: var(--white);
-  z-index: 860;
+  z-index: 960;
   transition: right .35s cubic-bezier(.4, 0, .2, 1);
   display: flex;
   flex-direction: column;
@@ -3655,11 +3655,44 @@ footer {
   }
 
   .stats-ribbon {
-    padding: 24px 20px;
+    padding: 24px 20px 0px 20px;
+    margin-top: -32px;
   }
 
-  .stats-grid {
+  /* 1. Stats ribbon: Stacks vertically instead of horizontal scroll */
+  .stats-strip {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0;
+    padding-bottom: 24px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .stat-strip-item {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Add border right to odd items (left column) */
+  .stat-strip-item:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+
+  /* Remove bottom border from last row (items 5 and 6) */
+  .stat-strip-item:nth-child(5),
+  .stat-strip-item:nth-child(6) {
+    border-bottom: none;
+  }
+
+  /* Hide the desktop scroll hint dot */
+  .stats-strip-hint {
+    display: none;
   }
 
   .products-section,
@@ -3674,9 +3707,16 @@ footer {
     padding: 56px 0;
   }
 
+  /* 4. Products: Sidebar filters at top */
   .products-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 32px;
+  }
+
+  /* Ensure the sidebar comes first visually */
+  .products-container>.right-sidebar {
+    order: -1;
   }
 
   .right-sidebar {
@@ -3707,12 +3747,52 @@ footer {
     width: auto;
   }
 
+  /* 2. Sector Cards: Reduced height & font sizes */
+  .sector-card {
+    height: 225px;
+    padding: 20px 16px;
+    gap: 8px;
+  }
+
   .sectors-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sector-icon {
+    font-size: 28px;
+  }
+
+  .sector-name {
+    font-size: 16px;
+  }
+
+  .sector-desc {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .sector-benefits li {
+    font-size: 10px;
+    padding-left: 12px;
+  }
+
+  /* 3. 4 Steps process: 2x2 grid in mobile */
+  .process-cards-track {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .process-card {
+    padding: 16px 12px;
+  }
+
+  .process-card-arrow {
+    display: none;
   }
 
   .finder-wrapper {
-    gap: 36px;
+    gap: 16px;
   }
 
   .finder-form-box {
@@ -3720,7 +3800,7 @@ footer {
   }
 
   .case-study-card {
-    flex: 0 0 300px;
+    flex: 0 0 100px;
   }
 
   .scroll-nav.left {
