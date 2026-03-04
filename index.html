@@ -23,6 +23,14 @@
 
 <body>
 
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <span class="logo logo-loader">Space<span>Planners</span></span>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
     <div id="toast-container"></div>
     <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
     <div class="mobile-nav" id="mobileNav">
@@ -1281,6 +1289,18 @@
             }, { threshold: 0.2 });
             obs.observe(strip);
         })();
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }, 400);
+            }
+        });
     </script>
 </body>
 

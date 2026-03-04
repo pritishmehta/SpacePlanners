@@ -115,6 +115,78 @@ ul {
   text-align: center;
 }
 
+/* ── Preloader ── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--white);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+.preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo-loader {
+  font-size: 40px;
+  animation: pulseLogo 1.2s infinite alternate ease-in-out;
+}
+
+.loader-line {
+  width: 80px;
+  height: 4px;
+  background: rgba(229, 57, 53, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  height: 100%;
+  width: 50%;
+  background: var(--red);
+  animation: lineSweep 1.5s infinite ease-in-out;
+  border-radius: 4px;
+}
+
+@keyframes pulseLogo {
+  0% {
+    transform: translateY(0) scale(0.98);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-4px) scale(1.02);
+    opacity: 1;
+  }
+}
+
+@keyframes lineSweep {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
 /* ── Toast Notification ── */
 #toast-container {
   position: fixed;
