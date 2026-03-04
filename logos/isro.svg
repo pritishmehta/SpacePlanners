@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  <rect width="220" height="80" fill="white"/>
+  <!-- ISRO emblem: stylised rocket/satellite in saffron/navy -->
+  <g transform="translate(8, 5)">
+    <!-- Orbit ring -->
+    <ellipse cx="30" cy="35" rx="22" ry="10" fill="none" stroke="#FF6600" stroke-width="3" transform="rotate(-30, 30, 35)"/>
+    <!-- Planet -->
+    <circle cx="30" cy="35" r="10" fill="#003087"/>
+    <!-- Rocket -->
+    <polygon points="30,8 36,28 24,28" fill="#FF6600"/>
+    <rect x="26" y="26" width="8" height="8" rx="1" fill="#FF6600"/>
+    <!-- Fins -->
+    <polygon points="24,32 18,40 26,36" fill="#FF6600"/>
+    <polygon points="36,32 42,40 34,36" fill="#FF6600"/>
+  </g>
+  <text x="72" y="42" font-family="Arial Black, sans-serif" font-size="26" font-weight="900" fill="#003087">ISRO</text>
+  <text x="72" y="58" font-family="Arial, sans-serif" font-size="7.5" fill="#003087" letter-spacing="0.3">INDIAN SPACE RESEARCH</text>
+  <text x="72" y="68" font-family="Arial, sans-serif" font-size="7.5" fill="#003087" letter-spacing="0.3">ORGANISATION</text>
+</svg>

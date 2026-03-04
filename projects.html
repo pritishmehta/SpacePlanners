@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Space Planners India | Storage Implementation Projects</title>
+    <meta name="description"
+        content="Explore Space Planners India's featured projects across Enterprise, Industrial, Government, Education, Healthcare and Retail sectors across India.">
+    <meta name="keywords"
+        content="storage projects India, industrial storage implementation, government archive storage, hospital storage systems, warehouse rack projects India">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.svg">
+    <link rel="canonical" href="https://spaceplannersindia.in/projects.html">
+    <meta property="og:title" content="Projects — Space Planners India">
+    <meta property="og:description"
+        content="2000+ storage projects delivered across India for government, healthcare, corporate, and industrial clients.">
+    <meta property="og:url" content="https://spaceplannersindia.in/projects.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="toast-container"></div>
+    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo">Space<span>Planners</span></span>
+            <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+        </div>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="about.html">🏢 About Us</a></li>
+            <li><a href="products.html">📦 Products</a></li>
+            <li><a href="projects.html" class="active">🏗️ Projects</a></li>
+            <li><a href="case-studies.html">📋 Case Studies</a></li>
+            <li><a href="index.html#faq">❓ FAQ</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
+            <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-top">
+            <div class="header-top-left">
+                <span>📍 Mumbai, India</span>
+                <span>🏆 20+ Years of Excellence</span>
+            </div>
+            <div class="header-top-right">
+                <a href="mailto:sales@spaceplannersindia.in">✉️ sales@spaceplannersindia.in</a>
+            </div>
+        </div>
+        <div class="header-main">
+            <a href="index.html" class="logo">Space<span>Planners</span></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Free Quote</button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"
+                    onclick="openMobileNav()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="float-stack" id="floatStack">
+        <div style="position:relative;">
+            <div class="float-inquiry-popup" id="floatPopup">
+                <div class="popup-header">
+                    <p class="popup-title">Quick Enquiry</p>
+                    <button class="popup-close" onclick="toggleFloatPopup(event)">✕</button>
+                </div>
+                <input class="popup-input" type="text" id="pop-name" placeholder="Your name" autocomplete="name">
+                <input class="popup-input" type="tel" id="pop-phone" placeholder="+91 phone number" autocomplete="tel">
+                <input class="popup-input" type="email" id="pop-email" placeholder="Email address" autocomplete="email">
+                <button class="popup-submit" onclick="submitPopupInquiry()">Send Enquiry →</button>
+                <p class="popup-note">⚡ We reply within 2 hours</p>
+            </div>
+            <button class="float-inquiry-btn" onclick="toggleFloatPopup(event)" aria-label="Quick inquiry"
+                id="floatInqBtn" title="Quick Enquiry">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.79 1.79 3.75 3.75M3 17.25V21h3.75l11.06-11.06-3.75-3.75z"
+                        fill="white" />
+                </svg>
+            </button>
+        </div>
+        <div class="whatsapp-float">
+            <div class="pulse-ring"></div>
+            <a href="https://wa.me/912240033385?text=Hi%20Space%20Planners%2C%20I%20want%20a%20quote"
+                class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#fff"
+                        d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8 29.7 7 26.9 7 24 7 14.6 14.6 7 24 7s17 7.6 17 17-7.6 17-17 17z" />
+                    <path fill="#fff"
+                        d="M33.5 28.2c-.5-.3-2.9-1.4-3.3-1.6-.4-.1-.7-.2-1 .3-.3.5-1.2 1.6-1.5 1.9-.3.3-.5.3-1 .1-.5-.3-2-.7-3.8-2.4-1.4-1.3-2.4-2.9-2.6-3.4-.3-.5 0-.8.2-1l.9-1c.2-.3.2-.5.4-.8.1-.3 0-.6-.1-.8-.1-.3-1-2.5-1.4-3.4-.4-.9-.8-.8-1-.8h-.9c-.3 0-.8.1-1.2.6-.4.5-1.6 1.6-1.6 3.8s1.7 4.4 1.9 4.7c.2.3 3.3 5 8 7 1.1.5 2 .8 2.6 1 1.1.3 2.1.3 2.9.2.9-.1 2.9-1.2 3.3-2.3.4-1.2.4-2.1.3-2.3-.1-.2-.4-.4-.9-.6z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+    <!-- INQUIRY MODAL -->
+    <div class="modal" id="inquiryModal" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeInquiryModal()">✕</button>
+            <h2 class="modal-title">Get a Free Quote</h2>
+            <form onsubmit="submitInquiry(event)">
+                <div class="form-group"><label for="pr-name">Full Name *</label><input type="text" id="pr-name"
+                        placeholder="Your name" required autocomplete="name"></div>
+                <div class="form-group"><label for="pr-email">Email *</label><input type="email" id="pr-email"
+                        placeholder="your@email.com" required autocomplete="email"></div>
+                <div class="form-group"><label for="pr-phone">Phone *</label><input type="tel" id="pr-phone"
+                        placeholder="+91 XXXXX XXXXX" required autocomplete="tel"></div>
+                <div class="form-group"><label for="pr-msg">Message</label><textarea id="pr-msg"
+                        placeholder="Tell us about your project needs…"></textarea></div>
+                <button type="submit" class="submit-btn">Send Inquiry →</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PROJECT DETAIL MODAL -->
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true">
+        <div class="modal-content product-modal-content">
+            <button class="close-btn" onclick="closeProjectModal()">✕</button>
+            <div id="projectDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <h1 class="hero-title">Our Projects</h1>
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">/</span><span>Projects</span>
+        </nav>
+    </section>
+
+    <!-- FILTER -->
+    <div class="filter-section" role="navigation" aria-label="Project filter">
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProjects('All')">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('Enterprise')">Enterprise</button>
+            <button class="filter-btn" onclick="filterProjects('Government')">Government</button>
+            <button class="filter-btn" onclick="filterProjects('Industrial')">Industrial</button>
+            <button class="filter-btn" onclick="filterProjects('Education')">Education</button>
+            <button class="filter-btn" onclick="filterProjects('Healthcare')">Healthcare</button>
+            <button class="filter-btn" onclick="filterProjects('Retail')">Retail</button>
+        </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <section class="page-section">
+        <div class="page-content">
+            <div class="section-header-small reveal">
+                <span class="section-badge" id="filterLabel">All Projects</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's leading
+                    organisations</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="projects-grid" id="projectsGrid" style="margin-top:40px;"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-footer">Space<span>Planners</span></div>
+                <p>India's trusted manufacturer of premium storage solutions since 2004.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="products.html">Mobile Compactors</a></li>
+                    <li><a href="products.html">Industrial Racks</a></li>
+                    <li><a href="products.html">Storage Lockers</a></li>
+                    <li><a href="products.html">Filing Cabinets</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="footer-contact">
+                    <a href="tel:+912240033385"><span class="icon">📞</span>+91-22-40033385</a>
+                    <a href="mailto:sales@spaceplannersindia.in"><span
+                            class="icon">✉️</span>sales@spaceplannersindia.in</a>
+                    <a href="https://wa.me/912240033385" target="_blank" rel="noopener"><span
+                            class="icon">💬</span>WhatsApp Us</a>
+                    <a href="#"><span class="icon">📍</span>Mumbai, Maharashtra, India</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Space Planners India. All rights reserved.</p>
+            <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+        </div>
+    </footer>
+
+    <script>
+        const projects = [
+            { id: 1, title: "Leading PSU Headquarters, Delhi", category: "Enterprise", desc: "Complete modular compactor storage system for a major financial institution's head office", scale: "50,000 sq ft", img: "project_corporate.png", details: "Replaced outdated shelving with state-of-the-art mobile compactors, increasing storage capacity by 200% while reducing floor space usage by 48%." },
+            { id: 2, title: "Central Government Archive Facility", category: "Government", desc: "Secure document management system for a national archives ministry", scale: "75,000 sq ft", img: "project_corporate.png", details: "Designed a fully indexed filing system capable of storing 5 million documents with role-based access. GeM portal compliant procurement." },
+            { id: 3, title: "Automotive Manufacturer Warehouse", category: "Industrial", desc: "High-density pallet rack system for a leading Indian auto component supplier", scale: "1,00,000 sq ft", img: "project_warehouse.png", details: "Installed drive-in and selective pallet racking with OSHA-compliant safety accessories. Improved picking efficiency by 35%." },
+            { id: 4, title: "University Library Network", category: "Education", desc: "Integrated mobile shelving for a 3-campus university library system", scale: "35,000 sq ft", img: "project_corporate.png", details: "Accommodated 30% more books without extending the building. Integrated with the library's digital catalog system for seamless access." },
+            { id: 5, title: "Multi-Specialty Hospital Record Room", category: "Healthcare", desc: "NABH-aligned secure patient records storage for a hospital chain", scale: "20,000 sq ft", img: "project_corporate.png", details: "Installed steel compactors with restricted access, meeting NABH guidelines. Patient file retrieval time reduced from 12 minutes to 3 minutes." },
+            { id: 6, title: "Pan-India Retail Chain Hub", category: "Retail", desc: "Mobile compactor storage for inventory management across 50+ stores", scale: "60,000 sq ft", img: "project_warehouse.png", details: "Standardized storage across all distribution points, reducing inventory loss by 18% and auditing time by 40%." },
+            { id: 7, title: "IT Park Corporate Campus, Pune", category: "Enterprise", desc: "Modern integrated storage for a fast-growing technology company", scale: "25,000 sq ft", img: "project_corporate.png", details: "Custom-color steel lockers, filing cabinets, and office storage cupboards installed across 8 floors. 2-week delivery and installation." },
+            { id: 8, title: "FMCG Manufacturing Plant, Gujrat", category: "Industrial", desc: "High-capacity slotted angle and pallet racks for a production facility", scale: "1,20,000 sq ft", img: "project_warehouse.png", details: "Multi-level mezzanine with pallet racking below doubled the available storage without any civil construction. Delivered in 6 weeks." }
+        ];
+        let currentFilter = 'All';
+        function filterProjects(cat) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', (cat === 'All' && b.textContent === 'All Projects') || b.textContent === cat));
+            document.getElementById('filterLabel').textContent = cat === 'All' ? 'All Projects' : cat;
+            renderProjects();
+        }
+        function renderProjects() {
+            const f = currentFilter === 'All' ? projects : projects.filter(p => p.category === currentFilter);
+            document.getElementById('projectsGrid').innerHTML = f.length ? f.map(p => `
+    <div class="project-card" onclick='openProjectModal(${JSON.stringify(p).replace(/'/g, "\\'")})'  role="button" tabindex="0">
+      <div class="project-image"><img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'project-image-placeholder\\'></div>'"></div>
+      <div class="project-badge">${p.category}</div>
+      <div class="project-content">
+        <h3 class="project-title">${p.title}</h3>
+        <p class="project-description">${p.desc}</p>
+        <span class="project-scale">📐 ${p.scale}</span>
+      </div>
+    </div>`).join('') : `<div style="padding:40px;text-align:center;color:var(--light);grid-column:1/-1">No projects in this category yet. <a href="tel:+912240033385" style="color:var(--red)">Call us</a> to discuss your project.</div>`;
+        }
+        function openProjectModal(p) {
+            document.getElementById('projectDetailContent').innerHTML = `
+    <h2 class="modal-title">${p.title}</h2>
+    <span class="section-badge" style="margin-bottom:16px;display:inline-block;">${p.category}</span>
+    <div class="product-detail-image"><img src="${p.img}" alt="${p.title}" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)'"></div>
+    <p style="color:var(--light);margin-bottom:18px;font-size:14px;line-height:1.7;">${p.details}</p>
+    <p style="font-weight:600;color:var(--dark);margin-bottom:20px;">📐 Project Scale: ${p.scale}</p>
+    <div class="modal-buttons">
+      <button class="modal-btn" onclick="closeProjectModal();openInquiryModal()">📧 Similar Project Inquiry</button>
+      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385','_blank')">💬 WhatsApp</button>
+    </div>`;
+            document.getElementById('projectModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeProjectModal() { document.getElementById('projectModal').classList.remove('active'); document.body.style.overflow = ''; }
+        function showToast(msg, type = 'success') {
+            const t = document.createElement('div');
+            t.className = `toast ${type}`;
+            t.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span>${msg}</span>`;
+            document.getElementById('toast-container').appendChild(t);
+            requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
+            setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
+        }
+        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
+        function submitInquiry(e) { e.preventDefault(); showToast("Thank you! We'll contact you within 2 hours."); closeInquiryModal(); e.target.reset(); }
+        function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.getElementById('mobileOverlay').classList.add('open'); document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+        function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.getElementById('mobileOverlay').classList.remove('open'); document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+        function toggleFloatPopup(e) { e.stopPropagation(); const p = document.getElementById('floatPopup'); const b = document.getElementById('floatInqBtn'); const o = p.classList.toggle('show'); b.setAttribute('aria-expanded', o); }
+        document.addEventListener('click', e => { const p = document.getElementById('floatPopup'); const s = document.getElementById('floatStack'); if (p && p.classList.contains('show') && !s.contains(e.target)) { p.classList.remove('show'); document.getElementById('floatInqBtn').setAttribute('aria-expanded', 'false'); } });
+        function submitPopupInquiry() { const n = document.getElementById('pop-name').value.trim(); const ph = document.getElementById('pop-phone').value.trim(); if (!n || !ph) { showToast('Please enter your name and phone number.', 'error'); return; } showToast('Thank you ' + n + '! We\'ll call you within 2 hours.'); document.getElementById('floatPopup').classList.remove('show');['pop-name', 'pop-phone', 'pop-email'].forEach(id => document.getElementById(id).value = ''); }
+        const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold: .12 });
+        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        const btt = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProjectModal(); closeMobileNav(); } });
+        ['inquiryModal', 'projectModal'].forEach(id => { document.getElementById(id).addEventListener('click', function (e) { if (e.target === this) { this.id === 'inquiryModal' ? closeInquiryModal() : closeProjectModal(); } }); });
+        document.addEventListener('DOMContentLoaded', renderProjects);
+    </script>
+</body>
+
+</html>
