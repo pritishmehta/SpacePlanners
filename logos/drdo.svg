@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <rect width="200" height="80" fill="white"/>
-  <polygon points="28,12 50,24 50,56 28,68 6,56 6,24" fill="none" stroke="#8B0000" stroke-width="4"/>
-  <text x="28" y="46" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B0000" text-anchor="middle">DRDO</text>
-  <text x="65" y="38" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B0000">DRDO</text>
-  <text x="65" y="55" font-family="Arial, sans-serif" font-size="9" fill="#555">Defence Research &amp;</text>
-  <text x="65" y="66" font-family="Arial, sans-serif" font-size="9" fill="#555">Development Org.</text>
-</svg>

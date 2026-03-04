@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <rect width="200" height="80" fill="white"/>
-  <!-- Tata wordmark style -->
-  <text x="20" y="55" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#003087" letter-spacing="2">TATA</text>
-  <rect x="20" y="62" width="125" height="3" fill="#003087"/>
-</svg>
