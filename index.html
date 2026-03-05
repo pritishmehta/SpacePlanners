@@ -1035,43 +1035,70 @@
 
     <!-- CASE STUDIES -->
     <section class="case-studies-section" id="case-studies">
-        <!-- RESULTS HIGHLIGHT SECTION -->
-        <div class="results-highlight-section">
+        <!-- SERVICE COVERAGE MAP SECTION -->
+        <div class="service-coverage-section">
             <div class="case-studies-content">
                 <div class="section-header-small reveal text-center" style="margin-bottom: 48px;">
-                    <span class="section-badge">Real Results</span>
-                    <h2 class="section-title">Proven Success Across India's Leading Organizations</h2>
-                    <p class="section-subtitle" style="margin:0 auto 24px;">Measurable outcomes from 500+ installations</p>
+                    <span class="section-badge">Service Locations</span>
+                    <h2 class="section-title">Our Service Coverage Across India</h2>
+                    <p class="section-subtitle" style="margin:0 auto 24px;">Serving 500+ organizations across major cities</p>
                     <div class="accent-line"></div>
                 </div>
 
-                <!-- Results Grid Dashboard -->
-                <div class="results-dashboard" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:56px;">
-                    <div class="result-card reveal">
-                        <div class="result-icon">📉</div>
-                        <div class="result-metric">50%</div>
-                        <div class="result-label">Average Floor Space Saved</div>
-                        <div class="result-detail">Across all sectors</div>
+                <!-- India Map Container -->
+                <div class="india-map-container reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;margin-bottom:56px;">
+                    <!-- Map -->
+                    <div class="map-wrapper" style="position:relative;background:linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:1px solid rgba(229,57,53,0.08);display:flex;flex-direction:column;">
+                        <div id="serviceMap" style="width:100%;height:100%;min-height:450px;background:#e8e5e0;position:relative;"></div>
                     </div>
-                    <div class="result-card reveal delay-1">
-                        <div class="result-icon">⚡</div>
-                        <div class="result-metric">65%</div>
-                        <div class="result-label">Faster File Retrieval</div>
-                        <div class="result-detail">Government & Banking</div>
-                    </div>
-                    <div class="result-card reveal delay-2">
-                        <div class="result-icon">💰</div>
-                        <div class="result-metric">40%</div>
-                        <div class="result-label">Logistics Cost Reduction</div>
-                        <div class="result-detail">Retail & Distribution</div>
-                    </div>
-                    <div class="result-card reveal delay-3">
-                        <div class="result-icon">✓</div>
-                        <div class="result-metric">100%</div>
-                        <div class="result-label">Compliance Success Rate</div>
-                        <div class="result-detail">Healthcare & Government</div>
+
+                    <!-- Service Locations List -->
+                    <div class="service-locations-list">
+                        <div style="margin-bottom:36px;">
+                            <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px;color:#1a1a1a;">Service Coverage</h3>
+                            <p style="font-size:15px;color:#666;line-height:1.6;">Our footprint spans India's major metros and beyond</p>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:28px;">
+                            <div class="location-card" style="padding:20px;background:#fff;border-left:5px solid #ff6b35;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(255,107,53,0.1);" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(255,107,53,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                                <div style="font-weight:700;font-size:15px;color:#ff6b35;margin-bottom:6px;">🏢 Delhi NCR</div>
+                                <div style="font-size:13px;color:#888;font-weight:500;">100+ Corporate Clients</div>
+                            </div>
+                            <div class="location-card" style="padding:20px;background:#fff;border-left:5px solid #0066cc;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(0,102,204,0.1);" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(0,102,204,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                                <div style="font-weight:700;font-size:15px;color:#0066cc;margin-bottom:6px;">🏙️ Mumbai</div>
+                                <div style="font-size:13px;color:#888;font-weight:500;">80+ Retail & Finance</div>
+                            </div>
+                            <div class="location-card" style="padding:20px;background:#fff;border-left:5px solid #00a86b;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(0,168,107,0.1);" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(0,168,107,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                                <div style="font-weight:700;font-size:15px;color:#00a86b;margin-bottom:6px;">🌴 Bangalore</div>
+                                <div style="font-size:13px;color:#888;font-weight:500;">120+ Tech & Healthcare</div>
+                            </div>
+                            <div class="location-card" style="padding:20px;background:#fff;border-left:5px solid #ff9800;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(255,152,0,0.1);" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(255,152,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                                <div style="font-weight:700;font-size:15px;color:#ff9800;margin-bottom:6px;">🕌 Hyderabad</div>
+                                <div style="font-size:13px;color:#888;font-weight:500;">60+ Government & Pharma</div>
+                            </div>
+                            <div class="location-card" style="padding:20px;background:#fff;border-left:5px solid #e63384;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(230,51,132,0.1);" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(230,51,132,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                                <div style="font-weight:700;font-size:15px;color:#e63384;margin-bottom:6px;">🌾 Pune</div>
+                                <div style="font-size:13px;color:#888;font-weight:500;">40+ Mfg & Education</div>
+                            </div>
+                        </div>
+                        <div style="padding:20px;background:linear-gradient(135deg, rgba(229,57,53,0.04) 0%, rgba(229,57,53,0.02) 100%);border-radius:12px;text-align:center;border:1px solid rgba(229,57,53,0.1);">
+                            <div style="font-size:28px;font-weight:700;color:#e53935;">500+</div>
+                            <div style="font-size:13px;color:#666;font-weight:500;margin-top:4px;">Active Installations Nationwide</div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Responsive adjustment -->
+                <style>
+                    @media (max-width: 768px) {
+                        .india-map-container {
+                            grid-template-columns: 1fr !important;
+                            gap: 32px !important;
+                        }
+                        .map-wrapper {
+                            min-height: 350px !important;
+                        }
+                    }
+                </style>
             </div>
         </div>
 
@@ -1167,6 +1194,8 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&callback=initMap"
         async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="forms-handler.js"></script>
     <script>
         /* ── DATA ── */
@@ -1580,6 +1609,50 @@
             document.getElementById('pop-email').value = '';
         }
 
+        /* ── SERVICE MAP INITIALIZATION ── */
+        function initServiceMap() {
+            // Wait for Leaflet to be available
+            if (typeof L === 'undefined') {
+                setTimeout(initServiceMap, 100);
+                return;
+            }
+            
+            const mapContainer = document.getElementById('serviceMap');
+            if (!mapContainer) return;
+            
+            try {
+                const map = L.map('serviceMap').setView([20.5937, 78.9629], 5);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 19
+                }).addTo(map);
+
+                const serviceLocations = [
+                    { name: "🏢 Delhi NCR", lat: 28.7041, lng: 77.1025, color: "#ff6b35", projects: "100+ Corporate Clients" },
+                    { name: "🏙️ Mumbai", lat: 19.0760, lng: 72.8777, color: "#0066cc", projects: "80+ Retail & Finance" },
+                    { name: "🌴 Bangalore", lat: 13.3289, lng: 74.7421, color: "#00a86b", projects: "120+ Technology & Healthcare" },
+                    { name: "🕌 Hyderabad", lat: 17.3850, lng: 78.4867, color: "#ff9800", projects: "60+ Government & Pharma" },
+                    { name: "🌾 Pune", lat: 18.5204, lng: 73.8567, color: "#e63384", projects: "40+ Manufacturing & Education" }
+                ];
+
+                serviceLocations.forEach(location => {
+                    const markerHTML = `<div style="background-color:${location.color};width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:20px;color:white;cursor:pointer;">📍</div>`;
+                    
+                    const markerIcon = L.divIcon({
+                        html: markerHTML,
+                        iconSize: [40, 40],
+                        className: 'custom-marker'
+                    });
+                    
+                    L.marker([location.lat, location.lng], { icon: markerIcon })
+                        .bindPopup(`<div style="font-weight:600;color:#333;padding:6px;"><strong>${location.name}</strong></div><div style="font-size:12px;color:#666;padding:4px 6px;">${location.projects}</div>`)
+                        .addTo(map);
+                });
+            } catch (error) {
+                console.error('Map initialization error:', error);
+            }
+        }
+
         /* ── INIT ── */
         document.addEventListener('DOMContentLoaded', () => {
             updateSlide();
@@ -1597,6 +1670,11 @@
             document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProductModal(); closeMobileNav(); } });
             /* product card keyboard activation */
             document.addEventListener('keyup', e => { if (e.key === 'Enter' && e.target.classList.contains('product-card')) e.target.click(); });
+        });
+
+        /* Initialize map after all resources load */
+        window.addEventListener('load', () => {
+            setTimeout(initServiceMap, 300);
         });
 
         /* ── STATS STRIP COUNT-UP ── */
