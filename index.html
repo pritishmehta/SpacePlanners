@@ -128,19 +128,19 @@
             <form onsubmit="submitInquiry(event)" novalidate>
                 <div class="form-group">
                     <label for="inq-name">Full Name *</label>
-                    <input type="text" id="inq-name" placeholder="Your full name" required autocomplete="name">
+                    <input type="text" id="inq-name" name="name" placeholder="Your full name" required autocomplete="name">
                 </div>
                 <div class="form-group">
                     <label for="inq-email">Email Address *</label>
-                    <input type="email" id="inq-email" placeholder="your@email.com" required autocomplete="email">
+                    <input type="email" id="inq-email" name="email" placeholder="your@email.com" required autocomplete="email">
                 </div>
                 <div class="form-group">
                     <label for="inq-phone">Phone Number *</label>
-                    <input type="tel" id="inq-phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
+                    <input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
                 </div>
                 <div class="form-group">
                     <label for="inq-product">Product of Interest</label>
-                    <select id="inq-product">
+                    <select id="inq-product" name="product_interest">
                         <option value="">Select product…</option>
                         <option>Mobile Compactors</option>
                         <option>Industrial Racks</option>
@@ -152,8 +152,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inq-msg">Message</label>
-                    <textarea id="inq-msg"
-                        placeholder="Tell us about your storage needs, space dimensions, or requirements…"></textarea>
+                    <textarea id="inq-msg" name="message" placeholder="Tell us about your storage needs, space dimensions, or requirements…"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Inquiry →</button>
             </form>
@@ -512,7 +511,7 @@
 
                                 <label for="find-industry">Your Industry</label>
 
-                                <select id="find-industry" required>
+                                <select id="find-industry" name="industry" required>
 
                                     <option value="">Select industry&#x2026;</option>
 
@@ -538,7 +537,7 @@
 
                                 <label for="find-type">Storage Type Needed</label>
 
-                                <select id="find-type" required>
+                                <select id="find-type" name="storage_type" required>
 
                                     <option value="">Select type&#x2026;</option>
 
@@ -562,7 +561,7 @@
 
                                 <label for="find-phone">Your Phone Number</label>
 
-                                <input type="tel" id="find-phone" placeholder="+91 XXXXX XXXXX" required
+                                <input type="tel" id="find-phone" name="phone" placeholder="+91 XXXXX XXXXX" required
                                     style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:white;">
 
                             </div>
@@ -797,18 +796,63 @@
 
     <!-- CASE STUDIES -->
     <section class="case-studies-section" id="case-studies">
+        <!-- RESULTS HIGHLIGHT SECTION -->
+        <div class="results-highlight-section">
+            <div class="case-studies-content">
+                <div class="section-header-small reveal text-center" style="margin-bottom: 48px;">
+                    <span class="section-badge">Real Results</span>
+                    <h2 class="section-title">Proven Success Across India's Leading Organizations</h2>
+                    <p class="section-subtitle" style="margin:0 auto 24px;">Measurable outcomes from 500+ installations</p>
+                    <div class="accent-line"></div>
+                </div>
+
+                <!-- Results Grid Dashboard -->
+                <div class="results-dashboard" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:56px;">
+                    <div class="result-card reveal">
+                        <div class="result-icon">📉</div>
+                        <div class="result-metric">50%</div>
+                        <div class="result-label">Average Floor Space Saved</div>
+                        <div class="result-detail">Across all sectors</div>
+                    </div>
+                    <div class="result-card reveal delay-1">
+                        <div class="result-icon">⚡</div>
+                        <div class="result-metric">65%</div>
+                        <div class="result-label">Faster File Retrieval</div>
+                        <div class="result-detail">Government & Banking</div>
+                    </div>
+                    <div class="result-card reveal delay-2">
+                        <div class="result-icon">💰</div>
+                        <div class="result-metric">40%</div>
+                        <div class="result-label">Logistics Cost Reduction</div>
+                        <div class="result-detail">Retail & Distribution</div>
+                    </div>
+                    <div class="result-card reveal delay-3">
+                        <div class="result-icon">✓</div>
+                        <div class="result-metric">100%</div>
+                        <div class="result-label">Compliance Success Rate</div>
+                        <div class="result-detail">Healthcare & Government</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Studies Carousel -->
         <div class="case-studies-content">
-            <div class="section-header reveal">
+            <div class="section-header-small reveal">
                 <span class="section-badge">Success Stories</span>
-                <h2 class="section-title">Case Studies</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Real-world results from our installations across
-                    India</p>
+                <h2 class="section-title">Featured Case Studies</h2>
+                <p class="section-subtitle" style="margin:0 auto 24px;">Real-world implementations with measurable results</p>
                 <div class="accent-line"></div>
             </div>
             <div class="case-studies-wrapper">
                 <button class="scroll-nav left" onclick="scrollCaseStudies(-400)" aria-label="Scroll left">❮</button>
                 <div class="case-studies-scroll" id="caseStudiesScroll"></div>
                 <button class="scroll-nav right" onclick="scrollCaseStudies(400)" aria-label="Scroll right">❯</button>
+            </div>
+
+            <!-- View All Case Studies CTA -->
+            <div style="text-align:center;margin-top:40px;">
+                <a href="case-studies.html" class="btn-primary" style="display:inline-block;padding:14px 32px;">View All Case Studies →</a>
             </div>
         </div>
     </section>
@@ -884,6 +928,7 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&callback=initMap"
         async defer></script>
+    <script src="forms-handler.js"></script>
     <script>
         /* ── DATA ── */
         const slides = [
@@ -913,12 +958,84 @@
             { id: 8, title: "FMCG Manufacturing Plant", category: "Industrial", desc: "High-capacity storage racks for a production facility", scale: "1,20,000 sq ft", img: "project_warehouse.png" }
         ];
         const caseStudies = [
-            { title: "Banking Sector", subtitle: "Secure Document Management", challenge: "Bank needed secure storage for 2 million documents across 3 cities", solution: "Mobile compactor system with electronic access control", result: "60% space reduction · 100% document accessibility maintained", img: "project_corporate.png" },
-            { title: "Government Archives", subtitle: "Historical Record Preservation", challenge: "200-year collection of historical records required specialized storage", solution: "Custom heavy-duty compactors with climate-compatible shelves", result: "200+ years preserved · 90% space saved · Zero document loss", img: "project_corporate.png" },
-            { title: "Healthcare Network", subtitle: "Patient Records System", challenge: "NABH-compliant storage for 5 lakh+ patient files across 6 hospitals", solution: "Integrated locker system with role-based access control", result: "Full NABH compliance · 40% faster retrieval time", img: "project_corporate.png" },
-            { title: "Retail Distribution", subtitle: "Inventory Management", challenge: "Multi-warehouse coordination across 50+ retail locations in India", solution: "Standardised pallet rack system with bin location tracking", result: "25% accuracy improvement · 15% logistics cost reduction", img: "project_warehouse.png" },
-            { title: "University Library", subtitle: "Multi-Campus Library System", challenge: "Accommodate 20 lakh+ books across 3 campuses with growing collection", solution: "Mobile carriage system with digital catalog integration", result: "30% more books accommodated · 24/7 self-service access", img: "project_corporate.png" },
-            { title: "Automotive Manufacturing", subtitle: "Parts & Inventory Storage", challenge: "High-volume parts storage with sub-5-minute picking requirement", solution: "Heavy-duty racks with bin location and barcode system", result: "50% picking time reduction · Zero lost parts incidents", img: "project_warehouse.png" }
+            {
+                title: "Banking Sector",
+                subtitle: "Secure Document Management",
+                industry: "Financial Services",
+                img: "project_corporate.png",
+                results: [
+                    { metric: "60%", label: "Space Reduction", icon: "📉" },
+                    { metric: "100%", label: "Audit Compliance", icon: "✓" },
+                    { metric: "80%", label: "Faster Retrieval", icon: "⚡" },
+                    { metric: "2M+", label: "Documents", icon: "📄" }
+                ],
+                topResult: "60% space reduction"
+            },
+            {
+                title: "Government Archives",
+                subtitle: "Historical Record Preservation",
+                industry: "Government",
+                img: "project_corporate.png",
+                results: [
+                    { metric: "5M+", label: "Docs Stored", icon: "📚" },
+                    { metric: "90%", label: "Space Saved", icon: "📦" },
+                    { metric: "0", label: "Document Loss", icon: "🛡️" },
+                    { metric: "200+", label: "Years Preserved", icon: "🏛️" }
+                ],
+                topResult: "90% space saved & 0 loss"
+            },
+            {
+                title: "Healthcare Network",
+                subtitle: "Patient Records System",
+                industry: "Healthcare",
+                img: "project_corporate.png",
+                results: [
+                    { metric: "100%", label: "NABH Compliant", icon: "✓" },
+                    { metric: "75%", label: "Faster Retrieval", icon: "⚡" },
+                    { metric: "0", label: "Compliance Issues", icon: "🎯" },
+                    { metric: "5L+", label: "Patient Files", icon: "🏥" }
+                ],
+                topResult: "100% NABH compliance"
+            },
+            {
+                title: "Retail Distribution",
+                subtitle: "Inventory Management",
+                industry: "Retail & Logistics",
+                img: "project_warehouse.png",
+                results: [
+                    { metric: "25%", label: "Accuracy Boost", icon: "📊" },
+                    { metric: "15%", label: "Cost Reduction", icon: "💰" },
+                    { metric: "40%", label: "Faster Audits", icon: "✓" },
+                    { metric: "50+", label: "Locations", icon: "🗺️" }
+                ],
+                topResult: "25% accuracy improvement"
+            },
+            {
+                title: "University Library",
+                subtitle: "Multi-Campus Library System",
+                industry: "Education",
+                img: "project_corporate.png",
+                results: [
+                    { metric: "30%", label: "Capacity Increase", icon: "📚" },
+                    { metric: "24/7", label: "Self-Service", icon: "🔓" },
+                    { metric: "95%", label: "Student Satisfaction", icon: "😊" },
+                    { metric: "20L+", label: "Books Stored", icon: "📖" }
+                ],
+                topResult: "30% more books stored"
+            },
+            {
+                title: "Automotive Manufacturing",
+                subtitle: "Parts & Inventory Storage",
+                industry: "Manufacturing",
+                img: "project_warehouse.png",
+                results: [
+                    { metric: "50%", label: "Pick Time Cut", icon: "⚡" },
+                    { metric: "0", label: "Lost Parts", icon: "🛡️" },
+                    { metric: "20%", label: "Yield Boost", icon: "📈" },
+                    { metric: "50K+", label: "SKUs Managed", icon: "🏭" }
+                ],
+                topResult: "50% picking time reduction"
+            }
         ];
         const faqs = [
             { q: "What products does Space Planners India offer?", a: "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems — all manufactured in-house." },
@@ -1042,12 +1159,27 @@
             document.getElementById('caseStudiesScroll').innerHTML = caseStudies.map(c => `
     <div class="case-study-card">
       <div class="case-study-image"><img src="${c.img}" alt="${c.title} case study" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'case-study-image-placeholder\\'></div>'"></div>
+      <div class="industry-badge" style="position:absolute;top:12px;right:12px;background:var(--red);color:white;padding:4px 10px;border-radius:16px;font-size:9px;font-weight:700;z-index:10;">${c.industry}</div>
       <div class="case-study-content">
         <h3 class="case-study-title">${c.title}</h3>
         <p class="case-study-subtitle">${c.subtitle}</p>
-        <div class="case-study-section"><p class="case-study-label">Challenge</p><p class="case-study-text">${c.challenge}</p></div>
-        <div class="case-study-section"><p class="case-study-label">Solution</p><p class="case-study-text">${c.solution}</p></div>
-        <div class="case-study-section"><p class="case-study-label">Result</p><p class="case-study-text result">${c.result}</p></div>
+
+        <div style="background:linear-gradient(135deg,rgba(229,57,53,.15),rgba(229,57,53,.05));padding:10px;border-radius:8px;border-left:3px solid var(--red);margin-bottom:12px;text-align:center;">
+          <div style="font-size:24px;font-weight:800;color:var(--red);line-height:1;">${c.results[0].metric}</div>
+          <div style="font-size:11px;color:var(--light);margin-top:4px;font-weight:600;">${c.results[0].label}</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+          ${c.results.slice(1, 3).map(r => `
+            <div style="background:rgba(229,57,53,.08);padding:6px;border-radius:6px;text-align:center;">
+              <div style="font-size:14px;margin-bottom:2px;">${r.icon}</div>
+              <div style="font-weight:700;font-size:14px;color:var(--red);">${r.metric}</div>
+              <div style="font-size:9px;color:var(--light);">${r.label}</div>
+            </div>
+          `).join('')}
+        </div>
+
+        <a href="case-studies.html" class="view-more-btn" style="color:var(--red);border:1px solid var(--border);padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;display:inline-block;text-decoration:none;transition:var(--trans);" onmouseover="this.style.background='var(--red)';this.style.color='white';" onmouseout="this.style.background='transparent';this.style.color='var(--red)';">View Case →</a>
       </div>
     </div>`).join('');
         }
