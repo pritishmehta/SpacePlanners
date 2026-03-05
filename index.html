@@ -121,10 +121,16 @@
         "postalCode": "400000",
         "addressCountry": "IN"
       },
-      "areaServed": {
-        "@type": "Country",
-        "name": "India"
-      },
+      "areaServed": [
+        { "@type": "City", "name": "Mumbai" },
+        { "@type": "City", "name": "Delhi NCR" },
+        { "@type": "City", "name": "Bangalore" },
+        { "@type": "City", "name": "Pune" },
+        { "@type": "City", "name": "Chennai" },
+        { "@type": "City", "name": "Hyderabad" },
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "Country", "name": "India" }
+      ],
       "priceRange": "₹₹₹",
       "image": "https://spaceplannersindia.in/office-image.jpg",
       "openingHoursSpecification": [
@@ -173,6 +179,56 @@
           "position": 1,
           "name": "Home",
           "@id": "https://spaceplannersindia.in/index.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQPage Schema for AIO & Search Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What products does Space Planners India offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems — all manufactured in-house."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are your products suitable for industrial and heavy-duty use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All our racks and storage systems are engineered for industrial applications with load capacities up to 10 tons. They use galvanized, rust-resistant steel and comply with relevant safety standards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide installation services across India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We have installation teams covering all major cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and Ahmedabad. Installation includes safety compliance checks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can your storage solutions be customized to our space?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — customization is our strength. We offer free on-site space assessments, 3D layout designs, and fully tailored systems to match your dimensions, compliance needs, and budget."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are your products GMP and NABH compliant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our mobile compactors and storage systems can be manufactured to meet GMP (pharmaceutical), NABH (healthcare), and GeM portal specifications for government procurement."
+          }
         }
       ]
     }
@@ -385,6 +441,19 @@
         </div>
     </section>
 
+    <!-- ===== SEO, GEO & AIO Intro ===== -->
+    <section class="page-section" style="padding-bottom: 0;">
+        <div class="page-content" style="text-align:center; max-width: 900px; margin: 0 auto;">
+            <p style="font-size: 16px; color: var(--dark); line-height: 1.8; margin: 0; font-weight: 500;">
+                <strong style="color: var(--red);">Space Planners India</strong> is a leading manufacturer of premium
+                storage solutions, including GMP-compliant mobile compactors, heavy-duty industrial racks, and smart
+                lockers. Headquartered in Mumbai, we design, manufacture, and install customized storage systems <strong
+                    style="color: var(--dark);">pan-India</strong>, servicing major hubs such as Delhi NCR, Bangalore,
+                Pune, Chennai, Hyderabad, and Ahmedabad. From enterprise warehousing to healthcare document management,
+                our solutions maximize space efficiency by up to 50%.
+            </p>
+        </div>
+    </section>
 
     <!-- STATS RIBBON — Bruynzeel-style horizontal strip -->
     <div class="stats-ribbon" role="region" aria-label="Company statistics" id="statsRibbon">
