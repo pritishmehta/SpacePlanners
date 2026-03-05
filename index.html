@@ -990,7 +990,7 @@
                     <!-- Map -->
                     <div class="map-wrapper"
                         style="position:relative;background:linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:1px solid rgba(229,57,53,0.08);display:flex;flex-direction:column;">
-                        <div id="serviceMap"
+                        <div id="map"
                             style="width:100%;height:100%;min-height:450px;background:#e8e5e0;position:relative;"></div>
                     </div>
 
@@ -1164,126 +1164,9 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&callback=initMap"
         async defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="js/data.js"></script>
     <script src="forms-handler.js"></script>
     <script>
-        /* ── DATA ── */
-        const slides = [
-            { title: "Mobile Compactor Storage", desc: "Space-saving motorized systems — up to 50% more storage capacity" },
-            { title: "Industrial Storage Racks", desc: "Heavy-duty systems rated up to 10 tons for warehouse operations" },
-            { title: "Professional Steel Lockers", desc: "Secure personal storage for offices, hospitals, and institutions" },
-            { title: "Archive & Filing Systems", desc: "Organised document management for government and corporate use" }
-        ];
-        const products = [
-            { id: 1, name: "Mobile Compactors", type: "Storage", img: "product_compactor.png", desc: "Space-saving motorized storage on rail tracks — maximize floor space by up to 50%", features: ["Motorized movement", "Adjustable shelves", "Security locks", "Climate control compatible"], apps: "Documents, Archives, Library Systems" },
-            { id: 2, name: "Industrial Racks", type: "Racks", img: "product_rack.png", desc: "Heavy-duty racks engineered for warehouse and industrial operations", features: ["High load capacity", "Galvanized steel", "Customizable heights", "Rust resistant"], apps: "Warehouses, Manufacturing, Distribution" },
-            { id: 3, name: "Storage Lockers", type: "Lockers", img: "product_locker.png", desc: "Secure individual lockers with digital locking for professional environments", features: ["Digital locks", "Ventilation system", "Durable finish", "Multiple sizes"], apps: "Offices, Gyms, Hospitals, Institutes" },
-            { id: 4, name: "Filing Cabinets", type: "Storage", img: "product_cabinet.png", desc: "Professional multi-drawer filing solutions for document management", features: ["Multiple drawers", "Label slots", "Anti-tilt mechanism", "Locking system"], apps: "Corporate, Legal Firms, Government" },
-            { id: 5, name: "Storage Cupboards", type: "Storage", img: "product_cupboard.png", desc: "Versatile steel cupboards for general storage across industries", features: ["Adjustable shelves", "Door locks", "Steel construction", "Compact design"], apps: "Offices, Retail, Institutions" },
-            { id: 6, name: "Pallet Racks", type: "Racks", img: "product_rack.png", desc: "Forklift-compatible pallet racks for high-volume warehouse operations", features: ["Forklift compatible", "Stackable design", "Industrial grade", "Heavy duty"], apps: "Warehouses, Distribution, Logistics" },
-            { id: 7, name: "Slotted Angle Racks", type: "Racks", img: "product_slotted.png", desc: "Modular, tool-free assembly racking with flexible configuration", features: ["Tool-free assembly", "Expandable", "Cost-effective", "Easy to modify"], apps: "Retail, Workshops, Small Warehouses" },
-            { id: 8, name: "Mezzanine Systems", type: "Systems", img: "product_mezzanine.png", desc: "Multi-level steel platforms maximizing vertical space in warehouses", features: ["Steel platform", "High capacity", "Custom design", "Professional installation"], apps: "Large Warehouses, Factories, Distribution" }
-        ];
-        const projects = [
-            { id: 1, title: "Leading PSU Headquarters", category: "Enterprise", desc: "Complete modular storage system for a major financial institution", scale: "50,000 sq ft", img: "project_corporate.png" },
-            { id: 2, title: "Central Government Archive", category: "Government", desc: "Secure document management for a national archive facility", scale: "75,000 sq ft", img: "project_corporate.png" },
-            { id: 3, title: "Automotive Warehouse Complex", category: "Industrial", desc: "High-density pallet rack system for India's leading auto supplier", scale: "1,00,000 sq ft", img: "project_warehouse.png" },
-            { id: 4, title: "University Library Network", category: "Education", desc: "Integrated mobile shelving for a 3-campus library system", scale: "35,000 sq ft", img: "project_corporate.png" },
-            { id: 5, title: "Multi-Specialty Hospital Records", category: "Healthcare", desc: "NABH-aligned secure storage for patient records", scale: "20,000 sq ft", img: "project_corporate.png" },
-            { id: 6, title: "Retail Chain Distribution Hub", category: "Retail", desc: "Mobile compactors for inventory management across 50+ stores", scale: "60,000 sq ft", img: "project_warehouse.png" },
-            { id: 7, title: "IT Park Corporate Campus", category: "Enterprise", desc: "Modern integrated storage for a fast-growing tech company", scale: "25,000 sq ft", img: "project_corporate.png" },
-            { id: 8, title: "FMCG Manufacturing Plant", category: "Industrial", desc: "High-capacity storage racks for a production facility", scale: "1,20,000 sq ft", img: "project_warehouse.png" }
-        ];
-        const caseStudies = [
-            {
-                title: "Banking Sector",
-                subtitle: "Secure Document Management",
-                industry: "Financial Services",
-                img: "project_corporate.png",
-                results: [
-                    { metric: "60%", label: "Space Reduction", icon: "📉" },
-                    { metric: "100%", label: "Audit Compliance", icon: "✓" },
-                    { metric: "80%", label: "Faster Retrieval", icon: "⚡" },
-                    { metric: "2M+", label: "Documents", icon: "📄" }
-                ],
-                topResult: "60% space reduction"
-            },
-            {
-                title: "Government Archives",
-                subtitle: "Historical Record Preservation",
-                industry: "Government",
-                img: "project_corporate.png",
-                results: [
-                    { metric: "5M+", label: "Docs Stored", icon: "📚" },
-                    { metric: "90%", label: "Space Saved", icon: "📦" },
-                    { metric: "0", label: "Document Loss", icon: "🛡️" },
-                    { metric: "200+", label: "Years Preserved", icon: "🏛️" }
-                ],
-                topResult: "90% space saved & 0 loss"
-            },
-            {
-                title: "Healthcare Network",
-                subtitle: "Patient Records System",
-                industry: "Healthcare",
-                img: "project_corporate.png",
-                results: [
-                    { metric: "100%", label: "NABH Compliant", icon: "✓" },
-                    { metric: "75%", label: "Faster Retrieval", icon: "⚡" },
-                    { metric: "0", label: "Compliance Issues", icon: "🎯" },
-                    { metric: "5L+", label: "Patient Files", icon: "🏥" }
-                ],
-                topResult: "100% NABH compliance"
-            },
-            {
-                title: "Retail Distribution",
-                subtitle: "Inventory Management",
-                industry: "Retail & Logistics",
-                img: "project_warehouse.png",
-                results: [
-                    { metric: "25%", label: "Accuracy Boost", icon: "📊" },
-                    { metric: "15%", label: "Cost Reduction", icon: "💰" },
-                    { metric: "40%", label: "Faster Audits", icon: "✓" },
-                    { metric: "50+", label: "Locations", icon: "🗺️" }
-                ],
-                topResult: "25% accuracy improvement"
-            },
-            {
-                title: "University Library",
-                subtitle: "Multi-Campus Library System",
-                industry: "Education",
-                img: "project_corporate.png",
-                results: [
-                    { metric: "30%", label: "Capacity Increase", icon: "📚" },
-                    { metric: "24/7", label: "Self-Service", icon: "🔓" },
-                    { metric: "95%", label: "Student Satisfaction", icon: "😊" },
-                    { metric: "20L+", label: "Books Stored", icon: "📖" }
-                ],
-                topResult: "30% more books stored"
-            },
-            {
-                title: "Automotive Manufacturing",
-                subtitle: "Parts & Inventory Storage",
-                industry: "Manufacturing",
-                img: "project_warehouse.png",
-                results: [
-                    { metric: "50%", label: "Pick Time Cut", icon: "⚡" },
-                    { metric: "0", label: "Lost Parts", icon: "🛡️" },
-                    { metric: "20%", label: "Yield Boost", icon: "📈" },
-                    { metric: "50K+", label: "SKUs Managed", icon: "🏭" }
-                ],
-                topResult: "50% picking time reduction"
-            }
-        ];
-        const faqs = [
-            { q: "What products does Space Planners India offer?", a: "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems — all manufactured in-house." },
-            { q: "Are your products suitable for industrial and heavy-duty use?", a: "Yes. All our racks and storage systems are engineered for industrial applications with load capacities up to 10 tons. They use galvanized, rust-resistant steel and comply with relevant safety standards." },
-            { q: "Do you provide installation services across India?", a: "Absolutely. We have installation teams covering all major cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and Ahmedabad. Installation includes safety compliance checks." },
-            { q: "Can your storage solutions be customized to our space?", a: "Yes — customization is our strength. We offer free on-site space assessments, 3D layout designs, and fully tailored systems to match your dimensions, compliance needs, and budget." },
-            { q: "Are your products GMP and NABH compliant?", a: "Yes. Our mobile compactors and storage systems can be manufactured to meet GMP (pharmaceutical), NABH (healthcare), and GeM portal specifications for government procurement." },
-            { q: "How quickly can I get a quotation?", a: "We deliver detailed quotations within 2 business hours of receiving your inquiry. Submit our online form, WhatsApp us, or call +91-22-40033385 to get started." },
-            { q: "What is your warranty and after-sales service policy?", a: "All products carry a manufacturer warranty against defects. We offer dedicated annual maintenance contracts (AMC) and have service centers in 8 cities across India." }
-        ];
 
         /* ── CAROUSEL ── */
         let currentSlide = 0, slideTimer;
@@ -1511,24 +1394,27 @@
         /* ── GOOGLE MAPS ── */
         function initMap() {
             const mapStyles = [
-                { featureType: 'all', elementType: 'geometry', stylers: [{ color: '#1a1a2e' }] },
-                { featureType: 'all', elementType: 'labels.text.stroke', stylers: [{ color: '#000000' }] },
-                { featureType: 'all', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] },
-                { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#0d1b2a' }] },
-                { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#2c2c4e' }] },
-                { featureType: 'road.arterial', elementType: 'geometry', stylers: [{ color: '#3a3a5c' }] },
-                { featureType: 'administrative', elementType: 'geometry.stroke', stylers: [{ color: '#5c3535' }] },
-                { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#d4af37' }] },
-                { featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] },
-                { featureType: 'transit', elementType: 'all', stylers: [{ visibility: 'off' }] },
-                { featureType: 'landscape', elementType: 'geometry', stylers: [{ color: '#141428' }] }
+                { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] },
+                { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] },
+                { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] },
+                { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] },
+                { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] },
+                { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] },
+                { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] },
+                { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] },
+                { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] },
+                { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] },
+                { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] },
+                { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] },
+                { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] },
+                { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }
             ];
             const map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 21.5, lng: 80 }, zoom: 5,
                 mapTypeControl: false, fullscreenControl: false,
                 streetViewControl: false, gestureHandling: 'cooperative',
                 styles: mapStyles,
-                backgroundColor: '#1a1a2e'
+                backgroundColor: '#f5f5f5'
             });
             const svgCity = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60" width="40" height="60"><path d="M20 0C9.5 0 0 8 0 20 0 40 20 60 20 60S40 40 40 20C40 8 30.5 0 20 0Z" fill="#e53935" stroke="white" stroke-width="2"/><circle cx="20" cy="18" r="7" fill="white" opacity=".9"/></svg>`;
             const cities = [
@@ -1546,7 +1432,7 @@
                     position: { lat: loc.lat, lng: loc.lng }, map, title: `${loc.city} – ${loc.projects} projects`,
                     icon: { url: 'data:image/svg+xml;base64,' + btoa(svgCity), scaledSize: new google.maps.Size(36, 54), anchor: new google.maps.Point(18, 54) }
                 });
-                const iw = new google.maps.InfoWindow({ content: `<div style="font-family:Poppins,sans-serif;padding:6px 10px;background:#1a1a2e;color:#fff;border-radius:6px"><strong style="color:#e53935">${loc.city}</strong><br><span style="font-size:12px;color:#ccc">${loc.projects} projects delivered</span></div>` });
+                const iw = new google.maps.InfoWindow({ content: `<div style="font-family:Poppins,sans-serif;padding:6px 10px;background:#ffffff;color:#333;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1);"><strong style="color:#e53935">${loc.city}</strong><br><span style="font-size:12px;color:#666">${loc.projects} projects delivered</span></div>` });
                 m.addListener('click', () => iw.open(map, m));
             });
         }
@@ -1579,49 +1465,7 @@
             document.getElementById('pop-email').value = '';
         }
 
-        /* ── SERVICE MAP INITIALIZATION ── */
-        function initServiceMap() {
-            // Wait for Leaflet to be available
-            if (typeof L === 'undefined') {
-                setTimeout(initServiceMap, 100);
-                return;
-            }
 
-            const mapContainer = document.getElementById('serviceMap');
-            if (!mapContainer) return;
-
-            try {
-                const map = L.map('serviceMap').setView([20.5937, 78.9629], 5);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors',
-                    maxZoom: 19
-                }).addTo(map);
-
-                const serviceLocations = [
-                    { name: "🏢 Delhi NCR", lat: 28.7041, lng: 77.1025, color: "#ff6b35", projects: "100+ Corporate Clients" },
-                    { name: "🏙️ Mumbai", lat: 19.0760, lng: 72.8777, color: "#0066cc", projects: "80+ Retail & Finance" },
-                    { name: "🌴 Bangalore", lat: 13.3289, lng: 74.7421, color: "#00a86b", projects: "120+ Technology & Healthcare" },
-                    { name: "🕌 Hyderabad", lat: 17.3850, lng: 78.4867, color: "#ff9800", projects: "60+ Government & Pharma" },
-                    { name: "🌾 Pune", lat: 18.5204, lng: 73.8567, color: "#e63384", projects: "40+ Manufacturing & Education" }
-                ];
-
-                serviceLocations.forEach(location => {
-                    const markerHTML = `<div style="background-color:${location.color};width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:20px;color:white;cursor:pointer;">📍</div>`;
-
-                    const markerIcon = L.divIcon({
-                        html: markerHTML,
-                        iconSize: [40, 40],
-                        className: 'custom-marker'
-                    });
-
-                    L.marker([location.lat, location.lng], { icon: markerIcon })
-                        .bindPopup(`<div style="font-weight:600;color:#333;padding:6px;"><strong>${location.name}</strong></div><div style="font-size:12px;color:#666;padding:4px 6px;">${location.projects}</div>`)
-                        .addTo(map);
-                });
-            } catch (error) {
-                console.error('Map initialization error:', error);
-            }
-        }
 
         /* ── INIT ── */
         document.addEventListener('DOMContentLoaded', () => {
@@ -1642,10 +1486,7 @@
             document.addEventListener('keyup', e => { if (e.key === 'Enter' && e.target.classList.contains('product-card')) e.target.click(); });
         });
 
-        /* Initialize map after all resources load */
-        window.addEventListener('load', () => {
-            setTimeout(initServiceMap, 300);
-        });
+
 
         /* ── STATS STRIP COUNT-UP ── */
         (function () {

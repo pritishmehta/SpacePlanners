@@ -24,26 +24,111 @@
 <body>
 
     <!-- ===== COOKIE CONSENT BANNER ===== -->
-    <div id="cookieBanner" style="position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 20px 40px; z-index: 99999; box-shadow: 0 -4px 20px rgba(0,0,0,0.4); font-family: 'Poppins', sans-serif; display: none; animation: slideUp 0.5s ease-out; border-top: 3px solid #e53935;">
+    <div id="cookieBanner"
+        style="position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 20px 40px; z-index: 99999; box-shadow: 0 -4px 20px rgba(0,0,0,0.4); font-family: 'Poppins', sans-serif; display: none; animation: slideUp 0.5s ease-out; border-top: 3px solid #e53935;">
         <style>
-            @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-            .cookie-content { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-            .cookie-text { flex: 1; min-width: 250px; }
-            .cookie-text p { margin: 0; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.9); }
-            .cookie-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #fff; }
-            .cookie-text a { color: #e53935; text-decoration: none; font-weight: 600; }
-            .cookie-text a:hover { text-decoration: underline; }
-            .cookie-buttons { display: flex; gap: 10px; flex-wrap: wrap; min-width: 200px; justify-content: flex-end; }
-            .cookie-btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; white-space: nowrap; }
-            .cookie-btn-reject { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
-            .cookie-btn-reject:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
-            .cookie-btn-accept { background: #e53935; color: white; border: none; }
-            .cookie-btn-accept:hover { background: #c62828; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(229,57,53,0.3); }
+            @keyframes slideUp {
+                from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            .cookie-content {
+                max-width: 1280px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .cookie-text {
+                flex: 1;
+                min-width: 250px;
+            }
+
+            .cookie-text p {
+                margin: 0;
+                font-size: 13px;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .cookie-text strong {
+                display: block;
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 8px;
+                color: #fff;
+            }
+
+            .cookie-text a {
+                color: #e53935;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .cookie-text a:hover {
+                text-decoration: underline;
+            }
+
+            .cookie-buttons {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                min-width: 200px;
+                justify-content: flex-end;
+            }
+
+            .cookie-btn {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 13px;
+                transition: all 0.3s ease;
+                font-family: 'Poppins', sans-serif;
+                white-space: nowrap;
+            }
+
+            .cookie-btn-reject {
+                background: transparent;
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+            }
+
+            .cookie-btn-reject:hover {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.6);
+            }
+
+            .cookie-btn-accept {
+                background: #e53935;
+                color: white;
+                border: none;
+            }
+
+            .cookie-btn-accept:hover {
+                background: #c62828;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+            }
         </style>
         <div class="cookie-content">
             <div class="cookie-text">
                 <strong>🍪 We Use Cookies</strong>
-                <p>We use cookies and analytics to improve your experience and understand how you use our site. By continuing to browse, you consent to our <a href="privacy-policy-comprehensive.html" target="_blank">Privacy Policy</a> and <a href="terms-of-use.html" target="_blank">Terms of Use</a>.</p>
+                <p>We use cookies and analytics to improve your experience and understand how you use our site. By
+                    continuing to browse, you consent to our <a href="privacy-policy-comprehensive.html"
+                        target="_blank">Privacy Policy</a> and <a href="terms-of-use.html" target="_blank">Terms of
+                        Use</a>.</p>
             </div>
             <div class="cookie-buttons">
                 <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject</button>
@@ -291,17 +376,8 @@
         </div>
     </footer>
 
+    <script src="js/data.js"></script>
     <script>
-        const projects = [
-            { id: 1, title: "Leading PSU Headquarters, Delhi", category: "Enterprise", desc: "Complete modular compactor storage system for a major financial institution's head office", scale: "50,000 sq ft", img: "project_corporate.png", details: "Replaced outdated shelving with state-of-the-art mobile compactors, increasing storage capacity by 200% while reducing floor space usage by 48%." },
-            { id: 2, title: "Central Government Archive Facility", category: "Government", desc: "Secure document management system for a national archives ministry", scale: "75,000 sq ft", img: "project_corporate.png", details: "Designed a fully indexed filing system capable of storing 5 million documents with role-based access. GeM portal compliant procurement." },
-            { id: 3, title: "Automotive Manufacturer Warehouse", category: "Industrial", desc: "High-density pallet rack system for a leading Indian auto component supplier", scale: "1,00,000 sq ft", img: "project_warehouse.png", details: "Installed drive-in and selective pallet racking with OSHA-compliant safety accessories. Improved picking efficiency by 35%." },
-            { id: 4, title: "University Library Network", category: "Education", desc: "Integrated mobile shelving for a 3-campus university library system", scale: "35,000 sq ft", img: "project_corporate.png", details: "Accommodated 30% more books without extending the building. Integrated with the library's digital catalog system for seamless access." },
-            { id: 5, title: "Multi-Specialty Hospital Record Room", category: "Healthcare", desc: "NABH-aligned secure patient records storage for a hospital chain", scale: "20,000 sq ft", img: "project_corporate.png", details: "Installed steel compactors with restricted access, meeting NABH guidelines. Patient file retrieval time reduced from 12 minutes to 3 minutes." },
-            { id: 6, title: "Pan-India Retail Chain Hub", category: "Retail", desc: "Mobile compactor storage for inventory management across 50+ stores", scale: "60,000 sq ft", img: "project_warehouse.png", details: "Standardized storage across all distribution points, reducing inventory loss by 18% and auditing time by 40%." },
-            { id: 7, title: "IT Park Corporate Campus, Pune", category: "Enterprise", desc: "Modern integrated storage for a fast-growing technology company", scale: "25,000 sq ft", img: "project_corporate.png", details: "Custom-color steel lockers, filing cabinets, and office storage cupboards installed across 8 floors. 2-week delivery and installation." },
-            { id: 8, title: "FMCG Manufacturing Plant, Gujrat", category: "Industrial", desc: "High-capacity slotted angle and pallet racks for a production facility", scale: "1,20,000 sq ft", img: "project_warehouse.png", details: "Multi-level mezzanine with pallet racking below doubled the available storage without any civil construction. Delivered in 6 weeks." }
-        ];
         let currentFilter = 'All';
         function filterProjects(cat) {
             currentFilter = cat;
