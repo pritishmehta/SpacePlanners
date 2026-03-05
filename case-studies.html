@@ -137,6 +137,74 @@
 
 <body>
 
+    <!-- ===== COOKIE CONSENT BANNER ===== -->
+    <div id="cookieBanner" style="position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 20px 40px; z-index: 99999; box-shadow: 0 -4px 20px rgba(0,0,0,0.4); font-family: 'Poppins', sans-serif; display: none; animation: slideUp 0.5s ease-out; border-top: 3px solid #e53935;">
+        <style>
+            @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+            .cookie-content { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+            .cookie-text { flex: 1; min-width: 250px; }
+            .cookie-text p { margin: 0; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+            .cookie-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+            .cookie-text a { color: #e53935; text-decoration: none; font-weight: 600; }
+            .cookie-text a:hover { text-decoration: underline; }
+            .cookie-buttons { display: flex; gap: 10px; flex-wrap: wrap; min-width: 200px; justify-content: flex-end; }
+            .cookie-btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; white-space: nowrap; }
+            .cookie-btn-reject { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
+            .cookie-btn-reject:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+            .cookie-btn-accept { background: #e53935; color: white; border: none; }
+            .cookie-btn-accept:hover { background: #c62828; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(229,57,53,0.3); }
+        </style>
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <strong>🍪 We Use Cookies</strong>
+                <p>We use cookies and analytics to improve your experience and understand how you use our site. By continuing to browse, you consent to our <a href="privacy-policy-comprehensive.html" target="_blank">Privacy Policy</a> and <a href="terms-of-use.html" target="_blank">Terms of Use</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function initCookieConsent() {
+            const consentTime = localStorage.getItem('cookie_consent_date');
+            const now = new Date().getTime();
+            const thirtyDaysMs = 30 * 24 * 60 * 60 * 1000;
+            if (!consentTime || (now - parseInt(consentTime)) > thirtyDaysMs) {
+                const banner = document.getElementById('cookieBanner');
+                if (banner) { banner.style.display = 'flex'; }
+            }
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookie_consent', 'accepted');
+            localStorage.setItem('cookie_consent_date', new Date().getTime().toString());
+            const banner = document.getElementById('cookieBanner');
+            if (banner) {
+                banner.style.animation = 'slideDown 0.5s ease-out forwards';
+                setTimeout(() => { banner.style.display = 'none'; }, 500);
+            }
+            if (typeof gtag !== 'undefined') { gtag('consent', 'update', { 'analytics_storage': 'granted' }); }
+            console.log('✅ Cookies accepted');
+        }
+        function rejectCookies() {
+            localStorage.setItem('cookie_consent', 'rejected');
+            localStorage.setItem('cookie_consent_date', new Date().getTime().toString());
+            const banner = document.getElementById('cookieBanner');
+            if (banner) {
+                banner.style.animation = 'slideDown 0.5s ease-out forwards';
+                setTimeout(() => { banner.style.display = 'none'; }, 500);
+            }
+            if (typeof gtag !== 'undefined') { gtag('consent', 'update', { 'analytics_storage': 'denied' }); }
+            console.log('❌ Cookies rejected');
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCookieConsent);
+        } else {
+            initCookieConsent();
+        }
+        window.addEventListener('load', initCookieConsent);
+    </script>
+
     <div id="toast-container"></div>
     <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
     <div class="mobile-nav" id="mobileNav">
@@ -608,7 +676,14 @@
         }
         function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
-        function submitInquiry(e) { e.preventDefault(); showToast("Thank you! We'll contact you within 2 hours."); closeInquiryModal(); e.target.reset(); }
+        function submitInquiry(e) {
+            e.preventDefault();
+            // Capture form data using Excel data capture system
+            captureFormSubmission(e.target, 'demo_request');
+            showToast("Thank you! Your information has been saved.");
+            closeInquiryModal();
+            e.target.reset();
+        }
         function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.getElementById('mobileOverlay').classList.add('open'); document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
         function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.getElementById('mobileOverlay').classList.remove('open'); document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
         function toggleFloatPopup(e) { e.stopPropagation(); const p = document.getElementById('floatPopup'); const b = document.getElementById('floatInqBtn'); const o = p.classList.toggle('show'); b.setAttribute('aria-expanded', o); }
@@ -622,6 +697,9 @@
         ['inquiryModal', 'caseModal'].forEach(id => { document.getElementById(id).addEventListener('click', function (e) { if (e.target === this) { this.id === 'inquiryModal' ? closeInquiryModal() : closeCaseModal(); } }); });
         document.addEventListener('DOMContentLoaded', renderCases);
     </script>
+
+    <!-- ===== EXCEL DATA CAPTURE SYSTEM ===== -->
+    <script src="excel-data-capture.js"></script>
 </body>
 
 </html>
