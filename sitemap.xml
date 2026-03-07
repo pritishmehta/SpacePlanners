@@ -1,102 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
-
-  <!-- Homepage - Primary Entry Point -->
-  <url>
-    <loc>https://spaceplannersindia.in/index.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- Products Page - Key Conversion Page -->
-  <url>
-    <loc>https://spaceplannersindia.in/products.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- About Us Page - Trust & Authority Building -->
-  <url>
-    <loc>https://spaceplannersindia.in/about.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- Case Studies Page - Social Proof & Conversion -->
-  <url>
-    <loc>https://spaceplannersindia.in/case-studies.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- Projects Page - Portfolio Showcase -->
-  <url>
-    <loc>https://spaceplannersindia.in/projects.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- Privacy Policy Page - Legal/Compliance -->
-  <url>
-    <loc>https://spaceplannersindia.in/privacy-policy.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- Terms of Use Page - Legal/Compliance -->
-  <url>
-    <loc>https://spaceplannersindia.in/terms-of-use.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- FUTURE: City-Specific Pages (Geo-Targeting) -->
-  <!-- Uncomment and add after creating location pages -->
-  <!--
-  <url>
-    <loc>https://spaceplannersindia.in/storage-solutions-bangalore.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://spaceplannersindia.in/storage-solutions-delhi.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://spaceplannersindia.in/storage-solutions-pune.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://spaceplannersindia.in/storage-solutions-hyderabad.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://spaceplannersindia.in/storage-solutions-chennai.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  -->
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/index.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/products.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/projects.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/case-studies.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/about.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/storage-solutions-bangalore.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/privacy-policy.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/terms-of-use.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://pritishmehta.github.io/SpacePlanners/disclaimer.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
 </urlset>

@@ -775,6 +775,30 @@ header {
 }
 
 /* ==============================================
+   FORM VALIDATION STYLES
+============================================== */
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: var(--red);
+  background-color: rgba(229, 57, 53, 0.05);
+}
+
+.form-group input.is-valid,
+.form-group select.is-valid,
+.form-group textarea.is-valid {
+  border-color: #00a86b;
+}
+
+.error-message {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 4px;
+  display: none;
+}
+
+/* ==============================================
    MODALS
 ============================================== */
 .modal {
