@@ -79,7 +79,7 @@ ul {
   text-transform: uppercase;
   padding: 6px 14px;
   border-radius: 20px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .section-title {
@@ -95,7 +95,7 @@ ul {
   font-size: 16px;
   color: var(--light);
   line-height: 1.7;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   max-width: 640px;
 }
 
@@ -1476,7 +1476,7 @@ header {
    SECTION: PRODUCTS
 ============================================== */
 .products-section {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .products-content {
@@ -1487,7 +1487,7 @@ header {
 
 .section-header-small {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 .section-header-small .accent-line {
@@ -1495,9 +1495,61 @@ header {
 }
 
 .products-container {
-  display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 48px;
+  display: block;
+  /* Modified to block instead of grid for index.html */
+}
+
+/* Home Page specific filter section */
+.filter-section-home {
+  background: var(--white);
+  padding: 0 0 24px 0;
+  z-index: 100;
+}
+
+.filter-section-home .filter-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  justify-content: center;
+  /* Center horizontally */
+}
+
+.filter-section-home .filter-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Horizontal scrollable wrapper for products on homepage */
+.products-scroll-wrapper {
+  position: relative;
+  margin-top: 8px;
+}
+
+.products-grid-scrollable {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory;
+}
+
+.products-grid-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.products-grid-scrollable .products-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 28px;
+}
+
+.products-grid-scrollable .product-card {
+  flex: 0 0 320px;
+  /* Fixed width for cards inside the horizontal scroll */
+  scroll-snap-align: start;
 }
 
 .sidebar,
@@ -1693,34 +1745,38 @@ header {
    SECTION: SECTORS
 ============================================== */
 .storage-systems-section {
-  padding: 80px 0;
+  padding: 30px 0;
   background: linear-gradient(to bottom, #fff, var(--bg));
 }
 
 .storage-systems-content {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;
 }
 
 .sectors-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 60px;
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.sectors-grid>* {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .sector-card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 34px 26px;
+  padding: 20px 16px;
   text-decoration: none;
   color: inherit;
   transition: var(--trans);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   position: relative;
   overflow: hidden;
 }
@@ -1749,34 +1805,34 @@ header {
 }
 
 .sector-icon {
-  font-size: 38px;
+  font-size: 28px;
   line-height: 1;
 }
 
 .sector-name {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--dark);
 }
 
 .sector-desc {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--light);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .sector-benefits {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 5px;
+  margin-top: 6px;
 }
 
 .sector-benefits li {
   font-size: 12px;
   color: var(--mid);
-  padding-left: 16px;
+  padding-left: 14px;
   position: relative;
 }
 
@@ -1792,7 +1848,7 @@ header {
    SECTION: PRODUCT FINDER
 ============================================== */
 .product-finder-section {
-  padding: 80px 0;
+  padding: 36px 0;
   background: var(--white);
   position: relative;
   overflow: hidden;
@@ -1809,7 +1865,7 @@ header {
 .finder-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 36px;
   align-items: start;
 }
 
@@ -1826,7 +1882,7 @@ header {
 }
 
 .finder-benefits {
-  margin-top: 36px;
+  margin-top: 14px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1849,13 +1905,13 @@ header {
 .finder-form-box {
   background: linear-gradient(135deg, var(--dark), #2d2d2d);
   border-radius: 16px;
-  padding: 40px;
+  padding: 30px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, .2);
 }
 
 .finder-form-title {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 6px;
@@ -1898,7 +1954,7 @@ header {
 }
 
 .finder-submit-btn {
-  padding: 14px;
+  padding: 10px;
   background: var(--red);
   color: var(--white);
   border: none;
@@ -1928,7 +1984,7 @@ header {
 .process-step {
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: 10px;
   position: relative;
 }
 
@@ -1936,7 +1992,7 @@ header {
   content: '';
   position: absolute;
   left: 22px;
-  top: 48px;
+  top: 30px;
   width: 2px;
   height: calc(100% + 2px);
   background: var(--border);
@@ -1977,7 +2033,7 @@ header {
    SECTION: PROJECTS
 ============================================== */
 .projects-section {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .projects-content {
@@ -2325,7 +2381,7 @@ header {
 .case-studies-content {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 30px;
 }
 
 .case-studies-wrapper {
@@ -2464,7 +2520,7 @@ header {
    SECTION: TESTIMONIALS
 ============================================== */
 .testimonials-section {
-  padding: 80px 0;
+  padding: 30px 0;
   background: var(--white);
 }
 
@@ -2474,11 +2530,26 @@ header {
   padding: 0 40px;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 48px;
+.testimonials-scroll-wrapper {
+  position: relative;
+  margin-top: 24px;
+}
+
+.testimonials-scroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 16px 4px 24px;
+  scrollbar-width: none;
+}
+
+.testimonials-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonials-scroll .testimonial-card {
+  flex: 0 0 360px;
 }
 
 .testimonial-card {
@@ -2554,7 +2625,7 @@ header {
 
 /* Client Logos */
 .clients-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background: #fff;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -2573,7 +2644,7 @@ header {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: .1em;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .clients-logos {
@@ -2712,7 +2783,7 @@ header {
 
 /* Vertical Scrolling Client Logos */
 .clients-section.clients-vertical {
-  padding: 80px 40px;
+  padding: 40px 40px;
   background: var(--white);
 }
 
@@ -3146,24 +3217,24 @@ header {
    SECTION: MAP
 ============================================== */
 .map-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background: linear-gradient(to bottom, var(--white), var(--bg));
 }
 
 .map-section-content {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 28px;
 }
 
 .map-container {
   width: 100%;
-  height: 520px;
+  height: 300px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .18);
@@ -3187,7 +3258,7 @@ header {
    SECTION: FAQ
 ============================================== */
 .faq-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background: var(--bg);
 }
 
@@ -3199,7 +3270,7 @@ header {
 
 .faq-header {
   text-align: center;
-  margin-bottom: 54px;
+  margin-bottom: 30px;
 }
 
 .faq-header .accent-line {
@@ -3221,7 +3292,7 @@ header {
 }
 
 .faq-question {
-  padding: 20px 24px;
+  padding: 10px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -3273,7 +3344,7 @@ header {
 footer {
   background: var(--dark);
   color: var(--white);
-  padding: 72px 0 0;
+  padding: 40px 0 0;
 }
 
 .footer-inner {
@@ -3377,8 +3448,8 @@ footer {
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, .06);
-  margin-top: 56px;
-  padding: 22px 40px;
+  margin-top: 32px;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -3409,7 +3480,7 @@ footer {
    INNER PAGE COMMON STYLES
 ============================================== */
 .hero-section {
-  padding: 80px 0 60px;
+  padding: 48px 0 36px;
   text-align: center;
   background: linear-gradient(135deg, #1a1a1a 60%, #2d2d2d);
   position: relative;
@@ -3461,7 +3532,7 @@ footer {
 }
 
 .page-section {
-  padding: 72px 0;
+  padding: 40px 0;
 }
 
 .page-content {
@@ -3478,7 +3549,7 @@ footer {
   padding: 28px 32px;
   border-left: 4px solid var(--red);
   border-radius: 0 8px 8px 0;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
 .section-intro p {
@@ -3975,15 +4046,28 @@ footer {
     width: auto;
   }
 
-  /* 2. Sector Cards: Reduced height & font sizes */
+  /* 2. Sector Cards: Horizontal scroll on mobile */
   .sector-card {
-    height: 225px;
-    padding: 20px 16px;
-    gap: 8px;
+    padding: 16px 14px;
+    gap: 6px;
   }
 
   .sectors-grid {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+
+  .sectors-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sectors-grid>* {
+    flex: 0 0 200px;
+    scroll-snap-align: start;
   }
 
   .sector-icon {
@@ -4064,7 +4148,7 @@ footer {
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .hero-section {
