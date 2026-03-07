@@ -4255,3 +4255,116 @@ footer {
 .delay-4 {
   transition-delay: .4s;
 }
+/* ==============================================
+   RADIO GRID MOBILE UX (Replaces Select)
+============================================== */
+.radio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 5px;
+}
+.radio-card {
+    position: relative;
+    cursor: pointer;
+}
+.radio-card input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.radio-card span {
+    display: block;
+    padding: 12px 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--mid);
+    background: #fff;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+.radio-card input:checked + span {
+    background: rgba(229,57,53,0.06);
+    border-color: var(--red);
+    color: var(--red);
+}
+.radio-card input:focus-visible + span {
+    outline: 3px solid #0066cc;
+    outline-offset: 1px;
+}
+.radio-grid.dark span {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+}
+.radio-grid.dark input:checked + span {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+}
+
+
+/* ==============================================
+   WCAG ACCESSIBILITY: GLOBAL FOCUS & CONTRAST
+============================================== */
+:focus-visible {
+    outline: 3px solid #0066cc !important;
+    outline-offset: 3px !important;
+    transition: outline-offset 0.1s ease !important;
+}
+
+/* Ensure footer links pass WCAG AA on dark backgrounds */
+.footer-links a, .footer-contact p, .footer-bottom-links a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+.footer-links a:hover, .footer-bottom-links a:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+
+/* Modal Close Buttons */
+.close-btn:focus-visible {
+    outline: 3px solid #e53935 !important;
+    outline-offset: 1px !important;
+}
+
+
+/* ==============================================
+   WCAG ACCESS: TOUCH TARGETS & CTA HIERARCHY
+============================================== */
+/* Ensure all form inputs, selects, and buttons have 44px min height for touch */
+@media (max-width: 768px) {
+    input[type="text"], input[type="email"], input[type="tel"], 
+    select, textarea, button, .btn-primary, .btn-secondary, 
+    .btn-outline, .btn-white, .btn-outline-white,
+    .filter-btn, .category-btn {
+        min-height: 48px !important;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* CTA Hierarchy Consolidation */
+.btn-primary {
+    background: var(--primary) !important;
+    color: #fff !important;
+    border: 2px solid var(--primary) !important;
+}
+.btn-primary:hover {
+    background: #005bb5 !important;
+    border-color: #005bb5 !important;
+}
+.btn-secondary {
+    background: transparent !important;
+    color: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+}
+.btn-secondary:hover {
+    background: rgba(0,102,204,0.05) !important;
+}
+

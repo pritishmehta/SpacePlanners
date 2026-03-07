@@ -24,11 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add real-time validation feedback on blur and input
         inputs.forEach(input => {
             input.addEventListener('blur', () => validateField(input));
-            input.addEventListener('input', () => {
-                if (input.classList.contains('is-invalid')) {
-                    validateField(input);
-                }
-            });
+
+            if (input.type === 'tel') {
+                input.addEventListener('input', (e) => {
+                    let cleaned = e.target.value.replace(/\D/g, '');
+                    // Format as +91 XXXXX XXXXX
+                    let match = cleaned.match(/^(?:91)?(\d{0,5})(\d{0,5})$/);
+                    if (match) {
+                        e.target.value = !match[1] ? '' : '+91 ' + match[1] + (match[2] ? ' ' + match[2] : '');
+                    }
+                    if (input.classList.contains('is-invalid')) validateField(input);
+                });
+            } else {
+                input.addEventListener('input', () => {
+                    if (input.classList.contains('is-invalid')) {
+                        validateField(input);
+                    }
+                });
+            }
         });
 
         // Intercept form submission to validate all fields first
