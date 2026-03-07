@@ -1,7 +1,7 @@
 /* ============================================================
    SPACE PLANNERS INDIA — Master Stylesheet
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Google Fonts loaded via <link> in HTML head for better performance */
 
 /* ── CSS Custom Properties ── */
 :root {
@@ -308,7 +308,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 60px;
+  padding: 26px 60px;
   gap: 32px;
   max-width: 1600px;
   margin: 0 auto;
@@ -316,7 +316,7 @@ header {
 
 .logo {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 800;
   color: var(--dark);
   flex-shrink: 0;
@@ -335,11 +335,11 @@ header {
 }
 
 .main-nav a {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--mid);
   position: relative;
-  padding: 4px 0;
+  padding: 6px 0;
   transition: color .3s;
 }
 
@@ -380,12 +380,12 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 8px;
   border: 2px solid var(--red);
   color: var(--red);
   background: transparent;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   transition: var(--trans);
   white-space: nowrap;
@@ -402,12 +402,12 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 12px 22px;
   border-radius: 8px;
   background: var(--red);
   color: var(--white);
   border: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   transition: var(--trans);
   white-space: nowrap;
@@ -3217,7 +3217,7 @@ header {
    SECTION: MAP
 ============================================== */
 .map-section {
-  padding: 40px 0;
+  padding: 28px 0;
   background: linear-gradient(to bottom, var(--white), var(--bg));
 }
 
@@ -3229,12 +3229,12 @@ header {
 
 .section-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .map-container {
   width: 100%;
-  height: 300px;
+  height: 260px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .18);

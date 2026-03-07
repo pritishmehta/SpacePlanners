@@ -59,11 +59,18 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
     <link rel="preload" as="style" href="style.css">
     <link rel="stylesheet" href="style.css">
 
     <!-- ===== GOOGLE ADS CONVERSION TRACKING ===== -->
-    <!-- Replace AW-XXXXXXXXXX with your actual Google Ads conversion ID -->
+    <!-- Uncomment and replace AW-XXXXXXXXXX with your actual Google Ads conversion ID when ready
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -71,6 +78,7 @@
         gtag('js', new Date());
         gtag('config', 'AW-XXXXXXXXXX');
     </script>
+    -->
 
     <!-- ===== STRUCTURED DATA (JSON-LD SCHEMA) ===== -->
     <script type="application/ld+json">
@@ -237,6 +245,16 @@
 
 <body>
 
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="logo-loader">
+                <span class="logo">Space<span>Planners</span></span>
+            </div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
     <div id="toast-container"></div>
     <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
     <div class="mobile-nav" id="mobileNav">
@@ -246,11 +264,11 @@
         </div>
         <ul>
             <li><a href="index.html" class="active">🏠 Home</a></li>
-            <li><a href="about.html">🏢 About Us</a></li>
-            <li><a href="products.html">📦 Products</a></li>
-            <li><a href="projects.html">🏗️ Industries</a></li>
-            <li><a href="case-studies.html">📋 Case Studies</a></li>
-            <li><a href="index.html#faq">❓ FAQ</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="projects.html">Industries</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
         </ul>
         <div class="mobile-nav-footer">
             <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
@@ -1082,71 +1100,60 @@
                     <div class="accent-line"></div>
                 </div>
 
-                <!-- India Map Container -->
-                <div class="india-map-container reveal"
-                    style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;margin-bottom:56px;">
-                    <!-- Map -->
+                <!-- India Map Container - Full Width -->
+                <div class="india-map-container reveal" style="margin-bottom:32px;">
+                    <!-- Map - Full Width -->
                     <div class="map-wrapper"
-                        style="position:relative;background:linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:1px solid rgba(229,57,53,0.08);display:flex;flex-direction:column;">
-                        <div id="map"
-                            style="width:100%;height:100%;min-height:450px;background:#e8e5e0;position:relative;"></div>
+                        style="position:relative;background:linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:1px solid rgba(229,57,53,0.08);">
+                        <div id="map" style="width:100%;height:280px;background:#e8e5e0;position:relative;"></div>
                     </div>
 
-                    <!-- Service Locations List -->
-                    <div class="service-locations-list">
-                        <div style="margin-bottom:36px;">
-                            <h3
-                                style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px;color:#1a1a1a;">
-                                Service Coverage</h3>
-                            <p style="font-size:15px;color:#666;line-height:1.6;">Our footprint spans India's major
-                                metros and beyond</p>
+                    <!-- Service Locations Grid -->
+                    <div class="service-locations-grid"
+                        style="display:grid;grid-template-columns:repeat(3, 1fr);gap:14px;margin-top:24px;">
+                        <div class="location-card"
+                            style="padding:16px 18px;background:#fff;border-left:4px solid #ff6b35;border-radius:10px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);"
+                            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(255,107,53,0.15)'"
+                            onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                            <div style="font-weight:700;font-size:14px;color:#ff6b35;margin-bottom:4px;">?? Delhi NCR
+                            </div>
+                            <div style="font-size:12px;color:#888;font-weight:500;">100+ Corporate Clients</div>
                         </div>
-                        <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:28px;">
-                            <div class="location-card"
-                                style="padding:20px;background:#fff;border-left:5px solid #ff6b35;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(255,107,53,0.1);"
-                                onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(255,107,53,0.15)'"
-                                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
-                                <div style="font-weight:700;font-size:15px;color:#ff6b35;margin-bottom:6px;">🏢 Delhi
-                                    NCR</div>
-                                <div style="font-size:13px;color:#888;font-weight:500;">100+ Corporate Clients</div>
+                        <div class="location-card"
+                            style="padding:16px 18px;background:#fff;border-left:4px solid #0066cc;border-radius:10px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);"
+                            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,102,204,0.15)'"
+                            onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                            <div style="font-weight:700;font-size:14px;color:#0066cc;margin-bottom:4px;">??? Mumbai
                             </div>
-                            <div class="location-card"
-                                style="padding:20px;background:#fff;border-left:5px solid #0066cc;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(0,102,204,0.1);"
-                                onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(0,102,204,0.15)'"
-                                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
-                                <div style="font-weight:700;font-size:15px;color:#0066cc;margin-bottom:6px;">🏙️ Mumbai
-                                </div>
-                                <div style="font-size:13px;color:#888;font-weight:500;">80+ Retail & Finance</div>
+                            <div style="font-size:12px;color:#888;font-weight:500;">80+ Retail &amp; Finance</div>
+                        </div>
+                        <div class="location-card"
+                            style="padding:16px 18px;background:#fff;border-left:4px solid #00a86b;border-radius:10px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);"
+                            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,168,107,0.15)'"
+                            onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                            <div style="font-weight:700;font-size:14px;color:#00a86b;margin-bottom:4px;">?? Bangalore
                             </div>
-                            <div class="location-card"
-                                style="padding:20px;background:#fff;border-left:5px solid #00a86b;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(0,168,107,0.1);"
-                                onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(0,168,107,0.15)'"
-                                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
-                                <div style="font-weight:700;font-size:15px;color:#00a86b;margin-bottom:6px;">🌴
-                                    Bangalore</div>
-                                <div style="font-size:13px;color:#888;font-weight:500;">120+ Tech & Healthcare</div>
+                            <div style="font-size:12px;color:#888;font-weight:500;">120+ Tech &amp; Healthcare</div>
+                        </div>
+                        <div class="location-card"
+                            style="padding:16px 18px;background:#fff;border-left:4px solid #ff9800;border-radius:10px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);"
+                            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(255,152,0,0.15)'"
+                            onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                            <div style="font-weight:700;font-size:14px;color:#ff9800;margin-bottom:4px;">?? Hyderabad
                             </div>
-                            <div class="location-card"
-                                style="padding:20px;background:#fff;border-left:5px solid #ff9800;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(255,152,0,0.1);"
-                                onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(255,152,0,0.15)'"
-                                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
-                                <div style="font-weight:700;font-size:15px;color:#ff9800;margin-bottom:6px;">🕌
-                                    Hyderabad</div>
-                                <div style="font-size:13px;color:#888;font-weight:500;">60+ Government & Pharma</div>
-                            </div>
-                            <div class="location-card"
-                                style="padding:20px;background:#fff;border-left:5px solid #e63384;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);border-top:1px solid rgba(230,51,132,0.1);"
-                                onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 30px rgba(230,51,132,0.15)'"
-                                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
-                                <div style="font-weight:700;font-size:15px;color:#e63384;margin-bottom:6px;">🌾 Pune
-                                </div>
-                                <div style="font-size:13px;color:#888;font-weight:500;">40+ Mfg & Education</div>
-                            </div>
+                            <div style="font-size:12px;color:#888;font-weight:500;">60+ Government &amp; Pharma</div>
+                        </div>
+                        <div class="location-card"
+                            style="padding:16px 18px;background:#fff;border-left:4px solid #e63384;border-radius:10px;cursor:pointer;transition:all 0.3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 10px rgba(0,0,0,0.06);"
+                            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(230,51,132,0.15)'"
+                            onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)'">
+                            <div style="font-weight:700;font-size:14px;color:#e63384;margin-bottom:4px;">?? Pune</div>
+                            <div style="font-size:12px;color:#888;font-weight:500;">40+ Mfg &amp; Education</div>
                         </div>
                         <div
-                            style="padding:20px;background:linear-gradient(135deg, rgba(229,57,53,0.04) 0%, rgba(229,57,53,0.02) 100%);border-radius:12px;text-align:center;border:1px solid rgba(229,57,53,0.1);">
-                            <div style="font-size:28px;font-weight:700;color:#e53935;">500+</div>
-                            <div style="font-size:13px;color:#666;font-weight:500;margin-top:4px;">Active Installations
+                            style="padding:16px 18px;background:linear-gradient(135deg, rgba(229,57,53,0.06) 0%, rgba(229,57,53,0.02) 100%);border-radius:10px;text-align:center;border:1px solid rgba(229,57,53,0.1);display:flex;flex-direction:column;justify-content:center;">
+                            <div style="font-size:24px;font-weight:700;color:#e53935;">500+</div>
+                            <div style="font-size:11px;color:#666;font-weight:500;margin-top:2px;">Active Installations
                                 Nationwide</div>
                         </div>
                     </div>
@@ -1155,13 +1162,12 @@
                 <!-- Responsive adjustment -->
                 <style>
                     @media (max-width: 768px) {
-                        .india-map-container {
-                            grid-template-columns: 1fr !important;
-                            gap: 32px !important;
+                        .service-locations-grid {
+                            grid-template-columns: 1fr 1fr !important;
                         }
 
-                        .map-wrapper {
-                            min-height: 350px !important;
+                        #map {
+                            height: 220px !important;
                         }
                     }
                 </style>
@@ -1534,7 +1540,7 @@
             cities.forEach(loc => {
                 const m = new google.maps.Marker({
                     position: { lat: loc.lat, lng: loc.lng }, map, title: `${loc.city} – ${loc.projects} projects`,
-                    icon: { url: 'data:image/svg+xml;base64,' + btoa(svgCity), scaledSize: new google.maps.Size(36, 54), anchor: new google.maps.Point(18, 54) }
+                    icon: { url: 'data:image/svg+xml;base64,' + btoa(svgCity), scaledSize: new google.maps.Size(24, 36), anchor: new google.maps.Point(12, 36) }
                 });
                 const iw = new google.maps.InfoWindow({ content: `<div style="font-family:Poppins,sans-serif;padding:6px 10px;background:#ffffff;color:#333;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1);"><strong style="color:#e53935">${loc.city}</strong><br><span style="font-size:12px;color:#666">${loc.projects} projects delivered</span></div>` });
                 m.addListener('click', () => iw.open(map, m));
