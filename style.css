@@ -4373,19 +4373,20 @@ footer {
 
 /* CTA Hierarchy Consolidation */
 .btn-primary {
-  background: var(--primary) !important;
-  color: #fff !important;
-  border: 2px solid var(--primary) !important;
+  background: white !important;
+  color: red !important;
+  border: 2px solid red !important;
 }
 
 .btn-primary:hover {
-  background: #005bb5 !important;
-  border-color: #005bb5 !important;
+  background: red !important;
+  border-color: red !important;
+  color: white !important;
 }
 
 .btn-secondary {
-  background: transparent !important;
-  color: var(--primary) !important;
+  background: black !important;
+  color: white !important;
   border: 2px solid var(--primary) !important;
 }
 
