@@ -350,8 +350,11 @@
             <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">✕</button>
             <h2 class="modal-title" id="inquiryTitle">Get a Free Quote</h2>
             <div class="progress-container" style="margin-bottom:24px; text-align:center;">
-                <div class="progress-bar" style="background:#e0e0e0; height:6px; border-radius:3px; margin-bottom:12px; overflow:hidden;">
-                    <div id="formProgress" style="width: 33%; height: 100%; background: var(--primary); transition: width 0.3s ease;"></div>
+                <div class="progress-bar"
+                    style="background:#e0e0e0; height:6px; border-radius:3px; margin-bottom:12px; overflow:hidden;">
+                    <div id="formProgress"
+                        style="width: 33%; height: 100%; background: var(--primary); transition: width 0.3s ease;">
+                    </div>
                 </div>
                 <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--mid);">
                     <span id="step1Indicator" style="font-weight:700; color:var(--primary);">1. Product</span>
@@ -361,76 +364,109 @@
             </div>
 
             <form id="multiStepForm" onsubmit="submitInquiry(event)" novalidate aria-label="Free Quote Inquiry Form">
-                
+
                 <!-- STEP 1 -->
                 <div class="form-step" id="step1">
                     <div class="form-group">
                         <fieldset style="border:none; padding:0; margin:0;" aria-labelledby="inq-product-label">
-                            <legend id="inq-product-label" style="display:block; margin-bottom:12px; font-weight:600; font-size:16px; color:var(--dark);">What are you looking for?</legend>
+                            <legend id="inq-product-label"
+                                style="display:block; margin-bottom:12px; font-weight:600; font-size:16px; color:var(--dark);">
+                                What are you looking for?</legend>
                             <div class="radio-grid">
-                                <label class="radio-card"><input type="radio" name="product_interest" value="Mobile Compactors" required><span>Mobile Compactors</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest" value="Industrial Racks"><span>Industrial Racks</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest" value="Storage Lockers"><span>Storage Lockers</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest" value="Filing Cabinets"><span>Filing Cabinets</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest" value="Mezzanine Systems"><span>Mezzanine Systems</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest" value="Other"><span>Other</span></label>
+                                <label class="radio-card"><input type="radio" name="product_interest"
+                                        value="Mobile Compactors" required><span>Mobile Compactors</span></label>
+                                <label class="radio-card"><input type="radio" name="product_interest"
+                                        value="Industrial Racks"><span>Industrial Racks</span></label>
+                                <label class="radio-card"><input type="radio" name="product_interest"
+                                        value="Storage Lockers"><span>Storage Lockers</span></label>
+                                <label class="radio-card"><input type="radio" name="product_interest"
+                                        value="Filing Cabinets"><span>Filing Cabinets</span></label>
+                                <label class="radio-card"><input type="radio" name="product_interest"
+                                        value="Mezzanine Systems"><span>Mezzanine Systems</span></label>
+                                <label class="radio-card"><input type="radio" name="product_interest"
+                                        value="Other"><span>Other</span></label>
                             </div>
                         </fieldset>
                     </div>
-                    <div id="step1Error" style="color:var(--red); font-size:13px; margin-bottom:12px; display:none;">Please select a product to continue.</div>
-                    <button type="button" class="btn-primary" style="width:100%; display:flex; justify-content:center;" onclick="nextStep(1, 2)">Continue ?</button>
+                    <div id="step1Error" style="color:var(--red); font-size:13px; margin-bottom:12px; display:none;">
+                        Please select a product to continue.</div>
+                    <button type="button" class="btn-primary" style="width:100%; display:flex; justify-content:center;"
+                        onclick="nextStep(1, 2)">Continue ?</button>
                 </div>
 
                 <!-- STEP 2 -->
                 <div class="form-step" id="step2" style="display:none;">
                     <div class="form-group">
                         <label for="inq-name">Full Name *</label>
-                        <input type="text" id="inq-name" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true" aria-describedby="inq-name-help">
+                        <input type="text" id="inq-name" name="name" placeholder="Your full name" required
+                            autocomplete="name" aria-required="true" aria-describedby="inq-name-help">
                     </div>
                     <div class="form-group">
                         <label for="inq-email">Email Address *</label>
-                        <input type="email" id="inq-email" name="email" placeholder="your@email.com" required autocomplete="email" aria-required="true" aria-describedby="inq-email-help">
+                        <input type="email" id="inq-email" name="email" placeholder="your@email.com" required
+                            autocomplete="email" aria-required="true" aria-describedby="inq-email-help">
                     </div>
                     <div class="form-group">
                         <label for="inq-phone">Phone Number *</label>
-                        <input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel" aria-required="true" aria-describedby="inq-phone-help">
+                        <input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required
+                            autocomplete="tel" aria-required="true" aria-describedby="inq-phone-help">
                     </div>
                     <div class="form-group">
                         <label for="inq-msg">Message (Optional)</label>
-                        <textarea id="inq-msg" name="message" placeholder="Tell us about your space dimensions..."></textarea>
+                        <textarea id="inq-msg" name="message"
+                            placeholder="Tell us about your space dimensions..."></textarea>
                     </div>
                     <div style="display:flex; gap:10px;">
-                        <button type="button" class="btn-secondary" style="flex:1; display:flex; justify-content:center;" onclick="prevStep(2, 1)">? Back</button>
-                        <button type="button" class="btn-primary" style="flex:2; display:flex; justify-content:center;" onclick="nextStep(2, 3)">Continue ?</button>
+                        <button type="button" class="btn-secondary"
+                            style="flex:1; display:flex; justify-content:center;" onclick="prevStep(2, 1)">?
+                            Back</button>
+                        <button type="button" class="btn-primary" style="flex:2; display:flex; justify-content:center;"
+                            onclick="nextStep(2, 3)">Continue ?</button>
                     </div>
                 </div>
 
                 <!-- STEP 3 -->
                 <div class="form-step" id="step3" style="display:none;">
-                    <div class="form-group" style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+                    <div class="form-group"
+                        style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
                         <strong style="font-size: 13px; display: block; margin-bottom: 10px;">?? Privacy Notice</strong>
                         <div style="margin-bottom: 12px;">
-                            <input type="checkbox" id="inq-consent-contact" name="consent_contact" required aria-required="true">
-                            <label for="inq-consent-contact" style="display: inline; margin-left: 8px; font-size: 13px;">I consent to receive contact via phone/email (required)</label>
+                            <input type="checkbox" id="inq-consent-contact" name="consent_contact" required
+                                aria-required="true">
+                            <label for="inq-consent-contact"
+                                style="display: inline; margin-left: 8px; font-size: 13px;">I consent to receive contact
+                                via phone/email (required)</label>
                         </div>
                         <div style="margin-bottom: 12px;">
                             <input type="checkbox" id="inq-consent-analytics" name="consent_analytics">
-                            <label for="inq-consent-analytics" style="display: inline; margin-left: 8px; font-size: 13px;">I consent to analytics tracking</label>
+                            <label for="inq-consent-analytics"
+                                style="display: inline; margin-left: 8px; font-size: 13px;">I consent to analytics
+                                tracking</label>
                         </div>
                         <div>
                             <input type="checkbox" id="inq-consent-marketing" name="consent_marketing">
-                            <label for="inq-consent-marketing" style="display: inline; margin-left: 8px; font-size: 13px;">I consent to marketing communications</label>
+                            <label for="inq-consent-marketing"
+                                style="display: inline; margin-left: 8px; font-size: 13px;">I consent to marketing
+                                communications</label>
                         </div>
                     </div>
                     <div style="display:flex; gap:10px; flex-direction:column;">
-                        <button type="submit" id="finalSubmitBtn" class="btn-primary" style="width: 100%; display: flex; justify-content: center; gap: 10px;">
+                        <button type="submit" id="finalSubmitBtn" class="btn-primary"
+                            style="width: 100%; display: flex; justify-content: center; gap: 10px;">
                             Submit Inquiry &rarr;
                         </button>
-                        <button type="button" class="btn-secondary" style="width:100%; border:none; background:transparent;" onclick="prevStep(3, 2)">? Edit Details</button>
+                        <button type="button" class="btn-secondary"
+                            style="width:100%; border:none; background:transparent;" onclick="prevStep(3, 2)">? Edit
+                            Details</button>
                     </div>
                     <!-- Trust Badge -->
-                    <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #666; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <div
+                        style="text-align: center; margin-top: 15px; font-size: 12px; color: #666; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
                         256-bit SSL Secure &middot; We never spam
                     </div>
                 </div>
@@ -479,20 +515,20 @@
     <section class="carousel-section" aria-label="Featured products slideshow">
         <div class="carousel-container">
             <div class="carousel-slide active" id="slide0">
-                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_compactor.png" alt="Mobile Compactor Storage System by Space Planners India"
-                    loading="eager">
+                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_compactor.png"
+                    alt="Mobile Compactor Storage System by Space Planners India" loading="eager">
             </div>
             <div class="carousel-slide" id="slide1">
-                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_racks.png" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
-                    loading="lazy">
+                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_racks.png"
+                    alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
             </div>
             <div class="carousel-slide" id="slide2">
-                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_lockers.png" alt="Professional Steel Storage Lockers by Space Planners India"
-                    loading="lazy">
+                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_lockers.png"
+                    alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
             </div>
             <div class="carousel-slide" id="slide3">
-                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_filing.png" alt="Archive Filing and Mobile Compactor Storage by Space Planners India"
-                    loading="lazy">
+                <img width="1200" height="600" style="aspect-ratio:2/1;object-fit:cover;" src="hero_filing.png"
+                    alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
             </div>
             <div class="slide-overlay"></div>
             <div class="slide-content">
@@ -727,48 +763,42 @@
                         <form class="finder-form" id="product-finder-form" onsubmit="submitProductFinder(event)">
 
                             <div class="form-group">
-                                <fieldset style="border:none; padding:0; margin:0;" aria-labelledby="find-industry-label">
-                                    <legend id="find-industry-label" style="display:block; margin-bottom:8px; font-weight:500; font-size:13px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.5px;">Your Industry</legend>
-                                    <div class="radio-grid dark">
-                                        <label class="radio-card"><input type="radio" name="industry" value="Pharmaceutical" required><span>Pharmaceutical</span></label>
-                                        <label class="radio-card"><input type="radio" name="industry" value="Hospital / Healthcare"><span>Hospital</span></label>
-                                        <label class="radio-card"><input type="radio" name="industry" value="Government / PSU"><span>Govt/PSU</span></label>
-                                        <label class="radio-card"><input type="radio" name="industry" value="Warehouse / Logistics"><span>Logistics</span></label>
-                                        <label class="radio-card"><input type="radio" name="industry" value="Educational Institution"><span>Education</span></label>
-                                        <label class="radio-card"><input type="radio" name="industry" value="Other"><span>Other</span></label>
-                                    </div>
-                                </fieldset>
+                                <label for="industry"
+                                    style="display:block; margin-bottom:8px; font-weight:500; font-size:13px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.5px;">Your
+                                    Industry</label>
+                                <select id="industry" name="industry" class="finder-dropdown" required>
+                                    <option value="" disabled selected>Select your industry</option>
+                                    <option value="Pharmaceutical">Pharmaceutical</option>
+                                    <option value="Hospital / Healthcare">Hospital / Healthcare</option>
+                                    <option value="Government / PSU">Government / PSU</option>
+                                    <option value="Warehouse / Logistics">Warehouse / Logistics</option>
+                                    <option value="Educational Institution">Educational Institution</option>
+                                    <option value="Other">Other</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
-                                <fieldset style="border:none; padding:0; margin:0;" aria-labelledby="find-type-label">
-                                    <legend id="find-type-label" style="display:block; margin-bottom:8px; font-weight:500; font-size:13px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.5px;">Storage Type Needed</legend>
-                                    <div class="radio-grid dark">
-                                        <label class="radio-card"><input type="radio" name="storage_type" value="Mobile Compactors" required><span>Compactors</span></label>
-                                        <label class="radio-card"><input type="radio" name="storage_type" value="Pallet / Heavy Racks"><span>Heavy Racks</span></label>
-                                        <label class="radio-card"><input type="radio" name="storage_type" value="Industrial Lockers"><span>Lockers</span></label>
-                                        <label class="radio-card"><input type="radio" name="storage_type" value="Filing Systems"><span>Filing Systems</span></label>
-                                        <label class="radio-card"><input type="radio" name="storage_type" value="Mezzanine Floors"><span>Mezzanine</span></label>
-                                        <label class="radio-card"><input type="radio" name="storage_type" value="Other"><span>Other</span></label>
-                                    </div>
-                                </fieldset>
+                                <label for="storage_type"
+                                    style="display:block; margin-bottom:8px; font-weight:500; font-size:13px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.5px;">Storage
+                                    Type Needed</label>
+                                <select id="storage_type" name="storage_type" class="finder-dropdown" required>
+                                    <option value="" disabled selected>Select storage type</option>
+                                    <option value="Mobile Compactors">Mobile Compactors</option>
+                                    <option value="Pallet / Heavy Racks">Pallet / Heavy Racks</option>
+                                    <option value="Industrial Lockers">Industrial Lockers</option>
+                                    <option value="Filing Systems">Filing Systems</option>
+                                    <option value="Mezzanine Floors">Mezzanine Floors</option>
+                                    <option value="Other">Other</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
-
                                 <label for="find-phone">Your Phone Number</label>
-
                                 <input type="tel" id="find-phone" name="phone" placeholder="+91 XXXXX XXXXX" required
                                     style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:white;">
-
                             </div>
 
-                            <button type="submit" class="finder-submit-btn">Schedule My Free Assessment &#x2192;</button>
-                            <div style="text-align: center; margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; gap: 6px;">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                100% Secure &middot; Your data is protected
-                            </div>
-
+                            <button type="submit" class="finder-submit-btn">Schedule My Free Assessment →</button>
                         </form>
                     </div>
                 </div>
@@ -886,7 +916,8 @@
 
             <div class="products-scroll-wrapper">
                 <button class="scroll-nav left" onclick="scrollProducts(-400)" aria-label="Scroll left">❮</button>
-                <div class="products-grid-scrollable" id="productsScrollContainer" tabindex="0" role="region" aria-label="Products Carousel">
+                <div class="products-grid-scrollable" id="productsScrollContainer" tabindex="0" role="region"
+                    aria-label="Products Carousel">
                     <div class="products-grid" id="productsGrid"></div>
                 </div>
                 <button class="scroll-nav right" onclick="scrollProducts(400)" aria-label="Scroll right">❯</button>
@@ -909,7 +940,8 @@
             </div>
             <div class="testimonials-scroll-wrapper">
                 <button class="scroll-nav left" onclick="scrollTestimonials(-400)" aria-label="Scroll left">❮</button>
-                <div class="testimonials-scroll" id="testimonialsScroll" tabindex="0" role="region" aria-label="Testimonials Carousel">
+                <div class="testimonials-scroll" id="testimonialsScroll" tabindex="0" role="region"
+                    aria-label="Testimonials Carousel">
                     <div class="testimonial-card">
                         <div class="testimonial-stars">★★★★★</div>
                         <p class="testimonial-text">"Space Planners transformed our archive room. We went from chaos to
@@ -1222,7 +1254,8 @@
             </div>
             <div class="case-studies-wrapper">
                 <button class="scroll-nav left" onclick="scrollCaseStudies(-400)" aria-label="Scroll left">❮</button>
-                <div class="case-studies-scroll" id="caseStudiesScroll" tabindex="0" role="region" aria-label="Case Studies Carousel"></div>
+                <div class="case-studies-scroll" id="caseStudiesScroll" tabindex="0" role="region"
+                    aria-label="Case Studies Carousel"></div>
                 <button class="scroll-nav right" onclick="scrollCaseStudies(400)" aria-label="Scroll right">❯</button>
             </div>
 
@@ -1335,15 +1368,15 @@
 
         /* ── MODALS ── */
         function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        
+
         /* -- MULTI-STEP LOGIC -- */
         function nextStep(current, next) {
             let isValid = true;
             if (current === 1) {
                 const radios = document.querySelectorAll('input[name="product_interest"]');
                 let checked = false;
-                radios.forEach(r => { if(r.checked) checked = true; });
-                if(!checked) {
+                radios.forEach(r => { if (r.checked) checked = true; });
+                if (!checked) {
                     document.getElementById("step1Error").style.display = "block";
                     return;
                 }
@@ -1356,7 +1389,7 @@
                 document.getElementById("inq-name").blur();
                 document.getElementById("inq-email").blur();
                 document.getElementById("inq-phone").blur();
-                
+
                 // If any have is-invalid, do not proceed
                 const invalids = document.getElementById("step2").querySelectorAll(".is-invalid");
                 if (invalids.length > 0) return;
@@ -1372,20 +1405,20 @@
             document.getElementById("step1").style.display = "none";
             document.getElementById("step2").style.display = "none";
             document.getElementById("step3").style.display = "none";
-            
+
             document.getElementById("step" + stepNum).style.display = "block";
-            
+
             // Update progress bar
             const pct = stepNum === 1 ? "33%" : stepNum === 2 ? "66%" : "100%";
             document.getElementById("formProgress").style.width = pct;
-            
+
             // Update indicators
             document.getElementById("step1Indicator").style.fontWeight = stepNum >= 1 ? "700" : "500";
             document.getElementById("step1Indicator").style.color = stepNum >= 1 ? "var(--primary)" : "var(--mid)";
-            
+
             document.getElementById("step2Indicator").style.fontWeight = stepNum >= 2 ? "700" : "500";
             document.getElementById("step2Indicator").style.color = stepNum >= 2 ? "var(--primary)" : "var(--mid)";
-            
+
             document.getElementById("step3Indicator").style.fontWeight = stepNum === 3 ? "700" : "500";
             document.getElementById("step3Indicator").style.color = stepNum === 3 ? "var(--primary)" : "var(--mid)";
         }
