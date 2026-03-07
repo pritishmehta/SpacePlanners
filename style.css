@@ -1318,7 +1318,7 @@ header {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: min(720px, 90vh);
+  height: min(780px, 90vh);
   overflow: hidden;
 }
 
