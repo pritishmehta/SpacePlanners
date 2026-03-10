@@ -141,7 +141,7 @@ ul {
 
 .logo-loader {
   font-size: 40px;
-  animation: pulseLogo 1.2s infinite alternate ease-in-out;
+  animation: pulseLogo 1.6s infinite alternate ease-in-out;
 }
 
 .loader-line {
