@@ -5,21 +5,39 @@
 
 /* ── CSS Custom Properties ── */
 :root {
-  --red: #e53935;
-  --red-dark: #c62828;
-  --dark: #1a1a1a;
-  --mid: #444;
-  --light: #666;
-  --bg: #f8f8f8;
-  --white: #ffffff;
-  --border: #ececec;
-  --shadow-sm: 0 2px 10px rgba(0, 0, 0, .06);
-  --shadow-md: 0 8px 30px rgba(0, 0, 0, .10);
-  --shadow-lg: 0 20px 60px rgba(0, 0, 0, .14);
-  --radius: 12px;
-  --trans: all 0.3s cubic-bezier(.4, 0, .2, 1);
-  --font-serif: 'Poppins', sans-serif;
+  /* PRIMARY COLORS (from logo) */
+  --primary: #C41E3A;           /* Logo red - bold, confident */
+  --primary-dark: #A01729;      /* Darker red for hover/active states */
+  --primary-light: #E85454;     /* Lighter red for backgrounds */
+  
+  /* NEUTRALS (refined for premium feel) */
+  --dark: #1a1a1a;              /* Near-black for primary text */
+  --mid: #4a4a4a;               /* Mid-gray for secondary text */
+  --light: #737373;             /* Light gray for tertiary text */
+  --bg: #fafafa;                /* Off-white background */
+  --white: #ffffff;             /* Pure white */
+  --border: #e0e0e0;            /* Subtle borders */
+  
+  /* ACCENT COLORS (complements) */
+  --accent-navy: #1b3a52;       /* Professional accent (optional) */
+  --accent-teal: #2a9a9a;       /* Alternative accent (optional) */
+  --success: #4caf50;           /* For positive feedback */
+  --error: #d32f2f;             /* For error states */
+  --warning: #ff9800;           /* For warnings */
+  
+  /* SHADOWS (refined for premium feel) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.16);
+  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.20);
+  
+  /* TYPOGRAPHY */
+  --font-serif: 'Playfair Display', serif;
   --font-sans: 'Poppins', sans-serif;
+  
+  /* SPACING & LAYOUT */
+  --radius: 10px;               /* Slightly tighter radius for modern look */
+  --trans: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ── Reset ── */
@@ -633,24 +651,41 @@ header {
 
 /* Floating Quick Inquiry Button */
 .float-inquiry-btn {
-  width: 48px;
-  height: 48px;
-  background: var(--red);
-  border-radius: 50%;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: var(--primary);
   border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: var(--trans);
+  z-index: 998;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(229, 57, 53, .45);
-  cursor: pointer;
-  transition: var(--trans);
-  position: relative;
+  font-size: 24px;
 }
 
 .float-inquiry-btn:hover {
-  background: var(--red-dark);
+  background: var(--primary-dark);
   transform: scale(1.1);
-  box-shadow: 0 6px 24px rgba(229, 57, 53, .55);
+  box-shadow: var(--shadow-xl);
+}
+
+.float-inquiry-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .float-inquiry-popup {
+    width: 260px;
+    bottom: 80px;
+    right: -10px;
+  }
 }
 
 .float-inquiry-btn svg {
@@ -700,70 +735,88 @@ header {
 }
 
 .popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
+  position: relative;
+  margin-bottom: 16px;
 }
 
+
 .popup-title {
-  font-family: var(--font-serif);
   font-size: 16px;
   font-weight: 700;
   color: var(--dark);
+  margin: 0;
+}
+.popup-subtitle {
+  font-size: 12px;
+  color: var(--light);
+  margin: 4px 0 0 0;
 }
 
 .popup-close {
-  background: none;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primary);
+  color: white;
   border: none;
-  font-size: 18px;
-  color: var(--light);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: var(--trans);
-  line-height: 1;
 }
 
 .popup-close:hover {
-  color: var(--red);
+  background: var(--primary-dark);
+  transform: rotate(90deg);
 }
 
 .popup-input {
   width: 100%;
-  padding: 10px 14px;
-  border: 2px solid var(--border);
+  padding: 12px;
+  border: 1px solid var(--border);
   border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
   font-family: var(--font-sans);
-  font-size: 13px;
   transition: var(--trans);
 }
 
 .popup-input:focus {
   outline: none;
-  border-color: var(--red);
-  box-shadow: 0 0 0 3px rgba(229, 57, 53, .1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
 }
 
 .popup-submit {
   width: 100%;
-  padding: 11px;
-  background: var(--red);
-  color: var(--white);
+  padding: 12px;
+  background: var(--primary);
+  color: white;
   border: none;
   border-radius: 8px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
   transition: var(--trans);
+  font-family: var(--font-sans);
 }
 
 .popup-submit:hover {
-  background: var(--red-dark);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .popup-note {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--light);
   text-align: center;
+  margin: 12px 0 0 0;
 }
 
 .whatsapp-float {
@@ -829,6 +882,99 @@ header {
 #back-to-top:hover {
   background: var(--red);
   transform: translateY(-2px);
+}
+
+/* Primary CTA Button - Prominent */
+.btn-white {
+  background: var(--white);
+  color: var(--primary);
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--trans);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  background: #f5f5f5;
+}
+
+.btn-white:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Secondary CTA Button - Outline */
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--trans);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-outline-white:hover {
+  background: var(--white);
+  color: var(--primary);
+  transform: scale(1.02);
+}
+
+.btn-outline-white:active {
+  transform: scale(0.98);
+}
+
+/* Primary CTA Button (for other sections) */
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--trans);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  background: var(--primary-dark);
+}
+
+/* Ensure buttons don't have full width styling in hero */
+.slide-cta .btn-white,
+.slide-cta .btn-outline-white {
+  width: auto;
 }
 
 /* ==============================================
@@ -3978,10 +4124,27 @@ footer {
   }
 
   .float-inquiry-popup {
-    width: calc(100vw - 40px);
-    right: -8px;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+    transition: var(--trans);
+    z-index: 999;
   }
 
+  .float-inquiry-popup.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+  }
   .float-stack {
     bottom: 20px;
     right: 16px;
