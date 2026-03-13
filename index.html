@@ -574,8 +574,8 @@
 
 
                     <!-- PRODUCT 2: INDUSTRIAL RACKS -->
-                    <a href="industrial-racks.html" class="product-card reveal delay-1"
-                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                    <div class="product-card reveal delay-1" onclick="window.location='industrial-racks.html'"
+                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%; cursor: pointer;">
                         <div class="product-image"
                             style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
                             <img src="industrial_racks_1772984358724.png"
@@ -598,80 +598,75 @@
                                 </svg>
                                 Warehouse Grade
                             </div>
-                            <button class="btn-primary"
+                            <button class="btn-primary" onclick="event.stopPropagation(); openInquiryModal()"
                                 style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
                                 →</button>
                         </div>
-                    </a>
 
-                    <!-- PRODUCT 3: STORAGE LOCKERS -->
-                    <a href="storage-lockers.html" class="product-card reveal delay-2"
-                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
-                        <div class="product-image"
-                            style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
-                            <img src="storage_lockers_1772984375790.png"
-                                alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy"
-                                style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-                        </div>
-                        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
-                            <h3 class="product-name"
-                                style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
-                                Storage Lockers</h3>
-                            <p class="product-description"
-                                style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Secure
-                                professional lockers with digital locking systems.</p>
-                            <div
-                                style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M9 12l2 2 4-4" />
-                                    <circle cx="12" cy="12" r="10" />
-                                </svg>
-                                NABH Approved
+                        <!-- PRODUCT 3: STORAGE LOCKERS -->
+                        <div class="product-card reveal delay-2" onclick="window.location='storage-lockers.html'"
+                            style="text-decoration: none; display: flex; flex-direction: column; height: 100%; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
+                                <img src="storage_lockers_1772984375790.png"
+                                    alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                             </div>
-                            <button class="btn-primary"
-                                style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
-                                →</button>
-                        </div>
-                    </a>
-
-                    <!-- PRODUCT 4: FILING CABINETS -->
-                    <a href="filing-cabinets.html" class="product-card reveal delay-3"
-                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
-                        <div class="product-image"
-                            style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
-                            <img src="filing_cabinets_1772984391777.png" alt="Professional Filing Cabinets & Lockers"
-                                loading="lazy"
-                                style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-                        </div>
-                        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
-                            <h3 class="product-name"
-                                style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">Filing
-                                Cabinets</h3>
-                            <p class="product-description"
-                                style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Organized
-                                document management & secure filing systems.</p>
-                            <div
-                                style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M9 12l2 2 4-4" />
-                                    <circle cx="12" cy="12" r="10" />
-                                </svg>
-                                GeM Listed
+                            <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Storage Lockers</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Secure
+                                    professional lockers with digital locking systems.</p>
+                                <div
+                                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M9 12l2 2 4-4" />
+                                        <circle cx="12" cy="12" r="10" />
+                                    </svg>
+                                    NABH Approved
+                                </div>
+                                <button class="btn-primary" onclick="event.stopPropagation(); openInquiryModal()"
+                                    style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
+                                    →</button>
                             </div>
-                            <button class="btn-primary"
-                                style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
-                                →</button>
                         </div>
-                    </a>
-                </div>
 
-                <div style="margin-top:28px; display: flex; justify-content: center;">
-                    <a href="products.html" class="btn-primary" style="padding:13px 24px;border-radius:8px;">View All
-                        Products →</a>
-                </div>
-            </div>
+                        <!-- PRODUCT 4: FILING CABINETS -->
+                        <div class="product-card reveal delay-3" onclick="window.location='filing-cabinets.html'"
+                            style="text-decoration: none; display: flex; flex-direction: column; height: 100%; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
+                                <img src="filing_cabinets_1772984391777.png"
+                                    alt="Professional Filing Cabinets & Lockers" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
+                            </div>
+                            <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Filing
+                                    Cabinets</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Organized
+                                    document management & secure filing systems.</p>
+                                <div
+                                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M9 12l2 2 4-4" />
+                                        <circle cx="12" cy="12" r="10" />
+                                    </svg>
+                                    GeM Listed
+                                </div>
+                                <button class="btn-primary" onclick="event.stopPropagation(); openInquiryModal()"
+                                    style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
+                                    →</button>
+                            </div>
+
+                        </div>
+                    </div>
         </section>
 
         <!-- ══════════════════════════════════════════════
@@ -791,104 +786,222 @@
         </section>
 
 
-        <!-- CLIENT LOGOS - HORIZONTAL SCROLLABLE WITH BRANDFETCH CDN -->
         <section class="clients-section">
-
             <div class="clients-content">
-
                 <p class="clients-label">Trusted by India's leading organisations</p>
-
                 <div class="clients-scroll-wrapper">
-
                     <button class="clients-nav left" onclick="scrollClients(-300)"
                         aria-label="Scroll left">&#x276E;</button>
-
                     <div class="clients-scroll" id="clientsScroll">
 
+                        <!-- CORPORATES -->
                         <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/drdo.gov.in" alt="DRDO" loading="lazy">
-                            <span class="logo-name">DRDO</span>
+                            <img class="logo-img" src="https://cdn.brandfetch.io/wipro.com" alt="Wipro" loading="lazy">
+                            <span class="logo-name">Wipro</span>
                         </div>
-
                         <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/ongcindia.com" alt="ONGC"
-                                loading="lazy">
-                            <span class="logo-name">ONGC</span>
+                            <img class="logo-img" src="https://cdn.brandfetch.io/tcs.com" alt="TCS" loading="lazy">
+                            <span class="logo-name">TCS</span>
                         </div>
-
-                        <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/aiims.edu" alt="AIIMS" loading="lazy">
-                            <span class="logo-name">AIIMS</span>
-                        </div>
-
                         <div class="client-logo-item">
                             <img class="logo-img" src="https://cdn.brandfetch.io/tata.com" alt="Tata Group"
                                 loading="lazy">
                             <span class="logo-name">Tata Group</span>
                         </div>
-
                         <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/isro.gov.in" alt="ISRO" loading="lazy">
-                            <span class="logo-name">ISRO</span>
+                            <img class="logo-img" src="https://cdn.brandfetch.io/honda.com" alt="Honda" loading="lazy">
+                            <span class="logo-name">Honda</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/mahindra.com" alt="Mahindra"
+                                loading="lazy">
+                            <span class="logo-name">Mahindra</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/adityabirla.com" alt="Aditya Birla"
+                                loading="lazy">
+                            <span class="logo-name">Aditya Birla</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/capgemini.com" alt="Capgemini"
+                                loading="lazy">
+                            <span class="logo-name">Capgemini</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/hul.com" alt="HUL" loading="lazy">
+                            <span class="logo-name">HUL</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/jindalstel.com" alt="Jindal Steel"
+                                loading="lazy">
+                            <span class="logo-name">Jindal Steel</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/coca-cola.com" alt="Coca-Cola"
+                                loading="lazy">
+                            <span class="logo-name">Coca-Cola</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/raymond.in" alt="Raymond"
+                                loading="lazy">
+                            <span class="logo-name">Raymond</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/bajajelectricals.com"
+                                alt="Bajaj Electricals" loading="lazy">
+                            <span class="logo-name">Bajaj Electricals</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/tatacapital.com" alt="Tata Capital"
+                                loading="lazy">
+                            <span class="logo-name">Tata Capital</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/bisleri.com" alt="Bisleri"
+                                loading="lazy">
+                            <span class="logo-name">Bisleri</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/loreal.com" alt="L'Oréal"
+                                loading="lazy">
+                            <span class="logo-name">L'Oréal</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/ril.com" alt="Reliance" loading="lazy">
+                            <span class="logo-name">Reliance</span>
                         </div>
 
+                        <!-- PHARMA -->
                         <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/indianrailways.gov.in"
-                                alt="Indian Railways" loading="lazy">
-                            <span class="logo-name">Indian Railways</span>
+                            <img class="logo-img" src="https://cdn.brandfetch.io/cipla.com" alt="Cipla" loading="lazy">
+                            <span class="logo-name">Cipla</span>
                         </div>
-
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/ajantapharma.com" alt="Ajanta Pharma"
+                                loading="lazy">
+                            <span class="logo-name">Ajanta Pharma</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/piramal.com" alt="Piramal"
+                                loading="lazy">
+                            <span class="logo-name">Piramal</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/lupin.com" alt="Lupin" loading="lazy">
+                            <span class="logo-name">Lupin</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/alkem.com" alt="Alkem" loading="lazy">
+                            <span class="logo-name">Alkem</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/drreddys.com" alt="Dr. Reddy's"
+                                loading="lazy">
+                            <span class="logo-name">Dr. Reddy's</span>
+                        </div>
                         <div class="client-logo-item">
                             <img class="logo-img" src="https://cdn.brandfetch.io/sunpharma.com" alt="Sun Pharma"
                                 loading="lazy">
                             <span class="logo-name">Sun Pharma</span>
                         </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/glenmarkpharma.com" alt="Glenmark"
+                                loading="lazy">
+                            <span class="logo-name">Glenmark</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/zyduslife.com" alt="Zydus"
+                                loading="lazy">
+                            <span class="logo-name">Zydus</span>
+                        </div>
 
+                        <!-- BANKING -->
                         <div class="client-logo-item">
                             <img class="logo-img" src="https://cdn.brandfetch.io/sbi.co.in" alt="SBI" loading="lazy">
                             <span class="logo-name">SBI</span>
                         </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/rbi.org.in" alt="RBI" loading="lazy">
+                            <span class="logo-name">RBI</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/standardchartered.com"
+                                alt="Standard Chartered" loading="lazy">
+                            <span class="logo-name">Standard Chartered</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/unionbankofindia.co.in"
+                                alt="Union Bank" loading="lazy">
+                            <span class="logo-name">Union Bank</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/licindia.in" alt="LIC" loading="lazy">
+                            <span class="logo-name">LIC</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/eximbankindia.in" alt="Exim Bank"
+                                loading="lazy">
+                            <span class="logo-name">Exim Bank</span>
+                        </div>
 
+                        <!-- GOVT & INSTITUTIONS -->
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/drdo.gov.in" alt="DRDO" loading="lazy">
+                            <span class="logo-name">DRDO</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/isro.gov.in" alt="ISRO" loading="lazy">
+                            <span class="logo-name">ISRO</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/indianrailways.gov.in"
+                                alt="Indian Railways" loading="lazy">
+                            <span class="logo-name">Indian Railways</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/ongcindia.com" alt="ONGC"
+                                loading="lazy">
+                            <span class="logo-name">ONGC</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/indianoil.in" alt="Indian Oil"
+                                loading="lazy">
+                            <span class="logo-name">Indian Oil</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/ntpc.co.in" alt="NTPC" loading="lazy">
+                            <span class="logo-name">NTPC</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/aiims.edu" alt="AIIMS" loading="lazy">
+                            <span class="logo-name">AIIMS</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/iitb.ac.in" alt="IIT Bombay"
+                                loading="lazy">
+                            <span class="logo-name">IIT Bombay</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/mu.ac.in" alt="University of Mumbai"
+                                loading="lazy">
+                            <span class="logo-name">Univ. of Mumbai</span>
+                        </div>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/kokilabenhospital.com" alt="Kokilaben"
+                                loading="lazy">
+                            <span class="logo-name">Kokilaben</span>
+                        </div>
                         <div class="client-logo-item">
                             <img class="logo-img" src="https://cdn.brandfetch.io/larsentoubro.com" alt="L&T"
                                 loading="lazy">
                             <span class="logo-name">L&T</span>
                         </div>
 
-                        <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/ril.com" alt="Reliance" loading="lazy">
-                            <span class="logo-name">Reliance</span>
-                        </div>
-
-                        <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/kokilabenhospital.com" alt="Kokilaben"
-                                loading="lazy">
-                            <span class="logo-name">Kokilaben</span>
-                        </div>
-
-                        <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/iitb.ac.in" alt="IIT Bombay"
-                                loading="lazy">
-                            <span class="logo-name">IIT Bombay</span>
-                        </div>
-
-                        <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/ntpc.co.in" alt="NTPC" loading="lazy">
-                            <span class="logo-name">NTPC</span>
-                        </div>
-
-                        <div class="client-logo-item">
-                            <img class="logo-img" src="https://cdn.brandfetch.io/rbi.org.in" alt="RBI" loading="lazy">
-                            <span class="logo-name">RBI</span>
-                        </div>
-
-                        <button class="clients-nav right" onclick="scrollClients(300)"
-                            aria-label="Scroll right">&#x276F;</button>
-
                     </div>
-
+                    <button class="clients-nav right" onclick="scrollClients(300)"
+                        aria-label="Scroll right">&#x276F;</button>
                 </div>
-
+            </div>
         </section>
 
         <!-- TESTIMONIALS -->
