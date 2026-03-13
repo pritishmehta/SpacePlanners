@@ -4,8 +4,6 @@
 
 // API Configuration - Update with your backend endpoint
 const API_CONFIG = {
-  ENDPOINT: 'https://api.spaceplannersindia.in/submit-inquiry',
-  // Alternative: Use FormSubmit.co service (free) - no backend needed
   USE_FORMSUBMIT: true,
   FORMSUBMIT_ENDPOINT: 'https://formsubmit.co/sales@spaceplannersindia.in'
 };

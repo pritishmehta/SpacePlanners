@@ -126,8 +126,8 @@
             <div class="cookie-text">
                 <strong>🍪 We Use Cookies</strong>
                 <p>We use cookies and analytics to improve your experience and understand how you use our site. By
-                    continuing to browse, you consent to our <a href="privacy-policy.html"
-                        target="_blank">Privacy Policy</a> and <a href="terms-of-use.html" target="_blank">Terms of
+                    continuing to browse, you consent to our <a href="privacy-policy.html" target="_blank">Privacy
+                        Policy</a> and <a href="terms-of-use.html" target="_blank">Terms of
                         Use</a>.</p>
             </div>
             <div class="cookie-buttons">
@@ -339,46 +339,331 @@
         </div>
     </div>
 
-    <!-- PROJECT DETAIL MODAL -->
-    <div class="modal" id="projectModal" role="dialog" aria-modal="true">
-        <div class="modal-content product-modal-content">
-            <button class="close-btn" onclick="closeProjectModal()">✕</button>
-            <div id="projectDetailContent"></div>
+    <!-- ===== CAROUSEL ===== -->
+    <section class="carousel-section" aria-label="Featured industrial projects">
+        <div class="carousel-container">
+            <div class="carousel-slide active" id="slide0">
+                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="project_warehouse.png"
+                    alt="Warehouse Logistics Storage" loading="eager">
+            </div>
+            <div class="carousel-slide" id="slide1">
+                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="project_corporate.png"
+                    alt="Corporate Office Storage" loading="lazy">
+            </div>
+            <div class="carousel-slide" id="slide2">
+                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="hero_compactor.png"
+                    alt="Pharma Compactor Storage" loading="lazy">
+            </div>
+            <div class="carousel-slide" id="slide3">
+                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="hero_racks.png"
+                    alt="Heavy Duty Racks" loading="lazy">
+            </div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <p class="slide-eyebrow">Industrial Applications</p>
+                <h1 class="slide-title" id="slideTitle">Storage Solutions for Every Sector</h1>
+                <p class="slide-description" id="slideDesc">Tailored execution for warehouse, pharma, and enterprise.
+                </p>
+                <div class="slide-cta">
+                    <button class="btn-white" onclick="openInquiryModal()">Get Free Quote</button>
+                    <a href="#pharma" class="btn-outline-white">Explore Sectors</a>
+                </div>
+            </div>
+            <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous slide">❮</button>
+            <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next slide">❯</button>
+            <div class="carousel-controls" role="tablist">
+                <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+                <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+                <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+                <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+            </div>
         </div>
-    </div>
-
-    <!-- HERO -->
-    <section class="hero-section">
-        <h1 class="hero-title">Our Projects</h1>
-        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
-            <a href="index.html">Home</a><span class="sep">/</span><span>Projects</span>
-        </nav>
     </section>
 
-    <!-- FILTER -->
-    <div class="filter-section" role="navigation" aria-label="Project filter">
-        <div class="filter-container">
-            <button class="filter-btn active" onclick="filterProjects('All')">All Projects</button>
-            <button class="filter-btn" onclick="filterProjects('Enterprise')">Enterprise</button>
-            <button class="filter-btn" onclick="filterProjects('Government')">Government</button>
-            <button class="filter-btn" onclick="filterProjects('Industrial')">Industrial</button>
-            <button class="filter-btn" onclick="filterProjects('Education')">Education</button>
-            <button class="filter-btn" onclick="filterProjects('Healthcare')">Healthcare</button>
-            <button class="filter-btn" onclick="filterProjects('Retail')">Retail</button>
+    <!-- INDUSTRY LINKS RIBBON -->
+    <div class="stats-ribbon" role="region" aria-label="Industry Links" id="statsRibbon" style="padding: 24px 0;">
+        <div class="stats-strip" style="justify-content: center; gap: 40px; flex-wrap: wrap;">
+            <a href="#pharma" class="stat-strip-item" style="text-decoration: none; cursor: pointer;">
+                <div class="stat-strip-icon">🏥</div>
+                <div class="stat-strip-label" style="font-weight: 600; color: white; margin-top: 8px;">
+                    Pharmaceutical<br>& Healthcare</div>
+            </a>
+            <a href="#corporate" class="stat-strip-item" style="text-decoration: none; cursor: pointer;">
+                <div class="stat-strip-icon">🏢</div>
+                <div class="stat-strip-label" style="font-weight: 600; color: white; margin-top: 8px;">
+                    Corporate<br>Offices</div>
+            </a>
+            <a href="#warehouse" class="stat-strip-item" style="text-decoration: none; cursor: pointer;">
+                <div class="stat-strip-icon">📦</div>
+                <div class="stat-strip-label" style="font-weight: 600; color: white; margin-top: 8px;">Warehouse<br>&
+                    Logistics</div>
+            </a>
+            <a href="#education" class="stat-strip-item" style="text-decoration: none; cursor: pointer;">
+                <div class="stat-strip-icon">🎓</div>
+                <div class="stat-strip-label" style="font-weight: 600; color: white; margin-top: 8px;">Education<br>&
+                    Library</div>
+            </a>
+            <a href="#museum" class="stat-strip-item" style="text-decoration: none; cursor: pointer;">
+                <div class="stat-strip-icon">🏛️</div>
+                <div class="stat-strip-label" style="font-weight: 600; color: white; margin-top: 8px;">Museum<br>&
+                    Archives</div>
+            </a>
+            <a href="#government" class="stat-strip-item" style="text-decoration: none; cursor: pointer;">
+                <div class="stat-strip-icon">⚖️</div>
+                <div class="stat-strip-label" style="font-weight: 600; color: white; margin-top: 8px;">Government<br>&
+                    Public Sector</div>
+            </a>
         </div>
     </div>
 
-    <!-- PROJECTS -->
-    <section class="page-section">
-        <div class="page-content">
-            <div class="section-header-small reveal">
-                <span class="section-badge" id="filterLabel">All Projects</span>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's leading
-                    organisations</p>
-                <div class="accent-line"></div>
+    <!-- PHARMACEUTICAL & HEALTHCARE -->
+    <section class="page-section" id="pharma" style="padding: 60px 0; border-bottom: 1px solid #eee;">
+        <div class="page-content" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+            <div class="industry-info" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 32px; color: var(--dark); margin-bottom: 16px;">Pharmaceutical & Healthcare</h2>
+                <p style="color: var(--light); line-height: 1.7; margin-bottom: 24px; font-size: 16px;">
+                    GMP & NABH-compliant systems for medical records, raw materials, and finished goods. Maximize your
+                    storage capacity while maintaining strict hygiene and tracking standards.
+                </p>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Quote for Pharma</button>
             </div>
-            <div class="projects-grid" id="projectsGrid" style="margin-top:40px;"></div>
+            <div class="industry-products" style="flex: 1; min-width: 300px;">
+                <div style="margin-bottom: 16px; font-weight: 600; color: var(--dark);">Recommended Products:</div>
+                <div class="products-grid"
+                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 0;">
+                    <a href="compactor-storage.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="compactor_storage_1772984342025.png" alt="Compactor"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Mobile Compactors</h4>
+                    </a>
+                    <a href="storage-lockers.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="storage_lockers_1772984375790.png" alt="Lockers"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Storage Lockers</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="industry-logos" style="width: 100%; margin-top: 40px; text-align: center;">
+                <div
+                    style="font-size: 13px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">
+                    Trusted By Leading Healthcare Institutes</div>
+                <div
+                    style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; opacity: 0.7; filter: grayscale(100%);">
+                    <img src="logos/sunpharma.svg" alt="Sun Pharma" style="height: 50px;"
+                        onerror="this.style.display='none'">
+                    <img src="logos/aiims.svg" alt="AIIMS" style="height: 50px;" onerror="this.style.display='none'">
+                    <img src="logos/kokilaben.svg" alt="Kokilaben Hospital" style="height: 50px;"
+                        onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORPORATE OFFICES -->
+    <section class="page-section" id="corporate"
+        style="padding: 60px 0; border-bottom: 1px solid #eee; background: #fcfcfc;">
+        <div class="page-content"
+            style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; flex-direction: row-reverse;">
+            <div class="industry-info" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 32px; color: var(--dark); margin-bottom: 16px;">Corporate Offices</h2>
+                <p style="color: var(--light); line-height: 1.7; margin-bottom: 24px; font-size: 16px;">
+                    Modern office storage, personal lockers, and filing solutions with custom branding and digital locks
+                    matching your corporate aesthetics.
+                </p>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Quote for Corporate</button>
+            </div>
+            <div class="industry-products" style="flex: 1; min-width: 300px;">
+                <div style="margin-bottom: 16px; font-weight: 600; color: var(--dark);">Recommended Products:</div>
+                <div class="products-grid"
+                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 0;">
+                    <a href="filing-cabinets.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="filing_cabinets_1772984391777.png" alt="Filing Cabinets"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Filing Cabinets</h4>
+                    </a>
+                    <a href="storage-lockers.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="storage_lockers_1772984375790.png" alt="Lockers"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Personal Lockers</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="industry-logos" style="width: 100%; margin-top: 40px; text-align: center;">
+                <div
+                    style="font-size: 13px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">
+                    Trusted By Top Corporates</div>
+                <div
+                    style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; opacity: 0.7; filter: grayscale(100%);">
+                    <img src="logos/reliance.svg" alt="Reliance" style="height: 50px;"
+                        onerror="this.style.display='none'">
+                    <img src="logos/tata.svg" alt="Tata" style="height: 50px;" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAREHOUSE & LOGISTICS -->
+    <section class="page-section" id="warehouse" style="padding: 60px 0; border-bottom: 1px solid #eee;">
+        <div class="page-content" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+            <div class="industry-info" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 32px; color: var(--dark); margin-bottom: 16px;">Warehouse & Logistics</h2>
+                <p style="color: var(--light); line-height: 1.7; margin-bottom: 24px; font-size: 16px;">
+                    Heavy-duty pallet racks and mezzanine systems for large-volume storage operations, engineered to
+                    endure the highest load demands.
+                </p>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Quote for Warehouse</button>
+            </div>
+            <div class="industry-products" style="flex: 1; min-width: 300px;">
+                <div style="margin-bottom: 16px; font-weight: 600; color: var(--dark);">Recommended Products:</div>
+                <div class="products-grid"
+                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 0;">
+                    <a href="industrial-racks.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="industrial_racks_1772984358724.png" alt="Racks"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Industrial Racks</h4>
+                    </a>
+                    <a href="products.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="product_mezzanine.png" alt="Mezzanine"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Mezzanine Systems</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="industry-logos" style="width: 100%; margin-top: 40px; text-align: center;">
+                <div
+                    style="font-size: 13px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">
+                    Trusted By Industrial Giants</div>
+                <div
+                    style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; opacity: 0.7; filter: grayscale(100%);">
+                    <img src="logos/lt.svg" alt="L&T" style="height: 50px;" onerror="this.style.display='none'">
+                    <img src="logos/ntpc.svg" alt="NTPC" style="height: 50px;" onerror="this.style.display='none'">
+                    <img src="logos/ongc.svg" alt="ONGC" style="height: 50px;" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & LIBRARY -->
+    <section class="page-section" id="education"
+        style="padding: 60px 0; border-bottom: 1px solid #eee; background: #fcfcfc;">
+        <div class="page-content"
+            style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; flex-direction: row-reverse;">
+            <div class="industry-info" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 32px; color: var(--dark); margin-bottom: 16px;">Education & Library</h2>
+                <p style="color: var(--light); line-height: 1.7; margin-bottom: 24px; font-size: 16px;">
+                    Library-grade mobile shelving, student lockers, and administrative record storage designed for
+                    safety and space maximization in educational institutes.
+                </p>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Quote for Education</button>
+            </div>
+            <div class="industry-products" style="flex: 1; min-width: 300px;">
+                <div style="margin-bottom: 16px; font-weight: 600; color: var(--dark);">Recommended Products:</div>
+                <div class="products-grid"
+                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 0;">
+                    <a href="compactor-storage.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="compactor_storage_1772984342025.png" alt="Compactor"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Mobile Compactors</h4>
+                    </a>
+                    <a href="storage-lockers.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="product_cupboard.png" alt="Cupboards"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Storage Cupboards</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="industry-logos" style="width: 100%; margin-top: 40px; text-align: center;">
+                <div
+                    style="font-size: 13px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">
+                    Trusted By Premier Educational Institutions</div>
+                <div
+                    style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; opacity: 0.7; filter: grayscale(100%);">
+                    <img src="logos/iitb.svg" alt="IIT Bombay" style="height: 50px;"
+                        onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSEUM & ARCHIVES -->
+    <section class="page-section" id="museum" style="padding: 60px 0; border-bottom: 1px solid #eee;">
+        <div class="page-content" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+            <div class="industry-info" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 32px; color: var(--dark); margin-bottom: 16px;">Museum & Archives</h2>
+                <p style="color: var(--light); line-height: 1.7; margin-bottom: 24px; font-size: 16px;">
+                    Climate-compatible lockable shelving for preserving historical artifacts and centuries-old records,
+                    preventing degradation and restricting unauthorized access.
+                </p>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Quote for Museum</button>
+            </div>
+            <div class="industry-products" style="flex: 1; min-width: 300px;">
+                <div style="margin-bottom: 16px; font-weight: 600; color: var(--dark);">Recommended Products:</div>
+                <div class="products-grid"
+                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 0;">
+                    <a href="compactor-storage.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="compactor_storage_1772984342025.png" alt="Compactor"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Mobile Compactors</h4>
+                    </a>
+                    <a href="products.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="product_cabinet.png" alt="Cabinets"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Filing Cabinets</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="industry-logos" style="width: 100%; margin-top: 40px; text-align: center;">
+                <div
+                    style="font-size: 13px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">
+                    Trusted By Leading National Museums</div>
+                <!-- Logos omitted or reserved for future -->
+            </div>
+        </div>
+    </section>
+
+    <!-- GOVERNMENT -->
+    <section class="page-section" id="government"
+        style="padding: 60px 0; border-bottom: 1px solid #eee; background: #fcfcfc;">
+        <div class="page-content"
+            style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; flex-direction: row-reverse;">
+            <div class="industry-info" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 32px; color: var(--dark); margin-bottom: 16px;">Government & Public Sector</h2>
+                <p style="color: var(--light); line-height: 1.7; margin-bottom: 24px; font-size: 16px;">
+                    GeM-compliant lockable filing for secure document archives, treasury boxes, and department records.
+                    Assured lifetime durability and AMC support.
+                </p>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Quote for Government</button>
+            </div>
+            <div class="industry-products" style="flex: 1; min-width: 300px;">
+                <div style="margin-bottom: 16px; font-weight: 600; color: var(--dark);">Recommended Products:</div>
+                <div class="products-grid"
+                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 0;">
+                    <a href="compactor-storage.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="compactor_storage_1772984342025.png" alt="Compactor"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Mobile Compactors</h4>
+                    </a>
+                    <a href="filing-cabinets.html" class="product-card" style="text-decoration: none; padding: 16px;">
+                        <img src="filing_cabinets_1772984391777.png" alt="Cabinets"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="font-size: 15px; color: var(--dark); margin: 0;">Filing Cabinets</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="industry-logos" style="width: 100%; margin-top: 40px; text-align: center;">
+                <div
+                    style="font-size: 13px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">
+                    Trusted By Public Sector Enterprises</div>
+                <div
+                    style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; opacity: 0.7; filter: grayscale(100%);">
+                    <img src="logos/drdo.svg" alt="DRDO" style="height: 50px;" onerror="this.style.display='none'">
+                    <img src="logos/isro.svg" alt="ISRO" style="height: 50px;" onerror="this.style.display='none'">
+                    <img src="logos/indianrailways.svg" alt="Indian Railways" style="height: 50px;"
+                        onerror="this.style.display='none'">
+                    <img src="logos/rbi.svg" alt="RBI" style="height: 50px;" onerror="this.style.display='none'">
+                    <img src="logos/sbi.svg" alt="SBI" style="height: 50px;" onerror="this.style.display='none'">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -437,41 +722,26 @@
 
     <script src="js/data.js"></script>
     <script>
-        let currentFilter = 'All';
-        function filterProjects(cat) {
-            currentFilter = cat;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', (cat === 'All' && b.textContent === 'All Projects') || b.textContent === cat));
-            document.getElementById('filterLabel').textContent = cat === 'All' ? 'All Projects' : cat;
-            renderProjects();
+        /* ── CAROUSEL ── */
+        let currentSlide = 0, slideTimer;
+        const carouselSlides = [
+            { title: "Storage Solutions for Every Sector", desc: "Expert execution for warehouse logistics and material handling" },
+            { title: "Corporate Enterprise Storage", desc: "Premium aesthetic storage that pairs with modern workspaces" },
+            { title: "Pharmaceutical Storage", desc: "GMP compliant systems for flawless tracking and pristine hygiene" },
+            { title: "Heavy Duty Racking", desc: "Engineered pallet racks for large scale distribution operations" }
+        ];
+
+        function nextSlide() { currentSlide = (currentSlide + 1) % carouselSlides.length; updateSlide(); }
+        function prevSlide() { currentSlide = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length; updateSlide(); }
+        function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
+        function updateSlide() {
+            document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            document.getElementById('slideTitle').textContent = carouselSlides[currentSlide].title;
+            document.getElementById('slideDesc').textContent = carouselSlides[currentSlide].desc;
         }
-        function renderProjects() {
-            const f = currentFilter === 'All' ? projects : projects.filter(p => p.category === currentFilter);
-            document.getElementById('projectsGrid').innerHTML = f.length ? f.map(p => `
-    <div class="project-card" onclick='openProjectModal(${JSON.stringify(p).replace(/'/g, "\\'")})'  role="button" tabindex="0">
-      <div class="project-image"><img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'project-image-placeholder\\'></div>'"></div>
-      <div class="project-badge">${p.category}</div>
-      <div class="project-content">
-        <h3 class="project-title">${p.title}</h3>
-        <p class="project-description">${p.desc}</p>
-        <span class="project-scale">📐 ${p.scale}</span>
-      </div>
-    </div>`).join('') : `<div style="padding:40px;text-align:center;color:var(--light);grid-column:1/-1">No projects in this category yet. <a href="tel:+912240033385" style="color:var(--red)">Call us</a> to discuss your project.</div>`;
-        }
-        function openProjectModal(p) {
-            document.getElementById('projectDetailContent').innerHTML = `
-    <h2 class="modal-title">${p.title}</h2>
-    <span class="section-badge" style="margin-bottom:16px;display:inline-block;">${p.category}</span>
-    <div class="product-detail-image"><img src="${p.img}" alt="${p.title}" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)'"></div>
-    <p style="color:var(--light);margin-bottom:18px;font-size:14px;line-height:1.7;">${p.details}</p>
-    <p style="font-weight:600;color:var(--dark);margin-bottom:20px;">📐 Project Scale: ${p.scale}</p>
-    <div class="modal-buttons">
-      <button class="modal-btn" onclick="closeProjectModal();openInquiryModal()">📧 Similar Project Inquiry</button>
-      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385','_blank')">💬 WhatsApp</button>
-    </div>`;
-            document.getElementById('projectModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeProjectModal() { document.getElementById('projectModal').classList.remove('active'); document.body.style.overflow = ''; }
+        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5500); }
+
         function showToast(msg, type = 'success') {
             const t = document.createElement('div');
             t.className = `toast ${type}`;
@@ -484,7 +754,6 @@
         function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
         function submitInquiry(e) {
             e.preventDefault();
-            // Capture form data using Excel data capture system
             captureFormSubmission(e.target, 'demo_request');
             showToast("Thank you! Your information has been saved.");
             closeInquiryModal();
@@ -499,9 +768,10 @@
         document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
         const btt = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400));
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProjectModal(); closeMobileNav(); } });
-        ['inquiryModal', 'projectModal'].forEach(id => { document.getElementById(id).addEventListener('click', function (e) { if (e.target === this) { this.id === 'inquiryModal' ? closeInquiryModal() : closeProjectModal(); } }); });
-        document.addEventListener('DOMContentLoaded', renderProjects);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeMobileNav(); } });
+        document.getElementById('inquiryModal').addEventListener('click', function (e) { if (e.target === this) { closeInquiryModal(); } });
+
+        document.addEventListener('DOMContentLoaded', () => { resetTimer(); });
     </script>
 
     <!-- ===== EXCEL DATA CAPTURE SYSTEM ===== -->

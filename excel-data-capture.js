@@ -1,7 +1,3 @@
-<!-- ===== EXCEL-BASED DATA CAPTURE SYSTEM ===== -->
-<!-- This replaces the database approach with automated Excel file generation -->
-
-<script>
 // ===== DATA CAPTURE TO EXCEL/CSV =====
 class ExcelDataCapture {
     constructor() {
@@ -242,29 +238,4 @@ setInterval(() => {
         excelCapture.exportToExcel();
     }
 }, 3600000); // Every 1 hour
-</script>
 
-<!-- ===== OPTIONAL: Add Export Button to Admin Area ===== -->
-<style>
-    .admin-export-btn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #e53935;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 600;
-        z-index: 99998;
-        display: none; /* Show only on admin pages */
-    }
-    .admin-export-btn:hover {
-        background: #c62828;
-    }
-</style>
-
-<button class="admin-export-btn" onclick="exportAllLeads()" title="Export leads to CSV">
-    📊 Export Leads
-</button>
