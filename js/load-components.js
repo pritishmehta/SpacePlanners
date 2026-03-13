@@ -1,0 +1,176 @@
+/**
+ * Space Planners India - Components Loader
+ * Dynamically loads shared header, footer, nav and modals.
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const components = [
+        { id: "mobile-nav-placeholder", url: "components/mobile-nav.html" },
+        { id: "header-placeholder", url: "components/header.html" },
+        { id: "floating-buttons-placeholder", url: "components/floating-buttons.html" },
+        { id: "footer-placeholder", url: "components/footer.html" },
+        { id: "modals-placeholder", url: "components/modals.html" }
+    ];
+
+    let loadedCount = 0;
+
+    components.forEach(comp => {
+        const el = document.getElementById(comp.id);
+        if (el) {
+            fetch(comp.url)
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return response.text();
+                })
+                .then(data => {
+                    el.innerHTML = data;
+                    loadedCount++;
+                    
+                    // Post-load initialization
+                    if (comp.id === "header-placeholder" || comp.id === "mobile-nav-placeholder") {
+                        setActiveNavLink();
+                    }
+                    
+                    // If everything is loaded, we can trigger any global re-scans if needed
+                    if (loadedCount === components.filter(c => document.getElementById(c.id)).length) {
+                        document.dispatchEvent(new CustomEvent('componentsLoaded'));
+                    }
+                })
+                .catch(err => console.error(`Error loading ${comp.url}:`, err));
+        }
+    });
+
+    function setActiveNavLink() {
+        const currentPath = window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll(".main-nav a, .mobile-nav a");
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === currentPath || (currentPath === "" && href === "index.html")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    }
+});
+
+/**
+ * Common UX Functions
+ */
+
+function openMobileNav() {
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    
+    if (mobileNav) mobileNav.classList.add('open');
+    if (mobileOverlay) mobileOverlay.classList.add('open');
+    if (hamburgerBtn) {
+        hamburgerBtn.classList.add('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+    }
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMobileNav() {
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    
+    if (mobileNav) mobileNav.classList.remove('open');
+    if (mobileOverlay) mobileOverlay.classList.remove('open');
+    if (hamburgerBtn) {
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+}
+
+function openInquiryModal() {
+    const modal = document.getElementById('inquiryModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeInquiryModal() {
+    const modal = document.getElementById('inquiryModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function closeSuccessModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function toggleFloatPopup(e) {
+    if (e) e.stopPropagation();
+    const popup = document.getElementById('floatPopup');
+    const btn = document.getElementById('floatInqBtn');
+    if (popup) {
+        const isOpen = popup.classList.toggle('show');
+        if (btn) btn.setAttribute('aria-expanded', isOpen);
+    }
+}
+
+function showToast(msg, type = 'success') {
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span>${msg}</span>`;
+    const container = document.getElementById('toast-container');
+    if (container) {
+        container.appendChild(t);
+        requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
+        setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
+    }
+}
+
+// Close popup on outside click
+document.addEventListener('click', (e) => {
+    const popup = document.getElementById('floatPopup');
+    const stack = document.getElementById('floatStack');
+    if (popup && popup.classList.contains('show') && stack && !stack.contains(e.target)) {
+        popup.classList.remove('show');
+        const btn = document.getElementById('floatInqBtn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+});
+
+// ── GENERAL UI INITIALIZATION ─────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    // Back to top logic
+    const btt = document.getElementById('back-to-top');
+    if (btt) {
+        window.addEventListener('scroll', () => {
+            btt.classList.toggle('visible', window.scrollY > 400);
+        });
+    }
+
+    // Reveal animations observer
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    // Initial observation
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
+
+    // Observe periodically for dynamically added elements (like product cards)
+    const observer = new MutationObserver(() => {
+        document.querySelectorAll('.reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)').forEach(el => {
+            revealObs.observe(el);
+        });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+});

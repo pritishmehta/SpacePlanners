@@ -68,6 +68,7 @@
     </noscript>
     <link rel="preload" as="style" href="style.css">
     <link rel="stylesheet" href="style.css">
+    <script src="js/load-components.js"></script>
 
     <!-- ===== GOOGLE ADS CONVERSION TRACKING ===== -->
     <!-- Uncomment and replace AW-XXXXXXXXXX with your actual Google Ads conversion ID when ready
@@ -257,321 +258,13 @@
             </div>
         </div>
 
-        <div id="toast-container"></div>
-        <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
-        <div class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-header">
-                <span class="logo">Space<span>Planners</span></span>
-                <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
-            </div>
-            <ul>
-                <li><a href="index.html" class="active">🏠 Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li>
-                    <a href="#products" style="justify-content:space-between">Products <span>▾</span></a>
-                    <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
-                        <li><a href="compactor-storage.html"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Compactor
-                                Storage System</a></li>
-                        <li><a href="industrial-racks.html"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Industrial
-                                Racks</a></li>
-                        <li><a href="storage-lockers.html"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Storage
-                                Lockers</a></li>
-                        <li><a href="filing-cabinets.html"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Filing
-                                Cabinets & Lockers</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="projects.html" style="justify-content:space-between">Industrial Applications
-                        <span>▾</span></a>
-                    <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
-                        <li><a href="projects.html#pharma"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Pharmaceutical
-                                & Healthcare</a></li>
-                        <li><a href="projects.html#corporate"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Corporate
-                                Offices</a></li>
-                        <li><a href="projects.html#warehouse"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Warehouse
-                                & Logistics</a></li>
-                        <li><a href="projects.html#education"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Education
-                                & Library</a></li>
-                        <li><a href="projects.html#museum"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Museum
-                                & Archives</a></li>
-                        <li><a href="projects.html#government"
-                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Government</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="case-studies.html">Projects</a></li>
-            </ul>
-            <div class="mobile-nav-footer">
-                <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
-                <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
-            </div>
-        </div>
+        <div id="mobile-nav-placeholder"></div>
+        <header id="header-placeholder"></header>
 
-        <header>
-            <div class="header-main">
-                <a href="index.html" class="logo"
-                    style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                    <img src="logo.png" alt="Space Planners India" style="height: 80px; width: 200;">
-                    <span style="font-size: 18px; font-weight: 700; color: var(--dark); display: none;">Space<span
-                            style="color: var(--primary);">Planners</span></span>
-                </a>
-                <nav class="main-nav" aria-label="Main navigation">
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li>
-                            <a href="#products">Products ▾</a>
-                            <ul class="nav-dropdown">
-                                <li><a href="compactor-storage.html">Compactor Storage System</a></li>
-                                <li><a href="industrial-racks.html">Industrial Racks</a></li>
-                                <li><a href="storage-lockers.html">Storage Lockers</a></li>
-                                <li><a href="filing-cabinets.html">Filing Cabinets & Lockers</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="projects.html">Industrial Applications ▾</a>
-                            <ul class="nav-dropdown">
-                                <li><a href="projects.html#pharma">Pharmaceutical & Healthcare</a></li>
-                                <li><a href="projects.html#corporate">Corporate Offices</a></li>
-                                <li><a href="projects.html#warehouse">Warehouse & Logistics</a></li>
-                                <li><a href="projects.html#education">Education & Library</a></li>
-                                <li><a href="projects.html#museum">Museum & Archives</a></li>
-                                <li><a href="projects.html#government">Government</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="case-studies.html">Projects</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <a href="tel:+912240033385" class="btn-call"
-                        style="box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);">Contact Us</a>
-                    <button class="btn-primary" onclick="openInquiryModal()"
-                        style="background: var(--primary); color: white; font-weight: 700; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);">Get
-                        Free Quote →</button>
-                    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"
-                        onclick="openMobileNav()">
-                        <span></span><span></span><span></span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <div class="float-stack" id="floatStack">
-            <div style="position:relative;">
-                <div class="float-inquiry-popup" id="floatPopup">
-                    <div class="popup-header">
-                        <p class="popup-title">Get Free Quote</p>
-                        <p class="popup-subtitle"
-                            style="font-size: 12px; color: rgba(26,26,26,0.6); margin: 4px 0 0 0;">We'll call within 2
-                            hours</p>
-                        <button class="popup-close" onclick="toggleFloatPopup(event)">✕</button>
-                    </div>
-                    <input class="popup-input" type="email" id="pop-email" placeholder="Your email" autocomplete="email"
-                        required>
-                    <button class="popup-submit" onclick="submitPopupInquiry()">Get Started →</button>
-                    <p class="popup-note">✓ No spam. No commitment.</p>
-                </div>
-                <button class="float-inquiry-btn" onclick="toggleFloatPopup(event)" aria-label="Quick inquiry"
-                    id="floatInqBtn" title="Get Free Quote">
-                    <span style="font-size: 20px;">💬</span>
-                </button>
-            </div>
-            <div class="whatsapp-float">
-                <a href="https://wa.me/912240033385?text=Hi%20Space%20Planners%2C%20I%20want%20a%20quote%20for%20storage%20solutions"
-                    class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
-                        <path fill="#fff"
-                            d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8 29.7 7 26.9 7 24 7 14.6 14.6 7 24 7s17 7.6 17 17-7.6 17-17 17z" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-        <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-            aria-label="Back to top">↑</button>
+        <div id="floating-buttons-placeholder"></div>
 
         <!-- INQUIRY MODAL -->
-        <div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle">
-            <div class="modal-content">
-                <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">✕</button>
-                <h2 class="modal-title" id="inquiryTitle">Get a Free Quote</h2>
-                <div class="progress-container" style="margin-bottom:24px; text-align:center;">
-                    <div class="progress-bar"
-                        style="background:#e0e0e0; height:6px; border-radius:3px; margin-bottom:12px; overflow:hidden;">
-                        <div id="formProgress"
-                            style="width: 33%; height: 100%; background: var(--primary); transition: width 0.3s ease;">
-                        </div>
-                    </div>
-                    <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--mid);">
-                        <span id="step1Indicator" style="font-weight:700; color:var(--primary);">1. Product</span>
-                        <span id="step2Indicator">2. Details</span>
-                        <span id="step3Indicator">3. Consent</span>
-                    </div>
-                </div>
-
-                <form id="multiStepForm" onsubmit="submitInquiry(event)" novalidate
-                    aria-label="Free Quote Inquiry Form">
-
-                    <!-- STEP 1 -->
-                    <div class="form-step" id="step1">
-                        <div class="form-group">
-                            <fieldset style="border:none; padding:0; margin:0;" aria-labelledby="inq-product-label">
-                                <legend id="inq-product-label"
-                                    style="display:block; margin-bottom:12px; font-weight:600; font-size:16px; color:var(--dark);">
-                                    What are you looking for?</legend>
-                                <div class="radio-grid">
-                                    <label class="radio-card"><input type="radio" name="product_interest"
-                                            value="Mobile Compactors" required><span>Mobile Compactors</span></label>
-                                    <label class="radio-card"><input type="radio" name="product_interest"
-                                            value="Industrial Racks"><span>Industrial Racks</span></label>
-                                    <label class="radio-card"><input type="radio" name="product_interest"
-                                            value="Storage Lockers"><span>Storage Lockers</span></label>
-                                    <label class="radio-card"><input type="radio" name="product_interest"
-                                            value="Filing Cabinets"><span>Filing Cabinets</span></label>
-                                    <label class="radio-card"><input type="radio" name="product_interest"
-                                            value="Mezzanine Systems"><span>Mezzanine Systems</span></label>
-                                    <label class="radio-card"><input type="radio" name="product_interest"
-                                            value="Other"><span>Other</span></label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div id="step1Error"
-                            style="color:var(--red); font-size:13px; margin-bottom:12px; display:none;">
-                            Please select a product to continue.</div>
-                        <button type="button" class="btn-primary"
-                            style="width:100%; display:flex; justify-content:center;" onclick="nextStep(1, 2)">Continue
-                            ?</button>
-                    </div>
-
-                    <!-- STEP 2 -->
-                    <div class="form-step" id="step2" style="display:none;">
-                        <div class="form-group">
-                            <label for="inq-name">Full Name *</label>
-                            <input type="text" id="inq-name" name="name" placeholder="Your full name" required
-                                autocomplete="name" aria-required="true" aria-describedby="inq-name-help">
-                        </div>
-                        <div class="form-group">
-                            <label for="inq-email">Email Address *</label>
-                            <input type="email" id="inq-email" name="email" placeholder="your@email.com" required
-                                autocomplete="email" aria-required="true" aria-describedby="inq-email-help">
-                        </div>
-                        <div class="form-group">
-                            <label for="inq-phone">Phone Number *</label>
-                            <input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required
-                                autocomplete="tel" aria-required="true" aria-describedby="inq-phone-help">
-                        </div>
-                        <div class="form-group">
-                            <label for="inq-msg">Message (Optional)</label>
-                            <textarea id="inq-msg" name="message"
-                                placeholder="Tell us about your space dimensions..."></textarea>
-                        </div>
-                        <div style="display:flex; gap:10px;">
-                            <button type="button" class="btn-secondary"
-                                style="flex:1; display:flex; justify-content:center;" onclick="prevStep(2, 1)">?
-                                Back</button>
-                            <button type="button" class="btn-primary"
-                                style="flex:2; display:flex; justify-content:center;" onclick="nextStep(2, 3)">Continue
-                                ?</button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 3 -->
-                    <div class="form-step" id="step3" style="display:none;">
-                        <div class="form-group"
-                            style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
-                            <strong style="font-size: 13px; display: block; margin-bottom: 10px;">🔒 Privacy
-                                Notice</strong>
-                            <div style="margin-bottom: 12px;">
-                                <input type="checkbox" id="inq-consent-contact" name="consent_contact" required
-                                    aria-required="true">
-                                <label for="inq-consent-contact"
-                                    style="display: inline; margin-left: 8px; font-size: 13px;">I consent to receive
-                                    contact
-                                    via phone/email (required)</label>
-                            </div>
-                            <div style="margin-bottom: 12px;">
-                                <input type="checkbox" id="inq-consent-analytics" name="consent_analytics">
-                                <label for="inq-consent-analytics"
-                                    style="display: inline; margin-left: 8px; font-size: 13px;">I consent to analytics
-                                    tracking</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="inq-consent-marketing" name="consent_marketing">
-                                <label for="inq-consent-marketing"
-                                    style="display: inline; margin-left: 8px; font-size: 13px;">I consent to marketing
-                                    communications</label>
-                            </div>
-                        </div>
-                        <div style="display:flex; gap:10px; flex-direction:column;">
-                            <button type="submit" id="finalSubmitBtn" class="btn-primary"
-                                style="width: 100%; display: flex; justify-content: center; gap: 10px;">
-                                Submit Inquiry &rarr;
-                            </button>
-                            <button type="button" class="btn-secondary"
-                                style="width:100%; border:none; background:transparent;" onclick="prevStep(3, 2)">? Edit
-                                Details</button>
-                        </div>
-                        <!-- Trust Badge -->
-                        <div
-                            style="text-align: center; margin-top: 15px; font-size: 12px; color: #666; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                            256-bit SSL Secure &middot; We never spam
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- SUCCESS MODAL (Conversion Tracking) -->
-        <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
-            <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
-                <div
-                    style="width: 80px; height: 80px; background: rgba(0,168,107,0.1); color: #00a86b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
-                    ✓</div>
-                <h2 class="modal-title" id="successTitle" style="margin-bottom: 16px; font-size: 24px;">Message Sent
-                    Successfully!</h2>
-                <p style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">Thank you for
-                    your
-                    inquiry. A Space Planners specialist will contact you shortly to discuss your storage requirements.
-                </p>
-                <button class="submit-btn" onclick="closeSuccessModal()"
-                    style="width: 100%; justify-content: center;">Continue Browsing</button>
-            </div>
-        </div>
-
-        <!-- ERROR MODAL -->
-        <div class="modal" id="errorModal" role="dialog" aria-modal="true" aria-labelledby="errorTitle">
-            <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
-                <div
-                    style="width: 80px; height: 80px; background: rgba(229,57,53,0.1); color: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
-                    ✕</div>
-                <h2 class="modal-title" id="errorTitle"
-                    style="margin-bottom: 16px; font-size: 24px; color: var(--red);">
-                    Submission Failed</h2>
-                <p id="errorMessage"
-                    style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">
-                    There was an issue sending your inquiry. Please try again or contact us directly.</p>
-                <button class="submit-btn" onclick="document.getElementById('errorModal').classList.remove('active')"
-                    style="width: 100%; justify-content: center;">Try Again</button>
-            </div>
-        </div>
-        <div class="modal" id="productModal" role="dialog" aria-modal="true">
-            <div class="modal-content product-modal-content">
-                <button class="close-btn" onclick="closeProductModal()" aria-label="Close">✕</button>
-                <div id="productDetailContent"></div>
-            </div>
-        </div>
+        <div id="modals-placeholder"></div>
 
         <!-- ===== H1 (SEO — visually in carousel) ===== -->
         <!-- HERO CAROUSEL -->
@@ -1452,113 +1145,7 @@
 
         <!-- FOOTER -->
 
-        <footer>
-
-            <div class="footer-inner">
-
-                <div class="footer-brand">
-
-                    <div class="logo-footer"
-                        style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <img src="logo.png" alt="Space Planners India" style="height: 100px; width: 200px;">
-                    </div>
-
-                    <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across
-
-                        every major city.</p>
-
-                    <div class="footer-social">
-
-                        <a href="#" aria-label="LinkedIn">in</a>
-
-                        <a href="#" aria-label="Facebook">f</a>
-
-                        <a href="#" aria-label="YouTube">Γû╢</a>
-
-                    </div>
-
-                </div>
-
-                <div class="footer-col">
-
-                    <h4>Products</h4>
-
-                    <ul>
-
-                        <li><a href="products.html">Mobile Compactors</a></li>
-
-                        <li><a href="products.html">Industrial Racks</a></li>
-
-                        <li><a href="products.html">Storage Lockers</a></li>
-
-                        <li><a href="products.html">Filing Cabinets</a></li>
-
-                        <li><a href="products.html">Mezzanine Systems</a></li>
-
-                    </ul>
-
-                </div>
-
-                <div class="footer-col">
-
-                    <h4>Company</h4>
-
-                    <ul>
-
-                        <li><a href="about.html">About Us</a></li>
-
-                        <li><a href="projects.html">Projects</a></li>
-
-                        <li><a href="case-studies.html">Case Studies</a></li>
-
-                        <li><a href="index.html#faq">FAQ</a></li>
-
-                    </ul>
-
-                </div>
-
-                <div class="footer-col">
-
-                    <h4>Contact</h4>
-
-                    <div class="footer-contact">
-
-                        <a href="tel:+912240033385"><span class="icon"></span>+91-22-40033385</a>
-
-                        <a href="/cdn-cgi/l/email-protection#dcafbdb0b9af9cafacbdbfb9acb0bdb2b2b9aeafb5b2b8b5bdf2b5b2"><span
-                                class="icon"></span><span class="__cf_email__"
-                                data-cfemail="8bf8eae7eef8cbf8fbeae8eefbe7eae5e5eef9f8e2e5efe2eaa5e2e5">[email&#160;protected]</span></a>
-
-                        <a href="https://wa.me/912240033385" target="_blank" rel="noopener"><span
-                                class="icon"></span>WhatsApp Us</a>
-
-                        <a href="#reach"><span class="icon"></span>Mumbai, Maharashtra, India</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="footer-bottom">
-
-                <p>┬⌐ 2026 Space Planners India. All rights reserved.</p>
-
-                <div class="footer-bottom-links">
-
-                    <a href="privacy-policy.html">Privacy Policy</a>
-
-                    <a href="terms-of-use.html">Terms of Use</a>
-
-                    <a href="disclaimer.html">Disclaimer</a>
-
-                    <a href="sitemap.xml">Sitemap</a>
-
-                </div>
-
-            </div>
-
-        </footer>
+        <footer id="footer-placeholder"></footer>
         <script src="js/nav-scroll.js"></script>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&callback=initMap"
@@ -1576,171 +1163,13 @@
                 document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
                 if (typeof updateSlideTitle === 'function') updateSlideTitle(currentSlide);
             }
-            function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5500); }
-
-            /* ── TOAST ── */
-            function showToast(msg, type = 'success') {
-                const t = document.createElement('div');
-                t.className = `toast ${type}`;
-                t.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span>${msg}</span>`;
-                document.getElementById('toast-container').appendChild(t);
-                requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
-                setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
-            }
-
-            /* ── MODALS ── */
-            function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-
-            /* -- MULTI-STEP LOGIC -- */
-            function nextStep(current, next) {
-                let isValid = true;
-                if (current === 1) {
-                    const radios = document.querySelectorAll('input[name="product_interest"]');
-                    let checked = false;
-                    radios.forEach(r => { if (r.checked) checked = true; });
-                    if (!checked) {
-                        document.getElementById("step1Error").style.display = "block";
-                        return;
-                    }
-                    document.getElementById("step1Error").style.display = "none";
-                } else if (current === 2) {
-                    // Trigger blur on step 2 required fields to invoke form-validation.js checks
-                    document.getElementById("inq-name").focus();
-                    document.getElementById("inq-email").focus();
-                    document.getElementById("inq-phone").focus();
-                    document.getElementById("inq-name").blur();
-                    document.getElementById("inq-email").blur();
-                    document.getElementById("inq-phone").blur();
-
-                    // If any have is-invalid, do not proceed
-                    const invalids = document.getElementById("step2").querySelectorAll(".is-invalid");
-                    if (invalids.length > 0) return;
-                }
-                showStep(next);
-            }
-
-            function prevStep(current, prev) {
-                showStep(prev);
-            }
-
-            function showStep(stepNum) {
-                document.getElementById("step1").style.display = "none";
-                document.getElementById("step2").style.display = "none";
-                document.getElementById("step3").style.display = "none";
-
-                document.getElementById("step" + stepNum).style.display = "block";
-
-                // Update progress bar
-                const pct = stepNum === 1 ? "33%" : stepNum === 2 ? "66%" : "100%";
-                document.getElementById("formProgress").style.width = pct;
-
-                // Update indicators
-                document.getElementById("step1Indicator").style.fontWeight = stepNum >= 1 ? "700" : "500";
-                document.getElementById("step1Indicator").style.color = stepNum >= 1 ? "var(--primary)" : "var(--mid)";
-
-                document.getElementById("step2Indicator").style.fontWeight = stepNum >= 2 ? "700" : "500";
-                document.getElementById("step2Indicator").style.color = stepNum >= 2 ? "var(--primary)" : "var(--mid)";
-
-                document.getElementById("step3Indicator").style.fontWeight = stepNum === 3 ? "700" : "500";
-                document.getElementById("step3Indicator").style.color = stepNum === 3 ? "var(--primary)" : "var(--mid)";
-            }
-
-            function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
-            function closeSuccessModal() { document.getElementById('successModal').classList.remove('active'); document.body.style.overflow = ''; }
-
-            function submitInquiry(e) {
-                e.preventDefault();
-
-                // 1. Capture form data
-                const formData = new FormData(e.target);
-                const data = Object.fromEntries(formData.entries());
-
-                try {
-                    // 2. Fire Google Analytics 4 (GA4) Conversion Event
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'generate_lead', {
-                            'event_category': 'engagement',
-                            'event_label': 'inquiry_modal_form',
-                            'value': 1
-                        });
-
-                        // Fire Google Ads Conversion Payload (Example)
-                        gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXXX/inquiry_form_submit' });
-                    }
-
-                    // 3. Optional: Capture data using Excel data capture system
-                    if (typeof captureFormSubmission === 'function') {
-                        captureFormSubmission(e.target, 'demo_request');
-                    }
-
-                    // 4. Update UI
-                    closeInquiryModal();
-                    document.getElementById('successModal').classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    e.target.reset();
-
-                } catch (error) {
-                    console.error('Submission Error:', error);
-                    document.getElementById('errorModal').classList.add('active');
-                }
-            }
-            function openProductModal(p) {
-                document.getElementById('productDetailContent').innerHTML = `
-    <h2 class="modal-title">${p.name}</h2>
-    <div class="product-detail-image"><img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='linear-gradient(135deg,#4facfe,#00f2fe)'"></div>
-    <p style="color:var(--light);margin-bottom:18px;font-size:14px;">${p.desc}</p>
-    <div class="product-detail-features"><h4>Key Features</h4>
-      <ul class="feature-list">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
-    </div>
-    <div class="product-detail-features"><h4>Applications</h4>
-      <p style="color:var(--light);font-size:14px;">${p.apps}</p>
-    </div>
-    <div class="modal-buttons">
-      <button class="modal-btn" onclick="closeProductModal();openInquiryModal()">📧 Send Inquiry</button>
-      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I am interested in ${encodeURIComponent(p.name)}','_blank')">💬 WhatsApp</button>
-    </div>`;
-                document.getElementById('productModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-            function closeProductModal() { document.getElementById('productModal').classList.remove('active'); document.body.style.overflow = ''; }
-
-            /* ── MOBILE NAV ── */
-            function openMobileNav() {
-                document.getElementById('mobileNav').classList.add('open');
-                document.getElementById('mobileOverlay').classList.add('open');
-                document.getElementById('hamburgerBtn').classList.add('open');
-                document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true');
-                document.body.style.overflow = 'hidden';
-            }
-            function closeMobileNav() {
-                document.getElementById('mobileNav').classList.remove('open');
-                document.getElementById('mobileOverlay').classList.remove('open');
-                document.getElementById('hamburgerBtn').classList.remove('open');
-                document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-
-            /* ── FILTERS ── */
-            let currentProductType = 'All', currentProjectCategory = 'Enterprise';
-            function filterProducts(type) {
-                currentProductType = type;
-                document.querySelectorAll('.filter-section-home .filter-btn').forEach(b => {
-                    const btnText = b.textContent.trim();
-                    const isMatch = (type === 'All' && btnText === 'All Products') || btnText === type;
-                    b.classList.toggle('active', isMatch);
-                });
-                renderProducts();
-            }
-            function filterProjects(cat) {
-                currentProjectCategory = cat;
-                document.querySelectorAll('.projects-section .category-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === cat));
-                renderProjects();
-            }
 
             /* ── RENDERS ── */
             function renderProjects() {
+                const grid = document.getElementById('projectsGrid');
+                if (!grid || typeof projects === 'undefined') return;
                 const f = projects.filter(p => p.category === currentProjectCategory);
-                document.getElementById('projectsGrid').innerHTML = f.map(p => `
+                grid.innerHTML = f.map(p => `
     <div class="project-card">
       <div class="project-image"><img src="${p.img}" alt="${p.title}" width="400" height="250" style="aspect-ratio:400/250;object-fit:cover;" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'project-image-placeholder\\'></div>'"></div>
       <div class="project-badge">${p.category}</div>
@@ -1751,36 +1180,11 @@
       </div>
     </div>`).join('');
             }
-            function renderCaseStudies() {
-                document.getElementById('caseStudiesScroll').innerHTML = caseStudies.map(c => `
-    <div class="case-study-card">
-      <div class="case-study-image"><img src="${c.img}" alt="${c.title} case study" width="400" height="250" style="aspect-ratio:400/250;object-fit:cover;" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'case-study-image-placeholder\\'></div>'"></div>
-      <div class="industry-badge" style="position:absolute;top:12px;right:12px;background:var(--red);color:white;padding:4px 10px;border-radius:16px;font-size:9px;font-weight:700;z-index:10;">${c.industry}</div>
-      <div class="case-study-content">
-        <h3 class="case-study-title">${c.title}</h3>
-        <p class="case-study-subtitle">${c.subtitle}</p>
 
-        <div style="background:linear-gradient(135deg,rgba(229,57,53,.15),rgba(229,57,53,.05));padding:10px;border-radius:8px;border-left:3px solid var(--red);margin-bottom:12px;text-align:center;">
-          <div style="font-size:24px;font-weight:800;color:var(--red);line-height:1;">${c.results[0].metric}</div>
-          <div style="font-size:11px;color:var(--light);margin-top:4px;font-weight:600;">${c.results[0].label}</div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
-          ${c.results.slice(1, 3).map(r => `
-            <div style="background:rgba(229,57,53,.08);padding:6px;border-radius:6px;text-align:center;">
-              <div style="font-size:14px;margin-bottom:2px;">${r.icon}</div>
-              <div style="font-weight:700;font-size:14px;color:var(--red);">${r.metric}</div>
-              <div style="font-size:9px;color:var(--light);">${r.label}</div>
-            </div>
-          `).join('')}
-        </div>
-
-        <a href="case-studies.html" class="view-more-btn" style="color:var(--red);border:1px solid var(--border);padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;display:inline-block;text-decoration:none;transition:var(--trans);" onmouseover="this.style.background='var(--red)';this.style.color='white';" onmouseout="this.style.background='transparent';this.style.color='var(--red)';">View Case →</a>
-      </div>
-    </div>`).join('');
-            }
             function renderFAQ() {
-                document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
+                const list = document.getElementById('faqList');
+                if (!list || typeof faqs === 'undefined') return;
+                list.innerHTML = faqs.map((f, i) => `
     <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
         <span itemprop="name">${f.q}</span>
@@ -1791,197 +1195,24 @@
       </div>
     </li>`).join('');
             }
+
             function toggleFAQ(item) {
                 const wasActive = item.classList.contains('active');
                 document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
                 if (!wasActive) item.classList.add('active');
             }
-            function scrollCaseStudies(amt) { document.getElementById('caseStudiesScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
-            function scrollProducts(amt) { document.getElementById('productsScrollContainer').scrollBy({ left: amt, behavior: 'smooth' }); }
+
+            /* ── FILTERS ── */
+            let currentProjectCategory = 'Enterprise';
+            function filterProjects(cat) {
+                currentProjectCategory = cat;
+                document.querySelectorAll('.projects-section .category-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === cat));
+                renderProjects();
+            }
+
+            /* ── SCROLL HELPERS ── */
             function scrollTestimonials(amt) { document.getElementById('testimonialsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
             function scrollClients(amt) { document.getElementById('clientsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
-            function scrollClientsVertical(amt) { const el = document.getElementById('clientsScrollVertical'); if (el) el.scrollBy({ top: amt, behavior: 'smooth' }); }
-
-            // Setup Keyboard Accessibility for Scroll Containers
-            document.addEventListener("DOMContentLoaded", () => {
-                const scrollContainers = ["productsScrollContainer", "testimonialsScroll", "caseStudiesScroll", "clientsScroll"];
-                scrollContainers.forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.addEventListener("keydown", (e) => {
-                            if (e.key === "ArrowLeft") { el.scrollBy({ left: -400, behavior: "smooth" }); e.preventDefault(); }
-                            if (e.key === "ArrowRight") { el.scrollBy({ left: 400, behavior: "smooth" }); e.preventDefault(); }
-                        });
-                    }
-                });
-            });
-
-
-
-            /* ── STATS COUNTER ── */
-            function animateCounter(el, target, suffix = '') {
-                let start = null;
-                const dur = 1800;
-                function step(ts) {
-                    if (!start) start = ts;
-                    const p = Math.min((ts - start) / dur, 1);
-                    const ease = 1 - Math.pow(1 - p, 3);
-                    el.textContent = Math.floor(ease * target) + suffix;
-                    if (p < 1) requestAnimationFrame(step);
-                }
-                requestAnimationFrame(step);
-            }
-
-            /* ── SCROLL REVEAL ── */
-            const revealObserver = new IntersectionObserver(entries => {
-                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-            }, { threshold: .12 });
-            document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
-
-            /* ── BACK TO TOP ── */
-            const btt = document.getElementById('back-to-top');
-            window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); });
-
-            /* ── STATS OBSERVER ── */
-            const statsObserver = new IntersectionObserver(entries => {
-                entries.forEach(e => {
-                    if (e.isIntersecting && !e.target.dataset.counted) {
-                        e.target.dataset.counted = '1';
-                        const items = e.target.querySelectorAll('.stat-strip-item');
-                        items.forEach(item => {
-                            const numEl = item.querySelector('.stat-strip-num');
-                            const val = parseInt(numEl.dataset.target, 10) || 0;
-                            const suffix = numEl.dataset.suffix || '';
-                            let s = null;
-                            (function step(ts) {
-                                if (!s) s = ts;
-                                const p = Math.min((ts - s) / 1800, 1);
-                                const ease = 1 - Math.pow(1 - p, 3);
-                                const num = Math.floor(ease * val);
-                                const displayNum = num >= 1000 ? (num / 1000).toFixed(1).replace('.0', '') + ',' + '000'.substring(Math.max((num % 1000).toString().length, 3)) : num;
-                                // Formatting for 2000 => 2,000
-                                const formattedNum = num === 2000 ? "2,000" : num;
-                                numEl.innerHTML = formattedNum + `<span>${suffix}</span>`;
-                                if (p < 1) requestAnimationFrame(step);
-                            })(performance.now());
-                        });
-                    }
-                });
-            }, { threshold: .5 });
-            const statsRibbon = document.querySelector('.stats-ribbon');
-            if (statsRibbon) statsObserver.observe(statsRibbon);
-
-            /* ── PRODUCT FINDER ── */
-            function submitProductFinder(e) {
-                e.preventDefault();
-
-                try {
-                    // Fire GA4 Conversion Event
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'generate_lead', {
-                            'event_category': 'engagement',
-                            'event_label': 'product_finder_form',
-                            'value': 1
-                        });
-                    }
-
-                    // Show Success Modal instead of toast
-                    document.getElementById('successModal').classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    e.target.reset();
-
-                } catch (error) {
-                    console.error('Finder Form Error:', error);
-                    document.getElementById('errorModal').classList.add('active');
-                }
-            }
-
-            /* ── GOOGLE MAPS ── */
-            function initMap() {
-                const mapStyles = [
-                    { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] },
-                    { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] },
-                    { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] },
-                    { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] },
-                    { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] },
-                    { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] },
-                    { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] },
-                    { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] },
-                    { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] },
-                    { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] },
-                    { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] },
-                    { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] },
-                    { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] },
-                    { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }
-                ];
-                const map = new google.maps.Map(document.getElementById('map'), {
-                    center: { lat: 21.5, lng: 80 }, zoom: 5,
-                    mapTypeControl: false, fullscreenControl: false,
-                    streetViewControl: false, gestureHandling: 'cooperative',
-                    styles: mapStyles,
-                    backgroundColor: '#f5f5f5'
-                });
-                const svgCity = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60" width="40" height="60"><path d="M20 0C9.5 0 0 8 0 20 0 40 20 60 20 60S40 40 40 20C40 8 30.5 0 20 0Z" fill="#e53935" stroke="white" stroke-width="2"/><circle cx="20" cy="18" r="7" fill="white" opacity=".9"/></svg>`;
-                const cities = [
-                    { city: 'Mumbai (HQ)', lat: 19.076, lng: 72.8777, projects: '250+' },
-                    { city: 'Delhi NCR', lat: 28.6139, lng: 77.209, projects: '180+' },
-                    { city: 'Bangalore', lat: 12.9716, lng: 77.5946, projects: '150+' },
-                    { city: 'Chennai', lat: 13.0827, lng: 80.2707, projects: '120+' },
-                    { city: 'Pune', lat: 18.5204, lng: 73.8567, projects: '140+' },
-                    { city: 'Ahmedabad', lat: 23.0225, lng: 72.5714, projects: '110+' },
-                    { city: 'Kolkata', lat: 22.5726, lng: 88.3639, projects: '100+' },
-                    { city: 'Hyderabad', lat: 17.385, lng: 78.4867, projects: '90+' }
-                ];
-                cities.forEach(loc => {
-                    const m = new google.maps.Marker({
-                        position: { lat: loc.lat, lng: loc.lng }, map, title: `${loc.city} – ${loc.projects} projects`,
-                        icon: { url: 'data:image/svg+xml;base64,' + btoa(svgCity), scaledSize: new google.maps.Size(24, 36), anchor: new google.maps.Point(12, 36) }
-                    });
-                    const iw = new google.maps.InfoWindow({ content: `<div style="font-family:Poppins,sans-serif;padding:6px 10px;background:#ffffff;color:#333;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1);"><strong style="color:#e53935">${loc.city}</strong><br><span style="font-size:12px;color:#666">${loc.projects} projects delivered</span></div>` });
-                    m.addListener('click', () => iw.open(map, m));
-                });
-            }
-
-            /* ── FLOATING POPUP INQUIRY ── */
-            function toggleFloatPopup(e) {
-                e.stopPropagation();
-                const popup = document.getElementById('floatPopup');
-                const btn = document.getElementById('floatInqBtn');
-                const isOpen = popup.classList.toggle('show');
-                btn.setAttribute('aria-expanded', isOpen);
-            }
-            // Close popup when clicking elsewhere
-            document.addEventListener('click', (e) => {
-                const popup = document.getElementById('floatPopup');
-                const stack = document.getElementById('floatStack');
-                if (popup && popup.classList.contains('show') && !stack.contains(e.target)) {
-                    popup.classList.remove('show');
-                    document.getElementById('floatInqBtn').setAttribute('aria-expanded', 'false');
-                }
-            });
-            function submitPopupInquiry() {
-                const email = document.getElementById('pop-email').value.trim();
-                if (!email) {
-                    showToast('Please enter your email address.', 'error');
-                    return;
-                }
-
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    showToast('Please enter a valid email.', 'error');
-                    return;
-                }
-
-                showToast('Thanks! Check your email for the next steps.', 'success');
-                document.getElementById('floatPopup').classList.remove('show');
-                document.getElementById('pop-email').value = '';
-
-                // TODO: Send email data to server
-                // fetch('/api/quick-inquiry', { method: 'POST', body: JSON.stringify({email}) });
-            }
-
-
 
             /* ── INIT ── */
             document.addEventListener('DOMContentLoaded', () => {
@@ -1989,15 +1220,49 @@
                 if (typeof projects !== 'undefined') renderProjects();
                 if (typeof faqs !== 'undefined') renderFAQ();
                 resetTimer();
+                
+                // Observer for scroll animations
+                const revealObserver = new IntersectionObserver(entries => {
+                    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+                }, { threshold: .12 });
                 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
+
                 /* close modals on outside click */
-                ['inquiryModal', 'productModal'].forEach(id => {
-                    document.getElementById(id).addEventListener('click', function (e) { if (e.target === this) { this.id === 'inquiryModal' ? closeInquiryModal() : closeProductModal(); } });
+                ['inquiryModal', 'productModal', 'successModal', 'errorModal'].forEach(id => {
+                    const modal = document.getElementById(id);
+                    if (modal) {
+                        modal.addEventListener('click', function (e) { 
+                            if (e.target === this) { 
+                                if (this.id === 'inquiryModal') closeInquiryModal();
+                                else if (this.id === 'productModal') closeProductModal();
+                                else this.classList.remove('active');
+                                document.body.style.overflow = '';
+                            } 
+                        });
+                    }
                 });
+
                 /* keyboard close */
-                document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProductModal(); closeMobileNav(); } });
+                document.addEventListener('keydown', e => { 
+                    if (e.key === 'Escape') { 
+                        if (typeof closeInquiryModal === 'function') closeInquiryModal();
+                        if (typeof closeProductModal === 'function') closeProductModal();
+                        if (typeof closeMobileNav === 'function') closeMobileNav();
+                        document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
+                        document.body.style.overflow = '';
+                    } 
+                });
+
                 /* product card keyboard activation */
-                document.addEventListener('keyup', e => { if (e.key === 'Enter' && e.target.classList.contains('product-card')) e.target.click(); });
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.addEventListener('keyup', e => { if (e.key === 'Enter') e.target.click(); });
+                });
+
+                // Stats strip animation
+                initStatsStrip();
+
+                // Staggered animations
+                setupStagger();
             });
 
             function submitAssessment(event) {
@@ -2005,17 +1270,21 @@
                 const name = document.getElementById('name').value.trim();
                 const phone = document.getElementById('phone').value.trim();
                 if (!name || !phone) {
-                    showToast('Please enter your name and phone number.', 'error');
+                    if (typeof showToast === 'function') showToast('Please enter your name and phone number.', 'error');
                     return;
                 }
                 if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'engagement', event_label: 'assessment_form' });
-                document.getElementById('successModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
+                
+                const successModal = document.getElementById('successModal');
+                if (successModal) {
+                    successModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
                 event.target.reset();
             }
 
             /* ── STATS STRIP COUNT-UP ── */
-            (function () {
+            function initStatsStrip() {
                 const strip = document.getElementById('statsRibbon');
                 if (!strip) return;
                 let animated = false;
@@ -2024,10 +1293,9 @@
                     if (animated) return;
                     animated = true;
 
-                    // ── Count-up numbers ──
                     strip.querySelectorAll('.stat-strip-num').forEach(el => {
                         const target = parseInt(el.dataset.target, 10);
-                        const spanHTML = el.querySelector('span') ? '<span>' + el.querySelector('span').textContent + '</span>' : '';
+                        const suffix = el.dataset.suffix || '';
                         if (isNaN(target)) return;
                         const duration = 1600;
                         const start = performance.now();
@@ -2035,12 +1303,11 @@
                             const p = Math.min((now - start) / duration, 1);
                             const ease = 1 - Math.pow(1 - p, 3);
                             const val = Math.round(ease * target);
-                            el.innerHTML = (val >= 1000 ? val.toLocaleString() : val) + spanHTML;
+                            el.innerHTML = (val >= 1000 ? val.toLocaleString() : val) + `<span>${suffix}</span>`;
                             if (p < 1) requestAnimationFrame(step);
                         })(performance.now());
                     });
 
-                    // ── SVG stroke draw-in ──
                     strip.querySelectorAll('.stat-strip-item').forEach((item, i) => {
                         setTimeout(() => item.classList.add('drawn'), i * 80);
                     });
@@ -2050,8 +1317,28 @@
                     if (entries[0].isIntersecting) { animateAll(); obs.disconnect(); }
                 }, { threshold: 0.2 });
                 obs.observe(strip);
-            })();
-            // Preloader Logic — dismiss on DOMContentLoaded with a hard 3s safety cap
+            }
+
+            /* ── STAGGERED ANIMATIONS ── */
+            function setupStagger() {
+                const staggerContainers = document.querySelectorAll('[data-stagger]');
+                staggerContainers.forEach(container => {
+                    const children = container.querySelectorAll('[data-stagger-item]');
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                children.forEach((child, i) => {
+                                    setTimeout(() => child.classList.add('visible'), i * 100);
+                                });
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.1 });
+                    observer.observe(container);
+                });
+            }
+
+            // Preloader Logic
             (function () {
                 function dismissPreloader() {
                     const preloader = document.getElementById('preloader');
@@ -2059,42 +1346,12 @@
                     preloader.classList.add('fade-out');
                     setTimeout(() => { preloader.style.display = 'none'; }, 500);
                 }
-                // Primary: fire as soon as DOM is parsed (doesn't wait for images/scripts)
                 if (document.readyState === 'loading') {
                     document.addEventListener('DOMContentLoaded', () => setTimeout(dismissPreloader, 300));
                 } else {
-                    // DOM already ready (script running late)
                     setTimeout(dismissPreloader, 300);
                 }
-                // Safety net: always dismiss after 3s no matter what
                 setTimeout(dismissPreloader, 3000);
-            })();
-
-            // ── STAGGERED ANIMATIONS FOR GRIDS ─────────────────────────────
-            // Use DOMContentLoaded instead of window.load so missing assets don't block this
-            (function initStagger() {
-                function setupStagger() {
-                    const staggerContainers = document.querySelectorAll('[data-stagger]');
-                    staggerContainers.forEach(container => {
-                        const children = container.querySelectorAll('[data-stagger-item]');
-                        const observer = new IntersectionObserver((entries) => {
-                            entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                    children.forEach((child, i) => {
-                                        setTimeout(() => child.classList.add('visible'), i * 100);
-                                    });
-                                    observer.unobserve(entry.target);
-                                }
-                            });
-                        }, { threshold: 0.1 });
-                        observer.observe(container);
-                    });
-                }
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', setupStagger);
-                } else {
-                    setupStagger();
-                }
             })();
         </script>
     </main>

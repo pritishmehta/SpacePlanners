@@ -1,0 +1,175 @@
+<div id="toast-container"></div>
+<div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">✕</button>
+        <h2 class="modal-title" id="inquiryTitle">Get a Free Quote</h2>
+        <div class="progress-container" style="margin-bottom:24px; text-align:center;">
+            <div class="progress-bar"
+                style="background:#e0e0e0; height:6px; border-radius:3px; margin-bottom:12px; overflow:hidden;">
+                <div id="formProgress"
+                    style="width: 33%; height: 100%; background: var(--primary); transition: width 0.3s ease;">
+                </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--mid);">
+                <span id="step1Indicator" style="font-weight:700; color:var(--primary);">1. Product</span>
+                <span id="step2Indicator">2. Details</span>
+                <span id="step3Indicator">3. Consent</span>
+            </div>
+        </div>
+
+        <form id="multiStepForm" onsubmit="submitInquiry(event)" novalidate
+            aria-label="Free Quote Inquiry Form">
+
+            <!-- STEP 1 -->
+            <div class="form-step" id="step1">
+                <div class="form-group">
+                    <fieldset style="border:none; padding:0; margin:0;" aria-labelledby="inq-product-label">
+                        <legend id="inq-product-label"
+                            style="display:block; margin-bottom:12px; font-weight:600; font-size:16px; color:var(--dark);">
+                            What are you looking for?</legend>
+                        <div class="radio-grid">
+                            <label class="radio-card"><input type="radio" name="product_interest"
+                                    value="Mobile Compactors" required><span>Mobile Compactors</span></label>
+                            <label class="radio-card"><input type="radio" name="product_interest"
+                                    value="Industrial Racks"><span>Industrial Racks</span></label>
+                            <label class="radio-card"><input type="radio" name="product_interest"
+                                    value="Storage Lockers"><span>Storage Lockers</span></label>
+                            <label class="radio-card"><input type="radio" name="product_interest"
+                                    value="Filing Cabinets"><span>Filing Cabinets</span></label>
+                            <label class="radio-card"><input type="radio" name="product_interest"
+                                    value="Mezzanine Systems"><span>Mezzanine Systems</span></label>
+                            <label class="radio-card"><input type="radio" name="product_interest"
+                                    value="Other"><span>Other</span></label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div id="step1Error"
+                    style="color:var(--red); font-size:13px; margin-bottom:12px; display:none;">
+                    Please select a product to continue.</div>
+                <button type="button" class="btn-primary"
+                    style="width:100%; display:flex; justify-content:center;" onclick="nextStep(1, 2)">Continue
+                    ?</button>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="form-step" id="step2" style="display:none;">
+                <div class="form-group">
+                    <label for="inq-name">Full Name *</label>
+                    <input type="text" id="inq-name" name="name" placeholder="Your full name" required
+                        autocomplete="name" aria-required="true" aria-describedby="inq-name-help">
+                </div>
+                <div class="form-group">
+                    <label for="inq-email">Email Address *</label>
+                    <input type="email" id="inq-email" name="email" placeholder="your@email.com" required
+                        autocomplete="email" aria-required="true" aria-describedby="inq-email-help">
+                </div>
+                <div class="form-group">
+                    <label for="inq-phone">Phone Number *</label>
+                    <input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required
+                        autocomplete="tel" aria-required="true" aria-describedby="inq-phone-help">
+                </div>
+                <div class="form-group">
+                    <label for="inq-msg">Message (Optional)</label>
+                    <textarea id="inq-msg" name="message"
+                        placeholder="Tell us about your space dimensions..."></textarea>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="btn-secondary"
+                        style="flex:1; display:flex; justify-content:center;" onclick="prevStep(2, 1)">?
+                        Back</button>
+                    <button type="button" class="btn-primary"
+                        style="flex:2; display:flex; justify-content:center;" onclick="nextStep(2, 3)">Continue
+                        ?</button>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="form-step" id="step3" style="display:none;">
+                <div class="form-group"
+                    style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+                    <strong style="font-size: 13px; display: block; margin-bottom: 10px;">🔒 Privacy
+                        Notice</strong>
+                    <div style="margin-bottom: 12px;">
+                        <input type="checkbox" id="inq-consent-contact" name="consent_contact" required
+                            aria-required="true">
+                        <label for="inq-consent-contact"
+                            style="display: inline; margin-left: 8px; font-size: 13px;">I consent to receive
+                            contact
+                            via phone/email (required)</label>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <input type="checkbox" id="inq-consent-analytics" name="consent_analytics">
+                        <label for="inq-consent-analytics"
+                            style="display: inline; margin-left: 8px; font-size: 13px;">I consent to analytics
+                            tracking</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="inq-consent-marketing" name="consent_marketing">
+                        <label for="inq-consent-marketing"
+                            style="display: inline; margin-left: 8px; font-size: 13px;">I consent to marketing
+                            communications</label>
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px; flex-direction:column;">
+                    <button type="submit" id="finalSubmitBtn" class="btn-primary"
+                        style="width: 100%; display: flex; justify-content: center; gap: 10px;">
+                        Submit Inquiry &rarr;
+                    </button>
+                    <button type="button" class="btn-secondary"
+                        style="width:100%; border:none; background:transparent;" onclick="prevStep(3, 2)">? Edit
+                        Details</button>
+                </div>
+                <!-- Trust Badge -->
+                <div
+                    style="text-align: center; margin-top: 15px; font-size: 12px; color: #666; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    256-bit SSL Secure &middot; We never spam
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- SUCCESS MODAL (Conversion Tracking) -->
+<div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
+        <div
+            style="width: 80px; height: 80px; background: rgba(0,168,107,0.1); color: #00a86b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
+            ✓</div>
+        <h2 class="modal-title" id="successTitle" style="margin-bottom: 16px; font-size: 24px;">Message Sent
+            Successfully!</h2>
+        <p style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">Thank you for
+            your
+            inquiry. A Space Planners specialist will contact you shortly to discuss your storage requirements.
+        </p>
+        <button class="submit-btn" onclick="closeSuccessModal()"
+            style="width: 100%; justify-content: center;">Continue Browsing</button>
+    </div>
+</div>
+
+<!-- ERROR MODAL -->
+<div class="modal" id="errorModal" role="dialog" aria-modal="true" aria-labelledby="errorTitle">
+    <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
+        <div
+            style="width: 80px; height: 80px; background: rgba(229,57,53,0.1); color: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
+            ✕</div>
+        <h2 class="modal-title" id="errorTitle"
+            style="margin-bottom: 16px; font-size: 24px; color: var(--red);">
+            Submission Failed</h2>
+        <p id="errorMessage"
+            style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">
+            There was an issue sending your inquiry. Please try again or contact us directly.</p>
+        <button class="submit-btn" onclick="document.getElementById('errorModal').classList.remove('active')"
+            style="width: 100%; justify-content: center;">Try Again</button>
+    </div>
+</div>
+<div class="modal" id="productModal" role="dialog" aria-modal="true">
+    <div class="modal-content product-modal-content">
+        <button class="close-btn" onclick="closeProductModal()" aria-label="Close">✕</button>
+        <div id="productDetailContent"></div>
+    </div>
+</div>

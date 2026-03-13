@@ -68,6 +68,7 @@
     </noscript>
     <link rel="preload" as="style" href="style.css">
     <link rel="stylesheet" href="style.css">
+    <script src="js/load-components.js"></script>
 
     <!-- ===== GOOGLE ADS CONVERSION TRACKING ===== -->
     <!-- Uncomment and replace AW-XXXXXXXXXX with your actual Google Ads conversion ID when ready
@@ -243,449 +244,486 @@
     </script>
 </head>
 <style>
-/* Product Pages Specific Styles */
-.product-modal-split { display: flex; flex-direction: column; }
-@media(min-width: 768px) { .product-modal-split { flex-direction: row; align-items: stretch; } .product-modal-image, .product-modal-details { flex: 1; } }
-.product-modal-image { min-height: 300px; position: relative; overflow: hidden; }
-.product-modal-details { padding: 40px; display: flex; flex-direction: column; background: #fff; }
-.product-modal-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #e53935; letter-spacing: 1px; }
-.product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15) !important; }
-.product-card:hover .product-image img { transform: scale(1.05) !important; }
-.product-card .btn-primary:hover { background: #c62828 !important; }
+    /* Product Pages Specific Styles */
+    .product-modal-split {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media(min-width: 768px) {
+        .product-modal-split {
+            flex-direction: row;
+            align-items: stretch;
+        }
+
+        .product-modal-image,
+        .product-modal-details {
+            flex: 1;
+        }
+    }
+
+    .product-modal-image {
+        min-height: 300px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-modal-details {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+    }
+
+    .product-modal-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #e53935;
+        letter-spacing: 1px;
+    }
+
+    .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.05) !important;
+    }
+
+    .product-card .btn-primary:hover {
+        background: #c62828 !important;
+    }
 </style>
-<body>
 
-    
+    <div id="mobile-nav-placeholder"></div>
 
-    <div id="toast-container"></div>
-    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-header">
-            <span class="logo">Space<span>Planners</span></span>
-            <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
-        </div>
-        <ul>
-            <li><a href="index.html" class="active">🏠 Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li>
-                <a href="products.html" style="justify-content:space-between">Products <span>▾</span></a>
-                <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
-                    <li><a href="compactor-storage.html"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Compactor
-                            Storage System</a></li>
-                    <li><a href="industrial-racks.html"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Industrial
-                            Racks</a></li>
-                    <li><a href="storage-lockers.html"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Storage
-                            Lockers</a></li>
-                    <li><a href="filing-cabinets.html"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Filing
-                            Cabinets & Lockers</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="projects.html" style="justify-content:space-between">Industrial Applications <span>▾</span></a>
-                <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
-                    <li><a href="projects.html#pharma"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Pharmaceutical
-                            & Healthcare</a></li>
-                    <li><a href="projects.html#corporate"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Corporate
-                            Offices</a></li>
-                    <li><a href="projects.html#warehouse"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Warehouse
-                            & Logistics</a></li>
-                    <li><a href="projects.html#education"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Education
-                            & Library</a></li>
-                    <li><a href="projects.html#museum"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Museum
-                            & Archives</a></li>
-                    <li><a href="projects.html#government"
-                            style="padding-left:40px; padding-top:10px; padding-bottom:10px; font-size:14px; font-weight:500; color:var(--mid);">Government</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="case-studies.html">Projects</a></li>
-        </ul>
-        <div class="mobile-nav-footer">
-            <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
-            <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
-        </div>
-    </div>
-
-    <header>
-        <div class="header-top">
-            <div class="header-top-left">
-                <span>📍 Mumbai, India</span>
-                <span>🏆 20+ Years of Excellence</span>
-            </div>
-            <div class="header-top-right">
-                <a href="mailto:sales@spaceplannersindia.in">✉️ sales@spaceplannersindia.in</a>
-            </div>
-        </div>
-        <div class="header-main">
-            <a href="index.html" class="logo">Space<span>Planners</span></a>
-            <nav class="main-nav" aria-label="Main navigation">
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li>
-                        <a href="products.html">Products ▾</a>
-                        <ul class="nav-dropdown">
-                            <li><a href="compactor-storage.html">Compactor Storage System</a></li>
-                            <li><a href="industrial-racks.html">Industrial Racks</a></li>
-                            <li><a href="storage-lockers.html">Storage Lockers</a></li>
-                            <li><a href="filing-cabinets.html">Filing Cabinets & Lockers</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="projects.html">Industrial Applications ▾</a>
-                        <ul class="nav-dropdown">
-                            <li><a href="projects.html#pharma">Pharmaceutical & Healthcare</a></li>
-                            <li><a href="projects.html#corporate">Corporate Offices</a></li>
-                            <li><a href="projects.html#warehouse">Warehouse & Logistics</a></li>
-                            <li><a href="projects.html#education">Education & Library</a></li>
-                            <li><a href="projects.html#museum">Museum & Archives</a></li>
-                            <li><a href="projects.html#government">Government</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="case-studies.html">Projects</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
-                <button class="btn-primary" onclick="openInquiryModal()">Get Free Quote</button>
-                <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"
-                    onclick="openMobileNav()">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <header id="header-placeholder"></header>
 
     <!-- FLOATING BUTTONS -->
-    <div class="float-stack" id="floatStack">
-        <div style="position:relative;">
-            <div class="float-inquiry-popup" id="floatPopup">
-                <div class="popup-header">
-                    <p class="popup-title">Quick Enquiry</p>
-                    <button class="popup-close" onclick="toggleFloatPopup(event)">✕</button>
-                </div>
-                <input class="popup-input" type="text" id="pop-name" placeholder="Your name" autocomplete="name">
-                <input class="popup-input" type="tel" id="pop-phone" placeholder="+91 phone number" autocomplete="tel">
-                <input class="popup-input" type="email" id="pop-email" placeholder="Email address" autocomplete="email">
-                <button class="popup-submit" onclick="submitPopupInquiry()">Send Enquiry →</button>
-                <p class="popup-note">⚡ We reply within 2 hours</p>
-            </div>
-            <button class="float-inquiry-btn" onclick="toggleFloatPopup(event)" aria-label="Quick inquiry" id="floatInqBtn" title="Quick Enquiry">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.79 1.79 3.75 3.75M3 17.25V21h3.75l11.06-11.06-3.75-3.75z" fill="white" /></svg>
-            </button>
-        </div>
-        <div class="whatsapp-float">
-            <a href="https://wa.me/912240033385?text=Hi%20Space%20Planners%2C%20I%20want%20a%20quote" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8 29.7 7 26.9 7 24 7 14.6 14.6 7 24 7s17 7.6 17 17-7.6 17-17 17z" /><path fill="#fff" d="M33.5 28.2c-.5-.3-2.9-1.4-3.3-1.6-.4-.1-.7-.2-1 .3-.3.5-1.2 1.6-1.5 1.9-.3.3-.5.3-1 .1-.5-.3-2-.7-3.8-2.4-1.4-1.3-2.4-2.9-2.6-3.4-.3-.5 0-.8.2-1l.9-1c.2-.3.2-.5.4-.8.1-.3 0-.6-.1-.8-.1-.3-1-2.5-1.4-3.4-.4-.9-.8-.8-1-.8h-.9c-.3 0-.8.1-1.2.6-.4.5-1.6 1.6-1.6 3.8s1.7 4.4 1.9 4.7c.2.3 3.3 5 8 7 1.1.5 2 .8 2.6 1 1.1.3 2.1.3 2.9.2.9-.1 2.9-1.2 3.3-2.3.4-1.2.4-2.1.3-2.3-.1-.2-.4-.4-.9-.6z" /></svg>
-            </a>
-        </div>
-    </div>
-    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+    <div id="floating-buttons-placeholder"></div>
 
     <!-- INQUIRY MODAL -->
-    <div class="modal" id="inquiryModal" role="dialog" aria-modal="true">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeInquiryModal()">✕</button>
-            <h2 class="modal-title">Get a Free Quote</h2>
-            <form onsubmit="submitInquiry(event)">
-                <div class="form-group"><label for="inq-name">Full Name *</label><input type="text" id="inq-name" name="name" placeholder="Your name" required autocomplete="name"></div>
-                <div class="form-group"><label for="inq-email">Email *</label><input type="email" id="inq-email" name="email" placeholder="your@email.com" required autocomplete="email"></div>
-                <div class="form-group"><label for="inq-phone">Phone *</label><input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel"></div>
-                <div class="form-group"><label for="inq-msg">Message</label><textarea id="inq-msg" name="message" placeholder="Tell us about your storage needs…"></textarea></div>
-                <button type="submit" class="submit-btn">Send Inquiry →</button>
-            </form>
-        </div>
-    </div>
+    <div id="modals-placeholder"></div>
 
     <!-- 1. HERO CAROUSEL: one slide per product -->
-    <section class="carousel-section" aria-label="Compactor Storage Systems" style="position:relative; height:calc(100vh - 120px); min-height:500px; max-height:800px; overflow:hidden; background:#222;">
+    <section class="carousel-section" aria-label="Compactor Storage Systems"
+        style="position:relative; height:calc(100vh - 120px); min-height:500px; max-height:800px; overflow:hidden; background:#222;">
         <div class="carousel-container" id="heroCarousel" style="height:100%; position:relative;">
-            <div class="carousel-slide active"><img src="hero_compactor.png" alt="Document Storage Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Document Storage Compactor</h1><p class="slide-description">Offices, Banks, Libraries, Archives...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Pigeon Hole Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Pigeon Hole Compactor</h1><p class="slide-description">Engineering Components, Electronic Components, Hardware Items, Pharmaceutical Su...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Heavy Duty Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Heavy Duty Compactor</h1><p class="slide-description">Designed to accommodate items weighing up to 300 kilograms per level....</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Perforated Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Perforated Compactor</h1><p class="slide-description">For Temperature and Humidity Control: Medicine Storage, Archives...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Drawer Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Drawer Compactor</h1><p class="slide-description">Maximum storage capacity for smaller items, such as medication, flavorings, and ...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Stainless Steel Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Stainless Steel Compactor</h1><p class="slide-description">Cold storage units for vaccines, perishable items, and other related materials....</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Art Display Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Art Display Compactor</h1><p class="slide-description">Art Gallery, Museum, Archives, Library, Art Collectors...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Art Storage Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Art Storage Compactor</h1><p class="slide-description">Art Gallery, Museum, Archives, Library, Art Collectors...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Rifle Storage Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Rifle Storage Compactor</h1><p class="slide-description">Police Stations, Military and Defense Facilities, Private Security Firms, Shooti...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Inbuilt Exhaust Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Inbuilt Exhaust Compactor</h1><p class="slide-description">Fragrance Storage, Flavor Storage, Chemical Storage...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Apparel Storage Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Apparel Storage Compactor</h1><p class="slide-description">Luxury Retail Outlets...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="SS Uniform Storage Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">SS Uniform Storage Compactor</h1><p class="slide-description">Hotels and Resorts...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Medium Duty Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Medium Duty Compactor</h1><p class="slide-description">Warehouses, Retail Back Storage...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Specialised Medium Duty Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Specialised Medium Duty Compactor</h1><p class="slide-description">Capacity per level: 100-300 kilograms. Applications: Industrial, warehousing, ph...</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Stepped Compactor" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Stepped Compactor</h1><p class="slide-description">Sites with varying ceiling heights to optimize space utilization....</p></div></div>
-<div class="carousel-slide"><img src="hero_compactor.png" alt="Compactor With Doors" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'"><div class="slide-overlay"></div><div class="slide-content"><p class="slide-eyebrow">Product Portfolio</p><h1 class="slide-title">Compactor With Doors</h1><p class="slide-description">Secure storage solutions. Utilization across multiple departments....</p></div></div>
+            <div class="carousel-slide active"><img src="hero_compactor.png" alt="Document Storage Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Document Storage Compactor</h1>
+                    <p class="slide-description">Offices, Banks, Libraries, Archives...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Pigeon Hole Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Pigeon Hole Compactor</h1>
+                    <p class="slide-description">Engineering Components, Electronic Components, Hardware Items,
+                        Pharmaceutical Su...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Heavy Duty Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Heavy Duty Compactor</h1>
+                    <p class="slide-description">Designed to accommodate items weighing up to 300 kilograms per
+                        level....</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Perforated Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Perforated Compactor</h1>
+                    <p class="slide-description">For Temperature and Humidity Control: Medicine Storage, Archives...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Drawer Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Drawer Compactor</h1>
+                    <p class="slide-description">Maximum storage capacity for smaller items, such as medication,
+                        flavorings, and ...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Stainless Steel Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Stainless Steel Compactor</h1>
+                    <p class="slide-description">Cold storage units for vaccines, perishable items, and other related
+                        materials....</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Art Display Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Art Display Compactor</h1>
+                    <p class="slide-description">Art Gallery, Museum, Archives, Library, Art Collectors...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Art Storage Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Art Storage Compactor</h1>
+                    <p class="slide-description">Art Gallery, Museum, Archives, Library, Art Collectors...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Rifle Storage Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Rifle Storage Compactor</h1>
+                    <p class="slide-description">Police Stations, Military and Defense Facilities, Private Security
+                        Firms, Shooti...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Inbuilt Exhaust Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Inbuilt Exhaust Compactor</h1>
+                    <p class="slide-description">Fragrance Storage, Flavor Storage, Chemical Storage...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Apparel Storage Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Apparel Storage Compactor</h1>
+                    <p class="slide-description">Luxury Retail Outlets...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="SS Uniform Storage Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">SS Uniform Storage Compactor</h1>
+                    <p class="slide-description">Hotels and Resorts...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Medium Duty Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Medium Duty Compactor</h1>
+                    <p class="slide-description">Warehouses, Retail Back Storage...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Specialised Medium Duty Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Specialised Medium Duty Compactor</h1>
+                    <p class="slide-description">Capacity per level: 100-300 kilograms. Applications: Industrial,
+                        warehousing, ph...</p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Stepped Compactor"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Stepped Compactor</h1>
+                    <p class="slide-description">Sites with varying ceiling heights to optimize space utilization....
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="hero_compactor.png" alt="Compactor With Doors"
+                    style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
+                    onerror="this.style.display='none'">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">Product Portfolio</p>
+                    <h1 class="slide-title">Compactor With Doors</h1>
+                    <p class="slide-description">Secure storage solutions. Utilization across multiple departments....
+                    </p>
+                </div>
+            </div>
         </div>
         <!-- Dots -->
-        <div id="carouselDots" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10;">
-            <button class="carousel-dot" onclick="goToSlide(0)" aria-label="Slide 1" style="background:#e53935;" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(1)" aria-label="Slide 2" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(2)" aria-label="Slide 3" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(3)" aria-label="Slide 4" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(4)" aria-label="Slide 5" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(5)" aria-label="Slide 6" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(6)" aria-label="Slide 7" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(7)" aria-label="Slide 8" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(8)" aria-label="Slide 9" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(9)" aria-label="Slide 10" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(10)" aria-label="Slide 11" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(11)" aria-label="Slide 12" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(12)" aria-label="Slide 13" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(13)" aria-label="Slide 14" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(14)" aria-label="Slide 15" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-<button class="carousel-dot" onclick="goToSlide(15)" aria-label="Slide 16" style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+        <div id="carouselDots"
+            style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10;">
+            <button class="carousel-dot" onclick="goToSlide(0)" aria-label="Slide 1" style="background:#e53935;"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Slide 2"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Slide 3"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Slide 4"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Slide 5"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Slide 6"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Slide 7"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Slide 8"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Slide 9"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(9)" aria-label="Slide 10"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(10)" aria-label="Slide 11"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(11)" aria-label="Slide 12"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(12)" aria-label="Slide 13"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(13)" aria-label="Slide 14"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(14)" aria-label="Slide 15"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
+            <button class="carousel-dot" onclick="goToSlide(15)" aria-label="Slide 16"
+                style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
         </div>
         <!-- Arrows -->
-        <button onclick="prevSlide()" aria-label="Previous" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.2);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;backdrop-filter:blur(4px);">❮</button>
-        <button onclick="nextSlide()" aria-label="Next" style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.2);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;backdrop-filter:blur(4px);">❯</button>
+        <button onclick="prevSlide()" aria-label="Previous"
+            style="position:absolute;left:20px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.2);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;backdrop-filter:blur(4px);">❮</button>
+        <button onclick="nextSlide()" aria-label="Next"
+            style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.2);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;backdrop-filter:blur(4px);">❯</button>
     </section>
 
     <!-- 2. BRUYNZEEL STATS RIBBON -->
     <div style="background:#fff; padding-bottom: 40px;">
         <div class="stats-ribbon" role="region" aria-label="Company statistics" id="statsRibbon">
-        <div class="stats-strip">
-            <div class="stat-strip-item" data-target="2000" data-suffix="+" data-label="Installations" id="s-inst">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="8" y="16" width="12" height="36" rx="1" />
-                        <rect x="26" y="10" width="12" height="42" rx="1" />
-                        <rect x="44" y="22" width="12" height="30" rx="1" />
-                        <line x1="4" y1="52" x2="60" y2="52" />
-                    </svg>
+            <div class="stats-strip">
+                <div class="stat-strip-item" data-target="2000" data-suffix="+" data-label="Installations" id="s-inst">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="16" width="12" height="36" rx="1" />
+                            <rect x="26" y="10" width="12" height="42" rx="1" />
+                            <rect x="44" y="22" width="12" height="30" rx="1" />
+                            <line x1="4" y1="52" x2="60" y2="52" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="2000" data-suffix="+">2,000<span>+</span></div>
+                    <div class="stat-strip-label">Installations</div>
                 </div>
-                <div class="stat-strip-num" data-target="2000" data-suffix="+">2,000<span>+</span></div>
-                <div class="stat-strip-label">Installations</div>
-            </div>
-            <div class="stat-strip-item" data-target="500" data-suffix="+" data-label="Happy Clients" id="s-clients">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="24" cy="20" r="10" />
-                        <path d="M4 52c0-11 9-18 20-18" />
-                        <circle cx="44" cy="20" r="10" />
-                        <path d="M60 52c0-11-9-18-20-18" />
-                        <path d="M34 52c0-11-5-17-10-17s-10 6-10 17" />
-                    </svg>
+                <div class="stat-strip-item" data-target="500" data-suffix="+" data-label="Happy Clients"
+                    id="s-clients">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="20" r="10" />
+                            <path d="M4 52c0-11 9-18 20-18" />
+                            <circle cx="44" cy="20" r="10" />
+                            <path d="M60 52c0-11-9-18-20-18" />
+                            <path d="M34 52c0-11-5-17-10-17s-10 6-10 17" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="500" data-suffix="+">500<span>+</span></div>
+                    <div class="stat-strip-label">Happy Clients</div>
                 </div>
-                <div class="stat-strip-num" data-target="500" data-suffix="+">500<span>+</span></div>
-                <div class="stat-strip-label">Happy Clients</div>
-            </div>
-            <div class="stat-strip-item" data-target="20" data-suffix=" yrs" data-label="Years Experience" id="s-years">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="32" cy="32" r="24" />
-                        <polyline points="32,16 32,32 44,40" />
-                    </svg>
+                <div class="stat-strip-item" data-target="20" data-suffix=" yrs" data-label="Years Experience"
+                    id="s-years">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="32" cy="32" r="24" />
+                            <polyline points="32,16 32,32 44,40" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="20" data-suffix="yrs">20<span>yrs</span></div>
+                    <div class="stat-strip-label">Years Experience</div>
                 </div>
-                <div class="stat-strip-num" data-target="20" data-suffix="yrs">20<span>yrs</span></div>
-                <div class="stat-strip-label">Years Experience</div>
-            </div>
-            <div class="stat-strip-item" data-target="50" data-suffix="%" data-label="Avg Space Saved" id="s-space">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="8" y="8" width="48" height="48" rx="3" />
-                        <path d="M8 35 L34 35 L34 56" />
-                        <polyline points="20,22 34,8 48,22" />
-                    </svg>
+                <div class="stat-strip-item" data-target="50" data-suffix="%" data-label="Avg Space Saved" id="s-space">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="8" width="48" height="48" rx="3" />
+                            <path d="M8 35 L34 35 L34 56" />
+                            <polyline points="20,22 34,8 48,22" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="50" data-suffix="%">50<span>%</span></div>
+                    <div class="stat-strip-label">Avg. Space Saved</div>
                 </div>
-                <div class="stat-strip-num" data-target="50" data-suffix="%">50<span>%</span></div>
-                <div class="stat-strip-label">Avg. Space Saved</div>
-            </div>
-            <div class="stat-strip-item" data-target="2" data-suffix="M+" data-label="Sq Ft Installed" id="s-sqft">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="8" y="8" width="48" height="48" rx="2" />
-                        <line x1="8" y1="28" x2="56" y2="28" />
-                        <line x1="28" y1="8" x2="28" y2="56" />
-                        <polyline points="16,44 22,38 28,42 38,32 44,36 52,20" />
-                    </svg>
+                <div class="stat-strip-item" data-target="2" data-suffix="M+" data-label="Sq Ft Installed" id="s-sqft">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="8" width="48" height="48" rx="2" />
+                            <line x1="8" y1="28" x2="56" y2="28" />
+                            <line x1="28" y1="8" x2="28" y2="56" />
+                            <polyline points="16,44 22,38 28,42 38,32 44,36 52,20" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="2" data-suffix="M+">2<span>M+</span></div>
+                    <div class="stat-strip-label">Sq Ft Installed</div>
                 </div>
-                <div class="stat-strip-num" data-target="2" data-suffix="M+">2<span>M+</span></div>
-                <div class="stat-strip-label">Sq Ft Installed</div>
-            </div>
-            <div class="stat-strip-item" data-target="100" data-suffix="%" data-label="Compliance Rate" id="s-comp">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M32 6 L52 14 L52 34 C52 46 42 56 32 58 C22 56 12 46 12 34 L12 14 Z" />
-                        <polyline points="22,32 29,39 42,24" />
-                    </svg>
-                </div>
-                <div class="stat-strip-num" data-target="100" data-suffix="%">100<span>%</span></div>
-                <div class="stat-strip-label">Compliance Rate</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. PRODUCT CARDS: Comprehensive Storage style -->
-    <section style="background:#f8f8f8; padding: 64px 0 80px;">
-        <div style="max-width:1240px; margin:0 auto; padding:0 24px;">
-            <div class="section-header-small reveal" style="text-align:center; margin-bottom:48px;">
-                <span class="section-badge">Our Range</span>
-                <h2 class="section-title">Compactor Storage Systems</h2>
-                <div class="accent-line"></div>
-                <p class="section-subtitle" style="max-width:640px; margin:16px auto 0;">Space-saving solutions for maximum storage capacity</p>
-            </div>
-
-            <div id="productGrid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px;">
-                <!-- rendered by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- SPLIT PRODUCT DETAIL MODAL -->
-    <div class="modal" id="productModal" role="dialog" aria-modal="true">
-        <div class="modal-content product-modal-content" style="max-width:960px; padding:0; overflow:hidden; border-radius:16px;">
-            <button class="close-btn" onclick="closeProductModal()" aria-label="Close" style="z-index:10; background:#fff; width:40px; height:40px; border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.15); top:16px; right:16px;">✕</button>
-            <div class="product-modal-split" id="productDetailContent">
-                <!-- rendered by JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. CLIENT LOGOS -->
-    <section class="clients-section">
-        <div class="clients-content">
-            <p class="clients-label">Trusted by India's leading organisations</p>
-            <div class="clients-scroll-wrapper">
-                <button class="clients-nav left" onclick="scrollClients(-300)" aria-label="Scroll left">&#x276e;</button>
-                <div class="clients-scroll" id="clientsScroll">
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/drdo.gov.in" alt="DRDO" loading="lazy"><span class="logo-name">DRDO</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ongcindia.com" alt="ONGC" loading="lazy"><span class="logo-name">ONGC</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/aiims.edu" alt="AIIMS" loading="lazy"><span class="logo-name">AIIMS</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/tata.com" alt="Tata Group" loading="lazy"><span class="logo-name">Tata Group</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/isro.gov.in" alt="ISRO" loading="lazy"><span class="logo-name">ISRO</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/indianrailways.gov.in" alt="Indian Railways" loading="lazy"><span class="logo-name">Indian Railways</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/sunpharma.com" alt="Sun Pharma" loading="lazy"><span class="logo-name">Sun Pharma</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/sbi.co.in" alt="SBI" loading="lazy"><span class="logo-name">SBI</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/larsentoubro.com" alt="L&T" loading="lazy"><span class="logo-name">L&T</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ril.com" alt="Reliance" loading="lazy"><span class="logo-name">Reliance</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/kokilabenhospital.com" alt="Kokilaben" loading="lazy"><span class="logo-name">Kokilaben</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/iitb.ac.in" alt="IIT Bombay" loading="lazy"><span class="logo-name">IIT Bombay</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ntpc.co.in" alt="NTPC" loading="lazy"><span class="logo-name">NTPC</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/rbi.org.in" alt="RBI" loading="lazy"><span class="logo-name">RBI</span></div>
-                    <button class="clients-nav right" onclick="scrollClients(300)" aria-label="Scroll right">&#x276f;</button>
+                <div class="stat-strip-item" data-target="100" data-suffix="%" data-label="Compliance Rate" id="s-comp">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M32 6 L52 14 L52 34 C52 46 42 56 32 58 C22 56 12 46 12 34 L12 14 Z" />
+                            <polyline points="22,32 29,39 42,24" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="100" data-suffix="%">100<span>%</span></div>
+                    <div class="stat-strip-label">Compliance Rate</div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- 5. FOOTER -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <div class="logo-footer">Space<span>Planners</span></div>
-                <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across every major city.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="LinkedIn">in</a>
-                    <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="YouTube">▶</a>
+        <!-- 3. PRODUCT CARDS: Comprehensive Storage style -->
+        <section style="background:#f8f8f8; padding: 64px 0 80px;">
+            <div style="max-width:1240px; margin:0 auto; padding:0 24px;">
+                <div class="section-header-small reveal" style="text-align:center; margin-bottom:48px;">
+                    <span class="section-badge">Our Range</span>
+                    <h2 class="section-title">Compactor Storage Systems</h2>
+                    <div class="accent-line"></div>
+                    <p class="section-subtitle" style="max-width:640px; margin:16px auto 0;">Space-saving solutions for
+                        maximum storage capacity</p>
+                </div>
+
+                <div id="productGrid"
+                    style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px;">
+                    <!-- rendered by JS -->
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Products</h4>
-                <ul>
-                    <li><a href="compactor-storage.html">Compactor Storage</a></li>
-                    <li><a href="industrial-racks.html">Industrial Racks</a></li>
-                    <li><a href="storage-lockers.html">Storage Lockers</a></li>
-                    <li><a href="filing-cabinets.html">Filing Cabinets</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <div class="footer-contact">
-                    <a href="tel:+912240033385"><span class="icon">📞</span>+91-22-40033385</a>
-                    <a href="mailto:sales@spaceplannersindia.in"><span class="icon">✉️</span>sales@spaceplannersindia.in</a>
-                    <a href="https://wa.me/912240033385" target="_blank" rel="noopener"><span class="icon">💬</span>WhatsApp Us</a>
-                    <a href="#"><span class="icon">📍</span>Mumbai, Maharashtra, India</a>
+        </section>
+
+        <!-- SPLIT PRODUCT DETAIL MODAL -->
+        <div class="modal" id="productModal" role="dialog" aria-modal="true">
+            <div class="modal-content product-modal-content"
+                style="max-width:960px; padding:0; overflow:hidden; border-radius:16px;">
+                <button class="close-btn" onclick="closeProductModal()" aria-label="Close"
+                    style="z-index:10; background:#fff; width:40px; height:40px; border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.15); top:16px; right:16px;">✕</button>
+                <div class="product-modal-split" id="productDetailContent">
+                    <!-- rendered by JS -->
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 Space Planners India. All rights reserved.</p>
-            <div class="footer-bottom-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-of-use.html">Terms of Use</a>
-                <a href="disclaimer.html">Disclaimer</a>
+
+        <!-- 4. CLIENT LOGOS -->
+        <section class="clients-section">
+            <div class="clients-content">
+                <p class="clients-label">Trusted by India's leading organisations</p>
+                <div class="clients-scroll-wrapper">
+                    <button class="clients-nav left" onclick="scrollClients(-300)" aria-label="Scroll left">&#x276e;</button>
+                    <div class="clients-scroll" id="clientsScroll">
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/drdo.gov.in" alt="DRDO" loading="lazy"><span class="logo-name">DRDO</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ongcindia.com" alt="ONGC" loading="lazy"><span class="logo-name">ONGC</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/aiims.edu" alt="AIIMS" loading="lazy"><span class="logo-name">AIIMS</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/tata.com" alt="Tata Group" loading="lazy"><span class="logo-name">Tata Group</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/isro.gov.in" alt="ISRO" loading="lazy"><span class="logo-name">ISRO</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/indianrailways.gov.in" alt="Indian Railways" loading="lazy"><span class="logo-name">Indian Railways</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/sunpharma.com" alt="Sun Pharma" loading="lazy"><span class="logo-name">Sun Pharma</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/sbi.co.in" alt="SBI" loading="lazy"><span class="logo-name">SBI</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/larsentoubro.com" alt="L&T" loading="lazy"><span class="logo-name">L&T</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ril.com" alt="Reliance" loading="lazy"><span class="logo-name">Reliance</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/kokilabenhospital.com" alt="Kokilaben" loading="lazy"><span class="logo-name">Kokilaben</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/iitb.ac.in" alt="IIT Bombay" loading="lazy"><span class="logo-name">IIT Bombay</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ntpc.co.in" alt="NTPC" loading="lazy"><span class="logo-name">NTPC</span></div>
+                        <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/rbi.org.in" alt="RBI" loading="lazy"><span class="logo-name">RBI</span></div>
+                        <button class="clients-nav right" onclick="scrollClients(300)" aria-label="Scroll right">&#x276f;</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <script>
-        // ── CAROUSEL ──
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
+        <!-- 5. FOOTER -->
+        <footer id="footer-placeholder"></footer>
 
-        function goToSlide(n) {
-            slides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-        }
-        function nextSlide() { goToSlide(currentSlide + 1); }
-        function prevSlide() { goToSlide(currentSlide - 1); }
-        setInterval(nextSlide, 5000);
+        <script src="forms-handler.js"></script>
+        <script>
+            // ── CAROUSEL ──
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
 
-        // ── CLIENTS SCROLL ──
-        function scrollClients(delta) {
-            const el = document.getElementById('clientsScroll');
-            if (el) el.scrollBy({ left: delta, behavior: 'smooth' });
-        }
+            function goToSlide(n) {
+                slides.forEach(s => s.classList.remove('active'));
+                dots.forEach(d => d.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+            }
+            function nextSlide() { goToSlide(currentSlide + 1); }
+            function prevSlide() { goToSlide(currentSlide - 1); }
+            setInterval(nextSlide, 5000);
 
-        // ── UTILITY ──
-        function showToast(msg, type = 'success') {
-            const t = document.createElement('div');
-            t.className = `toast ${type}`;
-            t.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span>${msg}</span>`;
-            document.getElementById('toast-container').appendChild(t);
-            requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
-            setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
-        }
-        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
-        function submitInquiry(e) { e.preventDefault(); showToast('Thank you! Our experts will contact you within 24 hours.'); closeInquiryModal(); e.target.reset(); }
-        function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.getElementById('mobileOverlay').classList.add('open'); document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
-        function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.getElementById('mobileOverlay').classList.remove('open'); document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
-        function toggleFloatPopup(e) { e.stopPropagation(); const p = document.getElementById('floatPopup'); const b = document.getElementById('floatInqBtn'); const o = p.classList.toggle('show'); b.setAttribute('aria-expanded', o); }
-        document.addEventListener('click', e => { const p = document.getElementById('floatPopup'); const s = document.getElementById('floatStack'); if (p && p.classList.contains('show') && !s.contains(e.target)) { p.classList.remove('show'); document.getElementById('floatInqBtn').setAttribute('aria-expanded', 'false'); } });
-        function submitPopupInquiry() { const n = document.getElementById('pop-name').value.trim(); const ph = document.getElementById('pop-phone').value.trim(); if (!n || !ph) { showToast('Please enter your name and phone number.', 'error'); return; } showToast('Thank you ' + n + "! We'll call you within 2 hours."); document.getElementById('floatPopup').classList.remove('show');['pop-name', 'pop-phone', 'pop-email'].forEach(id => document.getElementById(id).value = ''); }
-        const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold: .12 });
-        document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObs.observe(el));
-        const btt = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400));
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProductModal(); closeMobileNav(); } });
-        document.getElementById('inquiryModal').addEventListener('click', function(e) { if (e.target === this) closeInquiryModal(); });
+            // ── CLIENTS SCROLL ──
+            function scrollClients(delta) {
+                const el = document.getElementById('clientsScroll');
+                if (el) el.scrollBy({ left: delta, behavior: 'smooth' });
+            }
 
-        // ── PRODUCTS GRID ──
-        const productsData = [{"id": "c1", "name": "Document Storage Compactor", "image": "hero_compactor.png", "apps": "Offices, Banks, Libraries, Archives"}, {"id": "c2", "name": "Pigeon Hole Compactor", "image": "hero_compactor.png", "apps": "Engineering Components, Electronic Components, Hardware Items, Pharmaceutical Supplies"}, {"id": "c3", "name": "Heavy Duty Compactor", "image": "hero_compactor.png", "apps": "Designed to accommodate items weighing up to 300 kilograms per level."}, {"id": "c4", "name": "Perforated Compactor", "image": "hero_compactor.png", "apps": "For Temperature and Humidity Control: Medicine Storage, Archives"}, {"id": "c5", "name": "Drawer Compactor", "image": "hero_compactor.png", "apps": "Maximum storage capacity for smaller items, such as medication, flavorings, and fragrance bottles."}, {"id": "c6", "name": "Stainless Steel Compactor", "image": "hero_compactor.png", "apps": "Cold storage units for vaccines, perishable items, and other related materials."}, {"id": "c7", "name": "Art Display Compactor", "image": "hero_compactor.png", "apps": "Art Gallery, Museum, Archives, Library, Art Collectors"}, {"id": "c8", "name": "Art Storage Compactor", "image": "hero_compactor.png", "apps": "Art Gallery, Museum, Archives, Library, Art Collectors"}, {"id": "c9", "name": "Rifle Storage Compactor", "image": "hero_compactor.png", "apps": "Police Stations, Military and Defense Facilities, Private Security Firms, Shooting Ranges, Museums and Archives"}, {"id": "c10", "name": "Inbuilt Exhaust Compactor", "image": "hero_compactor.png", "apps": "Fragrance Storage, Flavor Storage, Chemical Storage"}, {"id": "c11", "name": "Apparel Storage Compactor", "image": "hero_compactor.png", "apps": "Luxury Retail Outlets"}, {"id": "c12", "name": "SS Uniform Storage Compactor", "image": "hero_compactor.png", "apps": "Hotels and Resorts"}, {"id": "c13", "name": "Medium Duty Compactor", "image": "hero_compactor.png", "apps": "Warehouses, Retail Back Storage"}, {"id": "c14", "name": "Specialised Medium Duty Compactor", "image": "hero_compactor.png", "apps": "Capacity per level: 100-300 kilograms. Applications: Industrial, warehousing, pharmaceutical. Suitable for seed storage."}, {"id": "c15", "name": "Stepped Compactor", "image": "hero_compactor.png", "apps": "Sites with varying ceiling heights to optimize space utilization."}, {"id": "c16", "name": "Compactor With Doors", "image": "hero_compactor.png", "apps": "Secure storage solutions. Utilization across multiple departments."}];
+            /* ── INIT ── */
+            document.addEventListener('DOMContentLoaded', () => {
+                renderProducts();
+                
+                // Observer for scroll animations
+                const revealObserver = new IntersectionObserver(entries => {
+                    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+                }, { threshold: .12 });
+                document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
 
-        function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = productsData.map((p, i) => `
+                // Stats animation
+                initStatsStrip();
+
+                /* keyboard close */
+                document.addEventListener('keydown', e => { 
+                    if (e.key === 'Escape') { 
+                        if (typeof closeInquiryModal === 'function') closeInquiryModal();
+                        if (typeof closeProductModal === 'function') closeProductModal();
+                        if (typeof closeMobileNav === 'function') closeMobileNav();
+                    } 
+                });
+            });
+
+            // ── PRODUCTS GRID ──
+            const productsData = [{ "id": "c1", "name": "Document Storage Compactor", "image": "hero_compactor.png", "apps": "Offices, Banks, Libraries, Archives" }, { "id": "c2", "name": "Pigeon Hole Compactor", "image": "hero_compactor.png", "apps": "Engineering Components, Electronic Components, Hardware Items, Pharmaceutical Supplies" }, { "id": "c3", "name": "Heavy Duty Compactor", "image": "hero_compactor.png", "apps": "Designed to accommodate items weighing up to 300 kilograms per level." }, { "id": "c4", "name": "Perforated Compactor", "image": "hero_compactor.png", "apps": "For Temperature and Humidity Control: Medicine Storage, Archives" }, { "id": "c5", "name": "Drawer Compactor", "image": "hero_compactor.png", "apps": "Maximum storage capacity for smaller items, such as medication, flavorings, and fragrance bottles." }, { "id": "c6", "name": "Stainless Steel Compactor", "image": "hero_compactor.png", "apps": "Cold storage units for vaccines, perishable items, and other related materials." }, { "id": "c7", "name": "Art Display Compactor", "image": "hero_compactor.png", "apps": "Art Gallery, Museum, Archives, Library, Art Collectors" }, { "id": "c8", "name": "Art Storage Compactor", "image": "hero_compactor.png", "apps": "Art Gallery, Museum, Archives, Library, Art Collectors" }, { "id": "c9", "name": "Rifle Storage Compactor", "image": "hero_compactor.png", "apps": "Police Stations, Military and Defense Facilities, Private Security Firms, Shooting Ranges, Museums and Archives" }, { "id": "c10", "name": "Inbuilt Exhaust Compactor", "image": "hero_compactor.png", "apps": "Fragrance Storage, Flavor Storage, Chemical Storage" }, { "id": "c11", "name": "Apparel Storage Compactor", "image": "hero_compactor.png", "apps": "Luxury Retail Outlets" }, { "id": "c12", "name": "SS Uniform Storage Compactor", "image": "hero_compactor.png", "apps": "Hotels and Resorts" }, { "id": "c13", "name": "Medium Duty Compactor", "image": "hero_compactor.png", "apps": "Warehouses, Retail Back Storage" }, { "id": "c14", "name": "Specialised Medium Duty Compactor", "image": "hero_compactor.png", "apps": "Capacity per level: 100-300 kilograms. Applications: Industrial, warehousing, pharmaceutical. Suitable for seed storage." }, { "id": "c15", "name": "Stepped Compactor", "image": "hero_compactor.png", "apps": "Sites with varying ceiling heights to optimize space utilization." }, { "id": "c16", "name": "Compactor With Doors", "image": "hero_compactor.png", "apps": "Secure storage solutions. Utilization across multiple departments." }];
+
+            function renderProducts() {
+                const grid = document.getElementById('productGrid');
+                if (!grid) return;
+                grid.innerHTML = productsData.map((p, i) => `
                 <div class="product-card reveal${i % 3 === 1 ? ' delay-1' : i % 3 === 2 ? ' delay-2' : ''}" style="text-decoration:none; cursor:default; display:flex; flex-direction:column;">
                     <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0;">
                         <img src="${p.image}" alt="${p.name}" loading="lazy" style="width:100%; height:220px; object-fit:cover; transition:transform 0.4s ease;" onerror="this.parentElement.style.background='linear-gradient(135deg,#e53935 0%,#b71c1c 100%)'; this.style.display='none';">
@@ -693,7 +731,7 @@
                     <div class="product-info" style="padding:24px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border-radius:0 0 12px 12px; box-shadow:0 4px 20px rgba(0,0,0,0.07);">
                         <div>
                             <h3 class="product-name" style="font-size:17px; margin-bottom:8px; color:var(--dark);">${p.name}</h3>
-                            <p class="product-description" style="color:var(--light); font-size:14px; line-height:1.6; margin-bottom:20px;">${p.apps.length > 90 ? p.apps.substring(0,90) + '...' : p.apps}</p>
+                            <p class="product-description" style="color:var(--light); font-size:14px; line-height:1.6; margin-bottom:20px;">${p.apps.length > 90 ? p.apps.substring(0, 90) + '...' : p.apps}</p>
                         </div>
                         <div style="display:flex; gap:12px; flex-wrap:wrap;">
                             <button onclick="openProductModal('${p.id}')" class="btn-primary" style="padding:10px 18px; font-size:13px; border:none; cursor:pointer; flex:1; min-width:110px; text-align:center;">View Details</button>
@@ -702,14 +740,19 @@
                     </div>
                 </div>
             `).join('');
-            document.querySelectorAll('#productGrid .reveal, #productGrid .reveal-left, #productGrid .reveal-right').forEach(el => revealObs.observe(el));
-        }
+                
+                // Re-observe new elements
+                const revealObserver = new IntersectionObserver(entries => {
+                    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+                }, { threshold: .12 });
+                grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            }
 
-        function openProductModal(id) {
-            const p = productsData.find(x => x.id === id);
-            if (!p) return;
-            const content = document.getElementById('productDetailContent');
-            content.innerHTML = `
+            function openProductModal(id) {
+                const p = productsData.find(x => x.id === id);
+                if (!p) return;
+                const content = document.getElementById('productDetailContent');
+                content.innerHTML = `
                 <div class="product-modal-image" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);">
                     <img src="${p.image}" alt="${p.name}" onerror="this.style.opacity='0';" style="width:100%; height:100%; object-fit:cover; opacity:0.9;">
                 </div>
@@ -736,41 +779,38 @@
                     </div>
                 </div>
             `;
-            document.getElementById('productModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeProductModal() {
-            document.getElementById('productModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        document.getElementById('productModal').addEventListener('click', function(e) { if (e.target === this) closeProductModal(); });
-
-        // ── STATS ANIMATION ──
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            const strip = document.getElementById('statsRibbon');
-            if (!strip) return;
-            let animated = false;
-            function animateAll() {
-                if (animated) return; animated = true;
-                strip.querySelectorAll('.stat-strip-num').forEach(el => {
-                    const target = parseInt(el.dataset.target, 10);
-                    const spanHTML = el.querySelector('span') ? '<span>' + el.querySelector('span').textContent + '</span>' : '';
-                    if (isNaN(target)) return;
-                    const start = performance.now();
-                    (function step(now) {
-                        const p = Math.min((now - start) / 1600, 1);
-                        const ease = 1 - Math.pow(1 - p, 3);
-                        const val = Math.round(ease * target);
-                        el.innerHTML = (val >= 1000 ? val.toLocaleString() : val) + spanHTML;
-                        if (p < 1) requestAnimationFrame(step);
-                    })(performance.now());
-                });
+                document.getElementById('productModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
-            new IntersectionObserver((entries) => { if (entries[0].isIntersecting) animateAll(); }, { threshold: 0.2 }).observe(strip);
-        });
-    </script>
-    <script src="excel-data-capture.js"></script>
+
+            function closeProductModal() {
+                document.getElementById('productModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function initStatsStrip() {
+                const strip = document.getElementById('statsRibbon');
+                if (!strip) return;
+                let animated = false;
+                function animateAll() {
+                    if (animated) return; animated = true;
+                    strip.querySelectorAll('.stat-strip-num').forEach(el => {
+                        const target = parseInt(el.dataset.target, 10);
+                        const suffix = el.dataset.suffix || '';
+                        if (isNaN(target)) return;
+                        const start = performance.now();
+                        (function step(now) {
+                            const p = Math.min((now - start) / 1600, 1);
+                            const ease = 1 - Math.pow(1 - p, 3);
+                            const val = Math.round(ease * target);
+                            el.innerHTML = (val >= 1000 ? val.toLocaleString() : val) + `<span>${suffix}</span>`;
+                            if (p < 1) requestAnimationFrame(step);
+                        })(performance.now());
+                    });
+                }
+                new IntersectionObserver((entries) => { if (entries[0].isIntersecting) animateAll(); }, { threshold: 0.2 }).observe(strip);
+            }
+        </script>
 </body>
-</html>
+
+</html>```
