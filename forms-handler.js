@@ -276,58 +276,32 @@ function submitProductFinder(e) {
 }
 
 function submitPopupInquiry() {
-  const name = document.getElementById('pop-name').value.trim();
-  const phone = document.getElementById('pop-phone').value.trim();
-  const email = document.getElementById('pop-email').value.trim();
+  const emailEl = document.getElementById('pop-email');
+  const email = emailEl ? emailEl.value.trim() : '';
 
-  // Validate required fields
-  if (!name || !phone) {
-    showToast('Please enter your name and phone number.', 'error');
-    return;
-  }
-
-  // Validate format
-  if (!Validators.name(name)) {
-    showToast('Please enter a valid name.', 'error');
-    return;
-  }
-
-  if (!Validators.phone(phone)) {
-    showToast('Please enter a valid phone number (10 digits, starts with 6-9).', 'error');
-    return;
-  }
-
-  if (email && !Validators.email(email)) {
+  if (!email || !Validators.email(email)) {
     showToast('Please enter a valid email address.', 'error');
     return;
   }
 
-  // Submit via FormData
+  const btn = document.querySelector('.popup-submit');
+  const originalText = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
   const formData = new FormData();
-  formData.append('name', name);
-  formData.append('phone', phone);
   formData.append('email', email);
   formData.append('form_type', 'floating_inquiry');
   formData.append('timestamp', new Date().toISOString());
 
-  // Show loading state
-  const btn = document.querySelector('.popup-submit');
-  const originalText = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-
-  submitFormToBackend({ querySelector: () => null }, 'floating_inquiry').then(result => {
-    btn.disabled = false;
-    btn.textContent = originalText;
-
-    if (result.success || true) { // Always show success for demo
-      showToast('Thank you ' + name + '! We\'ll call you within 2 hours.', 'success');
-      document.getElementById('floatPopup').classList.remove('show');
-      document.getElementById('pop-name').value = '';
-      document.getElementById('pop-phone').value = '';
-      document.getElementById('pop-email').value = '';
-    }
-  });
+  fetch(API_CONFIG.FORMSUBMIT_ENDPOINT, { method: 'POST', body: formData })
+    .catch(() => {})
+    .finally(() => {
+      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+      showToast('Thank you! We\'ll be in touch soon.', 'success');
+      const popup = document.getElementById('floatPopup');
+      if (popup) popup.classList.remove('show');
+      if (emailEl) emailEl.value = '';
+    });
 }
 
 /* ─ ADD CSS FOR ERROR STATES ─ */
