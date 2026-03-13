@@ -602,6 +602,7 @@
                                 style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
                                 →</button>
                         </div>
+                    </div>
 
                         <!-- PRODUCT 3: STORAGE LOCKERS -->
                         <div class="product-card reveal delay-2" onclick="window.location='storage-lockers.html'"
@@ -666,7 +667,8 @@
                             </div>
 
                         </div>
-                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ══════════════════════════════════════════════
@@ -1372,6 +1374,9 @@
 
                 // Staggered animations
                 setupStagger();
+                
+                // Reveal animations
+                initReveal();
             });
 
             function submitAssessment(event) {
@@ -1445,6 +1450,19 @@
                     }, { threshold: 0.1 });
                     observer.observe(container);
                 });
+            }
+
+            /* ── REVEAL ON SCROLL ── */
+            function initReveal() {
+                const revealObserver = new IntersectionObserver(entries => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('visible');
+                            revealObserver.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
             }
 
             // Preloader Logic
