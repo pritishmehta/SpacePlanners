@@ -12,15 +12,25 @@
         if (header.dataset.scrollInit) return;
         header.dataset.scrollInit = '1';
 
-        // Detect if we are on the home page to apply transparency
-        const isHome = document.querySelector('main.home-main') || document.body.id === 'home' || window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
-        if (isHome) {
-            document.body.classList.add('home-page');
+        // Detect if we are on a page that should have a transparent header at top
+        // Home page, or any page with a hero-section or carousel-section
+        const hasHero = document.querySelector('.hero-section') || 
+                        document.querySelector('.carousel-section') || 
+                        document.querySelector('main.home-main') ||
+                        document.body.id === 'home' || 
+                        window.location.pathname.endsWith('index.html') || 
+                        window.location.pathname === '/';
+
+        if (hasHero) {
+            document.body.classList.add('home-page'); // Keep this class for backward compat with CSS
+            document.body.classList.add('transparent-nav');
+        } else {
+            document.body.classList.remove('home-page');
+            document.body.classList.remove('transparent-nav');
         }
 
         function onScroll() {
             const shouldScroll = window.scrollY > 50;
-            // Only toggle if necessary to avoid redundant DOM updates/flashes
             if (header.classList.contains('scrolled') !== shouldScroll) {
                 header.classList.toggle('scrolled', shouldScroll);
             }
