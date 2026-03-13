@@ -539,8 +539,8 @@
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px;">
 
                     <!-- PRODUCT 1: COMPACTORS -->
-                    <a href="compactor-storage.html" class="product-card reveal"
-                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                    <div class="product-card reveal" onclick="window.location='compactor-storage.html'"
+                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%; cursor: pointer;">
                         <div class="product-image"
                             style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
                             <img src="compactor_storage_1772984342025.png"
@@ -566,11 +566,11 @@
                                 </svg>
                                 GMP Certified
                             </div>
-                            <button class=" btn-primary" onclick="event.stopPropagation(); openInquiryModal()"
+                            <button class="btn-primary" onclick="event.stopPropagation(); openInquiryModal()"
                                 style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
                                 →</button>
                         </div>
-                    </a>
+                    </div>
 
 
                     <!-- PRODUCT 2: INDUSTRIAL RACKS -->
