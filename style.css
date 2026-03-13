@@ -353,19 +353,49 @@ ul {
    HEADER
 ============================================== */
 header {
-  background: transparent;
+  background: var(--white);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 900;
-  animation: slideDown .5s ease;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
 }
 
 header.scrolled {
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+  gap: 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+  transition: padding 0.4s ease, color 0.4s ease;
+}
+
+header.scrolled .header-main {
+  padding: 14px 60px;
+}
+
+/* Base transitions for smooth state changes */
+.header-main, 
+.header-main *, 
+.logo img, 
+.btn-primary, 
+.btn-call,
+.hamburger span {
+  transition: color 0.4s ease, 
+              background-color 0.4s ease, 
+              border-color 0.4s ease, 
+              filter 0.4s ease,
+              box-shadow 0.4s ease,
+              transform 0.4s ease;
 }
 
 @keyframes slideDown {
@@ -723,44 +753,54 @@ main.home-main {
   padding-top: 0;
 }
 
-header:not(.scrolled) .main-nav>ul>li>a {
+/* ==============================================
+   OVERRIDE: TRANSPARENT HEADER FOR HOME ONLY
+============================================== */
+/* If the header is a child of main.home-main OR the body has .home-page class */
+main.home-main header:not(.scrolled),
+body.home-page header:not(.scrolled) {
+  background: transparent;
+  box-shadow: none;
+}
+
+main.home-main header:not(.scrolled) .main-nav>ul>li>a,
+body.home-page header:not(.scrolled) .main-nav>ul>li>a,
+main.home-main header:not(.scrolled) .logo,
+body.home-page header:not(.scrolled) .logo,
+main.home-main header:not(.scrolled) .logo span,
+body.home-page header:not(.scrolled) .logo span {
   color: var(--white);
 }
 
-header:not(.scrolled) .logo {
-  color: var(--white);
-}
-
-header:not(.scrolled) .logo img {
+main.home-main header:not(.scrolled) .logo img,
+body.home-page header:not(.scrolled) .logo img {
   filter: brightness(0) invert(1);
 }
 
-header:not(.scrolled) .hamburger span {
+main.home-main header:not(.scrolled) .hamburger span,
+body.home-page header:not(.scrolled) .hamburger span {
   background: var(--white);
 }
 
-header:not(.scrolled) .logo span {
+main.home-main header:not(.scrolled) .btn-call,
+body.home-page header:not(.scrolled) .btn-call {
+  background: rgba(255, 255, 255, 0.1);
   color: var(--white);
-}
-
-header:not(.scrolled) .header-actions {
-  justify-content: flex-end;
-}
-
-header:not(.scrolled) .btn-call {
-  background: var(--white);
-  color: var(--red);
   border-color: var(--white);
+  backdrop-filter: blur(4px);
 }
 
-header:not(.scrolled) .btn-call:hover {
+main.home-main header:not(.scrolled) .btn-call:hover,
+body.home-page header:not(.scrolled) .btn-call:hover {
   background: var(--white);
   color: var(--red);
 }
 
-header:not(.scrolled) .btn-primary {
+main.home-main header:not(.scrolled) .btn-primary,
+body.home-page header:not(.scrolled) .btn-primary {
   background: var(--white) !important;
   color: var(--red) !important;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
 
