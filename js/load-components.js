@@ -173,4 +173,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     observer.observe(document.body, { childList: true, subtree: true });
+
+    // Handle window resize - Close mobile nav if resized to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+            closeMobileNav();
+        }
+    });
 });
