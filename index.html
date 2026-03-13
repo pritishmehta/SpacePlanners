@@ -244,1259 +244,1447 @@
 </head>
 
 <body>
-<a href="#main-content" style="position: absolute; top: -40px; left: 0; background: var(--primary); color: white; padding: 8px 16px; text-decoration: none; border-radius: 0 0 8px 0; z-index: 10000; font-weight: 600;">Skip to main content</a>
-<main id="main-content">
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <div class="logo-loader">
-                <span class="logo"><img src="Loading.gif" alt="Space Planners"></span>
+    <a href="#main-content"
+        style="position: absolute; top: -40px; left: 0; background: var(--primary); color: white; padding: 8px 16px; text-decoration: none; border-radius: 0 0 8px 0; z-index: 10000; font-weight: 600;">Skip
+        to main content</a>
+    <main id="main-content" class="home-main">
+        <!-- Preloader -->
+        <div class="preloader" id="preloader">
+            <div class="preloader-content">
+                <div class="logo-loader">
+                    <span class="logo"><img src="Loading.gif" alt="Space Planners"></span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="toast-container"></div>
-    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-header">
-            <span class="logo">Space<span>Planners</span></span>
-            <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
-        </div>
-        <ul>
-            <li><a href="index.html" class="active">🏠 Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li>
-                <a href="#products" style="justify-content:space-between">Products <span>▾</span></a>
-                <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
-                    <li><a href="compactor-storage.html"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Compactor
-                            Storage System</a></li>
-                    <li><a href="industrial-racks.html"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Industrial
-                            Racks</a></li>
-                    <li><a href="storage-lockers.html"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Storage
-                            Lockers</a></li>
-                    <li><a href="filing-cabinets.html"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Filing
-                            Cabinets & Lockers</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="projects.html" style="justify-content:space-between">Industrial Applications <span>▾</span></a>
-                <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
-                    <li><a href="projects.html#pharma"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Pharmaceutical
-                            & Healthcare</a></li>
-                    <li><a href="projects.html#corporate"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Corporate
-                            Offices</a></li>
-                    <li><a href="projects.html#warehouse"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Warehouse
-                            & Logistics</a></li>
-                    <li><a href="projects.html#education"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Education
-                            & Library</a></li>
-                    <li><a href="projects.html#museum"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Museum
-                            & Archives</a></li>
-                    <li><a href="projects.html#government"
-                            style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Government</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="case-studies.html">Projects</a></li>
-        </ul>
-        <div class="mobile-nav-footer">
-            <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
-            <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
-        </div>
-    </div>
-
-    <header>
-        <div class="header-top">
-            <div class="header-top-left">
-                <span>📍 Mumbai, India</span>
-                <span>🏆 20+ Years of Excellence</span>
+        <div id="toast-container"></div>
+        <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span class="logo">Space<span>Planners</span></span>
+                <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
             </div>
-            <div class="header-top-right">
-                <a href="mailto:sales@spaceplannersindia.in">✉️ sales@spaceplannersindia.in</a>
-            </div>
-        </div>
-        <div class="header-main">
-            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-    <img src="logo.png" alt="Space Planners India" style="height: 80px; width: 200;">
-    <span style="font-size: 18px; font-weight: 700; color: var(--dark); display: none;">Space<span style="color: var(--primary);">Planners</span></span>
-</a>
-            <nav class="main-nav" aria-label="Main navigation">
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li>
-                        <a href="#products">Products ▾</a>
-                        <ul class="nav-dropdown">
-                            <li><a href="compactor-storage.html">Compactor Storage System</a></li>
-                            <li><a href="industrial-racks.html">Industrial Racks</a></li>
-                            <li><a href="storage-lockers.html">Storage Lockers</a></li>
-                            <li><a href="filing-cabinets.html">Filing Cabinets & Lockers</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="projects.html">Industrial Applications ▾</a>
-                        <ul class="nav-dropdown">
-                            <li><a href="projects.html#pharma">Pharmaceutical & Healthcare</a></li>
-                            <li><a href="projects.html#corporate">Corporate Offices</a></li>
-                            <li><a href="projects.html#warehouse">Warehouse & Logistics</a></li>
-                            <li><a href="projects.html#education">Education & Library</a></li>
-                            <li><a href="projects.html#museum">Museum & Archives</a></li>
-                            <li><a href="projects.html#government">Government</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="case-studies.html">Projects</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
+            <ul>
+                <li><a href="index.html" class="active">🏠 Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li>
+                    <a href="#products" style="justify-content:space-between">Products <span>▾</span></a>
+                    <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
+                        <li><a href="compactor-storage.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Compactor
+                                Storage System</a></li>
+                        <li><a href="industrial-racks.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Industrial
+                                Racks</a></li>
+                        <li><a href="storage-lockers.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Storage
+                                Lockers</a></li>
+                        <li><a href="filing-cabinets.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Filing
+                                Cabinets & Lockers</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="projects.html" style="justify-content:space-between">Industrial Applications
+                        <span>▾</span></a>
+                    <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0;">
+                        <li><a href="projects.html#pharma"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Pharmaceutical
+                                & Healthcare</a></li>
+                        <li><a href="projects.html#corporate"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Corporate
+                                Offices</a></li>
+                        <li><a href="projects.html#warehouse"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Warehouse
+                                & Logistics</a></li>
+                        <li><a href="projects.html#education"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Education
+                                & Library</a></li>
+                        <li><a href="projects.html#museum"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Museum
+                                & Archives</a></li>
+                        <li><a href="projects.html#government"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:14px; font-weight:500; color:var(--mid);">Government</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="case-studies.html">Projects</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
                 <a href="tel:+912240033385" class="btn-call">📞 +91-22-40033385</a>
-                <button class="btn-primary" onclick="openInquiryModal()" style="background: var(--primary); color: white; font-weight: 700; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);">Schedule Consultation →</button>
-                <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"
-                    onclick="openMobileNav()">
-                    <span></span><span></span><span></span>
+                <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
+            </div>
+        </div>
+
+        <header>
+            <div class="header-main">
+                <a href="index.html" class="logo"
+                    style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                    <img src="logo.png" alt="Space Planners India" style="height: 80px; width: 200;">
+                    <span style="font-size: 18px; font-weight: 700; color: var(--dark); display: none;">Space<span
+                            style="color: var(--primary);">Planners</span></span>
+                </a>
+                <nav class="main-nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li>
+                            <a href="#products">Products ▾</a>
+                            <ul class="nav-dropdown">
+                                <li><a href="compactor-storage.html">Compactor Storage System</a></li>
+                                <li><a href="industrial-racks.html">Industrial Racks</a></li>
+                                <li><a href="storage-lockers.html">Storage Lockers</a></li>
+                                <li><a href="filing-cabinets.html">Filing Cabinets & Lockers</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="projects.html">Industrial Applications ▾</a>
+                            <ul class="nav-dropdown">
+                                <li><a href="projects.html#pharma">Pharmaceutical & Healthcare</a></li>
+                                <li><a href="projects.html#corporate">Corporate Offices</a></li>
+                                <li><a href="projects.html#warehouse">Warehouse & Logistics</a></li>
+                                <li><a href="projects.html#education">Education & Library</a></li>
+                                <li><a href="projects.html#museum">Museum & Archives</a></li>
+                                <li><a href="projects.html#government">Government</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="case-studies.html">Projects</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="tel:+912240033385" class="btn-call">Contact Us</a>
+                    <button class="btn-primary" onclick="openInquiryModal()"
+                        style="background: var(--primary); color: white; font-weight: 700; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);">Get
+                        Free Quote →</button>
+                    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"
+                        onclick="openMobileNav()">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="float-stack" id="floatStack">
+            <div style="position:relative;">
+                <div class="float-inquiry-popup" id="floatPopup">
+                    <div class="popup-header">
+                        <p class="popup-title">Get Free Quote</p>
+                        <p class="popup-subtitle"
+                            style="font-size: 12px; color: rgba(26,26,26,0.6); margin: 4px 0 0 0;">We'll call within 2
+                            hours</p>
+                        <button class="popup-close" onclick="toggleFloatPopup(event)">✕</button>
+                    </div>
+                    <input class="popup-input" type="email" id="pop-email" placeholder="Your email" autocomplete="email"
+                        required>
+                    <button class="popup-submit" onclick="submitPopupInquiry()">Get Started →</button>
+                    <p class="popup-note">✓ No spam. No commitment.</p>
+                </div>
+                <button class="float-inquiry-btn" onclick="toggleFloatPopup(event)" aria-label="Quick inquiry"
+                    id="floatInqBtn" title="Get Free Quote">
+                    <span style="font-size: 20px;">💬</span>
                 </button>
             </div>
-        </div>
-    </header>
-
-    <div class="float-stack" id="floatStack">
-    <div style="position:relative;">
-        <div class="float-inquiry-popup" id="floatPopup">
-            <div class="popup-header">
-                <p class="popup-title">Get Free 3D Design</p>
-                <p class="popup-subtitle" style="font-size: 12px; color: rgba(26,26,26,0.6); margin: 4px 0 0 0;">We'll call within 2 hours</p>
-                <button class="popup-close" onclick="toggleFloatPopup(event)">✕</button>
+            <div class="whatsapp-float">
+                <a href="https://wa.me/912240033385?text=Hi%20Space%20Planners%2C%20I%20want%20a%20quote%20for%20storage%20solutions"
+                    class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+                        <path fill="#fff"
+                            d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8 29.7 7 26.9 7 24 7 14.6 14.6 7 24 7s17 7.6 17 17-7.6 17-17 17z" />
+                    </svg>
+                </a>
             </div>
-            <input class="popup-input" type="email" id="pop-email" placeholder="Your email" autocomplete="email" required>
-            <button class="popup-submit" onclick="submitPopupInquiry()">Get Started →</button>
-            <p class="popup-note">✓ No spam. No commitment.</p>
         </div>
-        <button class="float-inquiry-btn" onclick="toggleFloatPopup(event)" aria-label="Quick inquiry" id="floatInqBtn" title="Get Free Quote">
-            <span style="font-size: 20px;">💬</span>
-        </button>
-    </div>
-    <div class="whatsapp-float">
-        <a href="https://wa.me/912240033385?text=Hi%20Space%20Planners%2C%20I%20want%20a%20quote%20for%20storage%20solutions" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
-                <path fill="#fff" d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.2 1.6 1.7-6-.4-.6C8 29.7 7 26.9 7 24 7 14.6 14.6 7 24 7s17 7.6 17 17-7.6 17-17 17z" />
-            </svg>
-        </a>
-    </div>
-</div>
-    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+        <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+            aria-label="Back to top">↑</button>
 
-    <!-- INQUIRY MODAL -->
-    <div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">✕</button>
-            <h2 class="modal-title" id="inquiryTitle">Get a Free Quote</h2>
-            <div class="progress-container" style="margin-bottom:24px; text-align:center;">
-                <div class="progress-bar"
-                    style="background:#e0e0e0; height:6px; border-radius:3px; margin-bottom:12px; overflow:hidden;">
-                    <div id="formProgress"
-                        style="width: 33%; height: 100%; background: var(--primary); transition: width 0.3s ease;">
+        <!-- INQUIRY MODAL -->
+        <div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">✕</button>
+                <h2 class="modal-title" id="inquiryTitle">Get a Free Quote</h2>
+                <div class="progress-container" style="margin-bottom:24px; text-align:center;">
+                    <div class="progress-bar"
+                        style="background:#e0e0e0; height:6px; border-radius:3px; margin-bottom:12px; overflow:hidden;">
+                        <div id="formProgress"
+                            style="width: 33%; height: 100%; background: var(--primary); transition: width 0.3s ease;">
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--mid);">
+                        <span id="step1Indicator" style="font-weight:700; color:var(--primary);">1. Product</span>
+                        <span id="step2Indicator">2. Details</span>
+                        <span id="step3Indicator">3. Consent</span>
                     </div>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--mid);">
-                    <span id="step1Indicator" style="font-weight:700; color:var(--primary);">1. Product</span>
-                    <span id="step2Indicator">2. Details</span>
-                    <span id="step3Indicator">3. Consent</span>
-                </div>
-            </div>
 
-            <form id="multiStepForm" onsubmit="submitInquiry(event)" novalidate aria-label="Free Quote Inquiry Form">
+                <form id="multiStepForm" onsubmit="submitInquiry(event)" novalidate
+                    aria-label="Free Quote Inquiry Form">
 
-                <!-- STEP 1 -->
-                <div class="form-step" id="step1">
-                    <div class="form-group">
-                        <fieldset style="border:none; padding:0; margin:0;" aria-labelledby="inq-product-label">
-                            <legend id="inq-product-label"
-                                style="display:block; margin-bottom:12px; font-weight:600; font-size:16px; color:var(--dark);">
-                                What are you looking for?</legend>
-                            <div class="radio-grid">
-                                <label class="radio-card"><input type="radio" name="product_interest"
-                                        value="Mobile Compactors" required><span>Mobile Compactors</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest"
-                                        value="Industrial Racks"><span>Industrial Racks</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest"
-                                        value="Storage Lockers"><span>Storage Lockers</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest"
-                                        value="Filing Cabinets"><span>Filing Cabinets</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest"
-                                        value="Mezzanine Systems"><span>Mezzanine Systems</span></label>
-                                <label class="radio-card"><input type="radio" name="product_interest"
-                                        value="Other"><span>Other</span></label>
+                    <!-- STEP 1 -->
+                    <div class="form-step" id="step1">
+                        <div class="form-group">
+                            <fieldset style="border:none; padding:0; margin:0;" aria-labelledby="inq-product-label">
+                                <legend id="inq-product-label"
+                                    style="display:block; margin-bottom:12px; font-weight:600; font-size:16px; color:var(--dark);">
+                                    What are you looking for?</legend>
+                                <div class="radio-grid">
+                                    <label class="radio-card"><input type="radio" name="product_interest"
+                                            value="Mobile Compactors" required><span>Mobile Compactors</span></label>
+                                    <label class="radio-card"><input type="radio" name="product_interest"
+                                            value="Industrial Racks"><span>Industrial Racks</span></label>
+                                    <label class="radio-card"><input type="radio" name="product_interest"
+                                            value="Storage Lockers"><span>Storage Lockers</span></label>
+                                    <label class="radio-card"><input type="radio" name="product_interest"
+                                            value="Filing Cabinets"><span>Filing Cabinets</span></label>
+                                    <label class="radio-card"><input type="radio" name="product_interest"
+                                            value="Mezzanine Systems"><span>Mezzanine Systems</span></label>
+                                    <label class="radio-card"><input type="radio" name="product_interest"
+                                            value="Other"><span>Other</span></label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div id="step1Error"
+                            style="color:var(--red); font-size:13px; margin-bottom:12px; display:none;">
+                            Please select a product to continue.</div>
+                        <button type="button" class="btn-primary"
+                            style="width:100%; display:flex; justify-content:center;" onclick="nextStep(1, 2)">Continue
+                            ?</button>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="form-step" id="step2" style="display:none;">
+                        <div class="form-group">
+                            <label for="inq-name">Full Name *</label>
+                            <input type="text" id="inq-name" name="name" placeholder="Your full name" required
+                                autocomplete="name" aria-required="true" aria-describedby="inq-name-help">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-email">Email Address *</label>
+                            <input type="email" id="inq-email" name="email" placeholder="your@email.com" required
+                                autocomplete="email" aria-required="true" aria-describedby="inq-email-help">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-phone">Phone Number *</label>
+                            <input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required
+                                autocomplete="tel" aria-required="true" aria-describedby="inq-phone-help">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-msg">Message (Optional)</label>
+                            <textarea id="inq-msg" name="message"
+                                placeholder="Tell us about your space dimensions..."></textarea>
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <button type="button" class="btn-secondary"
+                                style="flex:1; display:flex; justify-content:center;" onclick="prevStep(2, 1)">?
+                                Back</button>
+                            <button type="button" class="btn-primary"
+                                style="flex:2; display:flex; justify-content:center;" onclick="nextStep(2, 3)">Continue
+                                ?</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="form-step" id="step3" style="display:none;">
+                        <div class="form-group"
+                            style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+                            <strong style="font-size: 13px; display: block; margin-bottom: 10px;">🔒 Privacy
+                                Notice</strong>
+                            <div style="margin-bottom: 12px;">
+                                <input type="checkbox" id="inq-consent-contact" name="consent_contact" required
+                                    aria-required="true">
+                                <label for="inq-consent-contact"
+                                    style="display: inline; margin-left: 8px; font-size: 13px;">I consent to receive
+                                    contact
+                                    via phone/email (required)</label>
                             </div>
-                        </fieldset>
+                            <div style="margin-bottom: 12px;">
+                                <input type="checkbox" id="inq-consent-analytics" name="consent_analytics">
+                                <label for="inq-consent-analytics"
+                                    style="display: inline; margin-left: 8px; font-size: 13px;">I consent to analytics
+                                    tracking</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="inq-consent-marketing" name="consent_marketing">
+                                <label for="inq-consent-marketing"
+                                    style="display: inline; margin-left: 8px; font-size: 13px;">I consent to marketing
+                                    communications</label>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:10px; flex-direction:column;">
+                            <button type="submit" id="finalSubmitBtn" class="btn-primary"
+                                style="width: 100%; display: flex; justify-content: center; gap: 10px;">
+                                Submit Inquiry &rarr;
+                            </button>
+                            <button type="button" class="btn-secondary"
+                                style="width:100%; border:none; background:transparent;" onclick="prevStep(3, 2)">? Edit
+                                Details</button>
+                        </div>
+                        <!-- Trust Badge -->
+                        <div
+                            style="text-align: center; margin-top: 15px; font-size: 12px; color: #666; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            256-bit SSL Secure &middot; We never spam
+                        </div>
                     </div>
-                    <div id="step1Error" style="color:var(--red); font-size:13px; margin-bottom:12px; display:none;">
-                        Please select a product to continue.</div>
-                    <button type="button" class="btn-primary" style="width:100%; display:flex; justify-content:center;"
-                        onclick="nextStep(1, 2)">Continue ?</button>
-                </div>
+                </form>
+            </div>
+        </div>
 
-                <!-- STEP 2 -->
-                <div class="form-step" id="step2" style="display:none;">
-                    <div class="form-group">
-                        <label for="inq-name">Full Name *</label>
-                        <input type="text" id="inq-name" name="name" placeholder="Your full name" required
-                            autocomplete="name" aria-required="true" aria-describedby="inq-name-help">
-                    </div>
-                    <div class="form-group">
-                        <label for="inq-email">Email Address *</label>
-                        <input type="email" id="inq-email" name="email" placeholder="your@email.com" required
-                            autocomplete="email" aria-required="true" aria-describedby="inq-email-help">
-                    </div>
-                    <div class="form-group">
-                        <label for="inq-phone">Phone Number *</label>
-                        <input type="tel" id="inq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required
-                            autocomplete="tel" aria-required="true" aria-describedby="inq-phone-help">
-                    </div>
-                    <div class="form-group">
-                        <label for="inq-msg">Message (Optional)</label>
-                        <textarea id="inq-msg" name="message"
-                            placeholder="Tell us about your space dimensions..."></textarea>
-                    </div>
-                    <div style="display:flex; gap:10px;">
-                        <button type="button" class="btn-secondary"
-                            style="flex:1; display:flex; justify-content:center;" onclick="prevStep(2, 1)">?
-                            Back</button>
-                        <button type="button" class="btn-primary" style="flex:2; display:flex; justify-content:center;"
-                            onclick="nextStep(2, 3)">Continue ?</button>
+        <!-- SUCCESS MODAL (Conversion Tracking) -->
+        <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+            <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
+                <div
+                    style="width: 80px; height: 80px; background: rgba(0,168,107,0.1); color: #00a86b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
+                    ✓</div>
+                <h2 class="modal-title" id="successTitle" style="margin-bottom: 16px; font-size: 24px;">Message Sent
+                    Successfully!</h2>
+                <p style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">Thank you for
+                    your
+                    inquiry. A Space Planners specialist will contact you shortly to discuss your storage requirements.
+                </p>
+                <button class="submit-btn" onclick="closeSuccessModal()"
+                    style="width: 100%; justify-content: center;">Continue Browsing</button>
+            </div>
+        </div>
+
+        <!-- ERROR MODAL -->
+        <div class="modal" id="errorModal" role="dialog" aria-modal="true" aria-labelledby="errorTitle">
+            <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
+                <div
+                    style="width: 80px; height: 80px; background: rgba(229,57,53,0.1); color: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
+                    ✕</div>
+                <h2 class="modal-title" id="errorTitle"
+                    style="margin-bottom: 16px; font-size: 24px; color: var(--red);">
+                    Submission Failed</h2>
+                <p id="errorMessage"
+                    style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">
+                    There was an issue sending your inquiry. Please try again or contact us directly.</p>
+                <button class="submit-btn" onclick="document.getElementById('errorModal').classList.remove('active')"
+                    style="width: 100%; justify-content: center;">Try Again</button>
+            </div>
+        </div>
+        <div class="modal" id="productModal" role="dialog" aria-modal="true">
+            <div class="modal-content product-modal-content">
+                <button class="close-btn" onclick="closeProductModal()" aria-label="Close">✕</button>
+                <div id="productDetailContent"></div>
+            </div>
+        </div>
+
+        <!-- ===== H1 (SEO — visually in carousel) ===== -->
+        <!-- HERO CAROUSEL -->
+        <section class="carousel-section" aria-label="Featured products slideshow">
+            <div class="carousel-container">
+                <div class="carousel-slide active" id="slide0">
+                    <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
+                        src="Compactors/pigeon hole.webp" alt="Mobile Compactor Storage System by Space Planners India"
+                        loading="eager">
+                </div>
+                <div class="carousel-slide" id="slide1">
+                    <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
+                        src="Racks/ChatGPT Image Jan 27, 2026, 03_53_51 PM.webp"
+                        alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
+                </div>
+                <div class="carousel-slide" id="slide2">
+                    <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
+                        src="Lockers/ChatGPT Image Jan 27, 2026, 05_43_37 PM.webp"
+                        alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
+                </div>
+                <div class="carousel-slide" id="slide3">
+                    <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
+                        src="Compactors/ChatGPT Image Jan 23, 2026, 06_19_27 PM.webp"
+                        alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
+                </div>
+                <div class="slide-overlay"></div>
+                <script>
+                    const slideContent = {
+                        0: {
+                            eyebrow: "20+ Years. 2000+ Installations. 500+ Clients.",
+                            title: "50% More Storage. Zero Extra Space.",
+                            description: "Motorized compactors save 50% floor space. Trusted by Tata, DRDO, AIIMS, and 497 more organizations."
+                        },
+                        1: {
+                            eyebrow: "Industrial-Grade Storage Solutions",
+                            title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
+                            description: "Galvanized steel racks built for warehouses, factories, and high-volume operations. Quick installation, zero downtime."
+                        },
+                        2: {
+                            eyebrow: "Secure Professional Storage",
+                            title: "Digital Lock Systems. Maximum Security.",
+                            description: "Professional lockers with NABH certification for hospitals, offices, and institutions. Install in 48 hours."
+                        },
+                        3: {
+                            eyebrow: "Complete Document Management",
+                            title: "Organized Archives. Indexed Access.",
+                            description: "Filing cabinets and mobile systems for government agencies, archives, and corporate records. GeM-certified."
+                        }
+                    };
+
+                    function updateSlideTitle(index) {
+                        const content = slideContent[index % 4];
+                        document.getElementById('slideTitle').textContent = content.title;
+                        document.getElementById('slideDesc').textContent = content.description;
+                        document.querySelector('.slide-eyebrow').textContent = content.eyebrow;
+                    }
+                </script>
+                <div class="slide-content">
+                    <p class="slide-eyebrow">India's Trusted Storage Solutions Since 2004</p>
+                    <h1 class="slide-title" id="slideTitle">50% More Storage. Zero Extra Space.</h1>
+                    <p class="slide-description" id="slideDesc">Motorized compactors, heavy-duty racks & secure lockers.
+                        Used by 500+ organizations. Pan-India installation.</p>
+                    <div class="slide-cta">
+                        <button class="btn-white" onclick="openInquiryModal()"
+                            style="font-size: 16px; padding: 14px 32px; font-weight: 600;">Get Quote
+                            →</button>
+                        <a href="products.html" class="btn-outline-white">View All Products</a>
                     </div>
                 </div>
+                <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous slide">❮</button>
+                <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next slide">❯</button>
+                <div class="carousel-controls" role="tablist">
+                    <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+                    <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+                    <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+                    <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+                </div>
+            </div>
+        </section>
 
-                <!-- STEP 3 -->
-                <div class="form-step" id="step3" style="display:none;">
-                    <div class="form-group"
-                        style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
-                        <strong style="font-size: 13px; display: block; margin-bottom: 10px;">🔒 Privacy Notice</strong>
-                        <div style="margin-bottom: 12px;">
-                            <input type="checkbox" id="inq-consent-contact" name="consent_contact" required
-                                aria-required="true">
-                            <label for="inq-consent-contact"
-                                style="display: inline; margin-left: 8px; font-size: 13px;">I consent to receive contact
-                                via phone/email (required)</label>
-                        </div>
-                        <div style="margin-bottom: 12px;">
-                            <input type="checkbox" id="inq-consent-analytics" name="consent_analytics">
-                            <label for="inq-consent-analytics"
-                                style="display: inline; margin-left: 8px; font-size: 13px;">I consent to analytics
-                                tracking</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="inq-consent-marketing" name="consent_marketing">
-                            <label for="inq-consent-marketing"
-                                style="display: inline; margin-left: 8px; font-size: 13px;">I consent to marketing
-                                communications</label>
-                        </div>
-                    </div>
-                    <div style="display:flex; gap:10px; flex-direction:column;">
-                        <button type="submit" id="finalSubmitBtn" class="btn-primary"
-                            style="width: 100%; display: flex; justify-content: center; gap: 10px;">
-                            Submit Inquiry &rarr;
-                        </button>
-                        <button type="button" class="btn-secondary"
-                            style="width:100%; border:none; background:transparent;" onclick="prevStep(3, 2)">? Edit
-                            Details</button>
-                    </div>
-                    <!-- Trust Badge -->
-                    <div
-                        style="text-align: center; margin-top: 15px; font-size: 12px; color: #666; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+
+
+        <!-- STATS RIBBON -->
+        <div class="stats-ribbon" role="region" aria-label="Company statistics" id="statsRibbon">
+            <div class="stats-strip">
+                <div class="stat-strip-item" data-target="2000" data-suffix="+" data-label="Installations" id="s-inst">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="16" width="12" height="36" rx="1" />
+                            <rect x="26" y="10" width="12" height="42" rx="1" />
+                            <rect x="44" y="22" width="12" height="30" rx="1" />
+                            <line x1="4" y1="52" x2="60" y2="52" />
                         </svg>
-                        256-bit SSL Secure &middot; We never spam
                     </div>
+                    <div class="stat-strip-num" data-target="2000" data-suffix="+">2,000<span>+</span></div>
+                    <div class="stat-strip-label">Installations</div>
                 </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- SUCCESS MODAL (Conversion Tracking) -->
-    <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
-        <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
-            <div
-                style="width: 80px; height: 80px; background: rgba(0,168,107,0.1); color: #00a86b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
-                ✓</div>
-            <h2 class="modal-title" id="successTitle" style="margin-bottom: 16px; font-size: 24px;">Message Sent
-                Successfully!</h2>
-            <p style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">Thank you for your
-                inquiry. A Space Planners specialist will contact you shortly to discuss your storage requirements.</p>
-            <button class="submit-btn" onclick="closeSuccessModal()"
-                style="width: 100%; justify-content: center;">Continue Browsing</button>
-        </div>
-    </div>
-
-    <!-- ERROR MODAL -->
-    <div class="modal" id="errorModal" role="dialog" aria-modal="true" aria-labelledby="errorTitle">
-        <div class="modal-content" style="text-align: center; padding: 48px 32px; max-width: 450px;">
-            <div
-                style="width: 80px; height: 80px; background: rgba(229,57,53,0.1); color: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
-                ✕</div>
-            <h2 class="modal-title" id="errorTitle" style="margin-bottom: 16px; font-size: 24px; color: var(--red);">
-                Submission Failed</h2>
-            <p id="errorMessage" style="color: var(--light); margin-bottom: 32px; font-size: 15px; line-height: 1.6;">
-                There was an issue sending your inquiry. Please try again or contact us directly.</p>
-            <button class="submit-btn" onclick="document.getElementById('errorModal').classList.remove('active')"
-                style="width: 100%; justify-content: center;">Try Again</button>
-        </div>
-    </div>
-    <div class="modal" id="productModal" role="dialog" aria-modal="true">
-        <div class="modal-content product-modal-content">
-            <button class="close-btn" onclick="closeProductModal()" aria-label="Close">✕</button>
-            <div id="productDetailContent"></div>
-        </div>
-    </div>
-
-    <!-- ===== H1 (SEO — visually in carousel) ===== -->
-    <!-- HERO CAROUSEL -->
-    <section class="carousel-section" aria-label="Featured products slideshow">
-        <div class="carousel-container">
-            <div class="carousel-slide active" id="slide0">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
-                    src="Compactors/pigeon hole.webp" alt="Mobile Compactor Storage System by Space Planners India"
-                    loading="eager">
-            </div>
-            <div class="carousel-slide" id="slide1">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
-                    src="Racks/ChatGPT Image Jan 27, 2026, 03_53_51 PM.webp"
-                    alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
-            </div>
-            <div class="carousel-slide" id="slide2">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
-                    src="Lockers/ChatGPT Image Jan 27, 2026, 05_43_37 PM.webp"
-                    alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
-            </div>
-            <div class="carousel-slide" id="slide3">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;"
-                    src="Compactors/ChatGPT Image Jan 23, 2026, 06_19_27 PM.webp"
-                    alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
-            </div>
-            <div class="slide-overlay"></div>
-            <script>
-  const slideContent = {
-    0: {
-      eyebrow: "20+ Years. 2000+ Installations. 500+ Clients.",
-      title: "50% More Storage. Zero Extra Space.",
-      description: "Motorized compactors save 50% floor space. Trusted by Tata, DRDO, AIIMS, and 497 more organizations."
-    },
-    1: {
-      eyebrow: "Industrial-Grade Storage Solutions",
-      title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
-      description: "Galvanized steel racks built for warehouses, factories, and high-volume operations. Quick installation, zero downtime."
-    },
-    2: {
-      eyebrow: "Secure Professional Storage",
-      title: "Digital Lock Systems. Maximum Security.",
-      description: "Professional lockers with NABH certification for hospitals, offices, and institutions. Install in 48 hours."
-    },
-    3: {
-      eyebrow: "Complete Document Management",
-      title: "Organized Archives. Indexed Access.",
-      description: "Filing cabinets and mobile systems for government agencies, archives, and corporate records. GeM-certified."
-    }
-  };
-  
-  function updateSlideTitle(index) {
-    const content = slideContent[index % 4];
-    document.getElementById('slideTitle').textContent = content.title;
-    document.getElementById('slideDesc').textContent = content.description;
-    document.querySelector('.slide-eyebrow').textContent = content.eyebrow;
-  }
-</script>
-            <div class="slide-content">
-                <p class="slide-eyebrow">India's Trusted Storage Solutions Since 2004</p>
-                <h1 class="slide-title" id="slideTitle">50% More Storage. Zero Extra Space.</h1>
-                <p class="slide-description" id="slideDesc">Motorized compactors, heavy-duty racks & secure lockers. Used by 500+ organizations. Pan-India installation.</p>
-                <div class="slide-cta">
-                    <button class="btn-white" onclick="openInquiryModal()" style="font-size: 16px; padding: 14px 32px; font-weight: 600;">Schedule Free 3D Consultation →</button>
-                    <a href="products.html" class="btn-outline-white">View All Products</a>
+                <div class="stat-strip-item" data-target="500" data-suffix="+" data-label="Happy Clients"
+                    id="s-clients">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="20" r="10" />
+                            <path d="M4 52c0-11 9-18 20-18" />
+                            <circle cx="44" cy="20" r="10" />
+                            <path d="M60 52c0-11-9-18-20-18" />
+                            <path d="M34 52c0-11-5-17-10-17s-10 6-10 17" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="500" data-suffix="+">500<span>+</span></div>
+                    <div class="stat-strip-label">Happy Clients</div>
+                </div>
+                <div class="stat-strip-item" data-target="20" data-suffix=" yrs" data-label="Years Experience"
+                    id="s-years">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="32" cy="32" r="24" />
+                            <polyline points="32,16 32,32 44,40" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="20" data-suffix="yrs">20<span>yrs</span></div>
+                    <div class="stat-strip-label">Years Experience</div>
+                </div>
+                <div class="stat-strip-item" data-target="50" data-suffix="%" data-label="Avg Space Saved" id="s-space">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="8" width="48" height="48" rx="3" />
+                            <path d="M8 35 L34 35 L34 56" />
+                            <polyline points="20,22 34,8 48,22" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="50" data-suffix="%">50<span>%</span></div>
+                    <div class="stat-strip-label">Avg. Space Saved</div>
+                </div>
+                <div class="stat-strip-item" data-target="2" data-suffix="M+" data-label="Sq Ft Installed" id="s-sqft">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="8" width="48" height="48" rx="2" />
+                            <line x1="8" y1="28" x2="56" y2="28" />
+                            <line x1="28" y1="8" x2="28" y2="56" />
+                            <polyline points="16,44 22,38 28,42 38,32 44,36 52,20" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="2" data-suffix="M+">2<span>M+</span></div>
+                    <div class="stat-strip-label">Sq Ft Installed</div>
+                </div>
+                <div class="stat-strip-item" data-target="100" data-suffix="%" data-label="Compliance Rate" id="s-comp">
+                    <div class="stat-strip-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M32 6 L52 14 L52 34 C52 46 42 56 32 58 C22 56 12 46 12 34 L12 14 Z" />
+                            <polyline points="22,32 29,39 42,24" />
+                        </svg>
+                    </div>
+                    <div class="stat-strip-num" data-target="100" data-suffix="%">100<span>%</span></div>
+                    <div class="stat-strip-label">Compliance Rate</div>
                 </div>
             </div>
-            <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous slide">❮</button>
-            <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next slide">❯</button>
-            <div class="carousel-controls" role="tablist">
-                <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
-                <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
-                <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-                <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
-            </div>
         </div>
-    </section>
 
-
-
-    <!-- STATS RIBBON -->
-    <div class="stats-ribbon" role="region" aria-label="Company statistics" id="statsRibbon">
-        <div class="stats-strip">
-            <div class="stat-strip-item" data-target="2000" data-suffix="+" data-label="Installations" id="s-inst">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="8" y="16" width="12" height="36" rx="1" />
-                        <rect x="26" y="10" width="12" height="42" rx="1" />
-                        <rect x="44" y="22" width="12" height="30" rx="1" />
-                        <line x1="4" y1="52" x2="60" y2="52" />
-                    </svg>
+        <!-- ══════════════════════════════════════════════
+        2. STORAGE SOLUTIONS FOR EVERY SECTOR
+    ══════════════════════════════════════════════ -->
+        <section class="section" id="industries" aria-labelledby="industries-heading">
+            <div class="container">
+                <div class="section-header-small reveal">
+                    <span class="section-badge">Industry Verticals</span>
+                    <h2 class="section-title">Storage Solutions for Every Sector</h2>
+                    <p class="section-subtitle" style="margin:0 auto 24px;">From pharmaceutical cleanrooms to government
+                        archives — our storage systems are engineered to meet
+                        the precise regulatory and operational requirements of each industry.</p>
                 </div>
-                <div class="stat-strip-num" data-target="2000" data-suffix="+">2,000<span>+</span></div>
-                <div class="stat-strip-label">Installations</div>
-            </div>
-            <div class="stat-strip-item" data-target="500" data-suffix="+" data-label="Happy Clients" id="s-clients">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="24" cy="20" r="10" />
-                        <path d="M4 52c0-11 9-18 20-18" />
-                        <circle cx="44" cy="20" r="10" />
-                        <path d="M60 52c0-11-9-18-20-18" />
-                        <path d="M34 52c0-11-5-17-10-17s-10 6-10 17" />
-                    </svg>
-                </div>
-                <div class="stat-strip-num" data-target="500" data-suffix="+">500<span>+</span></div>
-                <div class="stat-strip-label">Happy Clients</div>
-            </div>
-            <div class="stat-strip-item" data-target="20" data-suffix=" yrs" data-label="Years Experience" id="s-years">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="32" cy="32" r="24" />
-                        <polyline points="32,16 32,32 44,40" />
-                    </svg>
-                </div>
-                <div class="stat-strip-num" data-target="20" data-suffix="yrs">20<span>yrs</span></div>
-                <div class="stat-strip-label">Years Experience</div>
-            </div>
-            <div class="stat-strip-item" data-target="50" data-suffix="%" data-label="Avg Space Saved" id="s-space">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="8" y="8" width="48" height="48" rx="3" />
-                        <path d="M8 35 L34 35 L34 56" />
-                        <polyline points="20,22 34,8 48,22" />
-                    </svg>
-                </div>
-                <div class="stat-strip-num" data-target="50" data-suffix="%">50<span>%</span></div>
-                <div class="stat-strip-label">Avg. Space Saved</div>
-            </div>
-            <div class="stat-strip-item" data-target="2" data-suffix="M+" data-label="Sq Ft Installed" id="s-sqft">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="8" y="8" width="48" height="48" rx="2" />
-                        <line x1="8" y1="28" x2="56" y2="28" />
-                        <line x1="28" y1="8" x2="28" y2="56" />
-                        <polyline points="16,44 22,38 28,42 38,32 44,36 52,20" />
-                    </svg>
-                </div>
-                <div class="stat-strip-num" data-target="2" data-suffix="M+">2<span>M+</span></div>
-                <div class="stat-strip-label">Sq Ft Installed</div>
-            </div>
-            <div class="stat-strip-item" data-target="100" data-suffix="%" data-label="Compliance Rate" id="s-comp">
-                <div class="stat-strip-icon">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M32 6 L52 14 L52 34 C52 46 42 56 32 58 C22 56 12 46 12 34 L12 14 Z" />
-                        <polyline points="22,32 29,39 42,24" />
-                    </svg>
-                </div>
-                <div class="stat-strip-num" data-target="100" data-suffix="%">100<span>%</span></div>
-                <div class="stat-strip-label">Compliance Rate</div>
-            </div>
-        </div>
-    </div>
+                <div class="industries-grid" data-stagger>
 
-    <!-- STORAGE SYSTEMS FOR EVERY SECTOR -->
-    <section class="storage-systems-section" id="sectors">
-        <div class="storage-systems-content">
-            <div class="section-header-small reveal text-center">
-                <span class="section-badge">Industry Solutions</span>
-                <h2 class="section-title">Storage Systems for Every Sector</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Purpose-built solutions tailored to your
-                    industry's compliance, access, and capacity needs</p>
-                <div class="accent-line"></div>
-            </div>
-            <div class="sectors-grid">
-                <a href="projects.html#pharma" class="sector-card reveal">
-                    <div class="sector-icon">🏥</div>
-                    <h3 class="sector-name">Pharmaceutical & Healthcare</h3>
-                    <p class="sector-desc">GMP & NABH-compliant systems for medical records, raw materials, and finished
-                        goods.</p>
-                </a>
-                <a href="projects.html#corporate" class="sector-card reveal delay-1">
-                    <div class="sector-icon">�</div>
-                    <h3 class="sector-name">Corporate Offices</h3>
-                    <p class="sector-desc">Modern office storage, personal lockers, and filing solutions with custom
-                        branding.</p>
-                </a>
-                <a href="projects.html#warehouse" class="sector-card reveal delay-2">
-                    <div class="sector-icon">📦</div>
-                    <h3 class="sector-name">Warehouse & Logistics</h3>
-                    <p class="sector-desc">Heavy-duty pallet racks and systems for large-volume storage operations.</p>
-                </a>
-                <a href="projects.html#education" class="sector-card reveal">
-                    <div class="sector-icon">🎓</div>
-                    <h3 class="sector-name">Education & Library</h3>
-                    <p class="sector-desc">Library-grade mobile shelving, student lockers, and administrative record
-                        storage.</p>
-                </a>
-                <a href="projects.html#museum" class="sector-card reveal delay-1">
-                    <div class="sector-icon">�️</div>
-                    <h3 class="sector-name">Museum & Archives</h3>
-                    <p class="sector-desc">Climate-compatible lockable shelving for preserving historical artifacts and
-                        records.</p>
-                </a>
-                <a href="projects.html#government" class="sector-card reveal delay-2">
-                    <div class="sector-icon">�️</div>
-                    <h3 class="sector-name">Government</h3>
-                    <p class="sector-desc">GeM-compliant lockable filing for secure document archives and department
-                        records.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTS SECTION -->
-    <section class="products-section" id="products">
-        <div class="products-content">
-            <div class="section-header-small reveal">
-                <span class="section-badge">Our Products</span>
-                <h2 class="section-title">Comprehensive Storage Solutions</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Engineered for durability, tailored to your
-                    industry</p>
-                <div class="accent-line"></div>
-            </div>
-            <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px;">
-    
-    <!-- PRODUCT 1: COMPACTORS -->
-    <a href="compactor-storage.html" class="product-card reveal" style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
-        <div class="product-image" style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
-            <img src="compactor_storage_1772984342025.png" alt="Mobile Compactor Storage System - Space Savings" loading="lazy" style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-            <div style="position: absolute; top: 12px; right: 12px; background: var(--primary); color: white; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Best Seller</div>
-        </div>
-        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
-            <h3 class="product-name" style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">Mobile Compactors</h3>
-            <p class="product-description" style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Motorized storage on rail tracks. Save up to 50% floor space.</p>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4"/>
-                    <circle cx="12" cy="12" r="10"/>
-                </svg>
-                GMP Certified
-            </div>
-            <button class="btn-primary" style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote →</button>
-        </div>
-    </a>
-
-    <!-- PRODUCT 2: INDUSTRIAL RACKS -->
-    <a href="industrial-racks.html" class="product-card reveal delay-1" style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
-        <div class="product-image" style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
-            <img src="industrial_racks_1772984358724.png" alt="Heavy-Duty Industrial Racks - 10 Ton Capacity" loading="lazy" style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-        </div>
-        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
-            <h3 class="product-name" style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">Industrial Racks</h3>
-            <p class="product-description" style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Heavy-duty galvanized steel. Rated up to 10 tons.</p>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4"/>
-                    <circle cx="12" cy="12" r="10"/>
-                </svg>
-                Warehouse Grade
-            </div>
-            <button class="btn-primary" style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote →</button>
-        </div>
-    </a>
-
-    <!-- PRODUCT 3: STORAGE LOCKERS -->
-    <a href="storage-lockers.html" class="product-card reveal delay-2" style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
-        <div class="product-image" style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
-            <img src="storage_lockers_1772984375790.png" alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy" style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-        </div>
-        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
-            <h3 class="product-name" style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">Storage Lockers</h3>
-            <p class="product-description" style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Secure professional lockers with digital locking systems.</p>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4"/>
-                    <circle cx="12" cy="12" r="10"/>
-                </svg>
-                NABH Approved
-            </div>
-            <button class="btn-primary" style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote →</button>
-        </div>
-    </a>
-
-    <!-- PRODUCT 4: FILING CABINETS -->
-    <a href="filing-cabinets.html" class="product-card reveal delay-3" style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
-        <div class="product-image" style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
-            <img src="filing_cabinets_1772984391777.png" alt="Professional Filing Cabinets & Lockers" loading="lazy" style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-        </div>
-        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
-            <h3 class="product-name" style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">Filing Cabinets</h3>
-            <p class="product-description" style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Organized document management & secure filing systems.</p>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4"/>
-                    <circle cx="12" cy="12" r="10"/>
-                </svg>
-                GeM Listed
-            </div>
-            <button class="btn-primary" style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote →</button>
-        </div>
-    </a>
-</div>
-
-            <div style="margin-top:28px; display: flex; justify-content: center;">
-                <a href="products.html" class="btn-primary" style="padding:13px 24px;border-radius:8px;">View All
-                    Products →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SCHEDULE ASSESSMENT -->
-
-    <section class="product-finder-section" id="finder">
-    <div class="product-finder-content">
-        <div class="finder-wrapper">
-            <div class="finder-left reveal-left">
-                <div class="section-header-small" style="text-align:left;">
-                    <span class="section-badge">Get Started</span>
-                    <h2 class="section-title">Schedule Your Free Space Assessment</h2>
-                    <p class="section-subtitle">Our experts will visit your facility, measure your space, and design a custom solution tailored to your needs.</p>
-                    
-                    <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 16px;">
-                        <div style="display: flex; align-items: flex-start; gap: 12px;">
-                            <span style="color: var(--primary); font-size: 20px; margin-top: 4px;">✓</span>
-                            <div>
-                                <strong style="font-size: 15px; color: var(--dark); display: block; margin-bottom: 4px;">Free On-Site Assessment</strong>
-                                <p style="margin: 0; font-size: 14px; color: var(--light);">No obligation. Takes 30–45 minutes. We measure your space precisely.</p>
-                            </div>
+                    <div class="industry-card reveal" data-delay="0" data-stagger-item>
+                        <div class="industry-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path
+                                    d="M24 4v6M24 38v6M10 24H4M44 24h-6M16.2 11.2L12 7M36 41l-4.2-4.2M11.2 31.8L7 36M41 12l-4.2 4.2" />
+                                <circle cx="24" cy="24" r="10" />
+                                <path d="M21 24h6M24 21v6" />
+                            </svg>
                         </div>
-                        <div style="display: flex; align-items: flex-start; gap: 12px;">
-                            <span style="color: var(--primary); font-size: 20px; margin-top: 4px;">✓</span>
-                            <div>
-                                <strong style="font-size: 15px; color: var(--dark); display: block; margin-bottom: 4px;">3D Layout Design</strong>
-                                <p style="margin: 0; font-size: 14px; color: var(--light);">See your solution visualized in 3D before anything is installed.</p>
-                            </div>
+                        <div class="industry-name">Pharmaceutical &amp; Healthcare</div>
+                        <p class="industry-desc">GMP-compliant compactor systems designed for cleanroom environments,
+                            controlled substance storage and medical record archiving.</p>
+                    </div>
+
+                    <div class="industry-card reveal" data-delay="80" data-stagger-item>
+                        <div class="industry-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="6" y="14" width="36" height="26" rx="2" />
+                                <path d="M16 14V10a2 2 0 012-2h12a2 2 0 012 2v4" />
+                                <path d="M6 24h36" />
+                                <rect x="20" y="24" width="8" height="8" rx="1" />
+                            </svg>
                         </div>
-                        <div style="display: flex; align-items: flex-start; gap: 12px;">
-                            <span style="color: var(--primary); font-size: 20px; margin-top: 4px;">✓</span>
-                            <div>
-                                <strong style="font-size: 15px; color: var(--dark); display: block; margin-bottom: 4px;">Custom Quote in 48 Hours</strong>
-                                <p style="margin: 0; font-size: 14px; color: var(--light);">Detailed pricing, timeline, and compliance documentation included.</p>
+                        <div class="industry-name">Corporate Offices</div>
+                        <p class="industry-desc">Sleek, space-efficient mobile filing and document storage solutions for
+                            modern corporate environments and open-plan offices.</p>
+                    </div>
+
+                    <div class="industry-card reveal" data-delay="160" data-stagger-item>
+                        <div class="industry-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="4" y="20" width="10" height="24" />
+                                <rect x="20" y="12" width="10" height="32" />
+                                <rect x="36" y="16" width="10" height="28" />
+                                <path d="M2 44h44" />
+                                <path d="M12 28l8-8 8 6 8-10" />
+                            </svg>
+                        </div>
+                        <div class="industry-name">Warehouse &amp; Logistics</div>
+                        <p class="industry-desc">High-density racking and compactor systems engineered for maximum
+                            throughput in distribution centres and third-party logistics operations.</p>
+                    </div>
+
+                    <div class="industry-card reveal" data-delay="240" data-stagger-item>
+                        <div class="industry-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="6" y="6" width="36" height="36" rx="3" />
+                                <path d="M6 18h36" />
+                                <path d="M24 18v24" />
+                                <path d="M15 12h.01M24 12h.01M33 12h.01" />
+                            </svg>
+                        </div>
+                        <div class="industry-name">Education &amp; Library</div>
+                        <p class="industry-desc">Mobile shelving for academic libraries, research archives and
+                            university record rooms — optimising every square foot of floor space.</p>
+                    </div>
+
+                    <div class="industry-card reveal" data-delay="320" data-stagger-item>
+                        <div class="industry-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M24 6L6 18v24h36V18L24 6z" />
+                                <path d="M18 42V30a2 2 0 012-2h8a2 2 0 012 2v12" />
+                                <path d="M6 18h36" />
+                                <path d="M14 18v-4M34 18v-4" />
+                            </svg>
+                        </div>
+                        <div class="industry-name">Museums &amp; Archives</div>
+                        <p class="industry-desc">Climate-conscious storage systems for artefact preservation, archival
+                            collections and sensitive material repositories requiring precise environmental control.</p>
+                    </div>
+
+                    <div class="industry-card reveal" data-delay="400" data-stagger-item>
+                        <div class="industry-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 42h40M8 42V22l16-14 16 14v20" />
+                                <path d="M20 42V32h8v10" />
+                                <path d="M14 26h4v6h-4zM30 26h4v6h-4z" />
+                                <path d="M24 8v6" />
+                            </svg>
+                        </div>
+                        <div class="industry-name">Government Offices</div>
+                        <p class="industry-desc">High-capacity filing and record management compactors for central and
+                            state government departments, courts and public sector undertakings.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS SECTION -->
+        <section class="products-section" id="products">
+            <div class="products-content">
+                <div class="section-header-small reveal">
+                    <span class="section-badge">Our Products</span>
+                    <h2 class="section-title">Comprehensive Storage Solutions</h2>
+                    <p class="section-subtitle" style="margin:0 auto 24px;">Engineered for durability, tailored to your
+                        industry</p>
+                    <div class="accent-line"></div>
+                </div>
+                <div class="products-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px;">
+
+                    <!-- PRODUCT 1: COMPACTORS -->
+                    <a href="compactor-storage.html" class="product-card reveal"
+                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                        <div class="product-image"
+                            style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
+                            <img src="compactor_storage_1772984342025.png"
+                                alt="Mobile Compactor Storage System - Space Savings" loading="lazy"
+                                style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
+                            <div
+                                style="position: absolute; top: 12px; right: 12px; background: var(--primary); color: white; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase;">
+                                Best Seller</div>
+                        </div>
+                        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
+                            <h3 class="product-name"
+                                style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">Mobile
+                                Compactors</h3>
+                            <p class="product-description"
+                                style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Motorized
+                                storage on rail tracks. Save up to 50% floor space.</p>
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                GMP Certified
+                            </div>
+                            <button class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
+                                →</button>
+                        </div>
+                    </a>
+
+                    <!-- PRODUCT 2: INDUSTRIAL RACKS -->
+                    <a href="industrial-racks.html" class="product-card reveal delay-1"
+                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                        <div class="product-image"
+                            style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
+                            <img src="industrial_racks_1772984358724.png"
+                                alt="Heavy-Duty Industrial Racks - 10 Ton Capacity" loading="lazy"
+                                style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
+                        </div>
+                        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
+                            <h3 class="product-name"
+                                style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                Industrial Racks</h3>
+                            <p class="product-description"
+                                style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Heavy-duty
+                                galvanized steel. Rated up to 10 tons.</p>
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                Warehouse Grade
+                            </div>
+                            <button class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
+                                →</button>
+                        </div>
+                    </a>
+
+                    <!-- PRODUCT 3: STORAGE LOCKERS -->
+                    <a href="storage-lockers.html" class="product-card reveal delay-2"
+                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                        <div class="product-image"
+                            style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
+                            <img src="storage_lockers_1772984375790.png"
+                                alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy"
+                                style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
+                        </div>
+                        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
+                            <h3 class="product-name"
+                                style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                Storage Lockers</h3>
+                            <p class="product-description"
+                                style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Secure
+                                professional lockers with digital locking systems.</p>
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                NABH Approved
+                            </div>
+                            <button class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
+                                →</button>
+                        </div>
+                    </a>
+
+                    <!-- PRODUCT 4: FILING CABINETS -->
+                    <a href="filing-cabinets.html" class="product-card reveal delay-3"
+                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                        <div class="product-image"
+                            style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin-bottom: 16px;">
+                            <img src="filing_cabinets_1772984391777.png" alt="Professional Filing Cabinets & Lockers"
+                                loading="lazy"
+                                style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
+                        </div>
+                        <div class="product-info" style="flex: 1; display: flex; flex-direction: column;">
+                            <h3 class="product-name"
+                                style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">Filing
+                                Cabinets</h3>
+                            <p class="product-description"
+                                style="color: var(--light); font-size: 14px; margin: 0 0 12px 0; flex: 1;">Organized
+                                document management & secure filing systems.</p>
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                GeM Listed
+                            </div>
+                            <button class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; margin-top: auto;">Get Quote
+                                →</button>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="margin-top:28px; display: flex; justify-content: center;">
+                    <a href="products.html" class="btn-primary" style="padding:13px 24px;border-radius:8px;">View All
+                        Products →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+     3. FREE STORAGE ASSESSMENT
+══════════════════════════════════════════════ -->
+        <section class="section assessment-section" id="assessment" aria-labelledby="assessment-heading">
+            <div class="container">
+                <div class="assessment-inner">
+
+                    <!-- Left -->
+                    <div class="assessment-left">
+                        <div class="section-badge">Complimentary Service</div>
+                        <h2 class="section-title" data-delay="100" id="assessment-heading">
+                            Free Storage<br /><span>Assessment</span>
+                        </h2>
+                        <p class="section-sub" data-delay="150">
+                            Our certified storage engineers will analyse your space, workflows, and compliance
+                            requirements — then design a custom solution at no charge.
+                        </p>
+
+                        <div class="assessment-benefits" data-delay="200">
+                            <div class="benefit-item">
+                                <div class="benefit-num">01</div>
+                                <div class="benefit-text">
+                                    <h4>Space Analysis</h4>
+                                    <p>We map your current storage footprint and identify every underutilised square
+                                        foot.</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-num">02</div>
+                                <div class="benefit-text">
+                                    <h4>Custom System Design</h4>
+                                    <p>Our engineers produce a CAD layout showing exact placement, capacity, and access
+                                        configurations.</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-num">03</div>
+                                <div class="benefit-text">
+                                    <h4>ROI Projection</h4>
+                                    <p>We calculate your space savings and provide a transparent cost-benefit analysis
+                                        before any commitment.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Right — Form -->
+                    <div class="assessment-form reveal-right" data-delay="100">
+                        <h3>Request Your Assessment</h3>
+                        <p>Complete the form and our team will respond within 24 business hours.</p>
+
+                        <form id="assessmentForm" novalidate onsubmit="submitAssessment(event)">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" placeholder="Rajesh Kumar" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company Name *</label>
+                                    <input type="text" id="company" name="company"
+                                        placeholder="Acme Pharmaceuticals Ltd." required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" placeholder="rajesh@company.com"
+                                        required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <select id="city" name="city">
+                                        <option value="">Select City</option>
+                                        <option>Mumbai</option>
+                                        <option>Delhi / NCR</option>
+                                        <option>Bangalore</option>
+                                        <option>Hyderabad</option>
+                                        <option>Pune</option>
+                                        <option>Chennai</option>
+                                        <option>Ahmedabad</option>
+                                        <option>Kolkata</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product">Product Interest</label>
+                                    <select id="product" name="product">
+                                        <option value="">Select Product</option>
+                                        <option>Compactor Storage Systems</option>
+                                        <option>Racking Systems</option>
+                                        <option>Lockers</option>
+                                        <option>Cupboards &amp; Cabinets</option>
+                                        <option>Multiple / Not Sure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full">
+                                    <label for="message">Project Details</label>
+                                    <textarea id="message" name="message"
+                                        placeholder="Describe your space, approximate dimensions, and storage requirements..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary form-submit">
+                                <span>Request Free Assessment</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
+        </section>
 
-            <div class="finder-right reveal-right" style="flex: 1;">
-                <div class="finder-form-wrapper">
-                    <h3 style="font-size: 18px; font-weight: 700; color: var(--white); margin-top: 0; margin-bottom: 24px; text-align: center;">Book Your Assessment</h3>
-                    <form id="assessmentForm" onsubmit="submitAssessment(event)" novalidate>
-                        <div class="form-group">
-                            <label for="assess-name" style="display:block; margin-bottom:8px; font-weight:500; font-size:13px; color:rgba(255,255,255,0.9); text-transform:uppercase; letter-spacing:0.5px;">Full Name *</label>
-                            <input type="text" id="assess-name" name="name" placeholder="Your full name" required style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:12px 14px;border-radius:8px;width:100%;font-family:var(--font-sans);transition:var(--trans);">
+
+        <!-- CLIENT LOGOS - HORIZONTAL SCROLLABLE WITH BRANDFETCH CDN -->
+        <section class="clients-section">
+
+            <div class="clients-content">
+
+                <p class="clients-label">Trusted by India's leading organisations</p>
+
+                <div class="clients-scroll-wrapper">
+
+                    <button class="clients-nav left" onclick="scrollClients(-300)"
+                        aria-label="Scroll left">&#x276E;</button>
+
+                    <div class="clients-scroll" id="clientsScroll">
+
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/drdo.gov.in" alt="DRDO" loading="lazy">
+                            <span class="logo-name">DRDO</span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="assess-phone" style="display:block; margin-bottom:8px; font-weight:500; font-size:13px; color:rgba(255,255,255,0.9); text-transform:uppercase; letter-spacing:0.5px;">Phone Number *</label>
-                            <input type="tel" id="assess-phone" name="phone" placeholder="+91 XXXXX XXXXX" required style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:12px 14px;border-radius:8px;width:100%;font-family:var(--font-sans);transition:var(--trans);">
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/ongcindia.com" alt="ONGC"
+                                loading="lazy">
+                            <span class="logo-name">ONGC</span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="assess-industry" style="display:block; margin-bottom:8px; font-weight:500; font-size:13px; color:rgba(255,255,255,0.9); text-transform:uppercase; letter-spacing:0.5px;">Your Industry</label>
-                            <select id="assess-industry" name="industry" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:12px 14px;border-radius:8px;width:100%;font-family:var(--font-sans);transition:var(--trans);">
-                                <option value="" style="background: var(--dark); color: white;">Select industry (optional)</option>
-                                <option value="Pharmaceutical" style="background: var(--dark); color: white;">Pharmaceutical</option>
-                                <option value="Hospital/Healthcare" style="background: var(--dark); color: white;">Hospital/Healthcare</option>
-                                <option value="Government" style="background: var(--dark); color: white;">Government</option>
-                                <option value="Warehouse/Logistics" style="background: var(--dark); color: white;">Warehouse/Logistics</option>
-                                <option value="Corporate" style="background: var(--dark); color: white;">Corporate</option>
-                                <option value="Education" style="background: var(--dark); color: white;">Education</option>
-                                <option value="Other" style="background: var(--dark); color: white;">Other</option>
-                            </select>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/aiims.edu" alt="AIIMS" loading="lazy">
+                            <span class="logo-name">AIIMS</span>
                         </div>
 
-                        <button type="submit" class="finder-submit-btn" style="width: 100%; padding: 14px; background: var(--white); color: var(--primary); border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: var(--trans);">Schedule Assessment →</button>
-                    </form>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.6); text-align: center; margin-top: 12px;">✓ We'll confirm by phone within 2 hours</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/tata.com" alt="Tata Group"
+                                loading="lazy">
+                            <span class="logo-name">Tata Group</span>
+                        </div>
 
-    <!-- CLIENT LOGOS - HORIZONTAL SCROLLABLE WITH BRANDFETCH CDN -->
-    <section class="clients-section">
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/isro.gov.in" alt="ISRO" loading="lazy">
+                            <span class="logo-name">ISRO</span>
+                        </div>
 
-        <div class="clients-content">
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/indianrailways.gov.in"
+                                alt="Indian Railways" loading="lazy">
+                            <span class="logo-name">Indian Railways</span>
+                        </div>
 
-            <p class="clients-label">Trusted by India's leading organisations</p>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/sunpharma.com" alt="Sun Pharma"
+                                loading="lazy">
+                            <span class="logo-name">Sun Pharma</span>
+                        </div>
 
-            <div class="clients-scroll-wrapper">
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/sbi.co.in" alt="SBI" loading="lazy">
+                            <span class="logo-name">SBI</span>
+                        </div>
 
-                <button class="clients-nav left" onclick="scrollClients(-300)"
-                    aria-label="Scroll left">&#x276E;</button>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/larsentoubro.com" alt="L&T"
+                                loading="lazy">
+                            <span class="logo-name">L&T</span>
+                        </div>
 
-                <div class="clients-scroll" id="clientsScroll">
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/ril.com" alt="Reliance" loading="lazy">
+                            <span class="logo-name">Reliance</span>
+                        </div>
 
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/drdo.gov.in" alt="DRDO" loading="lazy">
-                        <span class="logo-name">DRDO</span>
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/kokilabenhospital.com" alt="Kokilaben"
+                                loading="lazy">
+                            <span class="logo-name">Kokilaben</span>
+                        </div>
+
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/iitb.ac.in" alt="IIT Bombay"
+                                loading="lazy">
+                            <span class="logo-name">IIT Bombay</span>
+                        </div>
+
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/ntpc.co.in" alt="NTPC" loading="lazy">
+                            <span class="logo-name">NTPC</span>
+                        </div>
+
+                        <div class="client-logo-item">
+                            <img class="logo-img" src="https://cdn.brandfetch.io/rbi.org.in" alt="RBI" loading="lazy">
+                            <span class="logo-name">RBI</span>
+                        </div>
+
+                        <button class="clients-nav right" onclick="scrollClients(300)"
+                            aria-label="Scroll right">&#x276F;</button>
+
                     </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/ongcindia.com" alt="ONGC" loading="lazy">
-                        <span class="logo-name">ONGC</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/aiims.edu" alt="AIIMS" loading="lazy">
-                        <span class="logo-name">AIIMS</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/tata.com" alt="Tata Group" loading="lazy">
-                        <span class="logo-name">Tata Group</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/isro.gov.in" alt="ISRO" loading="lazy">
-                        <span class="logo-name">ISRO</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/indianrailways.gov.in"
-                            alt="Indian Railways" loading="lazy">
-                        <span class="logo-name">Indian Railways</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/sunpharma.com" alt="Sun Pharma"
-                            loading="lazy">
-                        <span class="logo-name">Sun Pharma</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/sbi.co.in" alt="SBI" loading="lazy">
-                        <span class="logo-name">SBI</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/larsentoubro.com" alt="L&T" loading="lazy">
-                        <span class="logo-name">L&T</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/ril.com" alt="Reliance" loading="lazy">
-                        <span class="logo-name">Reliance</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/kokilabenhospital.com" alt="Kokilaben"
-                            loading="lazy">
-                        <span class="logo-name">Kokilaben</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/iitb.ac.in" alt="IIT Bombay"
-                            loading="lazy">
-                        <span class="logo-name">IIT Bombay</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/ntpc.co.in" alt="NTPC" loading="lazy">
-                        <span class="logo-name">NTPC</span>
-                    </div>
-
-                    <div class="client-logo-item">
-                        <img class="logo-img" src="https://cdn.brandfetch.io/rbi.org.in" alt="RBI" loading="lazy">
-                        <span class="logo-name">RBI</span>
-                    </div>
-
-                    <button class="clients-nav right" onclick="scrollClients(300)"
-                        aria-label="Scroll right">&#x276F;</button>
 
                 </div>
 
-            </div>
+        </section>
 
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials-section" id="testimonials">
-        <div class="testimonials-content">
-            <div class="section-header-small reveal">
-                <span class="section-badge">Client Feedback</span>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <div class="accent-line" style="margin:0 auto;"></div>
-            </div>
-            <div class="testimonials-scroll-wrapper">
-                <button class="scroll-nav left" onclick="scrollTestimonials(-400)" aria-label="Scroll left">❮</button>
-                <div class="testimonials-scroll" id="testimonialsScroll" tabindex="0" role="region"
-                    aria-label="Testimonials Carousel">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"Space Planners transformed our archive room. We went from chaos to
-                            a fully indexed, accessible system in under 2 weeks. The team was professional and the
-                            quality exceeded our expectations."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">RK</div>
-                            <div>
-                                <div class="testimonial-name">Rajesh Kumar</div>
-                                <div class="testimonial-role">Admin Director, Central Government Ministry, Delhi</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"The mobile compactors they installed in our cold storage area are
-                            GMP-certified and perfectly suited for pharmaceutical use. Saved us 48% of floor space and
-                            the build quality is excellent."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">SP</div>
-                            <div>
-                                <div class="testimonial-name">Sneha Patel</div>
-                                <div class="testimonial-role">Operations Head, Sun Pharma Warehouse, Ahmedabad</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"We've used Space Planners for 3 of our hospital branches. Their
-                            NABH-aligned storage systems are top-notch and the after-sales support is always prompt and
-                            reliable."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">AM</div>
-                            <div>
-                                <div class="testimonial-name">Amit Mehta</div>
-                                <div class="testimonial-role">Facility Manager, Kokilaben Hospital, Mumbai</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"Our university library needed compact mobile shelving to store
-                            50,000+ books. Space Planners delivered a custom solution ahead of schedule — the students
-                            love the new system."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">PD</div>
-                            <div>
-                                <div class="testimonial-name">Dr. Priya Desai</div>
-                                <div class="testimonial-role">Head Librarian, IIT Bombay</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"We needed heavy-duty pallet racks for our 40,000 sq ft warehouse.
-                            Space Planners designed a layout that increased our capacity by 60%. Installation was
-                            seamless with zero downtime."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">VR</div>
-                            <div>
-                                <div class="testimonial-name">Vikram Rao</div>
-                                <div class="testimonial-role">Logistics Head, Flipkart Warehouse, Bangalore</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"The filing cabinets and storage cupboards from Space Planners have
-                            brought order to our municipal records department. Everything is GeM-compliant and delivered
-                            on time."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">NS</div>
-                            <div>
-                                <div class="testimonial-name">Neeraj Sharma</div>
-                                <div class="testimonial-role">Commissioner, Municipal Corporation, Pune</div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- TESTIMONIALS -->
+        <section class="testimonials-section" id="testimonials">
+            <div class="testimonials-content">
+                <div class="section-header-small reveal">
+                    <span class="section-badge">Client Feedback</span>
+                    <h2 class="section-title">What Our Clients Say</h2>
+                    <div class="accent-line" style="margin:0 auto;"></div>
                 </div>
-                <button class="scroll-nav right" onclick="scrollTestimonials(400)" aria-label="Scroll right">❯</button>
+                <div class="testimonials-scroll-wrapper">
+                    <button class="scroll-nav left" onclick="scrollTestimonials(-400)"
+                        aria-label="Scroll left">❮</button>
+                    <div class="testimonials-scroll" id="testimonialsScroll" tabindex="0" role="region"
+                        aria-label="Testimonials Carousel">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"Space Planners transformed our archive room. We went from chaos
+                                to
+                                a fully indexed, accessible system in under 2 weeks. The team was professional and the
+                                quality exceeded our expectations."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">RK</div>
+                                <div>
+                                    <div class="testimonial-name">Rajesh Kumar</div>
+                                    <div class="testimonial-role">Admin Director, Central Government Ministry, Delhi
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The mobile compactors they installed in our cold storage area
+                                are
+                                GMP-certified and perfectly suited for pharmaceutical use. Saved us 48% of floor space
+                                and
+                                the build quality is excellent."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">SP</div>
+                                <div>
+                                    <div class="testimonial-name">Sneha Patel</div>
+                                    <div class="testimonial-role">Operations Head, Sun Pharma Warehouse, Ahmedabad</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"We've used Space Planners for 3 of our hospital branches. Their
+                                NABH-aligned storage systems are top-notch and the after-sales support is always prompt
+                                and
+                                reliable."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">AM</div>
+                                <div>
+                                    <div class="testimonial-name">Amit Mehta</div>
+                                    <div class="testimonial-role">Facility Manager, Kokilaben Hospital, Mumbai</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"Our university library needed compact mobile shelving to store
+                                50,000+ books. Space Planners delivered a custom solution ahead of schedule — the
+                                students
+                                love the new system."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">PD</div>
+                                <div>
+                                    <div class="testimonial-name">Dr. Priya Desai</div>
+                                    <div class="testimonial-role">Head Librarian, IIT Bombay</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"We needed heavy-duty pallet racks for our 40,000 sq ft
+                                warehouse.
+                                Space Planners designed a layout that increased our capacity by 60%. Installation was
+                                seamless with zero downtime."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">VR</div>
+                                <div>
+                                    <div class="testimonial-name">Vikram Rao</div>
+                                    <div class="testimonial-role">Logistics Head, Flipkart Warehouse, Bangalore</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The filing cabinets and storage cupboards from Space Planners
+                                have
+                                brought order to our municipal records department. Everything is GeM-compliant and
+                                delivered
+                                on time."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">NS</div>
+                                <div>
+                                    <div class="testimonial-name">Neeraj Sharma</div>
+                                    <div class="testimonial-role">Commissioner, Municipal Corporation, Pune</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="scroll-nav right" onclick="scrollTestimonials(400)"
+                        aria-label="Scroll right">❯</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
 
-    <section class="case-studies-section" id="case-studies">
-        <!-- SERVICE COVERAGE MAP SECTION -->
+        <section class="case-studies-section" id="case-studies">
+            <!-- SERVICE COVERAGE MAP SECTION -->
 
-        <div class="service-coverage-section">
+            <div class="service-coverage-section">
 
-            <div class="case-studies-content">
+                <div class="case-studies-content">
 
-                <div class="section-header-small reveal text-center" style="margin-bottom: 48px;">
+                    <div class="section-header-small reveal text-center" style="margin-bottom: 48px;">
 
-                    <span class="section-badge">Service Locations</span>
+                        <span class="section-badge">Service Locations</span>
 
-                    <h2 class="section-title">Our Service Coverage Across India</h2>
+                        <h2 class="section-title">Our Service Coverage Across India</h2>
 
-                    <p class="section-subtitle" style="margin:0 auto 24px;">Serving 500+ organizations across major
+                        <p class="section-subtitle" style="margin:0 auto 24px;">Serving 500+ organizations across major
 
-                        cities</p>
+                            cities</p>
+
+                        <div class="accent-line"></div>
+
+                    </div>
+
+
+
+                    <!-- India Map Container - Full Width -->
+
+                    <div class="india-map-container reveal" style="margin-bottom:50px;">
+
+                        <!-- Map - Full Width -->
+
+                        <div class="map-wrapper"
+                            style="position:relative;background:linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:1px solid rgba(229,57,53,0.08);">
+
+                            <div id="map" style="width:100%;height:400px;background:#e8e5e0;position:relative;"></div>
+
+                        </div>
+                    </div>
+
+                    <!-- Responsive adjustment -->
+
+                    <style>
+                        @media (max-width: 768px) {
+
+                            .service-locations-grid {
+
+                                grid-template-columns: 1fr 1fr !important;
+
+                            }
+
+
+
+                            #map {
+
+                                height: 300px !important;
+
+                            }
+
+                        }
+                    </style>
+
+                </div>
+
+            </div>
+
+
+
+
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="projects-section" id="projects">
+            <div class="projects-content">
+                <div class="section-header-small reveal">
+                    <span class="section-badge">Our Work</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's leading
+                        organisations</p>
+                    <div class="accent-line"></div>
+                </div>
+                <div class="projects-container">
+                    <div class="sidebar">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><button class="category-btn active"
+                                    onclick="filterProjects('Enterprise')">Enterprise</button></li>
+                            <li><button class="category-btn" onclick="filterProjects('Government')">Government</button>
+                            </li>
+                            <li><button class="category-btn" onclick="filterProjects('Industrial')">Industrial</button>
+                            </li>
+                            <li><button class="category-btn" onclick="filterProjects('Education')">Education</button>
+                            </li>
+                            <li><button class="category-btn" onclick="filterProjects('Healthcare')">Healthcare</button>
+                            </li>
+                            <li><button class="category-btn" onclick="filterProjects('Retail')">Retail</button></li>
+                        </ul>
+                    </div>
+                    <div class="projects-grid" id="projectsGrid"></div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <!-- FAQ -->
+
+        <section class="faq-section" id="faq">
+
+            <div class="faq-content">
+
+                <div class="faq-header reveal">
+
+                    <span class="section-badge">FAQ</span>
+
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+
+                    <p class="section-subtitle" style="margin:0 auto 24px;">Everything you need to know about our
+                        storage
+
+                        solutions</p>
 
                     <div class="accent-line"></div>
 
                 </div>
 
+                <!-- FAQ rendered in DOM for SEO/AIO crawlers -->
+
+                <ul class="faq-list" id="faqList" aria-label="Frequently asked questions"></ul>
+
+            </div>
+
+        </section>
 
 
-                <!-- India Map Container - Full Width -->
 
-                <div class="india-map-container reveal" style="margin-bottom:32px;">
 
-                    <!-- Map - Full Width -->
+        <!-- FOOTER -->
 
-                    <div class="map-wrapper"
-                        style="position:relative;background:linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:1px solid rgba(229,57,53,0.08);">
+        <footer>
 
-                        <div id="map" style="width:100%;height:280px;background:#e8e5e0;position:relative;"></div>
+            <div class="footer-inner">
+
+                <div class="footer-brand">
+
+                    <div class="logo-footer"
+                        style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <img src="logo.png" alt="Space Planners India" style="height: 100px; width: 200px;">
+                    </div>
+
+                    <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across
+
+                        every major city.</p>
+
+                    <div class="footer-social">
+
+                        <a href="#" aria-label="LinkedIn">in</a>
+
+                        <a href="#" aria-label="Facebook">f</a>
+
+                        <a href="#" aria-label="YouTube">Γû╢</a>
 
                     </div>
+
                 </div>
 
-                <!-- Responsive adjustment -->
+                <div class="footer-col">
 
-                <style>
-                    @media (max-width: 768px) {
+                    <h4>Products</h4>
 
-                        .service-locations-grid {
+                    <ul>
 
-                            grid-template-columns: 1fr 1fr !important;
+                        <li><a href="products.html">Mobile Compactors</a></li>
 
-                        }
+                        <li><a href="products.html">Industrial Racks</a></li>
 
+                        <li><a href="products.html">Storage Lockers</a></li>
 
+                        <li><a href="products.html">Filing Cabinets</a></li>
 
-                        #map {
+                        <li><a href="products.html">Mezzanine Systems</a></li>
 
-                            height: 220px !important;
-
-                        }
-
-                    }
-                </style>
-
-            </div>
-
-        </div>
-
-
-
-
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="projects-section" id="projects">
-        <div class="projects-content">
-            <div class="section-header-small reveal">
-                <span class="section-badge">Our Work</span>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's leading
-                    organisations</p>
-                <div class="accent-line"></div>
-            </div>
-            <div class="projects-container">
-                <div class="sidebar">
-                    <h3 class="sidebar-title">Categories</h3>
-                    <ul class="category-list">
-                        <li><button class="category-btn active"
-                                onclick="filterProjects('Enterprise')">Enterprise</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Government')">Government</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Industrial')">Industrial</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Education')">Education</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Healthcare')">Healthcare</button></li>
-                        <li><button class="category-btn" onclick="filterProjects('Retail')">Retail</button></li>
                     </ul>
+
                 </div>
-                <div class="projects-grid" id="projectsGrid"></div>
-            </div>
-        </div>
-    </section>
 
+                <div class="footer-col">
 
+                    <h4>Company</h4>
 
+                    <ul>
 
+                        <li><a href="about.html">About Us</a></li>
 
+                        <li><a href="projects.html">Projects</a></li>
 
-    <!-- FAQ -->
+                        <li><a href="case-studies.html">Case Studies</a></li>
 
-    <section class="faq-section" id="faq">
+                        <li><a href="index.html#faq">FAQ</a></li>
 
-        <div class="faq-content">
+                    </ul>
 
-            <div class="faq-header reveal">
+                </div>
 
-                <span class="section-badge">FAQ</span>
+                <div class="footer-col">
 
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                    <h4>Contact</h4>
 
-                <p class="section-subtitle" style="margin:0 auto 24px;">Everything you need to know about our storage
+                    <div class="footer-contact">
 
-                    solutions</p>
+                        <a href="tel:+912240033385"><span class="icon"></span>+91-22-40033385</a>
 
-                <div class="accent-line"></div>
+                        <a href="/cdn-cgi/l/email-protection#dcafbdb0b9af9cafacbdbfb9acb0bdb2b2b9aeafb5b2b8b5bdf2b5b2"><span
+                                class="icon"></span><span class="__cf_email__"
+                                data-cfemail="8bf8eae7eef8cbf8fbeae8eefbe7eae5e5eef9f8e2e5efe2eaa5e2e5">[email&#160;protected]</span></a>
 
-            </div>
+                        <a href="https://wa.me/912240033385" target="_blank" rel="noopener"><span
+                                class="icon"></span>WhatsApp Us</a>
 
-            <!-- FAQ rendered in DOM for SEO/AIO crawlers -->
+                        <a href="#reach"><span class="icon"></span>Mumbai, Maharashtra, India</a>
 
-            <ul class="faq-list" id="faqList" aria-label="Frequently asked questions"></ul>
-
-        </div>
-
-    </section>
-
-
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="footer-inner">
-
-            <div class="footer-brand">
-
-                <div class="logo-footer" style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-    <img src="logo.png" alt="Space Planners India" style="height: 100px; width: 200px;">
-</div>
-
-                <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across
-
-                    every major city.</p>
-
-                <div class="footer-social">
-
-                    <a href="#" aria-label="LinkedIn">in</a>
-
-                    <a href="#" aria-label="Facebook">f</a>
-
-                    <a href="#" aria-label="YouTube">Γû╢</a>
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="footer-col">
+            <div class="footer-bottom">
 
-                <h4>Products</h4>
+                <p>┬⌐ 2026 Space Planners India. All rights reserved.</p>
 
-                <ul>
+                <div class="footer-bottom-links">
 
-                    <li><a href="products.html">Mobile Compactors</a></li>
+                    <a href="privacy-policy.html">Privacy Policy</a>
 
-                    <li><a href="products.html">Industrial Racks</a></li>
+                    <a href="terms-of-use.html">Terms of Use</a>
 
-                    <li><a href="products.html">Storage Lockers</a></li>
+                    <a href="disclaimer.html">Disclaimer</a>
 
-                    <li><a href="products.html">Filing Cabinets</a></li>
-
-                    <li><a href="products.html">Mezzanine Systems</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Company</h4>
-
-                <ul>
-
-                    <li><a href="about.html">About Us</a></li>
-
-                    <li><a href="projects.html">Projects</a></li>
-
-                    <li><a href="case-studies.html">Case Studies</a></li>
-
-                    <li><a href="index.html#faq">FAQ</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-col">
-
-                <h4>Contact</h4>
-
-                <div class="footer-contact">
-
-                    <a href="tel:+912240033385"><span class="icon">≡ƒô₧</span>+91-22-40033385</a>
-
-                    <a href="mailto:sales@spaceplannersindia.in"><span
-                            class="icon">Γ£ë∩╕Å</span>sales@spaceplannersindia.in</a>
-
-                    <a href="https://wa.me/912240033385" target="_blank" rel="noopener"><span
-                            class="icon">≡ƒÆ¼</span>WhatsApp Us</a>
-
-                    <a href="#reach"><span class="icon">≡ƒôì</span>Mumbai, Maharashtra, India</a>
+                    <a href="sitemap.xml">Sitemap</a>
 
                 </div>
 
             </div>
 
-        </div>
-
-        <div class="footer-bottom">
-
-            <p>┬⌐ 2026 Space Planners India. All rights reserved.</p>
-
-            <div class="footer-bottom-links">
-
-                <a href="privacy-policy.html">Privacy Policy</a>
-
-                <a href="terms-of-use.html">Terms of Use</a>
-
-                <a href="disclaimer.html">Disclaimer</a>
-
-                <a href="sitemap.xml">Sitemap</a>
-
-            </div>
-
-        </div>
-
-    </footer>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&callback=initMap"
-        async defer></script>
-    <script src="js/data.js"></script>
-    <script src="forms-handler.js"></script>
-    <script>
-
-        /* ── CAROUSEL ── */
-        let currentSlide = 0, slideTimer;
-        function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
-        function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlide(); }
-        function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
-        function updateSlide() {
-            document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
-            document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-            document.getElementById('slideTitle').textContent = slides[currentSlide].title;
-            document.getElementById('slideDesc').textContent = slides[currentSlide].desc;
-        }
-        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5500); }
-
-        /* ── TOAST ── */
-        function showToast(msg, type = 'success') {
-            const t = document.createElement('div');
-            t.className = `toast ${type}`;
-            t.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span>${msg}</span>`;
-            document.getElementById('toast-container').appendChild(t);
-            requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
-            setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
-        }
-
-        /* ── MODALS ── */
-        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-
-        /* -- MULTI-STEP LOGIC -- */
-        function nextStep(current, next) {
-            let isValid = true;
-            if (current === 1) {
-                const radios = document.querySelectorAll('input[name="product_interest"]');
-                let checked = false;
-                radios.forEach(r => { if (r.checked) checked = true; });
-                if (!checked) {
-                    document.getElementById("step1Error").style.display = "block";
-                    return;
-                }
-                document.getElementById("step1Error").style.display = "none";
-            } else if (current === 2) {
-                // Trigger blur on step 2 required fields to invoke form-validation.js checks
-                document.getElementById("inq-name").focus();
-                document.getElementById("inq-email").focus();
-                document.getElementById("inq-phone").focus();
-                document.getElementById("inq-name").blur();
-                document.getElementById("inq-email").blur();
-                document.getElementById("inq-phone").blur();
-
-                // If any have is-invalid, do not proceed
-                const invalids = document.getElementById("step2").querySelectorAll(".is-invalid");
-                if (invalids.length > 0) return;
+        </footer>
+        <script src="js/nav-scroll.js"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ&callback=initMap"
+            async defer></script>
+        <script src="js/data.js"></script>
+        <script src="forms-handler.js"></script>
+        <script>
+            /* ── CAROUSEL ── */
+            let currentSlide = 0, slideTimer;
+            function nextSlide() { currentSlide = (currentSlide + 1) % 4; updateSlide(); }
+            function prevSlide() { currentSlide = (currentSlide - 1 + 4) % 4; updateSlide(); }
+            function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
+            function updateSlide() {
+                document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+                document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+                if (typeof updateSlideTitle === 'function') updateSlideTitle(currentSlide);
             }
-            showStep(next);
-        }
+            function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5500); }
 
-        function prevStep(current, prev) {
-            showStep(prev);
-        }
-
-        function showStep(stepNum) {
-            document.getElementById("step1").style.display = "none";
-            document.getElementById("step2").style.display = "none";
-            document.getElementById("step3").style.display = "none";
-
-            document.getElementById("step" + stepNum).style.display = "block";
-
-            // Update progress bar
-            const pct = stepNum === 1 ? "33%" : stepNum === 2 ? "66%" : "100%";
-            document.getElementById("formProgress").style.width = pct;
-
-            // Update indicators
-            document.getElementById("step1Indicator").style.fontWeight = stepNum >= 1 ? "700" : "500";
-            document.getElementById("step1Indicator").style.color = stepNum >= 1 ? "var(--primary)" : "var(--mid)";
-
-            document.getElementById("step2Indicator").style.fontWeight = stepNum >= 2 ? "700" : "500";
-            document.getElementById("step2Indicator").style.color = stepNum >= 2 ? "var(--primary)" : "var(--mid)";
-
-            document.getElementById("step3Indicator").style.fontWeight = stepNum === 3 ? "700" : "500";
-            document.getElementById("step3Indicator").style.color = stepNum === 3 ? "var(--primary)" : "var(--mid)";
-        }
-
-        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
-        function closeSuccessModal() { document.getElementById('successModal').classList.remove('active'); document.body.style.overflow = ''; }
-
-        function submitInquiry(e) {
-            e.preventDefault();
-
-            // 1. Capture form data
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                // 2. Fire Google Analytics 4 (GA4) Conversion Event
-                if (typeof gtag === 'function') {
-                    gtag('event', 'generate_lead', {
-                        'event_category': 'engagement',
-                        'event_label': 'inquiry_modal_form',
-                        'value': 1
-                    });
-
-                    // Fire Google Ads Conversion Payload (Example)
-                    gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXXX/inquiry_form_submit' });
-                }
-
-                // 3. Optional: Capture data using Excel data capture system
-                if (typeof captureFormSubmission === 'function') {
-                    captureFormSubmission(e.target, 'demo_request');
-                }
-
-                // 4. Update UI
-                closeInquiryModal();
-                document.getElementById('successModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
-                e.target.reset();
-
-            } catch (error) {
-                console.error('Submission Error:', error);
-                document.getElementById('errorModal').classList.add('active');
+            /* ── TOAST ── */
+            function showToast(msg, type = 'success') {
+                const t = document.createElement('div');
+                t.className = `toast ${type}`;
+                t.innerHTML = `<span class="toast-icon">${type === 'success' ? '✅' : '❌'}</span><span>${msg}</span>`;
+                document.getElementById('toast-container').appendChild(t);
+                requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
+                setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
             }
-        }
-        function openProductModal(p) {
-            document.getElementById('productDetailContent').innerHTML = `
+
+            /* ── MODALS ── */
+            function openInquiryModal() { document.getElementById('inquiryModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+
+            /* -- MULTI-STEP LOGIC -- */
+            function nextStep(current, next) {
+                let isValid = true;
+                if (current === 1) {
+                    const radios = document.querySelectorAll('input[name="product_interest"]');
+                    let checked = false;
+                    radios.forEach(r => { if (r.checked) checked = true; });
+                    if (!checked) {
+                        document.getElementById("step1Error").style.display = "block";
+                        return;
+                    }
+                    document.getElementById("step1Error").style.display = "none";
+                } else if (current === 2) {
+                    // Trigger blur on step 2 required fields to invoke form-validation.js checks
+                    document.getElementById("inq-name").focus();
+                    document.getElementById("inq-email").focus();
+                    document.getElementById("inq-phone").focus();
+                    document.getElementById("inq-name").blur();
+                    document.getElementById("inq-email").blur();
+                    document.getElementById("inq-phone").blur();
+
+                    // If any have is-invalid, do not proceed
+                    const invalids = document.getElementById("step2").querySelectorAll(".is-invalid");
+                    if (invalids.length > 0) return;
+                }
+                showStep(next);
+            }
+
+            function prevStep(current, prev) {
+                showStep(prev);
+            }
+
+            function showStep(stepNum) {
+                document.getElementById("step1").style.display = "none";
+                document.getElementById("step2").style.display = "none";
+                document.getElementById("step3").style.display = "none";
+
+                document.getElementById("step" + stepNum).style.display = "block";
+
+                // Update progress bar
+                const pct = stepNum === 1 ? "33%" : stepNum === 2 ? "66%" : "100%";
+                document.getElementById("formProgress").style.width = pct;
+
+                // Update indicators
+                document.getElementById("step1Indicator").style.fontWeight = stepNum >= 1 ? "700" : "500";
+                document.getElementById("step1Indicator").style.color = stepNum >= 1 ? "var(--primary)" : "var(--mid)";
+
+                document.getElementById("step2Indicator").style.fontWeight = stepNum >= 2 ? "700" : "500";
+                document.getElementById("step2Indicator").style.color = stepNum >= 2 ? "var(--primary)" : "var(--mid)";
+
+                document.getElementById("step3Indicator").style.fontWeight = stepNum === 3 ? "700" : "500";
+                document.getElementById("step3Indicator").style.color = stepNum === 3 ? "var(--primary)" : "var(--mid)";
+            }
+
+            function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('active'); document.body.style.overflow = ''; }
+            function closeSuccessModal() { document.getElementById('successModal').classList.remove('active'); document.body.style.overflow = ''; }
+
+            function submitInquiry(e) {
+                e.preventDefault();
+
+                // 1. Capture form data
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+                    // 2. Fire Google Analytics 4 (GA4) Conversion Event
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'engagement',
+                            'event_label': 'inquiry_modal_form',
+                            'value': 1
+                        });
+
+                        // Fire Google Ads Conversion Payload (Example)
+                        gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXXX/inquiry_form_submit' });
+                    }
+
+                    // 3. Optional: Capture data using Excel data capture system
+                    if (typeof captureFormSubmission === 'function') {
+                        captureFormSubmission(e.target, 'demo_request');
+                    }
+
+                    // 4. Update UI
+                    closeInquiryModal();
+                    document.getElementById('successModal').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    e.target.reset();
+
+                } catch (error) {
+                    console.error('Submission Error:', error);
+                    document.getElementById('errorModal').classList.add('active');
+                }
+            }
+            function openProductModal(p) {
+                document.getElementById('productDetailContent').innerHTML = `
     <h2 class="modal-title">${p.name}</h2>
     <div class="product-detail-image"><img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='linear-gradient(135deg,#4facfe,#00f2fe)'"></div>
     <p style="color:var(--light);margin-bottom:18px;font-size:14px;">${p.desc}</p>
@@ -1510,61 +1698,48 @@
       <button class="modal-btn" onclick="closeProductModal();openInquiryModal()">📧 Send Inquiry</button>
       <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I am interested in ${encodeURIComponent(p.name)}','_blank')">💬 WhatsApp</button>
     </div>`;
-            document.getElementById('productModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeProductModal() { document.getElementById('productModal').classList.remove('active'); document.body.style.overflow = ''; }
+                document.getElementById('productModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeProductModal() { document.getElementById('productModal').classList.remove('active'); document.body.style.overflow = ''; }
 
-        /* ── MOBILE NAV ── */
-        function openMobileNav() {
-            document.getElementById('mobileNav').classList.add('open');
-            document.getElementById('mobileOverlay').classList.add('open');
-            document.getElementById('hamburgerBtn').classList.add('open');
-            document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeMobileNav() {
-            document.getElementById('mobileNav').classList.remove('open');
-            document.getElementById('mobileOverlay').classList.remove('open');
-            document.getElementById('hamburgerBtn').classList.remove('open');
-            document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
+            /* ── MOBILE NAV ── */
+            function openMobileNav() {
+                document.getElementById('mobileNav').classList.add('open');
+                document.getElementById('mobileOverlay').classList.add('open');
+                document.getElementById('hamburgerBtn').classList.add('open');
+                document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMobileNav() {
+                document.getElementById('mobileNav').classList.remove('open');
+                document.getElementById('mobileOverlay').classList.remove('open');
+                document.getElementById('hamburgerBtn').classList.remove('open');
+                document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
 
-        /* ── FILTERS ── */
-        let currentProductType = 'All', currentProjectCategory = 'Enterprise';
-        function filterProducts(type) {
-            currentProductType = type;
-            document.querySelectorAll('.filter-section-home .filter-btn').forEach(b => {
-                const btnText = b.textContent.trim();
-                const isMatch = (type === 'All' && btnText === 'All Products') || btnText === type;
-                b.classList.toggle('active', isMatch);
-            });
-            renderProducts();
-        }
-        function filterProjects(cat) {
-            currentProjectCategory = cat;
-            document.querySelectorAll('.projects-section .category-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === cat));
-            renderProjects();
-        }
+            /* ── FILTERS ── */
+            let currentProductType = 'All', currentProjectCategory = 'Enterprise';
+            function filterProducts(type) {
+                currentProductType = type;
+                document.querySelectorAll('.filter-section-home .filter-btn').forEach(b => {
+                    const btnText = b.textContent.trim();
+                    const isMatch = (type === 'All' && btnText === 'All Products') || btnText === type;
+                    b.classList.toggle('active', isMatch);
+                });
+                renderProducts();
+            }
+            function filterProjects(cat) {
+                currentProjectCategory = cat;
+                document.querySelectorAll('.projects-section .category-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === cat));
+                renderProjects();
+            }
 
-        /* ── RENDERS ── */
-        function renderProducts() {
-            const f = currentProductType === 'All' ? products : products.filter(p => p.type === currentProductType);
-            document.getElementById('productsGrid').innerHTML = f.map(p => `
-    <div class="product-card" onclick='openProductModal(${JSON.stringify(p).replace(/'/g, "\\'")})'  role="button" tabindex="0" aria-label="View ${p.name} details">
-      <div class="product-image"><img src="${p.img}" alt="${p.name}" width="400" height="250" style="aspect-ratio:400/250;object-fit:cover;" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'product-image-placeholder\\'>${p.type}</div>'"></div>
-      <div class="product-info">
-        <h3 class="product-name">${p.name}</h3>
-        <p class="product-description">${p.desc}</p>
-        <div class="product-features">${p.features.slice(0, 2).map(f => `<span class="feature-tag">${f}</span>`).join('')}</div>
-        <div class="product-applications"><p class="applications-label">Applications</p><p class="applications-text">${p.apps}</p></div>
-      </div>
-    </div>`).join('');
-        }
-        function renderProjects() {
-            const f = projects.filter(p => p.category === currentProjectCategory);
-            document.getElementById('projectsGrid').innerHTML = f.map(p => `
+            /* ── RENDERS ── */
+            function renderProjects() {
+                const f = projects.filter(p => p.category === currentProjectCategory);
+                document.getElementById('projectsGrid').innerHTML = f.map(p => `
     <div class="project-card">
       <div class="project-image"><img src="${p.img}" alt="${p.title}" width="400" height="250" style="aspect-ratio:400/250;object-fit:cover;" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'project-image-placeholder\\'></div>'"></div>
       <div class="project-badge">${p.category}</div>
@@ -1574,9 +1749,9 @@
         <span class="project-scale">📐 ${p.scale}</span>
       </div>
     </div>`).join('');
-        }
-        function renderCaseStudies() {
-            document.getElementById('caseStudiesScroll').innerHTML = caseStudies.map(c => `
+            }
+            function renderCaseStudies() {
+                document.getElementById('caseStudiesScroll').innerHTML = caseStudies.map(c => `
     <div class="case-study-card">
       <div class="case-study-image"><img src="${c.img}" alt="${c.title} case study" width="400" height="250" style="aspect-ratio:400/250;object-fit:cover;" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'case-study-image-placeholder\\'></div>'"></div>
       <div class="industry-badge" style="position:absolute;top:12px;right:12px;background:var(--red);color:white;padding:4px 10px;border-radius:16px;font-size:9px;font-weight:700;z-index:10;">${c.industry}</div>
@@ -1602,9 +1777,9 @@
         <a href="case-studies.html" class="view-more-btn" style="color:var(--red);border:1px solid var(--border);padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;display:inline-block;text-decoration:none;transition:var(--trans);" onmouseover="this.style.background='var(--red)';this.style.color='white';" onmouseout="this.style.background='transparent';this.style.color='var(--red)';">View Case →</a>
       </div>
     </div>`).join('');
-        }
-        function renderFAQ() {
-            document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
+            }
+            function renderFAQ() {
+                document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
     <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
         <span itemprop="name">${f.q}</span>
@@ -1614,292 +1789,314 @@
         <p class="faq-answer-text" itemprop="text">${f.a}</p>
       </div>
     </li>`).join('');
-        }
-        function toggleFAQ(item) {
-            const wasActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
-            if (!wasActive) item.classList.add('active');
-        }
-        function scrollCaseStudies(amt) { document.getElementById('caseStudiesScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
-        function scrollProducts(amt) { document.getElementById('productsScrollContainer').scrollBy({ left: amt, behavior: 'smooth' }); }
-        function scrollTestimonials(amt) { document.getElementById('testimonialsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
-        function scrollClients(amt) { document.getElementById('clientsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
-        function scrollClientsVertical(amt) { const el = document.getElementById('clientsScrollVertical'); if (el) el.scrollBy({ top: amt, behavior: 'smooth' }); }
+            }
+            function toggleFAQ(item) {
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            }
+            function scrollCaseStudies(amt) { document.getElementById('caseStudiesScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
+            function scrollProducts(amt) { document.getElementById('productsScrollContainer').scrollBy({ left: amt, behavior: 'smooth' }); }
+            function scrollTestimonials(amt) { document.getElementById('testimonialsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
+            function scrollClients(amt) { document.getElementById('clientsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
+            function scrollClientsVertical(amt) { const el = document.getElementById('clientsScrollVertical'); if (el) el.scrollBy({ top: amt, behavior: 'smooth' }); }
 
-        // Setup Keyboard Accessibility for Scroll Containers
-        document.addEventListener("DOMContentLoaded", () => {
-            const scrollContainers = ["productsScrollContainer", "testimonialsScroll", "caseStudiesScroll", "clientsScroll"];
-            scrollContainers.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    el.addEventListener("keydown", (e) => {
-                        if (e.key === "ArrowLeft") { el.scrollBy({ left: -400, behavior: "smooth" }); e.preventDefault(); }
-                        if (e.key === "ArrowRight") { el.scrollBy({ left: 400, behavior: "smooth" }); e.preventDefault(); }
+            // Setup Keyboard Accessibility for Scroll Containers
+            document.addEventListener("DOMContentLoaded", () => {
+                const scrollContainers = ["productsScrollContainer", "testimonialsScroll", "caseStudiesScroll", "clientsScroll"];
+                scrollContainers.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.addEventListener("keydown", (e) => {
+                            if (e.key === "ArrowLeft") { el.scrollBy({ left: -400, behavior: "smooth" }); e.preventDefault(); }
+                            if (e.key === "ArrowRight") { el.scrollBy({ left: 400, behavior: "smooth" }); e.preventDefault(); }
+                        });
+                    }
+                });
+            });
+
+
+
+            /* ── STATS COUNTER ── */
+            function animateCounter(el, target, suffix = '') {
+                let start = null;
+                const dur = 1800;
+                function step(ts) {
+                    if (!start) start = ts;
+                    const p = Math.min((ts - start) / dur, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.floor(ease * target) + suffix;
+                    if (p < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
+            /* ── SCROLL REVEAL ── */
+            const revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+            }, { threshold: .12 });
+            document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
+
+            /* ── BACK TO TOP ── */
+            const btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); });
+
+            /* ── STATS OBSERVER ── */
+            const statsObserver = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting && !e.target.dataset.counted) {
+                        e.target.dataset.counted = '1';
+                        const items = e.target.querySelectorAll('.stat-strip-item');
+                        items.forEach(item => {
+                            const numEl = item.querySelector('.stat-strip-num');
+                            const val = parseInt(numEl.dataset.target, 10) || 0;
+                            const suffix = numEl.dataset.suffix || '';
+                            let s = null;
+                            (function step(ts) {
+                                if (!s) s = ts;
+                                const p = Math.min((ts - s) / 1800, 1);
+                                const ease = 1 - Math.pow(1 - p, 3);
+                                const num = Math.floor(ease * val);
+                                const displayNum = num >= 1000 ? (num / 1000).toFixed(1).replace('.0', '') + ',' + '000'.substring(Math.max((num % 1000).toString().length, 3)) : num;
+                                // Formatting for 2000 => 2,000
+                                const formattedNum = num === 2000 ? "2,000" : num;
+                                numEl.innerHTML = formattedNum + `<span>${suffix}</span>`;
+                                if (p < 1) requestAnimationFrame(step);
+                            })(performance.now());
+                        });
+                    }
+                });
+            }, { threshold: .5 });
+            const statsRibbon = document.querySelector('.stats-ribbon');
+            if (statsRibbon) statsObserver.observe(statsRibbon);
+
+            /* ── PRODUCT FINDER ── */
+            function submitProductFinder(e) {
+                e.preventDefault();
+
+                try {
+                    // Fire GA4 Conversion Event
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'engagement',
+                            'event_label': 'product_finder_form',
+                            'value': 1
+                        });
+                    }
+
+                    // Show Success Modal instead of toast
+                    document.getElementById('successModal').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    e.target.reset();
+
+                } catch (error) {
+                    console.error('Finder Form Error:', error);
+                    document.getElementById('errorModal').classList.add('active');
+                }
+            }
+
+            /* ── GOOGLE MAPS ── */
+            function initMap() {
+                const mapStyles = [
+                    { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] },
+                    { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] },
+                    { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] },
+                    { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] },
+                    { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] },
+                    { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] },
+                    { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] },
+                    { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] },
+                    { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] },
+                    { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] },
+                    { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] },
+                    { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] },
+                    { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] },
+                    { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }
+                ];
+                const map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: 21.5, lng: 80 }, zoom: 5,
+                    mapTypeControl: false, fullscreenControl: false,
+                    streetViewControl: false, gestureHandling: 'cooperative',
+                    styles: mapStyles,
+                    backgroundColor: '#f5f5f5'
+                });
+                const svgCity = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60" width="40" height="60"><path d="M20 0C9.5 0 0 8 0 20 0 40 20 60 20 60S40 40 40 20C40 8 30.5 0 20 0Z" fill="#e53935" stroke="white" stroke-width="2"/><circle cx="20" cy="18" r="7" fill="white" opacity=".9"/></svg>`;
+                const cities = [
+                    { city: 'Mumbai (HQ)', lat: 19.076, lng: 72.8777, projects: '250+' },
+                    { city: 'Delhi NCR', lat: 28.6139, lng: 77.209, projects: '180+' },
+                    { city: 'Bangalore', lat: 12.9716, lng: 77.5946, projects: '150+' },
+                    { city: 'Chennai', lat: 13.0827, lng: 80.2707, projects: '120+' },
+                    { city: 'Pune', lat: 18.5204, lng: 73.8567, projects: '140+' },
+                    { city: 'Ahmedabad', lat: 23.0225, lng: 72.5714, projects: '110+' },
+                    { city: 'Kolkata', lat: 22.5726, lng: 88.3639, projects: '100+' },
+                    { city: 'Hyderabad', lat: 17.385, lng: 78.4867, projects: '90+' }
+                ];
+                cities.forEach(loc => {
+                    const m = new google.maps.Marker({
+                        position: { lat: loc.lat, lng: loc.lng }, map, title: `${loc.city} – ${loc.projects} projects`,
+                        icon: { url: 'data:image/svg+xml;base64,' + btoa(svgCity), scaledSize: new google.maps.Size(24, 36), anchor: new google.maps.Point(12, 36) }
                     });
+                    const iw = new google.maps.InfoWindow({ content: `<div style="font-family:Poppins,sans-serif;padding:6px 10px;background:#ffffff;color:#333;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1);"><strong style="color:#e53935">${loc.city}</strong><br><span style="font-size:12px;color:#666">${loc.projects} projects delivered</span></div>` });
+                    m.addListener('click', () => iw.open(map, m));
+                });
+            }
+
+            /* ── FLOATING POPUP INQUIRY ── */
+            function toggleFloatPopup(e) {
+                e.stopPropagation();
+                const popup = document.getElementById('floatPopup');
+                const btn = document.getElementById('floatInqBtn');
+                const isOpen = popup.classList.toggle('show');
+                btn.setAttribute('aria-expanded', isOpen);
+            }
+            // Close popup when clicking elsewhere
+            document.addEventListener('click', (e) => {
+                const popup = document.getElementById('floatPopup');
+                const stack = document.getElementById('floatStack');
+                if (popup && popup.classList.contains('show') && !stack.contains(e.target)) {
+                    popup.classList.remove('show');
+                    document.getElementById('floatInqBtn').setAttribute('aria-expanded', 'false');
                 }
             });
-        });
+            function submitPopupInquiry() {
+                const email = document.getElementById('pop-email').value.trim();
+                if (!email) {
+                    showToast('Please enter your email address.', 'error');
+                    return;
+                }
 
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    showToast('Please enter a valid email.', 'error');
+                    return;
+                }
 
+                showToast('Thanks! Check your email for the next steps.', 'success');
+                document.getElementById('floatPopup').classList.remove('show');
+                document.getElementById('pop-email').value = '';
 
-        /* ── STATS COUNTER ── */
-        function animateCounter(el, target, suffix = '') {
-            let start = null;
-            const dur = 1800;
-            function step(ts) {
-                if (!start) start = ts;
-                const p = Math.min((ts - start) / dur, 1);
-                const ease = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.floor(ease * target) + suffix;
-                if (p < 1) requestAnimationFrame(step);
+                // TODO: Send email data to server
+                // fetch('/api/quick-inquiry', { method: 'POST', body: JSON.stringify({email}) });
             }
-            requestAnimationFrame(step);
-        }
 
-        /* ── SCROLL REVEAL ── */
-        const revealObserver = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-        }, { threshold: .12 });
-        document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
 
-        /* ── BACK TO TOP ── */
-        const btt = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); });
 
-        /* ── STATS OBSERVER ── */
-        const statsObserver = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting && !e.target.dataset.counted) {
-                    e.target.dataset.counted = '1';
-                    const items = e.target.querySelectorAll('.stat-strip-item');
-                    items.forEach(item => {
-                        const numEl = item.querySelector('.stat-strip-num');
-                        const val = parseInt(numEl.dataset.target, 10) || 0;
-                        const suffix = numEl.dataset.suffix || '';
-                        let s = null;
-                        (function step(ts) {
-                            if (!s) s = ts;
-                            const p = Math.min((ts - s) / 1800, 1);
+            /* ── INIT ── */
+            document.addEventListener('DOMContentLoaded', () => {
+                updateSlide();
+                if (typeof projects !== 'undefined') renderProjects();
+                if (typeof faqs !== 'undefined') renderFAQ();
+                resetTimer();
+                document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
+                /* close modals on outside click */
+                ['inquiryModal', 'productModal'].forEach(id => {
+                    document.getElementById(id).addEventListener('click', function (e) { if (e.target === this) { this.id === 'inquiryModal' ? closeInquiryModal() : closeProductModal(); } });
+                });
+                /* keyboard close */
+                document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProductModal(); closeMobileNav(); } });
+                /* product card keyboard activation */
+                document.addEventListener('keyup', e => { if (e.key === 'Enter' && e.target.classList.contains('product-card')) e.target.click(); });
+            });
+
+            function submitAssessment(event) {
+                event.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                if (!name || !phone) {
+                    showToast('Please enter your name and phone number.', 'error');
+                    return;
+                }
+                if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'engagement', event_label: 'assessment_form' });
+                document.getElementById('successModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                event.target.reset();
+            }
+
+            /* ── STATS STRIP COUNT-UP ── */
+            (function () {
+                const strip = document.getElementById('statsRibbon');
+                if (!strip) return;
+                let animated = false;
+
+                function animateAll() {
+                    if (animated) return;
+                    animated = true;
+
+                    // ── Count-up numbers ──
+                    strip.querySelectorAll('.stat-strip-num').forEach(el => {
+                        const target = parseInt(el.dataset.target, 10);
+                        const spanHTML = el.querySelector('span') ? '<span>' + el.querySelector('span').textContent + '</span>' : '';
+                        if (isNaN(target)) return;
+                        const duration = 1600;
+                        const start = performance.now();
+                        (function step(now) {
+                            const p = Math.min((now - start) / duration, 1);
                             const ease = 1 - Math.pow(1 - p, 3);
-                            const num = Math.floor(ease * val);
-                            const displayNum = num >= 1000 ? (num / 1000).toFixed(1).replace('.0', '') + ',' + '000'.substring(Math.max((num % 1000).toString().length, 3)) : num;
-                            // Formatting for 2000 => 2,000
-                            const formattedNum = num === 2000 ? "2,000" : num;
-                            numEl.innerHTML = formattedNum + `<span>${suffix}</span>`;
+                            const val = Math.round(ease * target);
+                            el.innerHTML = (val >= 1000 ? val.toLocaleString() : val) + spanHTML;
                             if (p < 1) requestAnimationFrame(step);
                         })(performance.now());
                     });
-                }
-            });
-        }, { threshold: .5 });
-        const statsRibbon = document.querySelector('.stats-ribbon');
-        if (statsRibbon) statsObserver.observe(statsRibbon);
 
-        /* ── PRODUCT FINDER ── */
-        function submitProductFinder(e) {
-            e.preventDefault();
-
-            try {
-                // Fire GA4 Conversion Event
-                if (typeof gtag === 'function') {
-                    gtag('event', 'generate_lead', {
-                        'event_category': 'engagement',
-                        'event_label': 'product_finder_form',
-                        'value': 1
+                    // ── SVG stroke draw-in ──
+                    strip.querySelectorAll('.stat-strip-item').forEach((item, i) => {
+                        setTimeout(() => item.classList.add('drawn'), i * 80);
                     });
                 }
 
-                // Show Success Modal instead of toast
-                document.getElementById('successModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
-                e.target.reset();
-
-            } catch (error) {
-                console.error('Finder Form Error:', error);
-                document.getElementById('errorModal').classList.add('active');
-            }
-        }
-
-        /* ── GOOGLE MAPS ── */
-        function initMap() {
-            const mapStyles = [
-                { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] },
-                { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] },
-                { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] },
-                { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] },
-                { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] },
-                { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] },
-                { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] },
-                { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] },
-                { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] },
-                { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] },
-                { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] },
-                { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] },
-                { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] },
-                { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }
-            ];
-            const map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 21.5, lng: 80 }, zoom: 5,
-                mapTypeControl: false, fullscreenControl: false,
-                streetViewControl: false, gestureHandling: 'cooperative',
-                styles: mapStyles,
-                backgroundColor: '#f5f5f5'
-            });
-            const svgCity = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60" width="40" height="60"><path d="M20 0C9.5 0 0 8 0 20 0 40 20 60 20 60S40 40 40 20C40 8 30.5 0 20 0Z" fill="#e53935" stroke="white" stroke-width="2"/><circle cx="20" cy="18" r="7" fill="white" opacity=".9"/></svg>`;
-            const cities = [
-                { city: 'Mumbai (HQ)', lat: 19.076, lng: 72.8777, projects: '250+' },
-                { city: 'Delhi NCR', lat: 28.6139, lng: 77.209, projects: '180+' },
-                { city: 'Bangalore', lat: 12.9716, lng: 77.5946, projects: '150+' },
-                { city: 'Chennai', lat: 13.0827, lng: 80.2707, projects: '120+' },
-                { city: 'Pune', lat: 18.5204, lng: 73.8567, projects: '140+' },
-                { city: 'Ahmedabad', lat: 23.0225, lng: 72.5714, projects: '110+' },
-                { city: 'Kolkata', lat: 22.5726, lng: 88.3639, projects: '100+' },
-                { city: 'Hyderabad', lat: 17.385, lng: 78.4867, projects: '90+' }
-            ];
-            cities.forEach(loc => {
-                const m = new google.maps.Marker({
-                    position: { lat: loc.lat, lng: loc.lng }, map, title: `${loc.city} – ${loc.projects} projects`,
-                    icon: { url: 'data:image/svg+xml;base64,' + btoa(svgCity), scaledSize: new google.maps.Size(24, 36), anchor: new google.maps.Point(12, 36) }
-                });
-                const iw = new google.maps.InfoWindow({ content: `<div style="font-family:Poppins,sans-serif;padding:6px 10px;background:#ffffff;color:#333;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1);"><strong style="color:#e53935">${loc.city}</strong><br><span style="font-size:12px;color:#666">${loc.projects} projects delivered</span></div>` });
-                m.addListener('click', () => iw.open(map, m));
-            });
-        }
-
-        /* ── FLOATING POPUP INQUIRY ── */
-        function toggleFloatPopup(e) {
-            e.stopPropagation();
-            const popup = document.getElementById('floatPopup');
-            const btn = document.getElementById('floatInqBtn');
-            const isOpen = popup.classList.toggle('show');
-            btn.setAttribute('aria-expanded', isOpen);
-        }
-        // Close popup when clicking elsewhere
-        document.addEventListener('click', (e) => {
-            const popup = document.getElementById('floatPopup');
-            const stack = document.getElementById('floatStack');
-            if (popup && popup.classList.contains('show') && !stack.contains(e.target)) {
-                popup.classList.remove('show');
-                document.getElementById('floatInqBtn').setAttribute('aria-expanded', 'false');
-            }
-        });
-        function submitPopupInquiry() {
-            const email = document.getElementById('pop-email').value.trim();
-            if (!email) { 
-                showToast('Please enter your email address.', 'error'); 
-                return; 
-            }
-            
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showToast('Please enter a valid email.', 'error');
-                return;
-            }
-            
-            showToast('Thanks! Check your email for the next steps.', 'success');
-            document.getElementById('floatPopup').classList.remove('show');
-            document.getElementById('pop-email').value = '';
-            
-            // TODO: Send email data to server
-            // fetch('/api/quick-inquiry', { method: 'POST', body: JSON.stringify({email}) });
-        }
-
-
-
-        /* ── INIT ── */
-        document.addEventListener('DOMContentLoaded', () => {
-            updateSlide();
-            renderProjects();
-            // renderCaseStudies();
-            // renderProducts();
-            renderFAQ();
-            resetTimer();
-            document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
-            /* close modals on outside click */
-            ['inquiryModal', 'productModal'].forEach(id => {
-                document.getElementById(id).addEventListener('click', function (e) { if (e.target === this) { this.id === 'inquiryModal' ? closeInquiryModal() : closeProductModal(); } });
-            });
-            /* keyboard close */
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInquiryModal(); closeProductModal(); closeMobileNav(); } });
-            /* product card keyboard activation */
-            document.addEventListener('keyup', e => { if (e.key === 'Enter' && e.target.classList.contains('product-card')) e.target.click(); });
-        });
-
-        function submitAssessment(event) {
-    event.preventDefault();
-    const name = document.getElementById('assess-name').value.trim();
-    const phone = document.getElementById('assess-phone').value.trim();
-    
-    if (!name || !phone) {
-        showToast('Please enter your name and phone number.', 'error');
-        return;
-    }
-    
-    showToast('Thank you! We\'ll call you within 2 hours to schedule your free assessment.', 'success');
-    event.target.reset();
-    
-    // TODO: Send to server
-    // fetch('/api/schedule-assessment', { 
-    //   method: 'POST', 
-    //   body: JSON.stringify({name, phone, industry: document.getElementById('assess-industry').value})
-    // });
-}
-
-        /* ── STATS STRIP COUNT-UP ── */
-        (function () {
-            const strip = document.getElementById('statsRibbon');
-            if (!strip) return;
-            let animated = false;
-
-            function animateAll() {
-                if (animated) return;
-                animated = true;
-
-                // ── Count-up numbers ──
-                strip.querySelectorAll('.stat-strip-num').forEach(el => {
-                    const target = parseInt(el.dataset.target, 10);
-                    const spanHTML = el.querySelector('span') ? '<span>' + el.querySelector('span').textContent + '</span>' : '';
-                    if (isNaN(target)) return;
-                    const duration = 1600;
-                    const start = performance.now();
-                    (function step(now) {
-                        const p = Math.min((now - start) / duration, 1);
-                        const ease = 1 - Math.pow(1 - p, 3);
-                        const val = Math.round(ease * target);
-                        el.innerHTML = (val >= 1000 ? val.toLocaleString() : val) + spanHTML;
-                        if (p < 1) requestAnimationFrame(step);
-                    })(performance.now());
-                });
-
-                // ── SVG stroke draw-in ──
-                strip.querySelectorAll('.stat-strip-item').forEach((item, i) => {
-                    setTimeout(() => item.classList.add('drawn'), i * 80);
-                });
-            }
-
-            const obs = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) { animateAll(); obs.disconnect(); }
-            }, { threshold: 0.2 });
-            obs.observe(strip);
-        })();
-        // Preloader Logic
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                setTimeout(() => {
+                const obs = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) { animateAll(); obs.disconnect(); }
+                }, { threshold: 0.2 });
+                obs.observe(strip);
+            })();
+            // Preloader Logic — dismiss on DOMContentLoaded with a hard 3s safety cap
+            (function () {
+                function dismissPreloader() {
+                    const preloader = document.getElementById('preloader');
+                    if (!preloader || preloader.style.display === 'none') return;
                     preloader.classList.add('fade-out');
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                    }, 500);
-                }, 400);
-            }
-        });
-    </script>
+                    setTimeout(() => { preloader.style.display = 'none'; }, 500);
+                }
+                // Primary: fire as soon as DOM is parsed (doesn't wait for images/scripts)
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => setTimeout(dismissPreloader, 300));
+                } else {
+                    // DOM already ready (script running late)
+                    setTimeout(dismissPreloader, 300);
+                }
+                // Safety net: always dismiss after 3s no matter what
+                setTimeout(dismissPreloader, 3000);
+            })();
 
-    <!-- ===== EXCEL DATA CAPTURE SYSTEM ===== -->
-    <script src="excel-data-capture.js"></script>
-</main>
+            // ── STAGGERED ANIMATIONS FOR GRIDS ─────────────────────────────
+            // Use DOMContentLoaded instead of window.load so missing assets don't block this
+            (function initStagger() {
+                function setupStagger() {
+                    const staggerContainers = document.querySelectorAll('[data-stagger]');
+                    staggerContainers.forEach(container => {
+                        const children = container.querySelectorAll('[data-stagger-item]');
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    children.forEach((child, i) => {
+                                        setTimeout(() => child.classList.add('visible'), i * 100);
+                                    });
+                                    observer.unobserve(entry.target);
+                                }
+                            });
+                        }, { threshold: 0.1 });
+                        observer.observe(container);
+                    });
+                }
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', setupStagger);
+                } else {
+                    setupStagger();
+                }
+            })();
+        </script>
+    </main>
 </body>
 
 </html>
