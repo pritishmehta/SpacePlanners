@@ -116,6 +116,238 @@ ul {
   list-style: none;
 }
 
+/* ── PRELOADER UTILITY ── */
+.preloader-active {
+  overflow: hidden !important;
+}
+
+/* ── PRELOADER CONTAINER ── */
+#sp-loader {
+  position: fixed;
+  inset: 0;
+  background: #F5F4F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+#sp-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Red square outline — contains SPACE ── */
+.sq {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sq svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sq-rect {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 5;
+  stroke-dasharray: 380;
+  stroke-dashoffset: 380;
+  animation: drawSquare 0.3s cubic-bezier(.7, 0, .3, 1) forwards;
+}
+
+@keyframes drawSquare {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* SPACE word sits centred inside the box */
+.word-space {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0;
+}
+
+/* ── Text ── */
+.word {
+  display: flex;
+  overflow: hidden;
+}
+
+.letter {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--dark);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: riseIn 0.25s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+/* stagger SPACE letters */
+.word-space .letter:nth-child(1) {
+  animation-delay: 0.28s;
+}
+
+.word-space .letter:nth-child(2) {
+  animation-delay: 0.33s;
+}
+
+.word-space .letter:nth-child(3) {
+  animation-delay: 0.38s;
+}
+
+.word-space .letter:nth-child(4) {
+  animation-delay: 0.43s;
+}
+
+.word-space .letter:nth-child(5) {
+  animation-delay: 0.48s;
+}
+
+/* PLANNERS sits to the right of the box */
+.right-group {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-left: 14px;
+}
+
+.divider {
+  width: 1px;
+  height: 22px;
+  background: var(--dark);
+  opacity: 0;
+  margin-right: 14px;
+  animation: fadeIn 0.2s ease forwards;
+  animation-delay: 0.50s;
+  flex-shrink: 0;
+}
+
+.word-planners .letter:nth-child(1) {
+  animation-delay: 0.52s;
+}
+
+.word-planners .letter:nth-child(2) {
+  animation-delay: 0.56s;
+}
+
+.word-planners .letter:nth-child(3) {
+  animation-delay: 0.60s;
+}
+
+.word-planners .letter:nth-child(4) {
+  animation-delay: 0.64s;
+}
+
+.word-planners .letter:nth-child(5) {
+  animation-delay: 0.68s;
+}
+
+.word-planners .letter:nth-child(6) {
+  animation-delay: 0.72s;
+}
+
+.word-planners .letter:nth-child(7) {
+  animation-delay: 0.76s;
+}
+
+.word-planners .letter:nth-child(8) {
+  animation-delay: 0.80s;
+}
+
+@keyframes riseIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 0.35;
+  }
+}
+
+/* ── Progress bar ── */
+.progress-track {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: rgba(17, 17, 17, 0.12);
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeBarIn 0.2s ease 0.3s forwards;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--red);
+  animation: fillBar 0.6s cubic-bezier(.4, 0, .2, 1) 0.3s forwards;
+}
+
+@keyframes fadeBarIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fillBar {
+  to {
+    width: 100%;
+  }
+}
+
+/* ── Flash / complete pulse ── */
+.flash {
+  position: fixed;
+  inset: 0;
+  background: var(--red);
+  opacity: 0;
+  pointer-events: none;
+  animation: flashOut 0.2s ease 0.95s forwards;
+}
+
+@keyframes flashOut {
+  0% {
+    opacity: 0.08;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
 /* ── Utility ── */
 .container {
   max-width: 1280px;
@@ -221,77 +453,7 @@ ul {
   text-align: center;
 }
 
-/* ── Preloader ── */
-.preloader {
-  position: fixed;
-  inset: 0;
-  background: var(--white);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease;
-}
 
-.preloader.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.preloader-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.logo-loader {
-  font-size: 40px;
-  animation: pulseLogo 1.6s infinite alternate ease-in-out;
-}
-
-.loader-line {
-  width: 80px;
-  height: 4px;
-  background: rgba(229, 57, 53, 0.15);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-}
-
-.loader-line::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  height: 100%;
-  width: 50%;
-  background: var(--red);
-  animation: lineSweep 1.5s infinite ease-in-out;
-  border-radius: 4px;
-}
-
-@keyframes pulseLogo {
-  0% {
-    transform: translateY(0) scale(0.98);
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: translateY(-4px) scale(1.02);
-    opacity: 1;
-  }
-}
-
-@keyframes lineSweep {
-  0% {
-    left: -50%;
-  }
-
-  100% {
-    left: 100%;
-  }
-}
 
 /* ── Toast Notification ── */
 #toast-container {
@@ -3534,17 +3696,29 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 /* Horizontal Scrolling Client Logos */
 .clients-scroll-wrapper {
   position: relative;
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
+  overflow: hidden;
+  /* Fade edges for a premium look */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .clients-scroll {
   display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 16px 60px;
+  gap: 0;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  padding: 20px 0;
+}
+
+.clients-scroll:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .clients-scroll::-webkit-scrollbar {
