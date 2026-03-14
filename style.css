@@ -3705,20 +3705,24 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .clients-scroll {
-  display: flex;
+  display: flex !important;
+  width: max-content !important;
+  flex-wrap: nowrap !important;
   gap: 0;
-  width: max-content;
-  animation: marquee 40s linear infinite;
+  animation: logo-marquee 40s linear infinite;
+  -webkit-animation: logo-marquee 40s linear infinite;
   padding: 20px 0;
+  will-change: transform;
 }
 
-.clients-scroll:hover {
-  animation-play-state: paused;
-}
-
-@keyframes marquee {
+@keyframes logo-marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@-webkit-keyframes logo-marquee {
+  0% { -webkit-transform: translateX(0); }
+  100% { -webkit-transform: translateX(-50%); }
 }
 
 .clients-scroll::-webkit-scrollbar {

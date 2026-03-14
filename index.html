@@ -870,64 +870,64 @@
                             <span class="logo-name">Honda</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/Mahindra.svg" alt="Mahindra" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/Mahindra.svg" alt="Mahindra" loading="lazy">
                             <span class="logo-name">Mahindra</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/AD_Hindalco.svg" alt="Aditya Birla"
+                            <img class="logo-img" src="logos/corporates/AD_Hindalco.svg" alt="Aditya Birla"
                                 loading="lazy">
                             <span class="logo-name">Aditya Birla Hindalco</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/Capgemini.svg" alt="Capgemini" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/Capgemini.svg" alt="Capgemini" loading="lazy">
                             <span class="logo-name">Capgemini</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/Hindustan_Unilever.svg" alt="HUL" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/Hindustan_Unilever.svg" alt="HUL" loading="lazy">
                             <span class="logo-name">HUL</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/jindal.svg" alt="Jindal Steel" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/jindal.svg" alt="Jindal Steel" loading="lazy">
                             <span class="logo-name">Jindal Steel</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/Cocacola.svg" alt="Coca-Cola" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/Cocacola.svg" alt="Coca-Cola" loading="lazy">
                             <span class="logo-name">Coca-Cola</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/raymond.svg" alt="Raymond" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/raymond.svg" alt="Raymond" loading="lazy">
                             <span class="logo-name">Raymond</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/bajajel_ectricals.svg" alt="Bajaj Electricals"
+                            <img class="logo-img" src="logos/corporates/bajajel_ectricals.svg" alt="Bajaj Electricals"
                                 loading="lazy">
                             <span class="logo-name">Bajaj Electricals</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/tata_capital.svg" alt="Tata Capital"
+                            <img class="logo-img" src="logos/corporates/tata_capital.svg" alt="Tata Capital"
                                 loading="lazy">
                             <span class="logo-name">Tata Capital</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/bisleri.svg" alt="Bisleri" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/bisleri.svg" alt="Bisleri" loading="lazy">
                             <span class="logo-name">Bisleri</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/loreal.svg" alt="L'Oréal" loading="lazy">
+                            <img class="logo-img" src="logos/corporates/loreal.svg" alt="L'Oréal" loading="lazy">
                             <span class="logo-name">L'Oréal</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/RP Sanjeev Goenka.svg"
+                            <img class="logo-img" src="logos/corporates/RP Sanjeev Goenka.svg"
                                 alt="RP Sanjeev Goenka Group" loading="lazy">
                             <span class="logo-name">RP-Sanjiv Goenka Group</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/Jubliant_Life_Sciences.svg"
+                            <img class="logo-img" src="logos/corporates/Jubliant_Life_Sciences.svg"
                                 alt="Jubilant Lifesciences" loading="lazy">
                             <span class="logo-name">Jubilant Lifesciences</span>
                         </div>
                         <div class="client-logo-item">
-                            <img class="logo-img" src="logos/corporate/Tata_Business_Support_Services.svg"
+                            <img class="logo-img" src="logos/corporates/Tata_Business_Support_Services.svg"
                                 alt="Tata Business Support Services" loading="lazy">
                             <span class="logo-name">Tata Business Support Services</span>
                         </div>
@@ -1525,24 +1525,31 @@
             function scrollTestimonials(amt) { document.getElementById('testimonialsScroll').scrollBy({ left: amt, behavior: 'smooth' }); }
             /* ── INIT ── */
             document.addEventListener('DOMContentLoaded', () => {
+                // 1. Clients auto-scroll duplication (Required for seamless loop)
+                const scroll = document.getElementById('clientsScroll');
+                if (scroll && scroll.children.length > 0) {
+                    // Always duplicate once to ensure we have enough content for the -50% translateX marquee
+                    scroll.innerHTML += scroll.innerHTML;
+                }
+
+                // 2. Carousel & General Init
                 updateSlide();
                 if (typeof projects !== 'undefined') renderProjects();
                 if (typeof faqs !== 'undefined') renderFAQ();
                 resetTimer();
 
-                // Clients auto-scroll duplicate for seamless loop
-                const scroll = document.getElementById('clientsScroll');
-                if (scroll) {
-                    scroll.innerHTML += scroll.innerHTML;
-                }
-
-                // Observer for scroll animations
+                // 3. Observer for scroll animations
                 const revealObserver = new IntersectionObserver(entries => {
-                    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+                    entries.forEach(e => { 
+                        if (e.isIntersecting) { 
+                            e.target.classList.add('visible'); 
+                            revealObserver.unobserve(e.target); 
+                        } 
+                    });
                 }, { threshold: .12 });
                 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
 
-                /* close modals on outside click */
+                /* 4. close modals on outside click */
                 ['inquiryModal', 'productModal', 'successModal', 'errorModal'].forEach(id => {
                     const modal = document.getElementById(id);
                     if (modal) {
@@ -1557,7 +1564,7 @@
                     }
                 });
 
-                /* keyboard close */
+                /* 5. Keyboard support */
                 document.addEventListener('keydown', e => {
                     if (e.key === 'Escape') {
                         if (typeof closeInquiryModal === 'function') closeInquiryModal();
@@ -1568,7 +1575,6 @@
                     }
                 });
 
-                /* product card keyboard activation */
                 document.querySelectorAll('.product-card').forEach(card => {
                     card.addEventListener('keyup', e => { if (e.key === 'Enter') e.target.click(); });
                 });
