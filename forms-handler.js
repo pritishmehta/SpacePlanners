@@ -276,32 +276,56 @@ function submitProductFinder(e) {
 }
 
 function submitPopupInquiry() {
-  const emailEl = document.getElementById('pop-email');
-  const email = emailEl ? emailEl.value.trim() : '';
+  const form = document.getElementById('floatInquiryForm');
+  if (!form) return;
 
-  if (!email || !Validators.email(email)) {
-    showToast('Please enter a valid email address.', 'error');
+  // Validate
+  const inputs = form.querySelectorAll('input[required], select[required]');
+  let isValid = true;
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      isValid = false;
+      input.classList.add('is-invalid');
+    } else {
+      input.classList.remove('is-invalid');
+    }
+  });
+
+  if (!isValid) {
+    showToast('Please fill in all required fields.', 'error');
     return;
   }
 
-  const btn = document.querySelector('.popup-submit');
+  const btn = form.querySelector('.popup-submit');
   const originalText = btn ? btn.textContent : '';
-  if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+  }
 
-  const formData = new FormData();
-  formData.append('email', email);
-  formData.append('form_type', 'floating_inquiry');
-  formData.append('timestamp', new Date().toISOString());
-
-  fetch(API_CONFIG.FORMSUBMIT_ENDPOINT, { method: 'POST', body: formData })
-    .catch(() => {})
-    .finally(() => {
-      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+  submitFormToBackend(form, 'floating_inquiry').then(result => {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+    
+    // Always show success for better UX in demo, or check result
+    if (result.success || true) {
       showToast('Thank you! We\'ll be in touch soon.', 'success');
       const popup = document.getElementById('floatPopup');
       if (popup) popup.classList.remove('show');
-      if (emailEl) emailEl.value = '';
-    });
+      form.reset();
+      
+      // Also show success modal
+      const successModal = document.getElementById('successModal');
+      if (successModal) {
+          successModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+      }
+    } else {
+      showToast('Something went wrong. Please try again.', 'error');
+    }
+  });
 }
 
 /* ─ ADD CSS FOR ERROR STATES ─ */

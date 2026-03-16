@@ -312,12 +312,10 @@
 <div id="modals-placeholder"></div>
 
 <!-- 1. HERO CAROUSEL: one slide per product -->
-<section class="carousel-section" aria-label="Compactor Storage Systems"
-    style="position:relative; height:calc(100vh - 120px); min-height:500px; max-height:800px; overflow:hidden; background:#222;">
-    <div class="carousel-container" id="heroCarousel" style="height:100%; position:relative;">
-        <div class="carousel-slide active"><img src="hero_compactor.png" alt="Document Storage Compactor"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
-                onerror="this.style.display='none'">
+<section class="carousel-section" aria-label="Compactor Storage Systems">
+    <div class="carousel-container" id="heroCarousel">
+        <div class="carousel-slide active">
+            <img src="Compactors/doc storage compactor.webp" alt="Document Storage Compactor" loading="eager">
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <p class="slide-eyebrow">Product Portfolio</p>
@@ -325,31 +323,26 @@
                 <p class="slide-description">Offices, Banks, Libraries, Archives...</p>
             </div>
         </div>
-        <div class="carousel-slide"><img src="hero_compactor.png" alt="Pigeon Hole Compactor"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
-                onerror="this.style.display='none'">
+        <div class="carousel-slide">
+            <img src="Compactors/pigeon hole.webp" alt="Pigeon Hole Compactor" loading="lazy">
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <p class="slide-eyebrow">Product Portfolio</p>
                 <h1 class="slide-title">Pigeon Hole Compactor</h1>
-                <p class="slide-description">Engineering Components, Electronic Components, Hardware Items,
-                    Pharmaceutical Su...</p>
+                <p class="slide-description">Engineering Components, Electronic Components, Hardware Items...</p>
             </div>
         </div>
-        <div class="carousel-slide"><img src="hero_compactor.png" alt="Heavy Duty Compactor"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
-                onerror="this.style.display='none'">
+        <div class="carousel-slide">
+            <img src="Compactors/ChatGPT Image Jan 23, 2026, 02_02_59 PM.webp" alt="Heavy Duty Compactor" loading="lazy">
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <p class="slide-eyebrow">Product Portfolio</p>
                 <h1 class="slide-title">Heavy Duty Compactor</h1>
-                <p class="slide-description">Designed to accommodate items weighing up to 300 kilograms per
-                    level....</p>
+                <p class="slide-description">Accommodates items weighing up to 300 kilograms per level.</p>
             </div>
         </div>
-        <div class="carousel-slide"><img src="hero_compactor.png" alt="Perforated Compactor"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
-                onerror="this.style.display='none'">
+        <div class="carousel-slide">
+            <img src="Compactors/peWhatsApp Image 2024-10-17 at 3.45.40 PM.webp" alt="Perforated Compactor" loading="lazy">
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <p class="slide-eyebrow">Product Portfolio</p>
@@ -357,37 +350,28 @@
                 <p class="slide-description">For Temperature and Humidity Control: Medicine Storage, Archives...</p>
             </div>
         </div>
-        <div class="carousel-slide"><img src="hero_compactor.png" alt="Drawer Compactor"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;"
-                onerror="this.style.display='none'">
+        <div class="carousel-slide">
+            <img src="Compactors/ChatGPT Image Jan 23, 2026, 05_32_18 PM.webp" alt="Drawer Compactor" loading="lazy">
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <p class="slide-eyebrow">Product Portfolio</p>
                 <h1 class="slide-title">Drawer Compactor</h1>
-                <p class="slide-description">Maximum storage capacity for smaller items, such as medication,
-                    flavorings, and ...</p>
+                <p class="slide-description">Maximum storage for smaller items like medication and flavorings.</p>
             </div>
         </div>
+
+        <!-- Controls -->
+        <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous">❮</button>
+        <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next">❯</button>
+        
+        <div class="carousel-controls" id="carouselDots">
+            <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+            <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+            <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+            <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+            <button class="control-dot" onclick="goToSlide(4)" aria-label="Slide 5"></button>
+        </div>
     </div>
-    <!-- Dots -->
-    <div id="carouselDots"
-        style="position:absolute; bottom:100px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10;">
-        <button class="carousel-dot" onclick="goToSlide(0)" aria-label="Slide 1" style="background:#e53935;"
-            style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-        <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Slide 2"
-            style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-        <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Slide 3"
-            style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-        <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Slide 4"
-            style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-        <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Slide 5"
-            style="width:10px;height:10px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.3s;"></button>
-    </div>
-    <!-- Arrows -->
-    <button onclick="prevSlide()" aria-label="Previous"
-        style="position:absolute;left:20px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.2);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;backdrop-filter:blur(4px);">❮</button>
-    <button onclick="nextSlide()" aria-label="Next"
-        style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.2);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;backdrop-filter:blur(4px);">❯</button>
 </section>
 
 <!-- 2. BRUYNZEEL STATS RIBBON -->
@@ -492,7 +476,7 @@
     <!-- SPLIT PRODUCT DETAIL MODAL -->
     <div class="modal" id="productModal" role="dialog" aria-modal="true">
         <div class="modal-content product-modal-content"
-            style="max-width:960px; padding:0; overflow:hidden; border-radius:16px;">
+            style="padding:0; overflow:hidden; border-radius:16px;">
             <button class="close-btn" onclick="closeProductModal()" aria-label="Close"
                 style="z-index:10; background:#fff; width:40px; height:40px; border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.15); top:16px; right:16px;">✕</button>
             <div class="product-modal-split" id="productDetailContent">
@@ -502,49 +486,7 @@
     </div>
 
     <!-- 4. CLIENT LOGOS -->
-    <section class="clients-section">
-        <div class="clients-content">
-            <p class="clients-label">Trusted by India's leading organisations</p>
-            <div class="clients-scroll-wrapper">
-                <button class="clients-nav left" onclick="scrollClients(-300)"
-                    aria-label="Scroll left">&#x276e;</button>
-                <div class="clients-scroll" id="clientsScroll">
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/drdo.gov.in"
-                            alt="DRDO" loading="lazy"><span class="logo-name">DRDO</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ongcindia.com"
-                            alt="ONGC" loading="lazy"><span class="logo-name">ONGC</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/aiims.edu"
-                            alt="AIIMS" loading="lazy"><span class="logo-name">AIIMS</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/tata.com"
-                            alt="Tata Group" loading="lazy"><span class="logo-name">Tata Group</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/isro.gov.in"
-                            alt="ISRO" loading="lazy"><span class="logo-name">ISRO</span></div>
-                    <div class="client-logo-item"><img class="logo-img"
-                            src="https://cdn.brandfetch.io/indianrailways.gov.in" alt="Indian Railways"
-                            loading="lazy"><span class="logo-name">Indian Railways</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/sunpharma.com"
-                            alt="Sun Pharma" loading="lazy"><span class="logo-name">Sun Pharma</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/sbi.co.in"
-                            alt="SBI" loading="lazy"><span class="logo-name">SBI</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/larsentoubro.com"
-                            alt="L&T" loading="lazy"><span class="logo-name">L&T</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ril.com"
-                            alt="Reliance" loading="lazy"><span class="logo-name">Reliance</span></div>
-                    <div class="client-logo-item"><img class="logo-img"
-                            src="https://cdn.brandfetch.io/kokilabenhospital.com" alt="Kokilaben" loading="lazy"><span
-                            class="logo-name">Kokilaben</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/iitb.ac.in"
-                            alt="IIT Bombay" loading="lazy"><span class="logo-name">IIT Bombay</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/ntpc.co.in"
-                            alt="NTPC" loading="lazy"><span class="logo-name">NTPC</span></div>
-                    <div class="client-logo-item"><img class="logo-img" src="https://cdn.brandfetch.io/rbi.org.in"
-                            alt="RBI" loading="lazy"><span class="logo-name">RBI</span></div>
-                    <button class="clients-nav right" onclick="scrollClients(300)"
-                        aria-label="Scroll right">&#x276f;</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="client-logos-placeholder"></div>
 
     <!-- 5. FOOTER -->
     <footer id="footer-placeholder"></footer>
@@ -554,7 +496,7 @@
         // ── CAROUSEL ──
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
+        const dots = document.querySelectorAll('.control-dot');
 
         function goToSlide(n) {
             slides.forEach(s => s.classList.remove('active'));
@@ -632,28 +574,28 @@
             if (!p) return;
             const content = document.getElementById('productDetailContent');
             content.innerHTML = `
-                <div class="product-modal-image" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);">
-                    <img src="${p.image}" alt="${p.name}" onerror="this.style.opacity='0';" style="width:100%; height:100%; object-fit:cover; opacity:0.9;">
+                <div class="product-modal-image">
+                    <img src="${p.image}" alt="${p.name}" onerror="this.src='Loading.gif'">
                 </div>
                 <div class="product-modal-details">
-                    <span class="product-modal-label">Product Detail</span>
-                    <h2 class="product-modal-title" style="font-size:24px; margin:12px 0 8px;">${p.name}</h2>
-                    <div style="margin: 16px 0 20px;">
-                        <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:#aaa;">Ideal Applications</span>
-                        <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
-                            ${p.apps.split(',').map(a => `<span style="background:#f5f5f5; color:#444; padding:5px 12px; border-radius:20px; font-size:13px; font-weight:500;">${a.trim()}</span>`).join('')}
+                    <span class="product-modal-label">Product Portfolio</span>
+                    <h2 class="product-modal-title">${p.name}</h2>
+                    <div class="product-modal-description">
+                        Building long-term storage efficiency with our precision-engineered ${p.name}. Designed for maximum space utilization and durability in professional environments.
+                    </div>
+                    <div class="product-modal-meta">
+                        <span class="product-modal-meta-label">Ideal Applications</span>
+                        <div class="product-modal-tags">
+                            ${p.apps.split(',').map(a => `<span class="product-modal-tag">${a.trim()}</span>`).join('')}
                         </div>
                     </div>
-                    <p style="color:var(--mid,#6b6b6b); line-height:1.7; font-size:14px; margin-bottom:24px;">
-                        Built to the highest quality standards with precision engineering — providing maximum safety, durability, and operational efficiency for your facility.
-                    </p>
-                    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:auto; padding-top:16px; border-top:1px solid #f0f0f0;">
-                        <button class="submit-btn" onclick="openInquiryModal()" style="padding:13px 28px; font-size:15px; flex:1;">
-                            Get Free Quote
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <div class="product-modal-actions">
+                        <button class="btn-primary" onclick="openInquiryModal()">
+                            Get Free Quote &rarr;
                         </button>
-                        <a href="https://wa.me/912240033385?text=I'm%20interested%20in%20${encodeURIComponent(p.name)}" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; padding:13px 20px; border:2px solid #25D366; color:#25D366; border-radius:8px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;">
-                            💬 WhatsApp
+                        <a href="https://wa.me/912240033385?text=I'm%20interested%20in%20${encodeURIComponent(p.name)}" 
+                           target="_blank" rel="noopener" class="btn-whatsapp">
+                           💬 WhatsApp
                         </a>
                     </div>
                 </div>

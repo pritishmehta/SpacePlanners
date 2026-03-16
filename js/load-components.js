@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "header-placeholder", url: "components/header.html" },
         { id: "floating-buttons-placeholder", url: "components/floating-buttons.html" },
         { id: "footer-placeholder", url: "components/footer.html" },
-        { id: "modals-placeholder", url: "components/modals.html" }
+        { id: "modals-placeholder", url: "components/modals.html" },
+        { id: "client-logos-placeholder", url: "components/client-logos.html" }
     ];
 
     let loadedCount = 0;
@@ -57,6 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
 /**
  * Common UX Functions
  */
+
+function toggleMobileNav() {
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileNav && mobileNav.classList.contains('open')) {
+        closeMobileNav();
+    } else {
+        openMobileNav();
+    }
+}
 
 function openMobileNav() {
     const mobileNav = document.getElementById('mobileNav');
@@ -130,6 +140,11 @@ function showToast(msg, type = 'success') {
         requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
         setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4000);
     }
+}
+
+function scrollClients(delta) {
+    const el = document.getElementById('clientsScroll');
+    if (el) el.scrollBy({ left: delta, behavior: 'smooth' });
 }
 
 // Close popup on outside click

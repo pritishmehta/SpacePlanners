@@ -23,8 +23,35 @@
         <button class="popup-close" onclick="toggleFloatPopup(event)" aria-label="Close popup">✕</button>
     </div>
     <div class="popup-body">
-        <input class="popup-input" type="email" id="pop-email" placeholder="Your email" autocomplete="email" required>
-        <button class="popup-submit" onclick="submitPopupInquiry()">Get Started →</button>
-        <p class="popup-note">✓ No spam. No commitment.</p>
+        <form id="floatInquiryForm" onsubmit="event.preventDefault(); submitPopupInquiry();">
+            <div class="form-group" style="margin-bottom: 5px;">
+                <label for="pop-name" style="display:none;">Full Name</label>
+                <input class="popup-input" type="text" id="pop-name" name="name" placeholder="Full Name *" required
+                    style="margin-bottom:8px;">
+
+                <label for="pop-email" style="display:none;">Email</label>
+                <input class="popup-input" type="email" id="pop-email" name="email" placeholder="Email Address *"
+                    required style="margin-bottom:8px;">
+
+                <label for="pop-phone" style="display:none;">Phone</label>
+                <input class="popup-input" type="tel" id="pop-phone" name="phone" placeholder="Phone Number *" required
+                    style="margin-bottom:8px;">
+                <select class="popup-input" id="pop-product" name="product_interest" required
+                    style="margin-bottom:8px;">
+                    <option value="">Select Product...</option>
+                    <option value="Mobile Compactors">Mobile Compactors</option>
+                    <option value="Industrial Racks">Industrial Racks</option>
+                    <option value="Storage Lockers">Storage Lockers</option>
+                    <option value="Filing Cabinets">Filing Cabinets</option>
+                    <option value="Mezzanine Systems">Mezzanine Systems</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="pop-msg" style="display:none;">Message</label>
+                <textarea class="popup-input" id="pop-msg" name="message" placeholder="Message (Optional)"
+                    style="margin-bottom:8px; height:60px;"></textarea>
+            </div>
+            <button type="submit" class="popup-submit">Submit Inquiry &rarr;</button>
+        </form>
     </div>
 </div>
