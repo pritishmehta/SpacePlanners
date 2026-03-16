@@ -258,7 +258,7 @@
     <section class="carousel-section" aria-label="Filing Cabinets & Cupboards">
         <div class="carousel-container" id="heroCarousel">
             <div class="carousel-slide active">
-                <img src="hero_filing.png" alt="Perforated Drawer Cabinet" loading="eager">
+                <img src="Cupboard Cabinets/perforated cabinet.webp" alt="Perforated Drawer Cabinet" loading="eager">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <p class="slide-eyebrow">Product Portfolio</p>
@@ -267,7 +267,7 @@
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="hero_filing.png" alt="Drawer Cabinet" loading="lazy">
+                <img src="Cupboard Cabinets/drawer cabinet.webp" alt="Drawer Cabinet" loading="lazy">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <p class="slide-eyebrow">Product Portfolio</p>
@@ -276,7 +276,8 @@
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="hero_filing.png" alt="Poster Storage Drawer Cabinet" loading="lazy">
+                <img src="Cupboard Cabinets/ChatGPT Image Jan 27, 2026, 06_16_38 PM.webp"
+                    alt="Poster Storage Drawer Cabinet" loading="lazy">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <p class="slide-eyebrow">Product Portfolio</p>
@@ -285,7 +286,7 @@
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="hero_filing.png" alt="Filing Cabinet" loading="lazy">
+                <img src="Cupboard Cabinets/filing cabinet.webp" alt="Filing Cabinet" loading="lazy">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <p class="slide-eyebrow">Product Portfolio</p>
@@ -294,7 +295,8 @@
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="hero_filing.png" alt="Storewell Cupboard" loading="lazy">
+                <img src="Cupboard Cabinets/ChatGPT Image Jan 27, 2026, 05_48_34 PM.webp" alt="Storewell Cupboard"
+                    loading="lazy">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <p class="slide-eyebrow">Product Portfolio</p>
@@ -303,7 +305,7 @@
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="hero_filing.png" alt="Glass Door Cupboard" loading="lazy">
+                <img src="Cupboard Cabinets/sliding door closed.webp" alt="Glass Door Cupboard" loading="lazy">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <p class="slide-eyebrow">Product Portfolio</p>
@@ -315,7 +317,7 @@
             <!-- Controls -->
             <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous">❮</button>
             <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next">❯</button>
-            
+
             <div class="carousel-controls" id="carouselDots">
                 <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
                 <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
@@ -428,17 +430,7 @@
             </div>
         </section>
 
-        <!-- SPLIT PRODUCT DETAIL MODAL -->
-        <div class="modal" id="productModal" role="dialog" aria-modal="true">
-            <div class="modal-content product-modal-content"
-                style="padding:0; overflow:hidden; border-radius:16px;">
-                <button class="close-btn" onclick="closeProductModal()" aria-label="Close"
-                    style="z-index:10; background:#fff; width:40px; height:40px; border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.15); top:16px; right:16px;">✕</button>
-                <div class="product-modal-split" id="productDetailContent">
-                    <!-- rendered by JS -->
-                </div>
-            </div>
-        </div>
+
 
 
         <!-- 4. CLIENT LOGOS -->
@@ -488,7 +480,14 @@
             });
 
             // ── PRODUCTS GRID ──
-            const productsData = [{ "id": "f1", "name": "Perforated Drawer Cabinet", "image": "hero_filing.png", "apps": "Pharmacy and Medicine Boxes" }, { "id": "f2", "name": "Drawer Cabinet", "image": "hero_filing.png", "apps": "Archives, Small Components" }, { "id": "f3", "name": "Poster Storage Drawer Cabinet", "image": "hero_filing.png", "apps": "Archives, Film Posters, Small Components" }, { "id": "f4", "name": "Filing Cabinet", "image": "hero_filing.png", "apps": "Organizing Files and Documents" }, { "id": "f5", "name": "Storewell Cupboard", "image": "hero_filing.png", "apps": "Library, Offices, Banks" }, { "id": "f6", "name": "Glass Door Cupboard", "image": "hero_filing.png", "apps": "Library, Offices, Banks" }, { "id": "f7", "name": "Pigeon Hole Cupboard", "image": "hero_filing.png", "apps": "Library, Offices, Banks" }, { "id": "f8", "name": "Sliding Door Cupboard", "image": "hero_filing.png", "apps": "Library, Offices, Banks" }];
+            const productsData = [{ "id": "f1", "name": "Perforated Drawer Cabinet", "image": "Cupboard Cabinets/perforated cabinet.webp", "apps": "Pharmacy and Medicine Boxes" },
+            { "id": "f2", "name": "Drawer Cabinet", "image": "Cupboard Cabinets/drawer cabinet.webp", "apps": "Archives, Small Components" },
+            { "id": "f3", "name": "Poster Storage Drawer Cabinet", "image": "Cupboard Cabinets/ChatGPT Image Jan 27, 2026, 06_16_38 PM.webp", "apps": "Archives, Film Posters, Small Components" },
+            { "id": "f4", "name": "Filing Cabinet", "image": "Cupboard Cabinets/filing cabinet.webp", "apps": "Organizing Files and Documents" },
+            { "id": "f5", "name": "Storewell Cupboard", "image": "Cupboard Cabinets/ChatGPT Image Jan 27, 2026, 05_45_29 PM.webp", "apps": "Library, Offices, Banks" },
+            { "id": "f6", "name": "Glass Door Cupboard", "image": "Cupboard Cabinets/ChatGPT Image Jan 27, 2026, 05_51_05 PM.webp", "apps": "Library, Offices, Banks" },
+            { "id": "f7", "name": "Pigeon Hole Cupboard", "image": "Cupboard Cabinets/ChatGPT Image Jan 27, 2026, 05_48_34 PM.webp", "apps": "Library, Offices, Banks" },
+            { "id": "f8", "name": "Sliding Door Cupboard", "image": "Cupboard Cabinets/image (2).webp", "apps": "Library, Offices, Banks" }];
 
             function renderProducts() {
                 const grid = document.getElementById('productGrid');

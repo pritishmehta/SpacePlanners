@@ -115,8 +115,8 @@
     </div>
 </div>
 <div class="modal" id="productModal" role="dialog" aria-modal="true">
-    <div class="modal-content product-modal-content">
-        <button class="close-btn" onclick="closeProductModal()" aria-label="Close">✕</button>
-        <div id="productDetailContent"></div>
+    <div class="modal-content product-modal-content" style="padding:0; overflow:hidden; border-radius:16px;">
+        <button class="close-btn" onclick="closeProductModal()" aria-label="Close" style="z-index:10; background:#fff; width:40px; height:40px; border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.15); top:16px; right:16px;">✕</button>
+        <div class="product-modal-split" id="productDetailContent"></div>
     </div>
 </div>
