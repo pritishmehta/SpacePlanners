@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let loadedCount = 0;
 
+    const cacheBust = `?v=${Date.now()}`;
+
     components.forEach(comp => {
         const el = document.getElementById(comp.id);
         if (el) {
-            fetch(comp.url)
+            fetch(comp.url + cacheBust)
                 .then(response => {
                     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                     return response.text();

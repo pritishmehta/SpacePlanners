@@ -5700,3 +5700,99 @@ footer {
 .product-modal-details { flex: 1 !important; padding: 40px !important; }
 .product-modal-actions { justify-content: flex-start !important; gap: 16px !important; margin-top: auto !important; padding-top: 24px !important; border-top: 1px solid #eee !important; display: flex !important; }
 .product-modal-actions button, .product-modal-actions a { flex: 1 !important; justify-content: center !important; }
+
+/* ====================================================
+   INDUSTRY CLIENT LOGOS — Infinite Marquee Ticker
+   ==================================================== */
+
+.industry-client-logos {
+  width: 100%;
+  margin-top: 48px;
+  border-top: 1px solid #eee;
+  padding-top: 32px;
+  overflow: hidden; /* contain the ticker */
+}
+
+.industry-client-logos-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 20px;
+}
+
+/* Ticker viewport — clips overflow, adds edge fades */
+.clients-ticker {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* fade left/right edges for a polished look */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+/* Pause on hover */
+.clients-ticker:hover .clients-ticker-inner {
+  animation-play-state: paused;
+}
+
+/* The moving belt — exactly 2× the logo set wide */
+.clients-ticker-inner {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 35s linear infinite;
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Each logo card — single row, no wrap */
+.client-logo-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 28px;
+  flex-shrink: 0;
+  cursor: default;
+}
+
+.logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: filter .25s ease;
+  display: block;
+}
+
+.client-logo-item:hover .logo-img {
+  filter: grayscale(0%) opacity(1);
+}
+
+.logo-name {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--light);
+  white-space: nowrap;
+  transition: color .25s;
+}
+
+.client-logo-item:hover .logo-name {
+  color: var(--dark);
+}
+
+@media (max-width: 640px) {
+  .clients-ticker-inner { animation-duration: 22s; }
+  .logo-img { height: 28px; }
+  .client-logo-item { padding: 8px 18px; }
+}
+
