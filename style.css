@@ -5105,13 +5105,10 @@ footer {
     width: auto;
   }
 
-  /* 2. Sector Cards: Horizontal scroll on mobile */
-  .sector-card {
-    min-width: 260px;
-  }
-
+  /* 2. Sector Cards: Horizontal scroll on mobile — all same height */
   .sectors-grid {
     display: flex;
+    align-items: stretch;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -5123,9 +5120,17 @@ footer {
     display: none;
   }
 
-  .sectors-grid>* {
+  .sectors-grid > .sector-card {
     flex: 0 0 260px;
     scroll-snap-align: start;
+  }
+
+  .sectors-grid .sector-card-inner {
+    height: 100%;
+  }
+
+  .sectors-grid .sector-info {
+    flex: 1;
   }
 
   .sector-icon {
