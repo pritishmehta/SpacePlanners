@@ -245,7 +245,6 @@
 </head>
 
 <body class="home-page preloader-active">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Preloader -->
     <div id="sp-loader">
         <div class="scene">
@@ -259,7 +258,6 @@
                 <div class="progress-fill" id="prog"></div>
             </div>
         </div>
-        <button class="replay" id="replayBtn" style="display:none;">↺ Replay</button>
     </div><!-- end #sp-loader -->
 
     <script>
@@ -459,7 +457,6 @@
                         <button class="btn-white" onclick="openInquiryModal()"
                             style="font-size: 16px; padding: 14px 32px; font-weight: 600;">Get Quote
                             →</button>
-                        <a href="products.html" class="btn-outline-white">View All Products</a>
                     </div>
                 </div>
                 <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous slide">❮</button>
@@ -570,156 +567,201 @@
                     <div class="accent-line"></div>
                 </div>
 
+                <div class="sectors-scroll-container">
                 <div class="sectors-grid" data-stagger>
                     <!-- PHARMA -->
-                    <div class="sector-card reveal" data-stagger-item>
-                        <a href="industrial_applications.html#pharma" class="sector-card-inner">
-                            <div class="sector-image-wrap">
+                    <div class="product-card reveal" data-stagger-item
+                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                        <a href="industrial_applications.html#pharma"
+                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 160px; margin: 16px 16px 0;">
                                 <img src="assets/sectors/pharmaceutical_storage_sector_1773926415250.png"
-                                    alt="Pharmaceutical Storage" loading="lazy">
-                                <div class="sector-badge-mini">Pharmaceutical</div>
+                                    alt="Pharmaceutical Storage" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                             </div>
-                            <div class="sector-info">
-                                <div class="sector-icon-floating">💊</div>
-                                <h3 class="sector-name">Pharmaceutical</h3>
-                                <p class="sector-desc">GMP-compliant systems for samples, raw materials, and finished
-                                    goods storage</p>
-                                <ul class="sector-benefits">
-                                    <li><span>✓</span> GMP/WHO compliant</li>
-                                    <li><span>✓</span> Temperature compatible</li>
-                                    <li><span>✓</span> FIFO access design</li>
+                            <div class="product-info"
+                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Pharmaceutical & Healthcare</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">GMP-compliant systems for samples, raw materials goods storage</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 16px 0; flex: 1;">
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> GMP/WHO compliant</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Temperature compatible</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> FIFO access design</li>
                                 </ul>
-                                <div class="sector-cta">
-                                    <span class="btn-text">View Solutions →</span>
-                                </div>
                             </div>
                         </a>
+                        <div style="padding: 0 16px 16px;">
+                            <a href="industrial_applications.html#pharma" class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; display: block; box-sizing: border-box; text-align: center;">View Solutions
+                                →</a>
+                        </div>
                     </div>
 
                     <!-- HEALTHCARE -->
-                    <div class="sector-card reveal delay-1" data-stagger-item>
-                        <a href="industrial_applications.html#pharma" class="sector-card-inner">
-                            <div class="sector-image-wrap">
+                    <div class="product-card reveal delay-1" data-stagger-item
+                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                        <a href="industrial_applications.html#museum"
+                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 160px; margin: 16px 16px 0;">
                                 <img src="assets/sectors/healthcare_records_sector_1773926429695.png"
-                                    alt="Healthcare Storage" loading="lazy">
-                                <div class="sector-badge-mini">Healthcare</div>
+                                    alt="Healthcare Storage" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                             </div>
-                            <div class="sector-info">
-                                <div class="sector-icon-floating">🏥</div>
-                                <h3 class="sector-name">Healthcare</h3>
-                                <p class="sector-desc">Secure storage for medical records, linen, equipment, and
-                                    inventory</p>
-                                <ul class="sector-benefits">
-                                    <li><span>✓</span> NABH aligned</li>
-                                    <li><span>✓</span> Infection-control materials</li>
-                                    <li><span>✓</span> Quick retrieval access</li>
+                            <div class="product-info"
+                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Muesums & Archives</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Secure storage for medical records, linen, equipment, and inventory</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 16px 0; flex: 1;">
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> NABH aligned</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Infection-control materials</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Quick retrieval access</li>
                                 </ul>
-                                <div class="sector-cta">
-                                    <span class="btn-text">View Solutions →</span>
-                                </div>
                             </div>
                         </a>
+                        <div style="padding: 0 16px 16px;">
+                            <a href="industrial_applications.html#museum" class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; display: block; box-sizing: border-box; text-align: center;">View Solutions
+                                →</a>
+                        </div>
                     </div>
 
                     <!-- GOVERNMENT -->
-                    <div class="sector-card reveal delay-2" data-stagger-item>
-                        <a href="industrial_applications.html#government" class="sector-card-inner">
-                            <div class="sector-image-wrap">
+                    <div class="product-card reveal delay-2" data-stagger-item
+                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                        <a href="industrial_applications.html#government"
+                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 160px; margin: 16px 16px 0;">
                                 <img src="assets/sectors/government_archives_sector_1773926446028.png"
-                                    alt="Government Archives" loading="lazy">
-                                <div class="sector-badge-mini">Government</div>
+                                    alt="Government Archives" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                             </div>
-                            <div class="sector-info">
-                                <div class="sector-icon-floating">🏛️</div>
-                                <h3 class="sector-name">Government</h3>
-                                <p class="sector-desc">Lockable filing for document archives, case files, and
-                                    departmental records</p>
-                                <ul class="sector-benefits">
-                                    <li><span>✓</span> Anti-tamper locks</li>
-                                    <li><span>✓</span> Unlimited file capacity</li>
-                                    <li><span>✓</span> GeM portal compatible</li>
+                            <div class="product-info"
+                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Government Offices</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Lockable filing for document archives, case files, and departmental records</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 16px 0; flex: 1;">
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Anti-tamper locks</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Unlimited file capacity</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> GeM portal compatible</li>
                                 </ul>
-                                <div class="sector-cta">
-                                    <span class="btn-text">View Solutions →</span>
-                                </div>
                             </div>
                         </a>
+                        <div style="padding: 0 16px 16px;">
+                            <a href="industrial_applications.html#government" class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; display: block; box-sizing: border-box; text-align: center;">View Solutions
+                                →</a>
+                        </div>
                     </div>
 
                     <!-- WAREHOUSE -->
-                    <div class="sector-card reveal" data-stagger-item>
-                        <a href="industrial_applications.html#warehouse" class="sector-card-inner">
-                            <div class="sector-image-wrap">
+                    <div class="product-card reveal" data-stagger-item
+                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                        <a href="industrial_applications.html#warehouse"
+                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 160px; margin: 16px 16px 0;">
                                 <img src="assets/sectors/industrial_warehouse_sector_1773926460914.png"
-                                    alt="Warehouse & Logistics" loading="lazy">
-                                <div class="sector-badge-mini">Logistics</div>
+                                    alt="Warehouse & Logistics" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                             </div>
-                            <div class="sector-info">
-                                <div class="sector-icon-floating">📦</div>
-                                <h3 class="sector-name">Warehouse &amp; Logistics</h3>
-                                <p class="sector-desc">Heavy-duty pallet racks and systems for large-volume storage
-                                    operations</p>
-                                <ul class="sector-benefits">
-                                    <li><span>✓</span> Up to 10-ton load capacity</li>
-                                    <li><span>✓</span> OSHA-aligned safety</li>
-                                    <li><span>✓</span> Modular &amp; scalable</li>
+                            <div class="product-info"
+                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Warehouse &amp; Logistics</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Heavy-duty pallet racks and systems for large-volume storage operations</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 16px 0; flex: 1;">
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Up to 10-ton load capacity</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> OSHA-aligned safety</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Modular &amp; scalable</li>
                                 </ul>
-                                <div class="sector-cta">
-                                    <span class="btn-text">View Solutions →</span>
-                                </div>
                             </div>
                         </a>
+                        <div style="padding: 0 16px 16px;">
+                            <a href="industrial_applications.html#warehouse" class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; display: block; box-sizing: border-box; text-align: center;">View Solutions
+                                →</a>
+                        </div>
                     </div>
 
                     <!-- EDUCATION -->
-                    <div class="sector-card reveal delay-1" data-stagger-item>
-                        <a href="industrial_applications.html#education" class="sector-card-inner">
-                            <div class="sector-image-wrap">
+                    <div class="product-card reveal delay-1" data-stagger-item
+                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                        <a href="industrial_applications.html#education"
+                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 160px; margin: 16px 16px 0;">
                                 <img src="assets/sectors/library_education_sector_1773926478421.png"
-                                    alt="Education & Libraries" loading="lazy">
-                                <div class="sector-badge-mini">Education</div>
+                                    alt="Education & Libraries" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                             </div>
-                            <div class="sector-info">
-                                <div class="sector-icon-floating">🎓</div>
-                                <h3 class="sector-name">Education &amp; Libraries</h3>
-                                <p class="sector-desc">Compact mobile shelving for libraries, lockers, and
-                                    administrative records</p>
-                                <ul class="sector-benefits">
-                                    <li><span>✓</span> Library-grade systems</li>
-                                    <li><span>✓</span> Student locker banks</li>
-                                    <li><span>✓</span> Custom color options</li>
+                            <div class="product-info"
+                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Education &amp; Libraries</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Compact mobile shelving for libraries, lockers, and administrative records</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 16px 0; flex: 1;">
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Library-grade systems</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Student locker banks</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Custom color options</li>
                                 </ul>
-                                <div class="sector-cta">
-                                    <span class="btn-text">View Solutions →</span>
-                                </div>
                             </div>
                         </a>
+                        <div style="padding: 0 16px 16px;">
+                            <a href="industrial_applications.html#education" class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; display: block; box-sizing: border-box; text-align: center;">View Solutions
+                                →</a>
+                        </div>
                     </div>
 
                     <!-- CORPORATE -->
-                    <div class="sector-card reveal delay-2" data-stagger-item>
-                        <a href="industrial_applications.html#corporate" class="sector-card-inner">
-                            <div class="sector-image-wrap">
+                    <div class="product-card reveal delay-2" data-stagger-item
+                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                        <a href="industrial_applications.html#corporate"
+                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                            <div class="product-image"
+                                style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
                                 <img src="assets/sectors/corporate_office_sector_1773926495247.png"
-                                    alt="Corporate Offices" loading="lazy">
-                                <div class="sector-badge-mini">Corporate</div>
+                                    alt="Corporate Offices" loading="lazy"
+                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                             </div>
-                            <div class="sector-info">
-                                <div class="sector-icon-floating">🏢</div>
-                                <h3 class="sector-name">Corporate Offices</h3>
-                                <p class="sector-desc">Modern office storage, personal lockers, and filing solutions</p>
-                                <ul class="sector-benefits">
-                                    <li><span>✓</span> Contemporary finishes</li>
-                                    <li><span>✓</span> Ergonomic heights</li>
-                                    <li><span>✓</span> Custom branding</li>
+                            <div class="product-info"
+                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                <h3 class="product-name"
+                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                    Corporate Offices</h3>
+                                <p class="product-description"
+                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Modern office storage, personal lockers, and filing solutions</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 16px 0; flex: 1;">
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Contemporary finishes</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Ergonomic heights</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); margin-bottom: 6px; line-height: 1.4;"><span style="color: var(--primary); font-weight: 800; font-size: 14px; flex-shrink: 0;">✓</span> Custom branding</li>
                                 </ul>
-                                <div class="sector-cta">
-                                    <span class="btn-text">View Solutions →</span>
-                                </div>
                             </div>
                         </a>
+                        <div style="padding: 0 16px 16px;">
+                            <a href="industrial_applications.html#corporate" class="btn-primary"
+                                style="width: 100%; padding: 10px; font-size: 14px; display: block; box-sizing: border-box; text-align: center;">View Solutions
+                                →</a>
+                        </div>
                     </div>
                 </div>
+                </div><!-- /sectors-scroll-container -->
             </div>
         </section>
 
