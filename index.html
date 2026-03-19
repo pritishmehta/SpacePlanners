@@ -60,7 +60,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap"
         media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet"
@@ -248,57 +248,145 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Preloader -->
     <div id="sp-loader">
-        <div class="flash"></div>
-
-        <div class="loader-wrap">
-            <!-- Red square with SPACE centred inside -->
-            <div class="sq">
-                <svg viewBox="0 0 100 100">
-                    <rect class="sq-rect" x="3" y="3" width="94" height="94" rx="0" />
-                </svg>
-                <div class="word word-space">
-                    <span class="letter">S</span>
-                    <span class="letter">P</span>
-                    <span class="letter">A</span>
-                    <span class="letter">C</span>
-                    <span class="letter">E</span>
+        <div class="scene">
+            <div class="main-row">
+                <canvas id="c"></canvas>
+                <div class="word-planners" id="planners">
+                    <span>&nbsp;PLANNERS</span>
                 </div>
             </div>
-
-            <!-- PLANNERS to the right -->
-            <div class="right-group">
-                <div class="divider"></div>
-                <div class="word word-planners">
-                    <span class="letter">P</span>
-                    <span class="letter">L</span>
-                    <span class="letter">A</span>
-                    <span class="letter">N</span>
-                    <span class="letter">N</span>
-                    <span class="letter">E</span>
-                    <span class="letter">R</span>
-                    <span class="letter">S</span>
-                </div>
-            </div>
-
-            <!-- progress bar beneath everything -->
             <div class="progress-track">
-                <div class="progress-fill"></div>
+                <div class="progress-fill" id="prog"></div>
             </div>
         </div>
+        <button class="replay" id="replayBtn" style="display:none;">↺ Replay</button>
     </div><!-- end #sp-loader -->
 
     <script>
-        // Handle preloader fade-out
-        window.addEventListener('load', function () {
+        (function () {
+            const canvas = document.getElementById('c');
+            const ctx = canvas.getContext('2d');
+            const planners = document.getElementById('planners');
+            const prog = document.getElementById('prog');
             const loader = document.getElementById('sp-loader');
-            if (loader) {
-                // Intro animations take ~1.2s to finish
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                    document.body.classList.remove('preloader-active');
-                }, 1300);
+
+            const RED = '#c0392b';
+            const STROKE = 3.5;
+            const S2 = STROKE / 2;
+            const FINAL_H = 140;
+            const FINAL_W = 140;
+            const START_W = 420;
+            const ARM = 24;
+
+            // ── Timing: total 950ms ──
+            const COMPRESS_DEL = 0;
+            const COMPRESS_DUR = 480;
+            const PLANNERS_DEL = 520;
+            const PLANNERS_DUR = 200;
+            const TOTAL = 950;
+
+            const easeInOut = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            const easeOut = t => 1 - Math.pow(1 - t, 3);
+            const lerp = (a, b, t) => a + (b - a) * t;
+
+            function draw(progress) {
+                const W = Math.round(lerp(START_W, FINAL_W, progress));
+                const H = FINAL_H;
+
+                canvas.width = W;
+                canvas.height = H;
+                ctx.clearRect(0, 0, W, H);
+
+                ctx.strokeStyle = RED;
+                ctx.lineWidth = STROKE;
+                ctx.lineJoin = 'miter';
+                ctx.lineCap = 'square';
+
+                // Left bracket [
+                ctx.beginPath();
+                ctx.moveTo(ARM, S2);
+                ctx.lineTo(S2, S2);
+                ctx.lineTo(S2, H - S2);
+                ctx.lineTo(ARM, H - S2);
+                ctx.stroke();
+
+                // Right bracket ]
+                ctx.beginPath();
+                ctx.moveTo(W - ARM, S2);
+                ctx.lineTo(W - S2, S2);
+                ctx.lineTo(W - S2, H - S2);
+                ctx.lineTo(W - ARM, H - S2);
+                ctx.stroke();
+
+                // Top & bottom bars grow inward as brackets close
+                const barProgress = Math.max(0, (progress - 0.4) / 0.6);
+                const barLen = (W / 2) * easeOut(barProgress);
+
+                ctx.beginPath(); ctx.moveTo(S2, S2); ctx.lineTo(S2 + barLen, S2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(W - S2, S2); ctx.lineTo(W - S2 - barLen, S2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(S2, H - S2); ctx.lineTo(S2 + barLen, H - S2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(W - S2, H - S2); ctx.lineTo(W - S2 - barLen, H - S2); ctx.stroke();
+
+                // SPACE — centred, letter spacing compresses with box
+                const ls = lerp(20, 4, progress);
+                ctx.font = `200 26px 'Josefin Sans', sans-serif`;
+                ctx.fillStyle = '#1a1a1a';
+                ctx.textBaseline = 'middle';
+
+                const word = ['S', 'P', 'A', 'C', 'E'];
+                const cw = word.map(l => ctx.measureText(l).width);
+                const totalW = cw.reduce((a, b) => a + b, 0) + ls * (word.length - 1);
+                let x = W / 2 - totalW / 2;
+                word.forEach((l, i) => {
+                    ctx.fillText(l, x, H / 2);
+                    x += cw[i] + (i < word.length - 1 ? ls : 0);
+                });
             }
-        });
+
+            let animId = null, startTs = null;
+
+            function tick(ts) {
+                if (!startTs) startTs = ts;
+                const e = ts - startTs;
+
+                draw(easeInOut(Math.min(Math.max((e - COMPRESS_DEL) / COMPRESS_DUR, 0), 1)));
+
+                const pp = easeOut(Math.min(Math.max((e - PLANNERS_DEL) / PLANNERS_DUR, 0), 1));
+                planners.style.maxWidth = lerp(0, 260, pp) + 'px';
+                planners.style.opacity = Math.min(pp * 2, 1);
+
+                prog.style.width = Math.min(e / TOTAL, 1) * 100 + '%';
+
+                if (e < TOTAL) animId = requestAnimationFrame(tick);
+            }
+
+            function start() {
+                if (animId) cancelAnimationFrame(animId);
+                startTs = null;
+                planners.style.maxWidth = '0';
+                planners.style.opacity = '0';
+                prog.style.width = '0%';
+                draw(0);
+                animId = requestAnimationFrame(tick);
+            }
+
+            // Handle preloader fade-out
+            window.addEventListener('load', function () {
+                if (loader) {
+                    // Start the animation and fade-out after it finishes
+                    document.fonts.ready.then(() => {
+                        start();
+                        setTimeout(() => {
+                            loader.classList.add('hidden');
+                            document.body.classList.remove('preloader-active');
+                        }, TOTAL + 400); // Wait for animation + small delay
+                    });
+                }
+            });
+
+            const replayBtn = document.getElementById('replayBtn');
+            if (replayBtn) replayBtn.onclick = start;
+        })();
     </script>
     <header id="header-placeholder"></header>
     <div id="mobile-nav-placeholder"></div>
@@ -472,114 +560,165 @@
         <!-- ══════════════════════════════════════════════
         2. STORAGE SOLUTIONS FOR EVERY SECTOR
     ══════════════════════════════════════════════ -->
-        <section class="section" id="industries" aria-labelledby="industries-heading">
+        <section class="section sectors-section" id="sectors" aria-labelledby="sectors-heading">
             <div class="container">
-                <div class="section-header-small reveal">
-                    <span class="section-badge">Industry Verticals</span>
-                    <h2 class="section-title">Storage Solutions for Every Sector</h2>
-                    <p class="section-subtitle" style="margin:0 auto 24px;">From pharmaceutical cleanrooms to
-                        government
-                        archives — our storage systems are engineered to meet
-                        the precise regulatory and operational requirements of each industry.</p>
+                <div class="section-header-small reveal text-center">
+                    <span class="section-badge">Industry Solutions</span>
+                    <h2 class="section-title">Storage Systems for Every Sector</h2>
+                    <p class="section-subtitle" style="margin:0 auto 24px;">Purpose-built solutions tailored to your
+                        industry's compliance, access, and capacity needs</p>
+                    <div class="accent-line"></div>
                 </div>
-                <div class="industries-grid" data-stagger>
 
-                    <a href="projects.html#pharma">
-                        <div class="industry-card reveal" data-delay="0" data-stagger-item>
-                            <div class="industry-icon">
-                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path
-                                        d="M24 4v6M24 38v6M10 24H4M44 24h-6M16.2 11.2L12 7M36 41l-4.2-4.2M11.2 31.8L7 36M41 12l-4.2 4.2" />
-                                    <circle cx="24" cy="24" r="10" />
-                                    <path d="M21 24h6M24 21v6" />
-                                </svg>
+                <div class="sectors-grid" data-stagger>
+                    <!-- PHARMA -->
+                    <div class="sector-card reveal" data-stagger-item>
+                        <a href="industrial_applications.html#pharma" class="sector-card-inner">
+                            <div class="sector-image-wrap">
+                                <img src="assets/sectors/pharmaceutical_storage_sector_1773926415250.png"
+                                    alt="Pharmaceutical Storage" loading="lazy">
+                                <div class="sector-badge-mini">Pharmaceutical</div>
                             </div>
-                            <div class="industry-name">Pharmaceutical &amp; Healthcare</div>
-                            <p class="industry-desc">GMP-compliant compactor systems designed for cleanroom
-                                environments,
-                                controlled substance storage and medical record archiving.</p>
-                        </div>
-                    </a>
-                    <a href="projects.html#corporate">
-                        <div class="industry-card reveal" data-delay="80" data-stagger-item>
-                            <div class="industry-icon">
-                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="6" y="14" width="36" height="26" rx="2" />
-                                    <path d="M16 14V10a2 2 0 012-2h12a2 2 0 012 2v4" />
-                                    <path d="M6 24h36" />
-                                    <rect x="20" y="24" width="8" height="8" rx="1" />
-                                </svg>
+                            <div class="sector-info">
+                                <div class="sector-icon-floating">💊</div>
+                                <h3 class="sector-name">Pharmaceutical</h3>
+                                <p class="sector-desc">GMP-compliant systems for samples, raw materials, and finished
+                                    goods storage</p>
+                                <ul class="sector-benefits">
+                                    <li><span>✓</span> GMP/WHO compliant</li>
+                                    <li><span>✓</span> Temperature compatible</li>
+                                    <li><span>✓</span> FIFO access design</li>
+                                </ul>
+                                <div class="sector-cta">
+                                    <span class="btn-text">View Solutions →</span>
+                                </div>
                             </div>
-                            <div class="industry-name">Corporate Offices</div>
-                            <p class="industry-desc">Sleek, space-efficient mobile filing and document storage solutions
-                                for
-                                modern corporate environments and open-plan offices.</p>
-                        </div>
-                    </a>
-                    <a href="projects.html#warehouse">
-                        <div class="industry-card reveal" data-delay="160" data-stagger-item>
-                            <div class="industry-icon">
-                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="4" y="20" width="10" height="24" />
-                                    <rect x="20" y="12" width="10" height="32" />
-                                    <rect x="36" y="16" width="10" height="28" />
-                                    <path d="M2 44h44" />
-                                    <path d="M12 28l8-8 8 6 8-10" />
-                                </svg>
+                        </a>
+                    </div>
+
+                    <!-- HEALTHCARE -->
+                    <div class="sector-card reveal delay-1" data-stagger-item>
+                        <a href="industrial_applications.html#pharma" class="sector-card-inner">
+                            <div class="sector-image-wrap">
+                                <img src="assets/sectors/healthcare_records_sector_1773926429695.png"
+                                    alt="Healthcare Storage" loading="lazy">
+                                <div class="sector-badge-mini">Healthcare</div>
                             </div>
-                            <div class="industry-name">Warehouse &amp; Logistics</div>
-                            <p class="industry-desc">High-density racking and compactor systems engineered for maximum
-                                throughput in distribution centres and third-party logistics operations.</p>
-                        </div>
-                    </a>
-                    <a href="projects.html#education">
-                        <div class="industry-card reveal" data-delay="240" data-stagger-item>
-                            <div class="industry-icon">
-                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="6" y="6" width="36" height="36" rx="3" />
-                                    <path d="M6 18h36" />
-                                    <path d="M24 18v24" />
-                                    <path d="M15 12h.01M24 12h.01M33 12h.01" />
-                                </svg>
+                            <div class="sector-info">
+                                <div class="sector-icon-floating">🏥</div>
+                                <h3 class="sector-name">Healthcare</h3>
+                                <p class="sector-desc">Secure storage for medical records, linen, equipment, and
+                                    inventory</p>
+                                <ul class="sector-benefits">
+                                    <li><span>✓</span> NABH aligned</li>
+                                    <li><span>✓</span> Infection-control materials</li>
+                                    <li><span>✓</span> Quick retrieval access</li>
+                                </ul>
+                                <div class="sector-cta">
+                                    <span class="btn-text">View Solutions →</span>
+                                </div>
                             </div>
-                            <div class="industry-name">Education &amp; Library</div>
-                            <p class="industry-desc">Mobile shelving for academic libraries, research archives and
-                                university record rooms — optimising every square foot of floor space.</p>
-                        </div>
-                    </a>
-                    <a href="projects.html#museum">
-                        <div class="industry-card reveal" data-delay="320" data-stagger-item>
-                            <div class="industry-icon">
-                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M24 6L6 18v24h36V18L24 6z" />
-                                    <path d="M18 42V30a2 2 0 012-2h8a2 2 0 012 2v12" />
-                                    <path d="M6 18h36" />
-                                    <path d="M14 18v-4M34 18v-4" />
-                                </svg>
+                        </a>
+                    </div>
+
+                    <!-- GOVERNMENT -->
+                    <div class="sector-card reveal delay-2" data-stagger-item>
+                        <a href="industrial_applications.html#government" class="sector-card-inner">
+                            <div class="sector-image-wrap">
+                                <img src="assets/sectors/government_archives_sector_1773926446028.png"
+                                    alt="Government Archives" loading="lazy">
+                                <div class="sector-badge-mini">Government</div>
                             </div>
-                            <div class="industry-name">Museums &amp; Archives</div>
-                            <p class="industry-desc">Climate-conscious storage systems for artefact preservation,
-                                archival
-                                collections and sensitive material repositories requiring precise environmental control.
-                            </p>
-                        </div>
-                    </a>
-                    <a href="projects.html#retail">
-                        <div class="industry-card reveal" data-delay="400" data-stagger-item>
-                            <div class="industry-icon">
-                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M4 42h40M8 42V22l16-14 16 14v20" />
-                                    <path d="M20 42V32h8v10" />
-                                    <path d="M14 26h4v6h-4zM30 26h4v6h-4z" />
-                                    <path d="M24 8v6" />
-                                </svg>
+                            <div class="sector-info">
+                                <div class="sector-icon-floating">🏛️</div>
+                                <h3 class="sector-name">Government</h3>
+                                <p class="sector-desc">Lockable filing for document archives, case files, and
+                                    departmental records</p>
+                                <ul class="sector-benefits">
+                                    <li><span>✓</span> Anti-tamper locks</li>
+                                    <li><span>✓</span> Unlimited file capacity</li>
+                                    <li><span>✓</span> GeM portal compatible</li>
+                                </ul>
+                                <div class="sector-cta">
+                                    <span class="btn-text">View Solutions →</span>
+                                </div>
                             </div>
-                            <div class="industry-name">Government Offices</div>
-                            <p class="industry-desc">High-capacity filing and record management compactors for central
-                                and
-                                state government departments, courts and public sector undertakings.</p>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+
+                    <!-- WAREHOUSE -->
+                    <div class="sector-card reveal" data-stagger-item>
+                        <a href="industrial_applications.html#warehouse" class="sector-card-inner">
+                            <div class="sector-image-wrap">
+                                <img src="assets/sectors/industrial_warehouse_sector_1773926460914.png"
+                                    alt="Warehouse & Logistics" loading="lazy">
+                                <div class="sector-badge-mini">Logistics</div>
+                            </div>
+                            <div class="sector-info">
+                                <div class="sector-icon-floating">📦</div>
+                                <h3 class="sector-name">Warehouse &amp; Logistics</h3>
+                                <p class="sector-desc">Heavy-duty pallet racks and systems for large-volume storage
+                                    operations</p>
+                                <ul class="sector-benefits">
+                                    <li><span>✓</span> Up to 10-ton load capacity</li>
+                                    <li><span>✓</span> OSHA-aligned safety</li>
+                                    <li><span>✓</span> Modular &amp; scalable</li>
+                                </ul>
+                                <div class="sector-cta">
+                                    <span class="btn-text">View Solutions →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- EDUCATION -->
+                    <div class="sector-card reveal delay-1" data-stagger-item>
+                        <a href="industrial_applications.html#education" class="sector-card-inner">
+                            <div class="sector-image-wrap">
+                                <img src="assets/sectors/library_education_sector_1773926478421.png"
+                                    alt="Education & Libraries" loading="lazy">
+                                <div class="sector-badge-mini">Education</div>
+                            </div>
+                            <div class="sector-info">
+                                <div class="sector-icon-floating">🎓</div>
+                                <h3 class="sector-name">Education &amp; Libraries</h3>
+                                <p class="sector-desc">Compact mobile shelving for libraries, lockers, and
+                                    administrative records</p>
+                                <ul class="sector-benefits">
+                                    <li><span>✓</span> Library-grade systems</li>
+                                    <li><span>✓</span> Student locker banks</li>
+                                    <li><span>✓</span> Custom color options</li>
+                                </ul>
+                                <div class="sector-cta">
+                                    <span class="btn-text">View Solutions →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- CORPORATE -->
+                    <div class="sector-card reveal delay-2" data-stagger-item>
+                        <a href="industrial_applications.html#corporate" class="sector-card-inner">
+                            <div class="sector-image-wrap">
+                                <img src="assets/sectors/corporate_office_sector_1773926495247.png"
+                                    alt="Corporate Offices" loading="lazy">
+                                <div class="sector-badge-mini">Corporate</div>
+                            </div>
+                            <div class="sector-info">
+                                <div class="sector-icon-floating">🏢</div>
+                                <h3 class="sector-name">Corporate Offices</h3>
+                                <p class="sector-desc">Modern office storage, personal lockers, and filing solutions</p>
+                                <ul class="sector-benefits">
+                                    <li><span>✓</span> Contemporary finishes</li>
+                                    <li><span>✓</span> Ergonomic heights</li>
+                                    <li><span>✓</span> Custom branding</li>
+                                </ul>
+                                <div class="sector-cta">
+                                    <span class="btn-text">View Solutions →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -598,164 +737,164 @@
                 <div class="products-grid-container">
                     <div class="products-grid">
 
-                    <!-- PRODUCT 1: COMPACTORS -->
-                    <div class="product-card reveal"
-                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
-                        <a href="compactor-storage.html"
-                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
-                            <div class="product-image"
-                                style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
-                                <img src="Compactors/ChatGPT Image Jan 27, 2026, 01_12_10 PM.webp"
-                                    alt="Mobile Compactor Storage System - Space Savings" loading="lazy"
-                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-                                <div
-                                    style="position: absolute; top: 12px; right: 12px; background: var(--primary); color: white; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase;">
-                                    Best Seller</div>
-                            </div>
-                            <div class="product-info"
-                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
-                                <h3 class="product-name"
-                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
-                                    Mobile
-                                    Compactors</h3>
-                                <p class="product-description"
-                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Motorized
-                                    storage on rail tracks. Save up to 50% floor space.</p>
-                                <div
-                                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M9 12l2 2 4-4" />
-                                        <circle cx="12" cy="12" r="10" />
-                                    </svg>
-                                    GMP Certified
+                        <!-- PRODUCT 1: COMPACTORS -->
+                        <div class="product-card reveal"
+                            style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                            <a href="compactor-storage.html"
+                                style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                                <div class="product-image"
+                                    style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
+                                    <img src="Compactors/ChatGPT Image Jan 27, 2026, 01_12_10 PM.webp"
+                                        alt="Mobile Compactor Storage System - Space Savings" loading="lazy"
+                                        style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
+                                    <div
+                                        style="position: absolute; top: 12px; right: 12px; background: var(--primary); color: white; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase;">
+                                        Best Seller</div>
                                 </div>
+                                <div class="product-info"
+                                    style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                    <h3 class="product-name"
+                                        style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                        Mobile
+                                        Compactors</h3>
+                                    <p class="product-description"
+                                        style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Motorized
+                                        storage on rail tracks. Save up to 50% floor space.</p>
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M9 12l2 2 4-4" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </svg>
+                                        GMP Certified
+                                    </div>
+                                </div>
+                            </a>
+                            <div style="padding: 0 16px 16px;">
+                                <button class="btn-primary" onclick="openInquiryModal()"
+                                    style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
+                                    →</button>
                             </div>
-                        </a>
-                        <div style="padding: 0 16px 16px;">
-                            <button class="btn-primary" onclick="openInquiryModal()"
-                                style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
-                                →</button>
                         </div>
-                    </div>
 
 
-                    <!-- PRODUCT 2: INDUSTRIAL RACKS -->
-                    <div class="product-card reveal delay-1"
-                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
-                        <a href="industrial-racks.html"
-                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
-                            <div class="product-image"
-                                style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
-                                <img src="Racks/ChatGPT Image Jan 27, 2026, 02_24_50 PM.webp"
-                                    alt="Heavy-Duty Industrial Racks - 10 Ton Capacity" loading="lazy"
-                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-                            </div>
-                            <div class="product-info"
-                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
-                                <h3 class="product-name"
-                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
-                                    Industrial Racks</h3>
-                                <p class="product-description"
-                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">
-                                    Heavy-duty
-                                    galvanized steel. Rated up to 10 tons.</p>
-                                <div
-                                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M9 12l2 2 4-4" />
-                                        <circle cx="12" cy="12" r="10" />
-                                    </svg>
-                                    Warehouse Grade
+                        <!-- PRODUCT 2: INDUSTRIAL RACKS -->
+                        <div class="product-card reveal delay-1"
+                            style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                            <a href="industrial-racks.html"
+                                style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                                <div class="product-image"
+                                    style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
+                                    <img src="Racks/ChatGPT Image Jan 27, 2026, 02_24_50 PM.webp"
+                                        alt="Heavy-Duty Industrial Racks - 10 Ton Capacity" loading="lazy"
+                                        style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
+                                <div class="product-info"
+                                    style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                    <h3 class="product-name"
+                                        style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                        Industrial Racks</h3>
+                                    <p class="product-description"
+                                        style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">
+                                        Heavy-duty
+                                        galvanized steel. Rated up to 10 tons.</p>
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M9 12l2 2 4-4" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </svg>
+                                        Warehouse Grade
+                                    </div>
+                                </div>
+                            </a>
+                            <div style="padding: 0 16px 16px;">
+                                <button class="btn-primary" onclick="openInquiryModal()"
+                                    style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
+                                    →</button>
                             </div>
-                        </a>
-                        <div style="padding: 0 16px 16px;">
-                            <button class="btn-primary" onclick="openInquiryModal()"
-                                style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
-                                →</button>
                         </div>
-                    </div>
 
-                    <!-- PRODUCT 3: STORAGE LOCKERS -->
-                    <div class="product-card reveal delay-2"
-                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
-                        <a href="storage-lockers.html"
-                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
-                            <div class="product-image"
-                                style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
-                                <img src="Lockers/ChatGPT Image Jan 27, 2026, 05_43_37 PM.webp"
-                                    alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy"
-                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-                            </div>
-                            <div class="product-info"
-                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
-                                <h3 class="product-name"
-                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
-                                    Storage Lockers</h3>
-                                <p class="product-description"
-                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Secure
-                                    professional lockers with digital locking systems.</p>
-                                <div
-                                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M9 12l2 2 4-4" />
-                                        <circle cx="12" cy="12" r="10" />
-                                    </svg>
-                                    NABH Approved
+                        <!-- PRODUCT 3: STORAGE LOCKERS -->
+                        <div class="product-card reveal delay-2"
+                            style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                            <a href="storage-lockers.html"
+                                style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                                <div class="product-image"
+                                    style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
+                                    <img src="Lockers/ChatGPT Image Jan 27, 2026, 05_43_37 PM.webp"
+                                        alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy"
+                                        style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
+                                <div class="product-info"
+                                    style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                    <h3 class="product-name"
+                                        style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                        Storage Lockers</h3>
+                                    <p class="product-description"
+                                        style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Secure
+                                        professional lockers with digital locking systems.</p>
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M9 12l2 2 4-4" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </svg>
+                                        NABH Approved
+                                    </div>
+                                </div>
+                            </a>
+                            <div style="padding: 0 16px 16px;">
+                                <button class="btn-primary" onclick="openInquiryModal()"
+                                    style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
+                                    →</button>
                             </div>
-                        </a>
-                        <div style="padding: 0 16px 16px;">
-                            <button class="btn-primary" onclick="openInquiryModal()"
-                                style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
-                                →</button>
                         </div>
-                    </div>
 
-                    <!-- PRODUCT 4: FILING CABINETS -->
-                    <div class="product-card reveal delay-3"
-                        style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
-                        <a href="filing-cabinets.html"
-                            style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
-                            <div class="product-image"
-                                style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
-                                <img src="Cupboard Cabinets/sliding door closed.webp"
-                                    alt="Professional Filing Cabinets & Lockers" loading="lazy"
-                                    style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
-                            </div>
-                            <div class="product-info"
-                                style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
-                                <h3 class="product-name"
-                                    style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
-                                    Filing
-                                    Cabinets</h3>
-                                <p class="product-description"
-                                    style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Organized
-                                    document management & secure filing systems.</p>
-                                <div
-                                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M9 12l2 2 4-4" />
-                                        <circle cx="12" cy="12" r="10" />
-                                    </svg>
-                                    GeM Listed
+                        <!-- PRODUCT 4: FILING CABINETS -->
+                        <div class="product-card reveal delay-3"
+                            style="display: flex; flex-direction: column; height: 100%; border-radius: 15px; overflow: hidden;">
+                            <a href="filing-cabinets.html"
+                                style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
+                                <div class="product-image"
+                                    style="position: relative; overflow: hidden; border-radius: 10px; height: 220px; margin: 16px 16px 0;">
+                                    <img src="Cupboard Cabinets/sliding door closed.webp"
+                                        alt="Professional Filing Cabinets & Lockers" loading="lazy"
+                                        style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
+                                <div class="product-info"
+                                    style="flex: 1; display: flex; flex-direction: column; padding: 16px;">
+                                    <h3 class="product-name"
+                                        style="font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--dark);">
+                                        Filing
+                                        Cabinets</h3>
+                                    <p class="product-description"
+                                        style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Organized
+                                        document management & secure filing systems.</p>
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M9 12l2 2 4-4" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </svg>
+                                        GeM Listed
+                                    </div>
+                                </div>
+                            </a>
+                            <div style="padding: 0 16px 16px;">
+                                <button class="btn-primary" onclick="openInquiryModal()"
+                                    style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
+                                    →</button>
                             </div>
-                        </a>
-                        <div style="padding: 0 16px 16px;">
-                            <button class="btn-primary" onclick="openInquiryModal()"
-                                style="width: 100%; padding: 10px; font-size: 14px;">Get Quote
-                                →</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- ══════════════════════════════════════════════
      3. FREE STORAGE ASSESSMENT
