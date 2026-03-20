@@ -474,7 +474,71 @@
         <div id="modals-placeholder"></div>
         <div id="toast-container"></div>
     </main>
-    <footer id="footer-placeholder"></footer>
+        <!-- ══════════════════════════════════════════════
+             FAQ SECTION
+        ══════════════════════════════════════════════ -->
+        <section class="section faq-section" id="faq">
+            <div class="container">
+                <div class="section-header-small reveal text-center">
+                    <span class="section-badge">Company FAQ</span>
+                    <h2 class="section-title">Common Questions About Space Planners</h2>
+                    <p class="section-subtitle" style="margin: 0 auto 24px;">Learn more about our heritage, manufacturing excellence, and service standards.</p>
+                    <div class="accent-line"></div>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item reveal">
+                        <div class="faq-question">
+                            <h3>When was Space Planners India established?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Space Planners was founded in 2004, and we have over 20 years of expertise in manufacturing premium storage solutions for diverse industries across India.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal" data-delay="100">
+                        <div class="faq-question">
+                            <h3>What makes your manufacturing process premium?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use high-grade galvanized steel, advanced motorized systems for compactors, and precision engineering at our own facility to ensure maximum durability, safety, and a premium finish.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal" data-delay="200">
+                        <div class="faq-question">
+                            <h3>Who are some of your major clients?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We have served 500+ prestigious organizations, including government ministries, IIT Bombay, Kokilaben Hospital, Sun Pharma, and major logistics hubs like Flipkart and Amazon India.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal" data-delay="300">
+                        <div class="faq-question">
+                            <h3>What is your company mission?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our mission is to transform disorganized spaces into optimized, high-capacity environments through innovative, space-saving engineering and exceptional end-to-end service.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.addEventListener('click', () => {
+                        const item = q.parentElement;
+                        item.classList.toggle('active');
+                    });
+                });
+            </script>
+        </section>
+
+        <footer id="footer-placeholder"></footer>
 
     <script src="forms-handler.js"></script>
     <script>

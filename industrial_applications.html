@@ -470,6 +470,70 @@
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════
+         FAQ SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="section faq-section" id="faq" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-header-small reveal text-center">
+                <span class="section-badge">Industry FAQ</span>
+                <h2 class="section-title">Common Questions About Industrial Applications</h2>
+                <p class="section-subtitle" style="margin: 0 auto 24px;">Find answers about how we tailor storage solutions for different specialized sectors.</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3>How do you tailor storage solutions for the pharmaceutical sector?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We focus on GMP/WHO compliance, using non-corrosive materials (like SS-304/316) and designs that support FIFO (First-In, First-Out) inventory management and strict hygiene protocols.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-delay="100">
+                    <div class="faq-question">
+                        <h3>What storage challenges do you solve for government offices?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We help government departments manage massive archival volumes with high-security lockable filing and motorized compactor systems that ensure sensitive document preservation and quick, indexed retrieval.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-delay="200">
+                    <div class="faq-question">
+                        <h3>Can your warehouse racking systems integrate with digital WMS software?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our racking and mezzanine layouts are engineered to complement modern Warehouse Management Systems (WMS), optimizing picking paths, inventory visibility, and overall logistics throughput.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-delay="300">
+                    <div class="faq-question">
+                        <h3>Do you provide space-saving solutions for educational institutions?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, from high-density mobile library shelving to multi-tier student locker banks and administrative record storage, we provide durable, low-maintenance systems for schools and universities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.addEventListener('click', () => {
+                    const item = q.parentElement;
+                    item.classList.toggle('active');
+                });
+            });
+        </script>
+    </section>
+
     <!-- FOOTER -->
     <footer id="footer-placeholder"></footer>
 

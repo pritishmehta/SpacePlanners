@@ -283,8 +283,72 @@
     </div>
   </section>
 
-  <div id="client-logos-placeholder"></div>
-  <footer id="footer-placeholder"></footer>
+    <!-- ══════════════════════════════════════════════
+         FAQ SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="section faq-section" id="faq" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-header-small reveal text-center">
+                <span class="section-badge">Project FAQ</span>
+                <h2 class="section-title">Common Questions About Our Projects</h2>
+                <p class="section-subtitle" style="margin: 0 auto 24px;">Find answers about our execution, timelines, and project management process.</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3>What is the typical timeline from inquiry to installation?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide a quote within 2 hours of inquiry. Depending on the scale and customization, production usually takes 2-4 weeks, followed by efficient on-site installation by our factory-trained teams.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-delay="100">
+                    <div class="faq-question">
+                        <h3>Do you provide 3D layout designs before we commit to a project?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We offer complimentary on-site space assessments and detailed 3D CAD layouts so you can visualize the optimized storage density and workflow before any fabrication begins.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-delay="200">
+                    <div class="faq-question">
+                        <h3>Are your projects covered by a comprehensive warranty?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our projects come with a standard manufacturer's warranty. We also offer Annual Maintenance Contracts (AMC) to ensure your mobile systems and racks remain in peak operational condition for decades.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-delay="300">
+                    <div class="faq-question">
+                        <h3>Can you handle large-scale pan-India installations?</h3>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>With 2000+ installations across India, we have the logistics and technical capacity to execute projects in any major city, ensuring consistent quality and adherence to safety standards everywhere.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.addEventListener('click', () => {
+                    const item = q.parentElement;
+                    item.classList.toggle('active');
+                });
+            });
+        </script>
+    </section>
+
+    <div id="client-logos-placeholder"></div>
+    <footer id="footer-placeholder"></footer>
 
   <script src="js/data.js"></script>
   <script>
