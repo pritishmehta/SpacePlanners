@@ -47,7 +47,7 @@
                     <option value="Other">Other</option>
                 </select>
 
-                <label for="pop-msg" style="display:none;">Message</label>
+            <label for="pop-msg" style="display:none;">Message</label>
                 <textarea class="popup-input" id="pop-msg" name="message" placeholder="Message (Optional)"
                     style="margin-bottom:8px; height:60px;"></textarea>
             </div>
@@ -55,3 +55,18 @@
         </form>
     </div>
 </div>
+
+<div class="sp-mobile-cta-bar" id="spMobileCtaBar">
+  <span class="sp-mobile-cta-text">Ready to maximise your space?</span>
+  <button class="sp-mobile-cta-btn" onclick="openInquiryModal()">Get Free Quote &rarr;</button>
+</div>
+
+<script>
+(function(){
+  var bar = document.getElementById('spMobileCtaBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function(){
+    bar.classList.toggle('sp-mobile-cta-visible', window.scrollY > 400);
+  }, { passive: true });
+})();
+</script>

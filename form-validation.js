@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setupValidation(finderForm);
     }
 
+    const assessmentForm = document.querySelector('.assessment-form form') ||
+                           document.querySelector('#assessment-form form') ||
+                           document.querySelector('form.assessment-form');
+    if (assessmentForm) {
+        setupValidation(assessmentForm);
+    }
+
     function setupValidation(form) {
         const inputs = form.querySelectorAll('input, select, textarea');
 
@@ -60,6 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 // If the form passes validation, call the original submit handler (which fires GA4 and opens the success modal)
                 if (typeof originalOnSubmit === 'function') {
                     originalOnSubmit.call(form, event);
+                }
+                // Show inline success state for assessment form
+                const isAssessmentForm = form.closest('.assessment-form') ||
+                                         form.closest('#assessment-form') ||
+                                         form.classList.contains('assessment-form');
+                if (isAssessmentForm) {
+                    form.innerHTML =
+                        '<div style="text-align:center;padding:48px 24px;">' +
+                        '<div style="font-size:48px;color:#C41212;margin-bottom:16px;">✓</div>' +
+                        '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:24px;font-weight:700;letter-spacing:0.04em;margin-bottom:12px;">Thank you!</div>' +
+                        '<p style="font-family:\'Barlow\',sans-serif;font-size:15px;color:#555;line-height:1.6;">Our team will call you within 4 business hours to arrange your free site visit.</p>' +
+                        '</div>';
                 }
             } else {
                 // Scroll the first invalid element into view (helpful for mobile)
