@@ -1,0 +1,24 @@
+# Configuration and Secrets
+js/config.js
+
+# Dependencies
+node_modules/
+
+# OS Specific Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific ignores
+logs/
+*.log
+tmp/
+dist/
+build/
+.env

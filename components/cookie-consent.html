@@ -1,0 +1,49 @@
+<div id="cookieConsent" class="cookie-banner">
+    <div class="cookie-content">
+        <div class="cookie-icon">🍪</div>
+        <div class="cookie-text">
+            <h4>Cookie Notice</h4>
+            <p>We use cookies to enhance your experience, analyze site traffic, and for personalized ads as described in our <a href="privacy-policy.html">Privacy Policy</a>. Do you accept these cookies?</p>
+        </div>
+        <div class="cookie-actions">
+            <button class="cookie-btn opt-out" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn opt-in" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function checkCookieConsent() {
+        const consent = localStorage.getItem('cookieConsent');
+        const banner = document.getElementById('cookieConsent');
+        if (!consent && banner) {
+            setTimeout(() => {
+                banner.classList.add('show');
+            }, 2000);
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        hideCookieBanner();
+        // Here you would typically initialize Google Ads / Analytics
+        console.log('Cookies accepted');
+    }
+
+    function declineCookies() {
+        localStorage.setItem('cookieConsent', 'declined');
+        hideCookieBanner();
+        console.log('Cookies declined');
+    }
+
+    function hideCookieBanner() {
+        const banner = document.getElementById('cookieConsent');
+        if (banner) {
+            banner.classList.remove('show');
+            setTimeout(() => banner.remove(), 500);
+        }
+    }
+
+    // Initialize display check
+    setTimeout(checkCookieConsent, 100);
+</script>

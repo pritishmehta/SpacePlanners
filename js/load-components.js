@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "floating-buttons-placeholder", url: "components/floating-buttons.html" },
         { id: "footer-placeholder", url: "components/footer.html" },
         { id: "modals-placeholder", url: "components/modals.html" },
-        { id: "client-logos-placeholder", url: "components/client-logos.html" }
+        { id: "client-logos-placeholder", url: "components/client-logos.html" },
+        { id: "cookie-consent-placeholder", url: "components/cookie-consent.html" }
     ];
 
     let loadedCount = 0;
@@ -18,7 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const cacheBust = `?v=${Date.now()}`;
 
     components.forEach(comp => {
-        const el = document.getElementById(comp.id);
+        let el = document.getElementById(comp.id);
+        
+        // Auto-create cookie placeholder if missing
+        if (!el && comp.id === "cookie-consent-placeholder") {
+            el = document.createElement('div');
+            el.id = comp.id;
+            document.body.appendChild(el);
+        }
+
         if (el) {
             fetch(comp.url + cacheBust)
                 .then(response => {

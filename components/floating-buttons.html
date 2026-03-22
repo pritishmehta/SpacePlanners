@@ -23,7 +23,7 @@
         <button class="popup-close" onclick="toggleFloatPopup(event)" aria-label="Close popup">✕</button>
     </div>
     <div class="popup-body">
-        <form id="floatInquiryForm" onsubmit="event.preventDefault(); submitPopupInquiry();">
+        <form id="floatInquiryForm" novalidate>
             <div class="form-group" style="margin-bottom: 5px;">
                 <label for="pop-name" style="display:none;">Full Name</label>
                 <input class="popup-input" type="text" id="pop-name" name="name" placeholder="Full Name *" required
