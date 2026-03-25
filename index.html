@@ -51,7 +51,7 @@
     <!-- Additional Metadata -->
     <meta name="theme-color" content="#e53935">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Font Optimization -->
@@ -1322,7 +1322,10 @@
 
         <script>
             /* ── GOOGLE MAPS INIT ── */
-            function initMap() {
+            async function initMap() {
+                const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+                const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
                 const centerIndia = { lat: 20.5937, lng: 78.9629 };
                 const projectLocations = [
                     { lat: 19.0760, lng: 72.8777, title: "Healthcare Project, Mumbai", desc: "NABH-aligned records storage" },
@@ -1338,123 +1341,38 @@
                 const mapOptions = {
                     zoom: 5,
                     center: centerIndia,
-                    styles: [
-                        {
-                            "featureType": "landscape",
-                            "stylers": [
-                                {
-                                    "saturation": -100
-                                },
-                                {
-                                    "lightness": 60
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.local",
-                            "stylers": [
-                                {
-                                    "saturation": -100
-                                },
-                                {
-                                    "lightness": 40
-                                },
-                                {
-                                    "visibility": "on"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit",
-                            "stylers": [
-                                {
-                                    "saturation": -100
-                                },
-                                {
-                                    "visibility": "simplified"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "administrative.province",
-                            "stylers": [
-                                {
-                                    "visibility": "off"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "stylers": [
-                                {
-                                    "visibility": "on"
-                                },
-                                {
-                                    "lightness": 30
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "geometry.fill",
-                            "stylers": [
-                                {
-                                    "color": "#ef8c25"
-                                },
-                                {
-                                    "lightness": 40
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "geometry.stroke",
-                            "stylers": [
-                                {
-                                    "visibility": "off"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi.park",
-                            "elementType": "geometry.fill",
-                            "stylers": [
-                                {
-                                    "color": "#b6c54c"
-                                },
-                                {
-                                    "lightness": 40
-                                },
-                                {
-                                    "saturation": -40
-                                }
-                            ]
-                        }
-                    ],
+                    mapId: "DEMO_MAP_ID", // Required for AdvancedMarkerElement
                     disableDefaultUI: false,
                     scrollwheel: false
                 };
 
-                const map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                const infoWindow = new google.maps.InfoWindow();
+                const map = new Map(document.getElementById("map"), mapOptions);
+                const infoWindow = new InfoWindow();
 
                 projectLocations.forEach(loc => {
-                    const marker = new google.maps.Marker({
+                    const marker = new AdvancedMarkerElement({
                         position: { lat: loc.lat, lng: loc.lng },
                         map: map,
                         title: loc.title,
-                        animation: google.maps.Animation.DROP
                     });
 
-                    marker.addListener("click", () => {
+                    marker.addListener("gmp-click", () => {
                         infoWindow.setContent(`<div style="padding:10px;"><strong>${loc.title}</strong><p>${loc.desc}</p></div>`);
-                        infoWindow.open(map, marker);
+                        infoWindow.open({
+                            anchor: marker,
+                            map,
+                        });
                     });
                 });
             }
 
             /* ── CAROUSEL ── */
             let currentSlide = 0, slideTimer;
+
+            function resetTimer() {
+                if (slideTimer) clearInterval(slideTimer);
+                slideTimer = setInterval(nextSlide, 5000);
+            }
             function nextSlide() { currentSlide = (currentSlide + 1) % 4; updateSlide(); }
             function prevSlide() { currentSlide = (currentSlide - 1 + 4) % 4; updateSlide(); }
             function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
@@ -1696,7 +1614,7 @@
             // Check if key exists (optional but recommended for local dev/handling)
             if (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.GOOGLE_MAPS_API_KEY) {
                 const script = document.createElement('script');
-                script.src = `https://maps.googleapis.com/maps/api/js?key=${SP_CONFIG.GOOGLE_MAPS_API_KEY}&callback=initMap`;
+                script.src = `https://maps.googleapis.com/maps/api/js?key=${SP_CONFIG.GOOGLE_MAPS_API_KEY}&callback=initMap&loading=async`;
                 script.async = true;
                 script.defer = true;
                 document.body.appendChild(script);
