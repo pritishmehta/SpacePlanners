@@ -22,8 +22,9 @@
     <meta property="og:description"
         content="Tailored storage solutions for pharma, healthcare, warehouses, and more. 20+ years of sector-specific expertise.">
     <meta property="og:url" content="https://spaceplannersindia.in/industrial_applications.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link rel="stylesheet" href="carousel-new.css">
     <link rel="stylesheet" href="style.css">
     <script src="js/load-components.js"></script>
     <script src="forms-handler.js"></script>
@@ -38,46 +39,127 @@
     <div id="modals-placeholder"></div>
     <div id="toast-container"></div>
 
-    <!-- ===== CAROUSEL ===== -->
-    <section class="carousel-section" aria-label="Featured industrial projects">
-        <div class="carousel-container">
-            <div class="carousel-slide active" id="slide0">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="project_warehouse.png"
-                    alt="Warehouse Logistics Storage" loading="eager">
+    <!-- 1. PREMIUM HERO CAROUSEL -->
+    <div class="hero-wrap">
+      <div class="carousel" id="carousel">
+     
+        <!-- SLIDE 1 — Compactors -->
+        <div class="slide">
+          <div class="slide-copy">
+            <div class="eyebrow">India's Storage Engineers · Since 2004</div>
+            <h1 class="headline">Your Space<br>Is Full.<br><span class="acc">We Fix That.</span></h1>
+            <p class="sub">Motorised compactors on rail tracks — save up to 50% floor space without structural changes. GMP, NABH and GeM compliant. Pan-India installation.</p>
+            <div class="pills">
+              <span class="pill pill-g">WHO-GMP Certified</span>
+              <span class="pill pill-b">NABH Approved</span>
+              <span class="pill pill-r">GeM Registered</span>
+              <span class="pill pill-n">Pan-India Install</span>
             </div>
-            <div class="carousel-slide" id="slide1">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="project_corporate.png"
-                    alt="Corporate Office Storage" loading="lazy">
+            <div class="slide-actions">
+              <a href="javascript:void(0)" onclick="openInquiryModal()" class="btn-red">Get Free Quote</a>
             </div>
-            <div class="carousel-slide" id="slide2">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="hero_compactor.png"
-                    alt="Pharma Compactor Storage" loading="lazy">
+          </div>
+          <div class="slide-img">
+            <div class="eng-grid"></div>
+            <div class="fc fc-tl"></div><div class="fc fc-tr"></div>
+            <div class="fc fc-bl"></div><div class="fc fc-br"></div>
+            <img src="https://pritishmehta.github.io/SpacePlanners/Compactors/ChatGPT%20Image%20Jan%2027%2C%202026%2C%2001_12_10%20PM.webp" alt="Mobile Compactor">
+            <div class="img-chip">
+              <div class="img-chip-val">50%</div>
+              <div class="img-chip-key">Avg Space Saved</div>
             </div>
-            <div class="carousel-slide" id="slide3">
-                <img width="1200" height="600" style="aspect-ratio:1/1;object-fit:cover;" src="hero_racks.png"
-                    alt="Heavy Duty Racks" loading="lazy">
-            </div>
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <p class="slide-eyebrow">Industrial Applications</p>
-                <h1 class="slide-title" id="slideTitle">Storage Solutions for Every Sector</h1>
-                <p class="slide-description" id="slideDesc">Tailored execution for warehouse, pharma, and enterprise.
-                </p>
-                <div class="slide-cta">
-                    <button class="btn-white" onclick="openInquiryModal()">Get Free Quote</button>
-                    <a href="#pharma" class="btn-outline-white">Explore Sectors</a>
-                </div>
-            </div>
-            <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous slide">❮</button>
-            <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next slide">❯</button>
-            <div class="carousel-controls" role="tablist">
-                <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
-                <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
-                <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-                <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
-            </div>
+          </div>
         </div>
-    </section>
+     
+        <!-- SLIDE 2 — Racks -->
+        <div class="slide">
+          <div class="slide-copy">
+            <div class="eyebrow">Warehouse &amp; Industrial Grade</div>
+            <h1 class="headline">Heavy-Duty<br>Racks.<br><span class="acc">10-Ton Rated.</span></h1>
+            <p class="sub">Galvanized steel industrial racking for warehouses, factories and distribution centres. Modular — expand without relocating.</p>
+            <div class="pills">
+              <span class="pill pill-n">Up to 10-Ton Capacity</span>
+              <span class="pill pill-g">OSHA-Aligned</span>
+              <span class="pill pill-r">Modular &amp; Expandable</span>
+            </div>
+            <div class="slide-actions">
+              <a href="javascript:void(0)" onclick="openInquiryModal()" class="btn-red">Get Free Quote</a>
+            </div>
+          </div>
+          <div class="slide-img">
+            <div class="eng-grid"></div>
+            <div class="fc fc-tl"></div><div class="fc fc-tr"></div>
+            <div class="fc fc-bl"></div><div class="fc fc-tr"></div><div class="fc fc-br"></div>
+            <img src="https://pritishmehta.github.io/SpacePlanners/Racks/ChatGPT%20Image%20Jan%2027%2C%202026%2C%2002_24_50%20PM.webp" alt="Industrial Racks">
+            <div class="img-chip">
+              <div class="img-chip-val">10T</div>
+              <div class="img-chip-key">Load Capacity</div>
+            </div>
+          </div>
+        </div>
+     
+        <!-- SLIDE 3 — Lockers -->
+        <div class="slide">
+          <div class="slide-copy">
+            <div class="eyebrow">Healthcare &amp; Corporate</div>
+            <h1 class="headline">Secure<br>Lockers.<br><span class="acc">NABH Approved.</span></h1>
+            <p class="sub">Professional lockers with digital locking for hospitals, pharma facilities and corporate offices. Custom RAL colours available.</p>
+            <div class="pills">
+              <span class="pill pill-b">NABH Approved</span>
+              <span class="pill pill-r">Digital Locking</span>
+              <span class="pill pill-n">Custom Colours</span>
+            </div>
+            <div class="slide-actions">
+              <a href="javascript:void(0)" onclick="openInquiryModal()" class="btn-red">Get Free Quote</a>
+            </div>
+          </div>
+          <div class="slide-img">
+            <div class="eng-grid"></div>
+            <div class="fc fc-tl"></div><div class="fc fc-tr"></div>
+            <div class="fc fc-bl"></div><div class="fc fc-br"></div>
+            <img src="https://pritishmehta.github.io/SpacePlanners/Lockers/ChatGPT%20Image%20Jan%2027%2C%202026%2C%2005_43_37%20PM.webp" alt="Storage Lockers">
+            <div class="img-chip">
+              <div class="img-chip-val">100%</div>
+              <div class="img-chip-key">Compliance Rate</div>
+            </div>
+          </div>
+        </div>
+     
+        <!-- SLIDE 4 — Filing -->
+        <div class="slide">
+          <div class="slide-copy">
+            <div class="eyebrow">Government &amp; Corporate Archives</div>
+            <h1 class="headline">Organised<br>Filing.<br><span class="acc">GeM Listed.</span></h1>
+            <p class="sub">Document management and secure filing for government departments and corporate records. Direct procurement via GeM portal.</p>
+            <div class="pills">
+              <span class="pill pill-r">GeM Listed</span>
+              <span class="pill pill-n">RTI-Ready Archives</span>
+              <span class="pill pill-g">Anti-Tamper Locking</span>
+            </div>
+            <div class="slide-actions">
+              <a href="javascript:void(0)" onclick="openInquiryModal()" class="btn-red">Get Free Quote</a>
+            </div>
+          </div>
+          <div class="slide-img">
+            <div class="eng-grid"></div>
+            <div class="fc fc-tl"></div><div class="fc fc-tr"></div>
+            <div class="fc fc-bl"></div><div class="fc fc-br"></div>
+            <img src="https://pritishmehta.github.io/SpacePlanners/Compactors/ChatGPT%20Image%20Jan%2023%2C%202026%2C%2006_19_27%20PM.webp" alt="Filing Cabinets">
+            <div class="img-chip">
+              <div class="img-chip-val">2M+</div>
+              <div class="img-chip-key">Sq Ft Installed</div>
+            </div>
+          </div>
+        </div>
+     
+      </div><!-- /carousel -->
+     
+      <div class="carousel-controls">
+        <button class="c-btn" id="cPrev">←</button>
+        <div id="cDots"></div>
+        <button class="c-btn" id="cNext">→</button>
+      </div>
+    </div><!-- /hero-wrap -->
 
     <!-- INDUSTRY LINKS RIBBON -->
     <div class="stats-ribbon" role="region" aria-label="Industry Links" id="industryRibbon" style="padding: 15px 0;">
@@ -677,29 +759,8 @@
     <footer id="footer-placeholder"></footer>
 
     <script src="js/data.js"></script>
+    <script src="js/carousel-new.js"></script>
     <script>
-        /* ── CAROUSEL ── */
-        let currentSlide = 0, slideTimer;
-        const carouselSlides = [
-            { title: "Storage Solutions for Every Sector", desc: "Expert execution for warehouse logistics and material handling" },
-            { title: "Corporate Enterprise Storage", desc: "Premium aesthetic storage that pairs with modern workspaces" },
-            { title: "Pharmaceutical Storage", desc: "GMP compliant systems for flawless tracking and pristine hygiene" },
-            { title: "Heavy Duty Racking", desc: "Engineered pallet racks for large scale distribution operations" }
-        ];
-
-        function nextSlide() { currentSlide = (currentSlide + 1) % carouselSlides.length; updateSlide(); }
-        function prevSlide() { currentSlide = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length; updateSlide(); }
-        function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
-        function updateSlide() {
-            document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
-            document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-            document.getElementById('slideTitle').textContent = carouselSlides[currentSlide].title;
-            document.getElementById('slideDesc').textContent = carouselSlides[currentSlide].desc;
-        }
-        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5500); }
-
-
-        document.addEventListener('DOMContentLoaded', () => { resetTimer(); });
     </script>
 
     <script src="js/nav-scroll.js"></script>
