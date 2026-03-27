@@ -279,7 +279,7 @@
             <p class="section-subtitle" style="margin:0 auto 32px;">We deliver within 2 hours of inquiry — no
                 obligation, no cost.</p>
             <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-                <button class="btn-primary" onclick="openInquiryModal()" style="padding:14px 32px;font-size:15px;">Get
+                <button class="btn-primary" onclick="openInquiryModal({specificProduct:'Similar Project Inquiry'})" style="padding:14px 32px;font-size:15px;">Get
                     Free Quote →</button>
                 <a href="tel:+912240033385" class="btn-call" style="padding:14px 32px;font-size:15px;">📞 Call Us
                     Now</a>
@@ -430,7 +430,7 @@
     </div>
 
     <div class="modal-buttons">
-      <button class="modal-btn" onclick="closeCaseModal();openInquiryModal()">📧 Similar Project Inquiry</button>
+      <button class="modal-btn" onclick="closeCaseModal();openInquiryModal({specificProduct:'Similar Project Inquiry'})">📧 Similar Project Inquiry</button>
       <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I want to discuss a ${encodeURIComponent(c.whatsapp)} project','_blank')">💬 WhatsApp</button>
     </div>`;
             document.getElementById('caseModal').classList.add('active');

@@ -107,12 +107,64 @@ function closeMobileNav() {
     document.body.style.overflow = '';
 }
 
-function openInquiryModal() {
+/**
+ * Opens the Inquiry Modal.
+ * @param {Object} [productInfo] - Optional context about which product triggered the modal.
+ * @param {string} [productInfo.category]        - The main product category (maps to a radio value).
+ * @param {string} [productInfo.specificProduct] - The specific product variant, e.g. "Document Storage Compactor".
+ */
+function openInquiryModal(productInfo) {
     const modal = document.getElementById('inquiryModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    if (!modal) return;
+
+    // --- Pre-fill Step 1: auto-select the matching radio card ---
+    if (productInfo && productInfo.category) {
+        const radios = modal.querySelectorAll('input[name="product_interest"]');
+        radios.forEach(radio => {
+            const isMatch = radio.value.toLowerCase().includes(productInfo.category.toLowerCase()) ||
+                            productInfo.category.toLowerCase().includes(radio.value.toLowerCase());
+            radio.checked = isMatch;
+            // Visually mark the selected card
+            const card = radio.closest('.radio-card');
+            if (card) card.classList.toggle('selected', isMatch);
+        });
+    } else {
+        // Reset all selections when opened without context
+        modal.querySelectorAll('input[name="product_interest"]').forEach(r => {
+            r.checked = false;
+            const card = r.closest('.radio-card');
+            if (card) card.classList.remove('selected');
+        });
     }
+
+    // --- Inject / Update hidden field for specific product ---
+    let hiddenField = modal.querySelector('#hidden-specific-product');
+    if (!hiddenField) {
+        hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.id = 'hidden-specific-product';
+        hiddenField.name = 'specific_product';
+        const form = modal.querySelector('#multiStepForm');
+        if (form) form.appendChild(hiddenField);
+    }
+    hiddenField.value = (productInfo && productInfo.specificProduct) ? productInfo.specificProduct : '';
+
+    // --- Show a banner in Step 2 if a specific product was passed ---
+    let productBanner = modal.querySelector('#inq-product-banner');
+    if (productBanner) productBanner.remove();
+    if (productInfo && productInfo.specificProduct) {
+        const step2 = modal.querySelector('#step2');
+        if (step2) {
+            productBanner = document.createElement('div');
+            productBanner.id = 'inq-product-banner';
+            productBanner.style.cssText = 'display:flex; align-items:center; gap:10px; background:rgba(196,20,20,0.06); border-left:3px solid var(--primary,#c41414); border-radius:4px; padding:10px 14px; margin-bottom:18px; font-size:14px; color:var(--dark,#141414);';
+            productBanner.innerHTML = `<span style="font-size:18px;">📦</span><span>Enquiring about: <strong>${productInfo.specificProduct}</strong></span>`;
+            step2.insertBefore(productBanner, step2.firstChild);
+        }
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
 function closeInquiryModal() {

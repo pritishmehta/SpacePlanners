@@ -5173,10 +5173,12 @@ footer {
   user-select: none;
 }
 
-.radio-card input:checked+span {
+.radio-card input:checked+span,
+.radio-card.selected>span {
   background: rgba(229, 57, 53, 0.06);
   border-color: var(--red);
   color: var(--red);
+  font-weight: 600;
 }
 
 .radio-card input:focus-visible+span {
@@ -5709,9 +5711,9 @@ footer {
     height: auto !important;
   }
 
-  .sectors-grid .product-image {
-    height: 150px !important;
-    flex-shrink: 0;
+  .sectors-grid .sector-icon-box {
+    height: 110px !important;
+    padding: 20px;
   }
 }
 
@@ -5735,25 +5737,51 @@ footer {
 }
 
 /* Ensure image wrapper is fixed height and images don't overflow */
-.sectors-grid .product-image {
-  height: 200px;
-  flex-shrink: 0;
-  overflow: hidden;
-  margin: 0;
-  border-radius: 0;
+/* Icon Box for Sector Cards */
+.sectors-grid .sector-icon-box {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
 }
 
-.sectors-grid .product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
+.sectors-grid .product-card:hover .sector-icon-box {
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.sectors-grid>.product-card:hover .product-image img {
-  transform: scale(1.02);
+.sectors-grid .sector-icon-box::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.sectors-grid .product-card:hover .sector-icon-box::after {
+  transform: scaleX(1);
+}
+
+.sectors-grid .sector-icon-box svg {
+  width: 56px;
+  height: 56px;
+  color: var(--dark);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  stroke-width: 1.2;
+  /* Slightly thinner for elegance */
+}
+
+.sectors-grid .product-card:hover .sector-icon-box svg {
+  color: var(--primary);
+  transform: scale(1.1);
 }
 
 .sectors-grid .product-info {
