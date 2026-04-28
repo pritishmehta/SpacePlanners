@@ -2,20 +2,46 @@
    SPACE PLANNERS INDIA — Consolidated Form Handling & Validation
    ============================================================ */
 
-const API_CONFIG = {
-  USE_FORMSUBMIT: true,
-  FORMSUBMIT_ENDPOINT: 'https://formsubmit.co/sales@spaceplannersindia.in'
+const MAILTO_CONFIG = {
+    TO: 'pritishmehta18@gmail.com',
+    RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // REPLACE WITH YOUR SITE KEY
 };
 
 const Validators = {
-  email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-  phone: (value) => /^(?:(?:\+|0{0,2})91)?([6-9]\d{9})$/.test(value.replace(/[\s\-\(\)]/g, '')),
-  name: (value) => value.trim().length >= 3,
-  required: (value) => value.trim().length > 0
+    email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+    phone: (value) => /^(?:(?:\+|0{0,2})91)?([6-9]\d{9})$/.test(value.replace(/[\s\-\(\)]/g, '')),
+    name: (value) => value.trim().length >= 3 && !/<[a-z][\s\S]*>/i.test(value),
+    required: (value) => value.trim().length > 0
 };
+
+/**
+ * Sanitizes input to prevent XSS and strip HTML tags
+ */
+function sanitizeInput(str) {
+    if (typeof str !== 'string') return str;
+    return str
+        .replace(/<[^>]*>?/gm, '') // Strip HTML tags
+        .replace(/[&<>"']/g, (m) => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        })[m])
+        .trim();
+}
 
 /* ── INITIALIZATION ── */
 document.addEventListener('DOMContentLoaded', () => {
+    // Dynamically load Google reCAPTCHA script
+    if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    }
+
     // Initialize all forms after components are loaded
     document.addEventListener('componentsLoaded', initAllForms);
     // Fallback if already loaded
@@ -34,6 +60,7 @@ function initAllForms() {
         const el = document.getElementById(f.id);
         if (el) {
             setupRealTimeValidation(el);
+            injectReCaptcha(el); // Inject reCAPTCHA container
             if (f.handler) {
                 el.onsubmit = f.handler;
             }
@@ -41,12 +68,32 @@ function initAllForms() {
     });
 }
 
+/**
+ * Injects reCAPTCHA widget into the form
+ */
+function injectReCaptcha(form) {
+    if (form.querySelector('.g-recaptcha')) return;
+    
+    const recaptchaDiv = document.createElement('div');
+    recaptchaDiv.className = 'g-recaptcha';
+    recaptchaDiv.setAttribute('data-sitekey', MAILTO_CONFIG.RECAPTCHA_SITE_KEY);
+    recaptchaDiv.style.marginBottom = '20px';
+    
+    // Insert before the submit button
+    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.form-submit');
+    if (submitBtn) {
+        submitBtn.parentNode.insertBefore(recaptchaDiv, submitBtn);
+    } else {
+        form.appendChild(recaptchaDiv);
+    }
+}
+
 /* ── REAL-TIME VALIDATION ── */
 function setupRealTimeValidation(form) {
     const inputs = form.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', () => validateField(input));
-        
+
         if (input.type === 'tel') {
             input.addEventListener('input', (e) => {
                 let cleaned = e.target.value.replace(/\D/g, '');
@@ -120,19 +167,34 @@ function getFieldLabel(input) {
 }
 
 /* ── SUBMISSION HANDLERS ── */
+/* ----------------------------------------------------------------
+   TO CHANGE THE RECIPIENT EMAIL:
+   Edit the `TO` value in MAILTO_CONFIG at the top of this file.
+   ---------------------------------------------------------------- */
 async function submitFormToBackend(formElement, formName) {
-    const formData = new FormData(formElement);
-    formData.append('timestamp', new Date().toISOString());
-    formData.append('form_type', formName);
-
     try {
-        const response = await fetch(API_CONFIG.FORMSUBMIT_ENDPOINT, {
-            method: 'POST',
-            body: formData
-        });
-        return { success: response.ok };
+        const formData = new FormData(formElement);
+        formData.append('timestamp', new Date().toISOString());
+        formData.append('form_type', formName);
+
+        // Build a plain-text email body from all form fields with sanitization
+        let body = `Form: ${sanitizeInput(formName)}\n`;
+        body += `Submitted: ${new Date().toLocaleString()}\n`;
+        body += `${'─'.repeat(40)}\n`;
+        for (const [key, value] of formData.entries()) {
+            if (key !== '_token' && !key.startsWith('g-recaptcha')) {
+                const sanitizedValue = sanitizeInput(value);
+                body += `${sanitizeInput(key)}: ${sanitizedValue}\n`;
+            }
+        }
+
+        const subject = encodeURIComponent(`[Space Planners] New ${formName.replace(/_/g, ' ')} submission`);
+        const encodedBody = encodeURIComponent(body);
+        window.location.href = `mailto:${MAILTO_CONFIG.TO}?subject=${subject}&body=${encodedBody}`;
+
+        return { success: true };
     } catch (error) {
-        console.error('Submission error:', error);
+        console.error('Mailto error:', error);
         return { success: false };
     }
 }
@@ -201,6 +263,18 @@ function validateAll(form) {
 }
 
 async function handleSubmission(form, type, onSuccess) {
+    // 1. Validate Form Fields
+    if (!validateAll(form)) return;
+
+    // 2. Validate reCAPTCHA
+    if (typeof grecaptcha !== 'undefined') {
+        const response = grecaptcha.getResponse();
+        if (!response) {
+            showToast('Please verify that you are not a robot.', 'error');
+            return;
+        }
+    }
+
     const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalText = btn ? btn.textContent : '';
     if (btn) {
@@ -209,13 +283,14 @@ async function handleSubmission(form, type, onSuccess) {
     }
 
     const result = await submitFormToBackend(form, type);
-    
+
     if (btn) {
         btn.disabled = false;
         btn.textContent = originalText;
     }
 
     if (result.success) {
+        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
         onSuccess();
     } else {
         showToast('Failed to send. Please check your connection.', 'error');
@@ -244,7 +319,7 @@ function showStep(stepNum) {
     [1, 2, 3].forEach(n => {
         const el = document.getElementById('step' + n);
         if (el) el.style.display = (n === stepNum) ? 'block' : 'none';
-        
+
         const ind = document.getElementById(`step${n}Indicator`);
         if (ind) {
             ind.style.fontWeight = (n <= stepNum) ? "700" : "500";
