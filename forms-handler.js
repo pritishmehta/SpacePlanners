@@ -82,7 +82,16 @@ function injectReCaptcha(form) {
     // Insert before the submit button
     const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.form-submit');
     if (submitBtn) {
-        submitBtn.parentNode.insertBefore(recaptchaDiv, submitBtn);
+        const parent = submitBtn.parentElement;
+        // Check if the button is inside a button group (flex container with multiple buttons)
+        const isButtonGroup = parent && parent.children.length > 1 && 
+                             Array.from(parent.children).some(c => c.tagName === 'BUTTON' && c !== submitBtn);
+        
+        if (isButtonGroup) {
+            parent.parentNode.insertBefore(recaptchaDiv, parent);
+        } else {
+            submitBtn.parentNode.insertBefore(recaptchaDiv, submitBtn);
+        }
     } else {
         form.appendChild(recaptchaDiv);
     }

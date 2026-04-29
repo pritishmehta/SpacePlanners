@@ -547,8 +547,8 @@ header.scrolled .logo img {
 
 .nav-dropdown {
   position: absolute;
-  top: calc(100% - 10px);
-  /* Move slightly closer to parent for better hover feel */
+  top: calc(100% + 5px);
+  /* Shifted down for better visual breathing room */
   left: -20px;
   background: var(--white);
   box-shadow: var(--shadow-lg);

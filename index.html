@@ -54,14 +54,13 @@
 
     <!-- ===== SECURITY META TAGS (FOR STATIC HOSTING) ===== -->
     <!-- Content-Security-Policy: restrict where resources can be loaded from -->
-    <meta http-equiv="Content-Security-Policy" 
-          content="default-src 'self'; 
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
                    script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://www.googletagmanager.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; 
                    img-src 'self' data: https:; 
                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
                    font-src 'self' https://fonts.gstatic.com; 
                    frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/;
-                   connect-src 'self';">
+                   connect-src 'self' https://maps.googleapis.com https://*.googleapis.com https://*.gstatic.com;">
     <!-- Referrer Policy: control how much referrer info is sent out -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <!-- Note: X-Frame-Options cannot be set via meta tag. Use server config for that. -->
@@ -466,7 +465,8 @@
                         storage systems — engineered for India's most demanding facilities. GMP, NABH and GeM compliant.
                         Pan-India installation.</p>
                     <div class="slide-cta">
-                        <button class="btn-white" onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
+                        <button class="btn-white"
+                            onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
                             style="font-size: 16px; padding: 14px 32px; font-weight: 600;">Get Free Assessment
                             →</button>
                     </div>
@@ -536,7 +536,7 @@
                             <polyline points="20,22 34,8 48,22" />
                         </svg>
                     </div>
-                    <div class="stat-strip-num" data-target="50" data-suffix="%">50<span>%</span></div>
+                    <div class="stat-strip-num" data-target="50" data-suffix="%">60<span>%</span></div>
                     <div class="stat-strip-label">Avg. Space Saved</div>
                 </div>
                 <div class="stat-strip-item" data-target="2" data-suffix="M+" data-label="Sq Ft Installed" id="s-sqft">
@@ -600,15 +600,19 @@
                                     <ul>
                                         <li>
                                             <span>✓</span>
-                                            WHO-GMP & Schedule M compliant
+                                            GMP & WHO compliant storage systems
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            Temperature-controlled options
+                                            Temperature-controlled units for sensitive medicines
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            FIFO access built in
+                                            FIFO access to prevent stock expiry
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Schedule M compliant designs available
                                         </li>
                                     </ul>
                                 </div>
@@ -619,82 +623,43 @@
                                     →</a>
                             </div>
                         </div>
-
-                        <!-- Museums & Archives -->
-                        <div class="product-card reveal delay-1" data-stagger-item>
-                            <a href="industrial_applications.html#museum">
-                                <div class="sector-icon-box">
-                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" role="img" aria-label="Museums Archives Icon">
-                                        <rect x="4" y="4" width="16" height="16" rx="2" />
-                                        <circle cx="12" cy="12" r="3" />
-                                        <path d="M8 16h8" />
-                                    </svg>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-name">
-                                        Museums & Archives</h3>
-                                    <p class="product-description">Preserve artefacts, documents and records with
-                                        climate-aware, high-density storage systems.</p>
-                                    <ul>
-                                        <li>
-                                            <span>✓</span>
-                                            Climate-controlled options
-                                        </li>
-                                        <li>
-                                            <span>✓</span>
-                                            Anti-tamper locking
-                                        </li>
-                                        <li>
-                                            <span>✓</span>
-                                            Indexed retrieval systems
-                                        </li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div>
-                                <a href="industrial_applications.html#museum" class="btn-primary">View
-                                    Solutions
-                                    →</a>
-                            </div>
-                        </div>
-
-                        <!-- GOVERNMENT -->
+                        <!-- CORPORATE -->
                         <div class="product-card reveal delay-2" data-stagger-item>
-                            <a href="industrial_applications.html#government">
+                            <a href="industrial_applications.html#corporate">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" role="img" aria-label="Government Offices Icon">
-                                        <path d="M3 10h18" />
-                                        <path d="M5 10v8M9 10v8M15 10v8M19 10v8" />
-                                        <path d="M4 10l8-6 8 6" />
-                                        <path d="M3 18h18" />
+                                        stroke-width="1.5" role="img" aria-label="Corporate Offices Icon">
+                                        <rect x="4" y="3" width="16" height="18" rx="2" />
+                                        <path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2" />
                                     </svg>
                                 </div>
-
                                 <div class="product-info">
                                     <h3 class="product-name">
-                                        Government Offices</h3>
-                                    <p class="product-description">RTI Act requires files retrievable within 30 days. Is
-                                        your archive ready?</p>
+                                        Corporate Offices</h3>
+                                    <p class="product-description">Modern offices need storage that looks as good as the
+                                        rest of the space.</p>
                                     <ul>
                                         <li>
                                             <span>✓</span>
-                                            Anti-tamper locking systems
+                                            Custom RAL powder-coat colours to match your brand
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            High-density file capacity
+                                            Ergonomic heights for easy & comfortable access
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            GeM portal — direct procurement
+                                            Branded storage that looks as good as your office
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Modular units that adapt to your office layout
                                         </li>
                                     </ul>
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#government" class="btn-primary">View
+                                <a href="industrial_applications.html#corporate" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
@@ -719,15 +684,19 @@
                                     <ul>
                                         <li>
                                             <span>✓</span>
-                                            Rated up to 10-ton capacity
+                                            Handle loads up to 10 tons per unit
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            OSHA-aligned safety design
+                                            Modular design — expand without relocating
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            Modular — expand without relocating
+                                            OSHA-aligned safety for your workforce
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Maximise floor space without shifting operations
                                         </li>
                                     </ul>
                                 </div>
@@ -738,6 +707,7 @@
                                     →</a>
                             </div>
                         </div>
+
 
                         <!-- EDUCATION -->
                         <div class="product-card reveal delay-1" data-stagger-item>
@@ -757,15 +727,19 @@
                                     <ul>
                                         <li>
                                             <span>✓</span>
-                                            10,000 to 500,000+ volumes
+                                            Store 10,000 to 500,000+ volumes with ease
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            Student locker banks in custom colours
+                                            Custom student locker banks for schools & colleges
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            RFID-compatible options available
+                                            Shelving that grows as your collection grows
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Ideal for schools, universities & public libraries
                                         </li>
                                     </ul>
                                 </div>
@@ -777,43 +751,95 @@
                             </div>
                         </div>
 
-                        <!-- CORPORATE -->
+
+                        <!-- GOVERNMENT -->
                         <div class="product-card reveal delay-2" data-stagger-item>
-                            <a href="industrial_applications.html#corporate">
+                            <a href="industrial_applications.html#government">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" role="img" aria-label="Corporate Offices Icon">
-                                        <rect x="4" y="3" width="16" height="18" rx="2" />
-                                        <path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2" />
+                                        stroke-width="1.5" role="img" aria-label="Government Offices Icon">
+                                        <path d="M3 10h18" />
+                                        <path d="M5 10v8M9 10v8M15 10v8M19 10v8" />
+                                        <path d="M4 10l8-6 8 6" />
+                                        <path d="M3 18h18" />
                                     </svg>
                                 </div>
+
                                 <div class="product-info">
                                     <h3 class="product-name">
-                                        Corporate Offices</h3>
-                                    <p class="product-description">Modern offices need storage that looks as good as the
-                                        rest of the space.</p>
+                                        Government Offices</h3>
+                                    <p class="product-description">RTI Act requires files retrievable within 30 days. Is
+                                        your archive ready?</p>
                                     <ul>
                                         <li>
                                             <span>✓</span>
-                                            Custom RAL powder-coat colours
+                                            RTI compliant — retrieve any file within 30 days
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            Ergonomic, accessible heights
+                                            Available on GeM portal for direct procurement
                                         </li>
                                         <li>
                                             <span>✓</span>
-                                            Branded to match your interior
+                                            High-density filing to store more in less space
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Anti-tamper locking for classified document
                                         </li>
                                     </ul>
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#corporate" class="btn-primary">View
+                                <a href="industrial_applications.html#government" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
                         </div>
+
+                        <!-- Museums & Archives -->
+                        <div class="product-card reveal delay-1" data-stagger-item>
+                            <a href="industrial_applications.html#museum">
+                                <div class="sector-icon-box">
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5" role="img" aria-label="Museums Archives Icon">
+                                        <rect x="4" y="4" width="16" height="16" rx="2" />
+                                        <circle cx="12" cy="12" r="3" />
+                                        <path d="M8 16h8" />
+                                    </svg>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">
+                                        Museums & Archives</h3>
+                                    <p class="product-description">Preserve artefacts, documents and records with
+                                        climate-aware, high-density storage systems.</p>
+                                    <ul>
+                                        <li>
+                                            <span>✓</span>
+                                            Climate-controlled storage to prevent document damage
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Anti-tamper locking for irreplaceable artefacts
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Indexed retrieval for instant record access
+                                        </li>
+                                        <li>
+                                            <span>✓</span>
+                                            Ideal for government & private archive rooms
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <div>
+                                <a href="industrial_applications.html#museum" class="btn-primary">View
+                                    Solutions
+                                    →</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div><!-- /sectors-scroll-container -->
             </div>
@@ -856,15 +882,6 @@
                                     <p class="product-description"
                                         style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Motorized
                                         storage on rail tracks. Save up to 50% floor space.</p>
-                                    <div
-                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2">
-                                            <path d="M9 12l2 2 4-4" />
-                                            <circle cx="12" cy="12" r="10" />
-                                        </svg>
-                                        GMP Certified
-                                    </div>
                                 </div>
                             </a>
                             <div style="padding: 0 16px 16px;">
@@ -895,15 +912,7 @@
                                         style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">
                                         Heavy-duty
                                         galvanized steel. Rated up to 10 tons.</p>
-                                    <div
-                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2">
-                                            <path d="M9 12l2 2 4-4" />
-                                            <circle cx="12" cy="12" r="10" />
-                                        </svg>
-                                        Warehouse Grade
-                                    </div>
+
                                 </div>
                             </a>
                             <div style="padding: 0 16px 16px;">
@@ -932,15 +941,6 @@
                                     <p class="product-description"
                                         style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Secure
                                         professional lockers with digital locking systems.</p>
-                                    <div
-                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2">
-                                            <path d="M9 12l2 2 4-4" />
-                                            <circle cx="12" cy="12" r="10" />
-                                        </svg>
-                                        NABH Approved
-                                    </div>
                                 </div>
                             </a>
                             <div style="padding: 0 16px 16px;">
@@ -970,15 +970,6 @@
                                     <p class="product-description"
                                         style="color: var(--light); font-size: 14px; margin: 0 0 12px 0;">Organized
                                         document management & secure filing systems.</p>
-                                    <div
-                                        style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--primary); font-weight: 600;">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2">
-                                            <path d="M9 12l2 2 4-4" />
-                                            <circle cx="12" cy="12" r="10" />
-                                        </svg>
-                                        GeM Listed
-                                    </div>
                                 </div>
                             </a>
                             <div style="padding: 0 16px 16px;">

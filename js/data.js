@@ -111,13 +111,13 @@ const caseStudies = [
 ];
 
 const faqs = [
-    { q: "What products does Space Planners India offer?", a: "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems — all manufactured in-house." },
+    { q: "What products does Space Planners India offer?", a: "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems." },
     { q: "Are your products suitable for industrial and heavy-duty use?", a: "Yes. All our racks and storage systems are engineered for industrial applications with load capacities up to 10 tons. They use galvanized, rust-resistant steel and comply with relevant safety standards." },
     { q: "Do you provide installation services across India?", a: "Absolutely. We have installation teams covering all major cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and Ahmedabad. Installation includes safety compliance checks." },
     { q: "Can your storage solutions be customized to our space?", a: "Yes — customization is our strength. We offer free on-site space assessments, 3D layout designs, and fully tailored systems to match your dimensions, compliance needs, and budget." },
     { q: "Are your products GMP and NABH compliant?", a: "Yes. Our mobile compactors and storage systems can be manufactured to meet GMP (pharmaceutical), NABH (healthcare), and GeM portal specifications for government procurement." },
-    { q: "How quickly can I get a quotation?", a: "We deliver detailed quotations within 2 business hours of receiving your inquiry. Submit our online form, WhatsApp us, or call +91-22-40033385 to get started." },
-    { q: "What is your warranty and after-sales service policy?", a: "All products carry a manufacturer warranty against defects. We offer dedicated annual maintenance contracts (AMC) and have service centers in 8 cities across India." }
+    { q: "How quickly can I get a quotation?", a: "We deliver detailed quotations within 1 working Day of receiving your inquiry. Submit our online form, WhatsApp us, or call +91-22-40033385 to get started." },
+    { q: "What is your warranty and after-sales service policy?", a: "All products carry a manufacturer warranty against defects. We offer dedicated annual maintenance contracts (AMC)." }
 ];
 
 const cases = [
