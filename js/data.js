@@ -111,122 +111,56 @@ const caseStudies = [
 ];
 
 const faqs = [
-    { q: "What products does Space Planners India offer?", a: "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems." },
-    { q: "Are your products suitable for industrial and heavy-duty use?", a: "Yes. All our racks and storage systems are engineered for industrial applications with load capacities up to 10 tons. They use galvanized, rust-resistant steel and comply with relevant safety standards." },
-    { q: "Do you provide installation services across India?", a: "Absolutely. We have installation teams covering all major cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and Ahmedabad. Installation includes safety compliance checks." },
-    { q: "Can your storage solutions be customized to our space?", a: "Yes — customization is our strength. We offer free on-site space assessments, 3D layout designs, and fully tailored systems to match your dimensions, compliance needs, and budget." },
-    { q: "Are your products GMP and NABH compliant?", a: "Yes. Our mobile compactors and storage systems can be manufactured to meet GMP (pharmaceutical), NABH (healthcare), and GeM portal specifications for government procurement." },
-    { q: "How quickly can I get a quotation?", a: "We deliver detailed quotations within 1 working Day of receiving your inquiry. Submit our online form, WhatsApp us, or call +91-22-40033385 to get started." },
-    { q: "What is your warranty and after-sales service policy?", a: "All products carry a manufacturer warranty against defects. We offer dedicated annual maintenance contracts (AMC)." }
+    { q: "What does Space Planners India manufacture?", a: "Space Planners India manufactures industrial storage systems, including motorised mobile compactors, heavy-duty racking, storage lockers, and filing cabinets. Founded in 2004, the company has completed over 2,000 installations across more than 500 clients in sectors including pharmaceuticals, government, healthcare, education, and warehousing." },
+    { q: "Is Space Planners India GMP-certified?", a: "Yes, Space Planners India is WHO-GMP certified for its mobile compactor and storage systems used in pharmaceutical and healthcare environments. The company's products are also NABH-approved for hospital use and GeM-registered for direct government procurement." },
+    { q: "How much floor space can Space Planners' storage systems save?", a: "Space Planners' storage systems save an average of 75% of floor space compared to conventional static storage, based on data from over 2,000 installations. Mobile compactor systems specifically can save up to 50–60% of floor space by eliminating redundant access aisles." },
+    { q: "Does Space Planners install storage systems across all of India?", a: "Yes, Space Planners provides pan-India installation and after-sales support, having installed more than 2 million square feet of storage systems nationally across corporate, government, healthcare, industrial, and education clients." },
+    { q: "How do I get a free storage assessment from Space Planners?", a: "You can request a free storage assessment by submitting the quote form on the Space Planners website with your name, phone number, and product interest. A certified storage engineer will then conduct a site visit, propose a custom 3D design, and provide a quote — typically with a response within 24 business hours." },
+    { q: "What industries does Space Planners serve? ", a: "Space Planners serves pharmaceutical and healthcare facilities, corporate offices, warehouses and logistics operations, educational institutions and libraries, government offices, and museums and archives, with sector-specific compliance (GMP, NABH, OSHA-aligned, RTI-ready, GeM-listed) built into each solution." },
+    { q: "What is your warranty and after-sales service policy?", a: "All products carry a manufacturer warranty against defects. We offer dedicated annual maintenance contracts (AMC)." },
 ];
 
 const cases = [
     {
-        title: "Banking Sector",
+        title: "Heavy-Duty Compactor Storage System for a Leading FMCG Company",
         subtitle: "Secure Document Management",
         img: "project_corporate.png",
-        industry: "Financial Services",
-        client: "Leading Private Bank - Multi-Branch Network",
-        challenge: "A leading private bank needed secure, indexed storage for 2 million documents across 3 city branches with quick retrieval capability and audit compliance.",
-        solution: "Implemented mobile compactor systems with electronic access control and custom shelf labeling. Each compactor row is mapped to branch, year, and account type.",
+        industry: "Heavy-Duty Compactor Storage System",
+        client: "A reputed multinational FMCG company",
+        challenge: "The client stored raw materials for soap manufacturing in 50 kg gunny bags on regular fixed racks. This conventional storage method consumed excessive floor space and limited how much material could be held in the warehouse at any given time.",
+        solution: "Space Planners engineered a heavy-duty mobile compactor system built from robust slotted-angle racking. Each shelf was designed to safely bear the load of at least four gunny bags, or 200 kg, while the overall unit was capable of supporting up to 4,000 kg. Despite this substantial load capacity, the compactor mechanism was fine-tuned to move smoothly with just one finger.",
         results: [
-            { metric: "60%", label: "Floor Space Reduction", icon: "📉" },
-            { metric: "100%", label: "Audit Compliance", icon: "✓" },
-            { metric: "80%", label: "Faster Retrieval", icon: "⚡" },
-            { metric: "3 hrs", label: "Implementation Time Per Branch", icon: "📅" }
-        ],
-        testimony: "\"The system is flawless. Our audit team found zero non-compliance issues after implementation.\"",
-        testimonyAuthor: "Chief Compliance Officer",
-        whatsapp: "Banking+Sector+Storage"
+            { metric: "70% increase", label: "in storage capacity — the client went from storing 300 bags to 500 bags in the exact same floor area" },
+            { metric: "Reduced Space Requirements", label: "The compact mobile design freed up significant warehouse floor space compared to fixed racking" },
+            { metric: "Improved operational efficiency", label: "Easy, one-touch access to stored materials streamlined day-to-day handling and supported smoother manufacturing operations" }
+        ]
     },
     {
-        title: "Government Archives",
-        subtitle: "Historical Record Preservation",
-        img: "project_corporate.png",
-        industry: "Government",
-        client: "Central Government Ministry - National Archives Division",
-        challenge: "A central government ministry needed specialized storage for 200+ years of historical records, with climate-compatible shelving and anti-tamper access.",
-        solution: "Custom heavy-duty compactors with anti-tamper locks, GeM portal compliant procurement. System integrated with the ministry's file index software.",
-        results: [
-            { metric: "5M+", label: "Documents Stored", icon: "📚" },
-            { metric: "90%", label: "Space Saved", icon: "📦" },
-            { metric: "0", label: "Document Loss (3 years)", icon: "🛡️" },
-            { metric: "200+", label: "Years of Records Protected", icon: "🏛️" }
-        ],
-        testimony: "\"Preserving our national heritage with this system ensures zero loss and perfect accessibility for researchers nationwide.\"",
-        testimonyAuthor: "Director, National Archives",
-        whatsapp: "Government+Archives+Storage"
-    },
-    {
-        title: "Healthcare Network",
-        subtitle: "NABH-Compliant Patient Records",
-        img: "project_corporate.png",
-        industry: "Healthcare",
-        client: "6-Hospital Chain Network - Pan-India",
-        challenge: "A 6-hospital chain required NABH-compliant storage for 5 lakh+ patient files, with role-based access and secure retrieval under 5 minutes.",
-        solution: "Steel compactors with key-card access installed across all 6 hospitals. Staff trained in file indexing and retrieval protocol.",
-        results: [
-            { metric: "100%", label: "NABH Compliance", icon: "✓" },
-            { metric: "75%", label: "Retrieval Time Cut (12→3 min)", icon: "⚡" },
-            { metric: "0", label: "Compliance Findings", icon: "🎯" },
-            { metric: "5L+", label: "Patient Records Secured", icon: "🏥" }
-        ],
-        testimony: "\"Implementation was seamless, and our compliance scores improved immediately. Patient care efficiency increased noticeably.\"",
-        testimonyAuthor: "Operations Director, Hospital Chain",
-        whatsapp: "Healthcare+Storage"
-    },
-    {
-        title: "Retail Distribution",
-        subtitle: "Inventory Management at Scale",
-        img: "project_warehouse.png",
-        industry: "Retail & Logistics",
-        client: "National Retail Chain - 50+ Locations",
-        challenge: "A retail chain needed standardized inventory storage across 50+ locations in India, with real-time coordination and minimal stock loss.",
-        solution: "Standardised pallet rack systems with bin location tracking and barcode integration deployed across all warehouses.",
-        results: [
-            { metric: "25%", label: "Inventory Accuracy Boost", icon: "📊" },
-            { metric: "15%", label: "Logistics Cost Cut", icon: "💰" },
-            { metric: "40%", label: "Faster Stock Audits", icon: "✓" },
-            { metric: "50+", label: "Locations Standardized", icon: "🗺️" }
-        ],
-        testimony: "\"Standardization across 50+ stores reduced our supply chain complexity drastically. Inventory discrepancies dropped from 8% to 1%.\"",
-        testimonyAuthor: "Supply Chain Manager",
-        whatsapp: "Retail+Storage"
-    },
-    {
-        title: "University Library",
-        subtitle: "Multi-Campus Library System",
+        title: "Mobile Compactor Tender - IIT Bombay Library",
+        subtitle: "Mobile Compactor Storage System (Tender Project)",
         img: "project_corporate.png",
         industry: "Education",
-        client: "National University - 3 Campus Network",
-        challenge: "A 3-campus university needed to accommodate 20 lakh+ books without expanding the building, while providing 24/7 self-service access.",
-        solution: "Mobile carriage compact shelving integrated with the digital catalog. Reader access QR-code system at each aisle.",
+        client: "IIT Bombay (Powai Campus)",
+        challenge: "IIT Bombay had floated a tender for a mobile compactor storage system, with the original design proposed by another vendor. Space Planners reviewed the tender specifications and identified an opportunity to deliver significantly greater storage efficiency through an improved design.",
+        solution: "We engaged directly with the IIT Bombay authorities to understand their exact storage requirements, then leveraged our design expertise to propose an alternate configuration — one that increased storage capacity by nearly 40% over the original tender design.",
         results: [
-            { metric: "30%", label: "More Books Stored", icon: "📚" },
-            { metric: "24/7", label: "Self-Service Access", icon: "🔓" },
-            { metric: "95%", label: "Student Satisfaction", icon: "😊" },
-            { metric: "20L+", label: "Books Accommodated", icon: "📖" }
-        ],
-        testimony: "\"Students now have better access to resources than when our library was physical-only. Our circulation rates doubled.\"",
-        testimonyAuthor: "Head Librarian, University",
-        whatsapp: "University+Library+Storage"
+            { metric: "", label: "IIT Bombay was impressed enough to cancel the original tender and issue a fresh one based on our proposed design and specifications" },
+            { metric: "", label: "Space Planners won the re-tendered contract, competing against Godrej and six other vendors — eight participants in total" },
+            { metric: "", label: "The relationship led to repeat business, including additional projects for IIT Bombay as well as IIT Kanpur" }
+        ]
     },
     {
-        title: "Automotive Manufacturing",
-        subtitle: "Parts & Production Storage",
-        img: "project_warehouse.png",
-        industry: "Manufacturing",
-        client: "Tier-1 Automotive Supplier - Leading OEM",
-        challenge: "A Tier-1 automotive supplier needed sub-5-minute picking for 50,000+ part SKUs across a production warehouse.",
-        solution: "Heavy-duty cantilever and pallet racks with bin location labeling. Workflow routing optimized with operations team.",
+        title: "Mobile Compactor Modification — GVK Mumbai International Airport Limited",
+        subtitle: "Modification of an Existing Mobile Compactor System",
+        img: "project_corporate.png",
+        industry: "Healthcare",
+        client: "GVK Mumbai International Airport Limited, Santacruz",
+        challenge: "GVK was experiencing persistent movement issues with a mobile compactor system that had been supplied by another reputed vendor. The malfunctioning system was affecting their ability to reliably access stored records.",
+        solution: "Our team carried out a thorough on-site inspection and diagnosed the root cause: the base trolleys — the core mechanism of the system — were not adequately designed to handle the load of the stored records. Rather than recommending a costly full replacement, we proposed replacing only the base trolleys with a newly engineered design, while retaining the client's existing superstructure where the files were stored.",
         results: [
-            { metric: "50%", label: "Picking Time Reduction", icon: "⚡" },
-            { metric: "0", label: "Lost-Part Incidents", icon: "🛡️" },
-            { metric: "20%", label: "Production Yield Boost", icon: "📈" },
-            { metric: "50K+", label: "SKUs Organized", icon: "🏭" }
-        ],
-        testimony: "\"Production line downtime due to missing parts dropped from 2% to 0%. This system paid for itself in 4 months.\"",
-        testimonyAuthor: "Plant Manager, Auto Supplier",
-        whatsapp: "Automotive+Storage"
+            { metric: "", label: "Permanent resolution of the recurring movement issues" },
+            { metric: "", label: "Cost-effective fix — by reusing the existing structure and replacing only the faulty component, the client avoided the expense of a complete system overhaul" },
+            { metric: "", label: "Demonstrated Space Planners' ability to diagnose and solve problems in systems we didn't originally supply" }
+        ]
     }
 ];

@@ -16,6 +16,7 @@
         // Home page, or any page with a hero-section or carousel-section
         const hasHero = document.querySelector('.hero-section') || 
                         document.querySelector('.carousel-section') || 
+                        document.querySelector('.hero-wrap') ||
                         document.querySelector('main.home-main') ||
                         document.body.id === 'home' || 
                         window.location.pathname.endsWith('index.html') || 
