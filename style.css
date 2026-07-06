@@ -413,7 +413,7 @@ header::before {
 }
 
 /* Default padding for pages with fixed individual header */
-main,
+body:not(.transparent-nav) main,
 .main-content-wrapper,
 body:not(.transparent-nav) section:first-of-type {
   padding-top: 110px;
@@ -567,27 +567,30 @@ header.scrolled .logo img {
   transform: translateY(0);
 }
 
+/* DEFAULT: hidden */
 .nav-dropdown {
   position: absolute;
   top: calc(100% + 5px);
-  /* Shifted down for better visual breathing room */
   left: -20px;
   background: var(--white);
   box-shadow: var(--shadow-lg);
   min-width: 280px;
   border-radius: 12px;
   padding: 8px 0;
-
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  /* WAS: 1 — change this */
+  visibility: hidden;
+  /* WAS: visible — change this */
+  transform: translateY(-8px);
+  /* WAS: translateY(0) — add slight offset */
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1100;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
+/* HOVER: show it */
 .main-nav li:hover .nav-dropdown {
   opacity: 1;
   visibility: visible;
@@ -809,7 +812,7 @@ header.scrolled .logo img {
   gap: 10px;
 }
 
-main {
+body:not(.transparent-nav) main {
   padding-top: 138px;
 }
 
@@ -3446,7 +3449,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .testimonials-content {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -3553,7 +3556,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .clients-content {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
 }
