@@ -60,7 +60,7 @@ function initAllForms() {
         const el = document.getElementById(f.id);
         if (el) {
             setupRealTimeValidation(el);
-            injectReCaptcha(el); // Inject reCAPTCHA container
+            //injectReCaptcha(el); // Inject reCAPTCHA container
             if (f.handler) {
                 el.onsubmit = f.handler;
             }
@@ -71,7 +71,7 @@ function initAllForms() {
 /**
  * Injects reCAPTCHA widget into the form
  */
-function injectReCaptcha(form) {
+/**function injectReCaptcha(form) {
     if (form.querySelector('.g-recaptcha')) return;
 
     const recaptchaDiv = document.createElement('div');
@@ -95,7 +95,7 @@ function injectReCaptcha(form) {
     } else {
         form.appendChild(recaptchaDiv);
     }
-}
+}*/
 
 /* ── REAL-TIME VALIDATION ── */
 function setupRealTimeValidation(form) {
@@ -276,13 +276,13 @@ async function handleSubmission(form, type, onSuccess) {
     if (!validateAll(form)) return;
 
     // 2. Validate reCAPTCHA
-    if (typeof grecaptcha !== 'undefined') {
-        const response = grecaptcha.getResponse();
-        if (!response) {
-            showToast('Please verify that you are not a robot.', 'error');
-            return;
-        }
-    }
+    //if (typeof grecaptcha !== 'undefined') {
+    //    const response = grecaptcha.getResponse();
+    //    if (!response) {
+    //        showToast('Please verify that you are not a robot.', 'error');
+    //        return;
+    //    }
+    //}
 
     const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalText = btn ? btn.textContent : '';

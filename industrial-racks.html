@@ -255,143 +255,98 @@
   <div id="floating-buttons-placeholder"></div>
   <div id="modals-placeholder"></div>
 
-  <!-- 1. PREMIUM HERO CAROUSEL -->
-  <div class="hero-wrap">
-    <div class="carousel" id="carousel">
+  <script>
+    /* ── CAROUSEL ── */
+    let currentSlide = 0, slideTimer;
 
-      <!-- SLIDE 1 — Decking Panel Racks -->
-      <div class="slide">
-        <div class="slide-copy">
-          <div class="eyebrow">India's Storage Engineers · Since 2004</div>
-          <h1 class="headline">Your Space<br>Is Full.<br><span class="acc">We Fix That.</span></h1>
-          <p class="sub">Motorised compactors on rail tracks — save up to 50% floor space without structural changes.
-            GMP, NABH and GeM compliant. Pan-India installation.</p>
-          <div class="pills">
-            <span class="pill pill-g">WHO-GMP Certified</span>
-            <span class="pill pill-b">NABH Approved</span>
-            <span class="pill pill-r">GeM Registered</span>
-            <span class="pill pill-n">Pan-India Install</span>
-          </div>
-          <div class="slide-actions">
-            <a href="javascript:void(0)" onclick="openInquiryModal({category:'Industrial Racks'})" class="btn-red">Get
-              Free Quote</a>
-          </div>
-        </div>
-        <div class="slide-img">
-          <div class="eng-grid"></div>
-          <div class="fc fc-tl"></div>
-          <div class="fc fc-tr"></div>
-          <div class="fc fc-bl"></div>
-          <div class="fc fc-br"></div>
-          <img src="Racks/decking-panel-rack.webp" alt="Decking Panel Rack">
-          <div class="img-chip">
-            <div class="img-chip-val">50%</div>
-            <div class="img-chip-key">Avg Space Saved</div>
-          </div>
+    function resetTimer() {
+      if (slideTimer) clearInterval(slideTimer);
+      slideTimer = setInterval(nextSlide, 5000);
+    }
+    function nextSlide() { currentSlide = (currentSlide + 1) % 4; updateSlide(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + 4) % 4; updateSlide(); }
+    function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
+    function updateSlide() {
+      document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+      document.querySelectorAll('.control-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+      if (typeof updateSlideTitle === 'function') updateSlideTitle(currentSlide);
+    }
+  </script>
+  <!-- ===== H1 (SEO — visually in carousel) ===== -->
+  <!-- HERO CAROUSEL -->
+  <section class="carousel-section" aria-label="Featured products slideshow">
+    <div class="carousel-container">
+      <div class="carousel-slide active" id="slide0">
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
+          src="Compactors/document storage compactor carousel 1.webp"
+          alt="Mobile Compactor Storage System by Space Planners India" loading="eager">
+      </div>
+      <div class="carousel-slide" id="slide1">
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
+          src="Compactors/piegon hole compactor carousel 2.webp"
+          alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
+      </div>
+      <div class="carousel-slide" id="slide2">
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
+          src="Compactors/Heavy duty compactor carousel 3.webp"
+          alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
+      </div>
+      <div class="carousel-slide" id="slide3">
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
+          src="Compactors/Drawer compactor carousel 4.webp"
+          alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
+      </div>
+      <div class="slide-overlay"></div>
+      <script>
+        const slideContent = {
+          0: {
+            title: "Your Space Is Full. We Fix That.",
+            description: "Motorised compactors save up to 50% floor space. Trusted by Sun Pharma, Kokilaben Hospital, IIT Bombay, and 500+ organisations across India."
+          },
+          1: {
+            title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
+            description: "Galvanised steel racks built for India's toughest warehouses. OSHA-aligned safety design. Modular and scalable — expand without relocating."
+          },
+          2: {
+            title: "Secure Lockers. Certified for Healthcare.",
+            description: "NABH-aligned lockers for hospitals, offices and institutions. Antimicrobial coating available. Digital, RFID and biometric lock options."
+          },
+          3: {
+            title: "Indexed Archives. Audit-Ready Storage.",
+            description: "Mobile compactors and filing systems for government agencies, corporate records and document archives. GeM portal compatible — direct procurement available."
+          }
+        };
+
+        function updateSlideTitle(index) {
+          const content = slideContent[index % 4];
+          document.getElementById('slideTitle').textContent = content.title;
+          document.getElementById('slideDesc').textContent = content.description;
+          document.querySelector('.slide-eyebrow').textContent = content.eyebrow;
+        }
+      </script>
+      <div class="slide-content">
+        <p class="slide-eyebrow">India's Storage Engineers · Since 2004</p>
+        <h1 class="slide-title" id="slideTitle">Your Space Is Full. We Fix That.</h1>
+        <p class="slide-description" id="slideDesc">Motorised compactors, heavy-duty racks and certified
+          storage systems — engineered for India's most demanding facilities. GMP, NABH and GeM compliant.
+          Pan-India installation.</p>
+        <div class="slide-cta">
+          <button class="btn-white"
+            onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
+            style="font-size: 16px; padding: 14px 32px; font-weight: 600;">Get Free Assessment
+            →</button>
         </div>
       </div>
-
-      <!-- SLIDE 2 — Slotted Angle Racks -->
-      <div class="slide">
-        <div class="slide-copy">
-          <div class="eyebrow">Warehouse &amp; Industrial Grade</div>
-          <h1 class="headline">Heavy-Duty<br>Racks.<br><span class="acc">10-Ton Rated.</span></h1>
-          <p class="sub">Galvanized steel industrial racking for warehouses, factories and distribution centres. Modular
-            — expand without relocating.</p>
-          <div class="pills">
-            <span class="pill pill-n">Up to 10-Ton Capacity</span>
-            <span class="pill pill-g">OSHA-Aligned</span>
-            <span class="pill pill-r">Modular &amp; Expandable</span>
-          </div>
-          <div class="slide-actions">
-            <a href="javascript:void(0)" onclick="openInquiryModal({category:'Industrial Racks'})" class="btn-red">Get
-              Free Quote</a>
-          </div>
-        </div>
-        <div class="slide-img">
-          <div class="eng-grid"></div>
-          <div class="fc fc-tl"></div>
-          <div class="fc fc-tr"></div>
-          <div class="fc fc-bl"></div>
-          <div class="fc fc-br"></div>
-          <img src="Racks/slotted-angle-racking.webp" alt="Slotted Angle Racks">
-          <div class="img-chip">
-            <div class="img-chip-val">10T</div>
-            <div class="img-chip-key">Load Capacity</div>
-          </div>
-        </div>
+      <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Previous slide">❮</button>
+      <button class="carousel-nav next" onclick="nextSlide()" aria-label="Next slide">❯</button>
+      <div class="carousel-controls" role="tablist">
+        <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+        <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+        <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+        <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
       </div>
-
-      <!-- SLIDE 3 — Multi Tier Racking System -->
-      <div class="slide">
-        <div class="slide-copy">
-          <div class="eyebrow">Healthcare &amp; Corporate</div>
-          <h1 class="headline">Secure<br>Lockers.<br><span class="acc">NABH Approved.</span></h1>
-          <p class="sub">Professional lockers with digital locking for hospitals, pharma facilities and corporate
-            offices. Custom RAL colours available.</p>
-          <div class="pills">
-            <span class="pill pill-b">NABH Approved</span>
-            <span class="pill pill-r">Digital Locking</span>
-            <span class="pill pill-n">Custom Colours</span>
-          </div>
-          <div class="slide-actions">
-            <a href="javascript:void(0)" onclick="openInquiryModal({category:'Industrial Racks'})" class="btn-red">Get
-              Free Quote</a>
-          </div>
-        </div>
-        <div class="slide-img">
-          <div class="eng-grid"></div>
-          <div class="fc fc-tl"></div>
-          <div class="fc fc-tr"></div>
-          <div class="fc fc-bl"></div>
-          <div class="fc fc-br"></div>
-          <img src="Racks/multi-tier-storage-racks.webp" alt="Multi Tier Racking System">
-          <div class="img-chip">
-            <div class="img-chip-val">100%</div>
-            <div class="img-chip-key">Compliance Rate</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 4 — Mezzanine Floor Systems -->
-      <div class="slide">
-        <div class="slide-copy">
-          <div class="eyebrow">Government &amp; Corporate Archives</div>
-          <h1 class="headline">Organised<br>Filing.<br><span class="acc">GeM Listed.</span></h1>
-          <p class="sub">Document management and secure filing for government departments and corporate records. Direct
-            procurement via GeM portal.</p>
-          <div class="pills">
-            <span class="pill pill-r">GeM Listed</span>
-            <span class="pill pill-n">RTI-Ready Archives</span>
-            <span class="pill pill-g">Anti-Tamper Locking</span>
-          </div>
-          <div class="slide-actions">
-            <a href="javascript:void(0)" onclick="openInquiryModal({category:'Industrial Racks'})" class="btn-red">Get
-              Free Quote</a>
-          </div>
-        </div>
-        <div class="slide-img">
-          <div class="eng-grid"></div>
-          <div class="fc fc-tl"></div>
-          <div class="fc fc-tr"></div>
-          <div class="fc fc-bl"></div>
-          <div class="fc fc-br"></div>
-          <img src="Racks/mezzanine-floor-racking.webp" alt="Mezzanine Floor System">
-          <div class="img-chip">
-            <div class="img-chip-val">2M+</div>
-            <div class="img-chip-key">Sq Ft Installed</div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /carousel -->
-
-    <div class="carousel-controls">
-      <button class="c-btn" id="cPrev">←</button>
-      <div id="cDots"></div>
-      <button class="c-btn" id="cNext">→</button>
     </div>
-  </div><!-- /hero-wrap -->
+  </section>
 
   <!-- 2. BRUYNZEEL STATS RIBBON -->
   <div style="background:#fff; padding-bottom: 40px;margin-top: 60px;">
