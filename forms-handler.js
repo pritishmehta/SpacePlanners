@@ -3,8 +3,8 @@
    ============================================================ */
 
 const MAILTO_CONFIG = {
-    TO: 'pritishmehta18@gmail.com',
-    RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // REPLACE WITH YOUR SITE KEY
+    TO: 'pritishmehta18@gmail.com, sehgalshruti1997@gmail.com,shubham.spaceplanners@gmail.com',
+    //RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // REPLACE WITH YOUR SITE KEY
 };
 
 const Validators = {
@@ -73,20 +73,20 @@ function initAllForms() {
  */
 function injectReCaptcha(form) {
     if (form.querySelector('.g-recaptcha')) return;
-    
+
     const recaptchaDiv = document.createElement('div');
     recaptchaDiv.className = 'g-recaptcha';
     recaptchaDiv.setAttribute('data-sitekey', MAILTO_CONFIG.RECAPTCHA_SITE_KEY);
     recaptchaDiv.style.marginBottom = '20px';
-    
+
     // Insert before the submit button
     const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.form-submit');
     if (submitBtn) {
         const parent = submitBtn.parentElement;
         // Check if the button is inside a button group (flex container with multiple buttons)
-        const isButtonGroup = parent && parent.children.length > 1 && 
-                             Array.from(parent.children).some(c => c.tagName === 'BUTTON' && c !== submitBtn);
-        
+        const isButtonGroup = parent && parent.children.length > 1 &&
+            Array.from(parent.children).some(c => c.tagName === 'BUTTON' && c !== submitBtn);
+
         if (isButtonGroup) {
             parent.parentNode.insertBefore(recaptchaDiv, parent);
         } else {

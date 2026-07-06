@@ -656,28 +656,50 @@
       { "id": "l6", "name": "Tower Locker", "image": "Lockers/tower-style-lockers.webp", "apps": "Offices" },
       { "id": "l7", "name": "Multicolored Lockers", "image": "Lockers/premium-multicolored-lockers.webp", "apps": "Offices" }];
 
+      // Card click — opens product modal unless Get Quote was clicked
+      function handleCardClick(event, id) {
+        if (event.target.closest('[data-get-quote]')) return;
+        openProductModal(id);
+      }
+
       function renderProducts() {
         const grid = document.getElementById('productGrid');
         if (!grid) return;
         grid.innerHTML = productsData.map((p, i) => `
-                <div class="product-card reveal${i % 3 === 1 ? ' delay-1' : i % 3 === 2 ? ' delay-2' : ''}" style="text-decoration:none; cursor:default; display:flex; flex-direction:column;">
-                    <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0;">
-                        <img src="${p.image}" alt="${p.name}" loading="lazy" style="width:100%; height:220px; object-fit:cover; transition:transform 0.4s ease;" onerror="this.parentElement.style.background='linear-gradient(135deg,#e53935 0%,#b71c1c 100%)'; this.style.display='none';">
-                    </div>
-                    <div class="product-info" style="padding:24px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border-radius:0 0 12px 12px; box-shadow:0 4px 20px rgba(0,0,0,0.07);">
-                        <div>
-                            <h3 class="product-name" style="font-size:17px; margin-bottom:8px; color:var(--dark);">${p.name}</h3>
-                            <p class="product-description" style="color:var(--light); font-size:14px; line-height:1.6; margin-bottom:20px;">${p.apps.length > 90 ? p.apps.substring(0, 90) + '...' : p.apps}</p>
-                        </div>
-                        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                            <button onclick="openProductModal('${p.id}')" class="btn-primary" style="padding:10px 18px; font-size:13px; border:none; cursor:pointer; flex:1; min-width:110px; text-align:center;">View Details</button>
-                            <button onclick="openInquiryModal({category:'Storage Lockers', specificProduct:'${p.name}'})" style="padding:10px 18px; font-size:13px; border:2px solid var(--primary,#e53935); background:transparent; color:var(--primary,#e53935); border-radius:6px; cursor:pointer; flex:1; min-width:110px; font-weight:600; transition:all 0.2s;" onmouseover="this.style.background='var(--primary,#e53935)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--primary,#e53935)';">Get Quote</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
+    <div class="product-card reveal${i % 3 === 1 ? ' delay-1' : i % 3 === 2 ? ' delay-2' : ''}"
+      style="text-decoration:none; cursor:pointer; display:flex; flex-direction:column;"
+      onclick="handleCardClick(event, '${p.id}')">
+      <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0;">
+        <img src="${p.image}" alt="${p.name}" loading="lazy"
+          style="width:100%; height:220px; object-fit:cover; transition:transform 0.4s ease;"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#e53935 0%,#b71c1c 100%)'; this.style.display='none';">
+      </div>
+      <div class="product-info"
+        style="padding:24px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border-radius:0 0 12px 12px; box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+        <div>
+          <h3 class="product-name" style="font-size:17px; margin-bottom:8px; color:var(--dark);">${p.name}</h3>
+          <p class="product-description" style="color:var(--light); font-size:14px; line-height:1.6; margin-bottom:20px;">
+            ${p.apps.length > 90 ? p.apps.substring(0, 90) + '...' : p.apps}
+          </p>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button onclick="event.stopPropagation(); openProductModal('${p.id}')"
+            class="btn-primary"
+            style="padding:10px 18px; font-size:13px; border:none; cursor:pointer; flex:1; min-width:110px; text-align:center;">
+            View Details
+          </button>
+          <button data-get-quote
+            onclick="event.stopPropagation(); openInquiryModal({category:'Mobile Compactors', specificProduct:'${p.name}'})"
+            style="padding:10px 18px; font-size:13px; border:2px solid var(--primary,#e53935); background:transparent; color:var(--primary,#e53935); border-radius:6px; cursor:pointer; flex:1; min-width:110px; font-weight:600; transition:all 0.2s;"
+            onmouseover="this.style.background='var(--primary,#e53935)';this.style.color='#fff';"
+            onmouseout="this.style.background='transparent';this.style.color='var(--primary,#e53935)';">
+            Get Quote
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
 
-        // Re-observe new elements
         const revealObserver = new IntersectionObserver(entries => {
           entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
         }, { threshold: .12 });
@@ -689,29 +711,30 @@
         if (!p) return;
         const content = document.getElementById('productDetailContent');
         content.innerHTML = `
-                <div class="product-modal-image">
-                    <img src="${p.image}" alt="${p.name}" onerror="this.src='Loading.gif'">
-                </div>
-                <div class="product-modal-details">
-                    <span class="product-modal-label">Product Portfolio</span>
-                    <h2 class="product-modal-title">${p.name}</h2>
-                    <div class="product-modal-description">
-                        Discover the perfect balance of security and design with our ${p.name}. Built to last and customized for your specific organizational needs.
-                    </div>
-                    <div class="product-modal-meta">
-                        <span class="product-modal-meta-label">Ideal Applications</span>
-                        <div class="product-modal-tags">
-                            ${p.apps.split(',').map(a => `<span class="product-modal-tag">${a.trim()}</span>`).join('')}
-                        </div>
-                    </div>
-                    <div class="product-modal-actions">
-                        <button class="btn-primary" onclick="openInquiryModal({category:'Storage Lockers', specificProduct:'${p.name}'})">
-                            Get Free Quote &rarr;
-                        </button>
-
-                    </div>
-                </div>
-            `;
+    <div class="product-modal-image">
+      <img src="${p.image}" alt="${p.name}" onerror="this.src='Loading.gif'">
+    </div>
+    <div class="product-modal-details">
+      <span class="product-modal-label">Product Portfolio</span>
+      <h2 class="product-modal-title">${p.name}</h2>
+      <div class="product-modal-description">
+        Building long-term storage efficiency with our precision-engineered ${p.name}.
+        Designed for maximum space utilization and durability in professional environments.
+      </div>
+      <div class="product-modal-meta">
+        <span class="product-modal-meta-label">Ideal Applications</span>
+        <div class="product-modal-tags">
+          ${p.apps.split(',').map(a => `<span class="product-modal-tag">${a.trim()}</span>`).join('')}
+        </div>
+      </div>
+      <div class="product-modal-actions">
+        <button class="btn-primary"
+          onclick="openInquiryFromProduct({category:'Mobile Compactors', specificProduct:'${p.name}'})">
+          Get Free Quote &rarr;
+        </button>
+      </div>
+    </div>
+  `;
         document.getElementById('productModal').classList.add('active');
         document.body.style.overflow = 'hidden';
       }
@@ -719,6 +742,15 @@
       function closeProductModal() {
         document.getElementById('productModal').classList.remove('active');
         document.body.style.overflow = '';
+      }
+
+      // Opens inquiry from inside product modal — closes product modal first, then skips to step 2
+      function openInquiryFromProduct(productInfo) {
+        closeProductModal();
+        setTimeout(() => {
+          openInquiryModal(productInfo);
+          if (typeof showStep === 'function') showStep(2);
+        }, 50);
       }
 
       function initStatsStrip() {
