@@ -117,24 +117,10 @@ function openInquiryModal(productInfo) {
     const modal = document.getElementById('inquiryModal');
     if (!modal) return;
 
-    // --- Pre-fill Step 1: auto-select the matching radio card ---
-    if (productInfo && productInfo.category) {
-        const radios = modal.querySelectorAll('input[name="product_interest"]');
-        radios.forEach(radio => {
-            const isMatch = radio.value.toLowerCase().includes(productInfo.category.toLowerCase()) ||
-                            productInfo.category.toLowerCase().includes(radio.value.toLowerCase());
-            radio.checked = isMatch;
-            // Visually mark the selected card
-            const card = radio.closest('.radio-card');
-            if (card) card.classList.toggle('selected', isMatch);
-        });
-    } else {
-        // Reset all selections when opened without context
-        modal.querySelectorAll('input[name="product_interest"]').forEach(r => {
-            r.checked = false;
-            const card = r.closest('.radio-card');
-            if (card) card.classList.remove('selected');
-        });
+    // --- Pre-fill hidden product_interest field ---
+    let hiddenInterest = modal.querySelector('#hidden-product-interest');
+    if (hiddenInterest) {
+        hiddenInterest.value = (productInfo && productInfo.category) ? productInfo.category : 'General Inquiry';
     }
 
     // --- Inject / Update hidden field for specific product ---

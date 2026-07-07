@@ -3,8 +3,14 @@
    ============================================================ */
 
 const MAILTO_CONFIG = {
-    TO: 'pritishmehta18@gmail.com, sehgalshruti1997@gmail.com,shubham.spaceplanners@gmail.com',
+    TO: 'pritishmehta18@gmail.com'
     //RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // REPLACE WITH YOUR SITE KEY
+};
+
+const EMAILJS_CONFIG = {
+    PUBLIC_KEY: 'YOUR_PUBLIC_KEY',   // Replace with your EmailJS Public Key
+    SERVICE_ID: 'YOUR_SERVICE_ID',   // Replace with your EmailJS Service ID
+    TEMPLATE_ID: 'YOUR_TEMPLATE_ID'  // Replace with your EmailJS Template ID
 };
 
 const Validators = {
@@ -39,6 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
         script.src = 'https://www.google.com/recaptcha/api.js';
         script.async = true;
         script.defer = true;
+        document.head.appendChild(script);
+    }
+
+    // Dynamically load EmailJS script
+    if (!document.querySelector('script[src*="email.min.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+        script.async = true;
+        script.onload = () => {
+            if (window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+                emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+            }
+        };
         document.head.appendChild(script);
     }
 
@@ -197,13 +216,31 @@ async function submitFormToBackend(formElement, formName) {
             }
         }
 
-        const subject = encodeURIComponent(`[Space Planners] New ${formName.replace(/_/g, ' ')} submission`);
-        const encodedBody = encodeURIComponent(body);
-        window.location.href = `mailto:${MAILTO_CONFIG.TO}?subject=${subject}&body=${encodedBody}`;
+        const subject = `[Space Planners] New ${formName.replace(/_/g, ' ')} submission`;
+        
+        if (window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+            const templateParams = {
+                subject: subject,
+                message: body,
+                from_name: formData.get('name') || 'Website User',
+                reply_to: formData.get('email') || MAILTO_CONFIG.TO
+            };
+            
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID, 
+                EMAILJS_CONFIG.TEMPLATE_ID, 
+                templateParams
+            );
+        } else {
+            // Fallback to mailto if EmailJS is not configured yet
+            const encodedSubject = encodeURIComponent(subject);
+            const encodedBody = encodeURIComponent(body);
+            window.location.href = `mailto:${MAILTO_CONFIG.TO}?subject=${encodedSubject}&body=${encodedBody}`;
+        }
 
         return { success: true };
     } catch (error) {
-        console.error('Mailto error:', error);
+        console.error('Email sending error:', error);
         return { success: false };
     }
 }
@@ -219,7 +256,7 @@ function submitInquiry(e) {
         const successModal = document.getElementById('successModal');
         if (successModal) successModal.classList.add('active');
         form.reset();
-        if (typeof showStep === 'function') showStep(1);
+        if (typeof showStep === 'function') showStep(2);
     });
 }
 
