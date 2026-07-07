@@ -2147,10 +2147,11 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 .slide-content {
   position: absolute;
   z-index: 20;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 60px 80px 80px;
+  padding: 25% 80px 80px 80px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2190,6 +2191,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .slide-cta .btn-white {
@@ -2476,7 +2478,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .product-card:hover .product-image img {
-  transform: scale(1.06);
+  transform: scale(calc(var(--zoom, 1) + 0.06));
 }
 
 .product-image-placeholder {

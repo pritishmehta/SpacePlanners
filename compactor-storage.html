@@ -67,8 +67,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
   </noscript>
   <link rel="stylesheet" href="carousel-new.css">
-  <link rel="preload" as="style" href="style.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="style" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=2">
   <script src="js/load-components.js"></script>
 
   <!-- ===== GOOGLE ADS CONVERSION TRACKING ===== -->
@@ -294,7 +294,7 @@
   }
 
   .product-card:hover .product-image img {
-    transform: scale(1.05) !important;
+    transform: scale(calc(var(--zoom, 1) + 0.05)) !important;
   }
 
   .product-card .btn-primary:hover {
@@ -359,7 +359,7 @@
           title: "Document Storage Compactor",
         },
         1: {
-          title: "Piegon Hole Compactor",
+          title: "Pigeon Hole Compactor",
         },
         2: {
           title: "Heavy Duty Compactor",
@@ -661,6 +661,9 @@
         "name": "Document Storage Compactor",
         "image": "Compactors/document compactor.webp",
         "imageOffset": "30% 60%",
+        "imageZoom": 1,
+        "modalObjectFit": "contain", "modalImageOffset": "center",
+        "modalImageZoom": 1,
         "apps": "Offices, Banks, Libraries, Archives",
         "desc": "Precision-engineered mobile storage systems that maximize document capacity while creating a cleaner, more efficient workspace.<br><br>Combining robust construction, smooth operation, and secure storage for today's evolving workplaces."
       },
@@ -669,6 +672,9 @@
         "name": "Pigeon Hole Compactor",
         "image": "Compactors/piegon hole compactor carousel 2.webp",
         "imageOffset": "center",
+        "imageZoom": 1,
+        "modalObjectFit": "contain", "modalImageOffset": "60% 50%",
+        "modalImageZoom": 1,
         "apps": "Engineering Components, Electronic Components, Hardware Items, Pharmaceutical Supplies",
         "desc": "Precision-engineered mobile storage systems that maximize the organization and accessibility of high-volume, small-item inventories.<br><br>Combining modular pigeon hole shelving, space-saving design, and smooth operation for fast, efficient retrieval."
       },
@@ -677,6 +683,9 @@
         "name": "Heavy Duty Compactor",
         "image": "Compactors/Heavy duty compactor carousel 3.webp",
         "imageOffset": "70% 50%",
+        "imageZoom": 1,
+        "modalObjectFit": "contain", "modalImageOffset": "center",
+        "modalImageZoom": 1,
         "apps": "Designed to accommodate items weighing up to 300 kilograms per level.",
         "desc": "Engineered to support heavy-duty storage applications while maximizing capacity in demanding industrial environments.<br><br>Combining high load-bearing strength, robust construction, and smooth mobility for reliable, long-term performance."
       },
@@ -685,6 +694,9 @@
         "name": "Perforated Compactor",
         "image": "Compactors/perforated.webp",
         "imageOffset": "center",
+        "imageZoom": 1,
+        "modalObjectFit": "contain", "modalImageOffset": "center",
+        "modalImageZoom": 1,
         "apps": "For Temperature and Humidity Control: Medicine Storage, Archives",
         "desc": "Specially engineered mobile storage systems that promote airflow for temperature and humidity-sensitive storage environments.<br><br>Combining ventilated shelving, durable construction, and efficient space utilization to protect valuable inventory."
       },
@@ -693,6 +705,9 @@
         "name": "Drawer Compactor",
         "image": "Compactors/Drawer compactor carousel 4.webp",
         "imageOffset": "center",
+        "imageZoom": 1,
+        "modalObjectFit": "contain", "modalImageOffset": "center",
+        "modalImageZoom": 1,
         "apps": "Maximum storage capacity for smaller items, such as medication, flavorings, and fragrance bottles.",
         "desc": "Intelligent mobile drawer storage systems designed to maximize capacity while keeping small components precisely organized.<br><br>Combining configurable drawers, effortless accessibility, and space-efficient design for faster inventory management."
       },
@@ -701,6 +716,9 @@
         "name": "Stainless Steel Compactor",
         "image": "Compactors/stainless-steel-compactor.webp",
         "imageOffset": "center",
+        "imageZoom": 1,
+        "modalImageOffset": "center",
+        "modalImageZoom": 1,
         "apps": "Cold storage units for vaccines, perishable items, and other related materials.",
         "desc": "Premium stainless steel mobile storage systems engineered for hygienic, corrosion-resistant, and sterile environments.<br><br>Combining exceptional durability, seamless construction, and efficient space utilization for demanding cleanroom applications."
       }
@@ -721,7 +739,7 @@
       onclick="handleCardClick(event, '${p.id}')">
       <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0;">
         <img src="${p.image}" alt="${p.name}" loading="lazy"
-          style="width:100%; height:200px; object-fit:cover; object-position:${p.imageOffset || 'center'}; transition:transform 0.4s ease;"
+          style="width:100%; height:200px; object-fit:cover; object-position:${p.imageOffset || 'center'}; --zoom: ${p.imageZoom || 1}; transform: scale(var(--zoom)); transition:transform 0.4s ease;"
           onerror="this.parentElement.style.background='linear-gradient(135deg,#e53935 0%,#b71c1c 100%)'; this.style.display='none';">
       </div>
       <div class="product-info"
@@ -762,10 +780,9 @@
       const content = document.getElementById('productDetailContent');
       content.innerHTML = `
     <div class="product-modal-image">
-      <img src="${p.image}" alt="${p.name}" onerror="this.src='Loading.gif'">
+      <img src="${p.image}" alt="${p.name}" onerror="this.src='Loading.gif'" style="object-position: ${p.modalImageOffset || p.imageOffset || 'center'}; --zoom: ${p.modalImageZoom || p.imageZoom || 1}; transform: scale(var(--zoom));">
     </div>
     <div class="product-modal-details">
-      <span class="product-modal-label">Product Portfolio</span>
       <h2 class="product-modal-title">${p.name}</h2>
       <div class="product-modal-description">
         ${p.desc}
