@@ -601,12 +601,50 @@
       });
 
       // ── PRODUCTS GRID ──
-      const productsData = [{ "id": "r1", "name": "Decking Panel Racking System", "image": "Racks/standard-decking-panel-rack.webp", "apps": "Industrial and Warehouse Facilities for the Manual Storage of Smaller Items" },
-      { "id": "r2", "name": "Pallet Racking System", "image": "Racks/industrial-shelving-system.webp", "apps": "Industrial and Warehouse Storage Solutions for Larger, Heavier Items" },
-      { "id": "r3", "name": "Slotted Angle Racks", "image": "Racks/slotted-angle-racking.webp", "apps": "Multipurpose storage solutions: Back offices, Restaurants, Educational institutions, Retail shops, And more." },
-      { "id": "r4", "name": "Sectional Panel Heavy Duty Racks", "image": "Racks/high-capacity-pallet-racks.webp", "apps": "Designed for heavy storage, accommodating up to 400 kg per level." },
-      { "id": "r5", "name": "Multi-Tier Racking System", "image": "Racks/mezzanine-floor-racking.webp", "apps": "Requirements for Multipurpose Industrial and Warehousing Applications" },
-      { "id": "r6", "name": "Mezzanine Floor Systems", "image": "Racks/multi-tier-storage-racks.webp", "apps": "Industrial Sheds and Warehouses Designed for Optimal Vertical Height Utilization" }];
+      const productsData = [
+        { 
+          "id": "r1", 
+          "name": "Decking Panel Racking System", 
+          "image": "Racks/standard-decking-panel-rack.webp", 
+          "apps": "Industrial and Warehouse Facilities for the Manual Storage of Smaller Items",
+          "desc": "Engineered for versatile, high-capacity storage of cartons, raw materials, and finished goods across industrial environments.<br><br>Combining robust decking panels, modular construction, and easy accessibility for efficient warehouse operations."
+        },
+        { 
+          "id": "r2", 
+          "name": "Pallet Racking System", 
+          "image": "Racks/industrial-shelving-system.webp", 
+          "apps": "Industrial and Warehouse Storage Solutions for Larger, Heavier Items",
+          "desc": "Heavy-duty pallet storage systems engineered to maximize warehouse capacity while ensuring safe and organized inventory management.<br><br>Combining high load-bearing strength, modular configurations, and easy forklift access for efficient material handling."
+        },
+        { 
+          "id": "r3", 
+          "name": "Slotted Angle Racks", 
+          "image": "Racks/slotted-angle-racking.webp", 
+          "apps": "Multipurpose storage solutions: Back offices, Restaurants, Educational institutions, Retail shops, And more.",
+          "desc": "Versatile shelving systems designed to organize light and medium-duty inventory across commercial and industrial spaces.<br><br>Combining adjustable shelving, durable construction, and cost-effective design for everyday storage applications."
+        },
+        { 
+          "id": "r4", 
+          "name": "Sectional Panel Heavy Duty Racks", 
+          "image": "Racks/high-capacity-pallet-racks.webp", 
+          "apps": "Designed for heavy storage, accommodating up to 400 kg per level.",
+          "desc": "Heavy-duty shelving systems engineered to support high-capacity storage without compromising accessibility or durability.<br><br>Combining reinforced steel construction, adjustable shelves, and exceptional load-bearing performance for demanding environments."
+        },
+        { 
+          "id": "r5", 
+          "name": "Multi-Tier Racking System", 
+          "image": "Racks/mezzanine-floor-racking.webp", 
+          "apps": "Requirements for Multipurpose Industrial and Warehousing Applications",
+          "desc": "Maximize warehouse storage by utilizing vertical space with intelligently designed multi-level racking solutions.<br><br>Combining structural strength, optimized accessibility, and scalable layouts to significantly increase storage capacity."
+        },
+        { 
+          "id": "r6", 
+          "name": "Mezzanine Floor Systems", 
+          "image": "Racks/multi-tier-storage-racks.webp", 
+          "apps": "Industrial Sheds and Warehouses Designed for Optimal Vertical Height Utilization",
+          "desc": "Create additional usable floor space by transforming unused vertical height into efficient storage or operational areas.<br><br>Combining structural integrity, customized layouts, and seamless integration to maximize your facility's potential."
+        }
+      ];
 
       // Card click — opens product modal unless Get Quote was clicked
       function handleCardClick(event, id) {
@@ -670,8 +708,7 @@
       <span class="product-modal-label">Product Portfolio</span>
       <h2 class="product-modal-title">${p.name}</h2>
       <div class="product-modal-description">
-        Building long-term storage efficiency with our precision-engineered ${p.name}.
-        Designed for maximum space utilization and durability in professional environments.
+        ${p.desc}
       </div>
       <div class="product-modal-meta">
         <span class="product-modal-meta-label">Ideal Applications</span>

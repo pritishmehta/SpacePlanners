@@ -356,20 +356,16 @@
     <script>
       const slideContent = {
         0: {
-          title: "Your Space Is Full. We Fix That.",
-          description: "Motorised compactors save up to 50% floor space. Trusted by Sun Pharma, Kokilaben Hospital, IIT Bombay, and 500+ organisations across India."
+          title: "Document Storage Compactor",
         },
         1: {
-          title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
-          description: "Galvanised steel racks built for India's toughest warehouses. OSHA-aligned safety design. Modular and scalable — expand without relocating."
+          title: "Piegon Hole Compactor",
         },
         2: {
-          title: "Secure Lockers. Certified for Healthcare.",
-          description: "NABH-aligned lockers for hospitals, offices and institutions. Antimicrobial coating available. Digital, RFID and biometric lock options."
+          title: "Heavy Duty Compactor",
         },
         3: {
-          title: "Indexed Archives. Audit-Ready Storage.",
-          description: "Mobile compactors and filing systems for government agencies, corporate records and document archives. GeM portal compatible — direct procurement available."
+          title: "Drawer Compactor",
         }
       };
 
@@ -381,11 +377,7 @@
       }
     </script>
     <div class="slide-content">
-      <p class="slide-eyebrow">India's Storage Engineers · Since 2004</p>
-      <h1 class="slide-title" id="slideTitle">Your Space Is Full. We Fix That.</h1>
-      <p class="slide-description" id="slideDesc">Motorised compactors, heavy-duty racks and certified
-        storage systems — engineered for India's most demanding facilities. GMP, NABH and GeM compliant.
-        Pan-India installation.</p>
+      <h1 class="slide-title" id="slideTitle">Document Storage Compactor</h1>
       <div class="slide-cta">
         <button class="btn-white"
           onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
@@ -663,7 +655,49 @@
     });
 
     // ── PRODUCTS GRID ──
-    const productsData = [{ "id": "c1", "name": "Document Storage Compactor", "image": "Compactors/document-storage-compactor.webp", "apps": "Offices, Banks, Libraries, Archives" }, { "id": "c2", "name": "Pigeon Hole Compactor", "image": "Compactors/pigeon-hole-sorting-racks.webp", "apps": "Engineering Components, Electronic Components, Hardware Items, Pharmaceutical Supplies" }, { "id": "c3", "name": "Heavy Duty Compactor", "image": "Compactors/heavy-duty-storage-racks.webp", "apps": "Designed to accommodate items weighing up to 300 kilograms per level." }, { "id": "c4", "name": "Perforated Compactor", "image": "Compactors/premium-office-compactor.webp", "apps": "For Temperature and Humidity Control: Medicine Storage, Archives" }, { "id": "c5", "name": "Drawer Compactor", "image": "Compactors/industrial-storage-compactor.webp", "apps": "Maximum storage capacity for smaller items, such as medication, flavorings, and fragrance bottles." }, { "id": "c6", "name": "Stainless Steel Compactor", "image": "Compactors/stainless-steel-compactor.webp", "apps": "Cold storage units for vaccines, perishable items, and other related materials." }
+    const productsData = [
+      { 
+        "id": "c1", 
+        "name": "Document Storage Compactor", 
+        "image": "Compactors/document-storage-compactor.webp", 
+        "apps": "Offices, Banks, Libraries, Archives",
+        "desc": "Precision-engineered mobile storage systems that maximize document capacity while creating a cleaner, more efficient workspace.<br><br>Combining robust construction, smooth operation, and secure storage for today's evolving workplaces."
+      }, 
+      { 
+        "id": "c2", 
+        "name": "Pigeon Hole Compactor", 
+        "image": "Compactors/pigeon-hole-sorting-racks.webp", 
+        "apps": "Engineering Components, Electronic Components, Hardware Items, Pharmaceutical Supplies",
+        "desc": "Precision-engineered mobile storage systems that maximize the organization and accessibility of high-volume, small-item inventories.<br><br>Combining modular pigeon hole shelving, space-saving design, and smooth operation for fast, efficient retrieval."
+      }, 
+      { 
+        "id": "c3", 
+        "name": "Heavy Duty Compactor", 
+        "image": "Compactors/heavy-duty-storage-racks.webp", 
+        "apps": "Designed to accommodate items weighing up to 300 kilograms per level.",
+        "desc": "Engineered to support heavy-duty storage applications while maximizing capacity in demanding industrial environments.<br><br>Combining high load-bearing strength, robust construction, and smooth mobility for reliable, long-term performance."
+      }, 
+      { 
+        "id": "c4", 
+        "name": "Perforated Compactor", 
+        "image": "Compactors/premium-office-compactor.webp", 
+        "apps": "For Temperature and Humidity Control: Medicine Storage, Archives",
+        "desc": "Specially engineered mobile storage systems that promote airflow for temperature and humidity-sensitive storage environments.<br><br>Combining ventilated shelving, durable construction, and efficient space utilization to protect valuable inventory."
+      }, 
+      { 
+        "id": "c5", 
+        "name": "Drawer Compactor", 
+        "image": "Compactors/industrial-storage-compactor.webp", 
+        "apps": "Maximum storage capacity for smaller items, such as medication, flavorings, and fragrance bottles.",
+        "desc": "Intelligent mobile drawer storage systems designed to maximize capacity while keeping small components precisely organized.<br><br>Combining configurable drawers, effortless accessibility, and space-efficient design for faster inventory management."
+      }, 
+      { 
+        "id": "c6", 
+        "name": "Stainless Steel Compactor", 
+        "image": "Compactors/stainless-steel-compactor.webp", 
+        "apps": "Cold storage units for vaccines, perishable items, and other related materials.",
+        "desc": "Premium stainless steel mobile storage systems engineered for hygienic, corrosion-resistant, and sterile environments.<br><br>Combining exceptional durability, seamless construction, and efficient space utilization for demanding cleanroom applications."
+      }
     ];
 
     // Card click — opens product modal unless Get Quote was clicked
@@ -728,8 +762,7 @@
       <span class="product-modal-label">Product Portfolio</span>
       <h2 class="product-modal-title">${p.name}</h2>
       <div class="product-modal-description">
-        Building long-term storage efficiency with our precision-engineered ${p.name}.
-        Designed for maximum space utilization and durability in professional environments.
+        ${p.desc}
       </div>
       <div class="product-modal-meta">
         <span class="product-modal-meta-label">Ideal Applications</span>

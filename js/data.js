@@ -68,45 +68,6 @@ const caseStudies = [
             { metric: "5L+", label: "Patient Files", icon: "🏥" }
         ],
         topResult: "100% NABH compliance"
-    },
-    {
-        title: "Retail Distribution",
-        subtitle: "Inventory Management",
-        industry: "Retail & Logistics",
-        img: "project_warehouse.png",
-        results: [
-            { metric: "25%", label: "Accuracy Boost", icon: "📊" },
-            { metric: "15%", label: "Cost Reduction", icon: "💰" },
-            { metric: "40%", label: "Faster Audits", icon: "✓" },
-            { metric: "50+", label: "Locations", icon: "🗺️" }
-        ],
-        topResult: "25% accuracy improvement"
-    },
-    {
-        title: "University Library",
-        subtitle: "Multi-Campus Library System",
-        industry: "Education",
-        img: "project_corporate.png",
-        results: [
-            { metric: "30%", label: "Capacity Increase", icon: "📚" },
-            { metric: "24/7", label: "Self-Service", icon: "🔓" },
-            { metric: "95%", label: "Student Satisfaction", icon: "😊" },
-            { metric: "20L+", label: "Books Stored", icon: "📖" }
-        ],
-        topResult: "30% more books stored"
-    },
-    {
-        title: "Automotive Manufacturing",
-        subtitle: "Parts & Inventory Storage",
-        industry: "Manufacturing",
-        img: "project_warehouse.png",
-        results: [
-            { metric: "50%", label: "Pick Time Cut", icon: "⚡" },
-            { metric: "0", label: "Lost Parts", icon: "🛡️" },
-            { metric: "20%", label: "Yield Boost", icon: "📈" },
-            { metric: "50K+", label: "SKUs Managed", icon: "🏭" }
-        ],
-        topResult: "50% picking time reduction"
     }
 ];
 
