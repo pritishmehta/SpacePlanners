@@ -717,7 +717,7 @@
                     <div class="sectors-grid" data-stagger>
                         <!-- PHARMA -->
                         <div class="product-card reveal" data-stagger-item>
-                            <a href="industrial_applications.html#pharma">
+                            <a href="javascript:void(0)" onclick="openSectorModal('pharma')">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="1.5" role="img" aria-label="Pharmaceutical Healthcare Icon">
@@ -734,14 +734,14 @@
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#pharma" class="btn-primary">View
+                                <a href="javascript:void(0)" onclick="openSectorModal('pharma')" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
                         </div>
                         <!-- CORPORATE -->
                         <div class="product-card reveal delay-2" data-stagger-item>
-                            <a href="industrial_applications.html#corporate">
+                            <a href="javascript:void(0)" onclick="openSectorModal('corporate')">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="1.5" role="img" aria-label="Corporate Offices Icon">
@@ -757,7 +757,7 @@
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#corporate" class="btn-primary">View
+                                <a href="javascript:void(0)" onclick="openSectorModal('corporate')" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
@@ -765,7 +765,7 @@
 
                         <!-- WAREHOUSE -->
                         <div class="product-card reveal" data-stagger-item>
-                            <a href="industrial_applications.html#warehouse">
+                            <a href="javascript:void(0)" onclick="openSectorModal('warehouse')">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="1.5" role="img" aria-label="Warehouse Logistics Icon">
@@ -782,7 +782,7 @@
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#warehouse" class="btn-primary">View
+                                <a href="javascript:void(0)" onclick="openSectorModal('warehouse')" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
@@ -791,7 +791,7 @@
 
                         <!-- EDUCATION -->
                         <div class="product-card reveal delay-1" data-stagger-item>
-                            <a href="industrial_applications.html#education">
+                            <a href="javascript:void(0)" onclick="openSectorModal('education')">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="1.5" role="img" aria-label="Education Libraries Icon">
@@ -807,7 +807,7 @@
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#education" class="btn-primary">View
+                                <a href="javascript:void(0)" onclick="openSectorModal('education')" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
@@ -816,7 +816,7 @@
 
                         <!-- GOVERNMENT -->
                         <div class="product-card reveal delay-2" data-stagger-item>
-                            <a href="industrial_applications.html#government">
+                            <a href="javascript:void(0)" onclick="openSectorModal('government')">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="1.5" role="img" aria-label="Government Offices Icon">
@@ -835,7 +835,7 @@
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#government" class="btn-primary">View
+                                <a href="javascript:void(0)" onclick="openSectorModal('government')" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
@@ -843,7 +843,7 @@
 
                         <!-- Museums & Archives -->
                         <div class="product-card reveal delay-1" data-stagger-item>
-                            <a href="industrial_applications.html#museum">
+                            <a href="javascript:void(0)" onclick="openSectorModal('museum')">
                                 <div class="sector-icon-box">
                                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="1.5" role="img" aria-label="Museums Archives Icon">
@@ -860,7 +860,7 @@
                                 </div>
                             </a>
                             <div>
-                                <a href="industrial_applications.html#museum" class="btn-primary">View
+                                <a href="javascript:void(0)" onclick="openSectorModal('museum')" class="btn-primary">View
                                     Solutions
                                     →</a>
                             </div>
@@ -1057,24 +1057,6 @@
 
 
         <section class="case-studies-section" id="case-studies">
-
-
-            <!-- PROJECTS SECTION -->
-            <section class="projects-section" id="projects">
-                <div class="projects-content">
-                    <div class="section-header-small reveal">
-                        <span class="section-badge">Our Work</span>
-                        <h2 class="section-title">Featured Projects</h2>
-                        <p class="section-subtitle" style="margin:0 auto 24px;">Real installations across India's
-                            leading
-                            organisations</p>
-                        <div class="accent-line"></div>
-                    </div>
-                    <div class="projects-container">
-                        <div class="projects-grid" id="projectsGrid"></div>
-                    </div>
-                </div>
-            </section>
 
 
 
@@ -1400,7 +1382,133 @@
     <div id="modals-placeholder"></div>
     <div id="toast-container"></div>
 
+    <!-- SECTOR POPUP MODAL -->
+    <div id="sectorModal" class="modal">
+        <div class="modal-content sector-modal-content" style="max-width: 600px; max-height: 90vh; overflow-y: auto;">
+            <button class="close-btn" onclick="closeSectorModal()" aria-label="Close modal" style="z-index: 10;">×</button>
+            <div id="sectorDetailContent" style="padding: 40px;">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
+    <script>
+        const sectorsData = {
+            pharma: {
+                title: "Pharmaceutical & Healthcare",
+                desc: "GMP auditors check your storage first. Here's how to pass every time.",
+                logos: ["Client 1", "Client 2", "Client 3"],
+                products: {
+                    "Mobile Compactors": ["Stainless Steel Compactor", "Perforated Compactor", "Drawer Compactor"],
+                    "Lockers": ["Personal Staff Locker", "Gym Lockers"],
+                    "Filing Cabinets": ["Perforated Drawer Cabinet"]
+                }
+            },
+            corporate: {
+                title: "Corporate Offices",
+                desc: "Modern offices need storage that looks as good as the rest of the space.",
+                logos: ["Client 1", "Client 2", "Client 3"],
+                products: {
+                    "Mobile Compactors": ["Document Storage Compactor", "Pigeon Hole Compactor"],
+                    "Lockers": ["Mobile Phone Locker", "Bag And Helmet Locker"],
+                    "Filing Cabinets": ["Filing Cabinet", "Storewell Cupboard", "Glass Door Cupboard"]
+                }
+            },
+            warehouse: {
+                title: "Warehouse & Logistics",
+                desc: "Running out of floor space doesn't mean you need a bigger warehouse.",
+                logos: ["Client 1", "Client 2", "Client 3"],
+                products: {
+                    "Industrial Racks": ["Heavy Duty Pallet Rack", "Mezzanine Systems", "Slotted Angle Racks"],
+                    "Mobile Compactors": ["Heavy Duty Compactor"]
+                }
+            },
+            education: {
+                title: "Education & Libraries",
+                desc: "A library that keeps growing needs a shelving system that grows with it.",
+                logos: ["Client 1", "Client 2", "Client 3"],
+                products: {
+                    "Mobile Compactors": ["Document Storage Compactor"],
+                    "Lockers": ["Bag And Helmet Locker", "Mobile Phone Locker"],
+                    "Filing Cabinets": ["Storewell Cupboard", "Pigeon Hole Cupboard"]
+                }
+            },
+            government: {
+                title: "Government Offices",
+                desc: "RTI Act requires files retrievable within 30 days. Is your archive ready?",
+                logos: ["Client 1", "Client 2", "Client 3"],
+                products: {
+                    "Mobile Compactors": ["Document Storage Compactor"],
+                    "Filing Cabinets": ["Secure Document Cabinet", "Filing Cabinet"]
+                }
+            },
+            museum: {
+                title: "Museums & Archives",
+                desc: "Preserve artefacts, documents and records with climate-aware, high-density storage systems.",
+                logos: ["Client 1", "Client 2", "Client 3"],
+                products: {
+                    "Mobile Compactors": ["Perforated Compactor", "Drawer Compactor"],
+                    "Filing Cabinets": ["Poster Storage Drawer Cabinet"]
+                }
+            }
+        };
+
+        function openSectorModal(id) {
+            const data = sectorsData[id];
+            if (!data) return;
+            
+            let productsHtml = '';
+            for (const [category, products] of Object.entries(data.products)) {
+                productsHtml += `
+                    <div class="sector-category">
+                        <h4 class="sector-category-title">${category}</h4>
+                        <div class="product-modal-tags">
+                            ${products.map(p => `<span class="product-modal-tag">${p}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            let logosHtml = `
+                <div class="sector-logos">
+                    <h4 class="sector-category-title">Trusted By</h4>
+                    <div class="sector-logos-grid">
+                        ${data.logos.map(l => `<div class="sector-logo-placeholder">${l}</div>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            const content = document.getElementById('sectorDetailContent');
+            content.innerHTML = `
+                <h2 class="product-modal-title" style="font-size: 28px; margin-bottom: 12px;">${data.title}</h2>
+                <div class="product-modal-description" style="margin-bottom: 30px;">
+                    ${data.desc}
+                </div>
+                
+                <div class="sector-products-section">
+                    ${productsHtml}
+                </div>
+
+                ${logosHtml}
+
+                <div class="product-modal-actions" style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 24px;">
+                    <button class="btn-primary" style="width: 100%; text-align: center; justify-content: center;"
+                        onclick="closeSectorModal(); openInquiryModal({category:'${data.title}', specificProduct:'Sector Inquiry'})">
+                        Get Free Quote &rarr;
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('sectorModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSectorModal() {
+            document.getElementById('sectorModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
     <script src="js/data.js"></script>
     <script src="forms-handler.js"></script>
     <script src="js/nav-scroll.js"></script>

@@ -675,18 +675,18 @@
         "imageZoom": 1,
         "modalObjectFit": "contain", "modalImageOffset": "60% 50%",
         "modalImageZoom": 1,
-        "apps": "Engineering Components, Electronic Components, Hardware Items, Pharmaceutical Supplies",
+        "apps": "Warehouses, Offices, Pharmaceutical, Education & Libraries, Retail & E-commerce",
         "desc": "Precision-engineered mobile storage systems that maximize the organization and accessibility of high-volume, small-item inventories.<br><br>Combining modular pigeon hole shelving, space-saving design, and smooth operation for fast, efficient retrieval."
       },
       {
         "id": "c3",
         "name": "Heavy Duty Compactor",
         "image": "Compactors/Heavy duty compactor carousel 3.webp",
-        "imageOffset": "70% 50%",
-        "imageZoom": 1,
+        "imageOffset": "65% 50%",
+        "imageZoom": 1.3,
         "modalObjectFit": "contain", "modalImageOffset": "center",
         "modalImageZoom": 1,
-        "apps": "Designed to accommodate items weighing up to 300 kilograms per level.",
+        "apps": "Warehouses, Pharmaceutical, Engineering, Automobile",
         "desc": "Engineered to support heavy-duty storage applications while maximizing capacity in demanding industrial environments.<br><br>Combining high load-bearing strength, robust construction, and smooth mobility for reliable, long-term performance."
       },
       {
@@ -697,29 +697,29 @@
         "imageZoom": 1,
         "modalObjectFit": "contain", "modalImageOffset": "center",
         "modalImageZoom": 1,
-        "apps": "For Temperature and Humidity Control: Medicine Storage, Archives",
+        "apps": "Pharmaceuticals, Archives, Flavors & Fragrances",
         "desc": "Specially engineered mobile storage systems that promote airflow for temperature and humidity-sensitive storage environments.<br><br>Combining ventilated shelving, durable construction, and efficient space utilization to protect valuable inventory."
       },
       {
         "id": "c5",
         "name": "Drawer Compactor",
         "image": "Compactors/Drawer compactor carousel 4.webp",
-        "imageOffset": "center",
-        "imageZoom": 1,
+        "imageOffset": "90% 50%",
+        "imageZoom": 1.2,
         "modalObjectFit": "contain", "modalImageOffset": "center",
         "modalImageZoom": 1,
-        "apps": "Maximum storage capacity for smaller items, such as medication, flavorings, and fragrance bottles.",
+        "apps": "Pharamceuticals, Hospital & Pharmacy, Flavors & Fragrances",
         "desc": "Intelligent mobile drawer storage systems designed to maximize capacity while keeping small components precisely organized.<br><br>Combining configurable drawers, effortless accessibility, and space-efficient design for faster inventory management."
       },
       {
         "id": "c6",
         "name": "Stainless Steel Compactor",
-        "image": "Compactors/stainless-steel-compactor.webp",
+        "image": "Compactors/ss-compactor.webp",
         "imageOffset": "center",
         "imageZoom": 1,
-        "modalImageOffset": "center",
+        "modalImageOffset": "100% 50%",
         "modalImageZoom": 1,
-        "apps": "Cold storage units for vaccines, perishable items, and other related materials.",
+        "apps": "Pharmaceuticals, FMCG, Industrial",
         "desc": "Premium stainless steel mobile storage systems engineered for hygienic, corrosion-resistant, and sterile environments.<br><br>Combining exceptional durability, seamless construction, and efficient space utilization for demanding cleanroom applications."
       }
     ];
@@ -739,16 +739,17 @@
       onclick="handleCardClick(event, '${p.id}')">
       <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0;">
         <img src="${p.image}" alt="${p.name}" loading="lazy"
-          style="width:100%; height:200px; object-fit:cover; object-position:${p.imageOffset || 'center'}; --zoom: ${p.imageZoom || 1}; transform: scale(var(--zoom)); transition:transform 0.4s ease;"
+          style="width:100%; height:200px; object-fit:cover; object-position:${p.imageOffset || 'center'}; transform-origin:${p.imageOffset || 'center'}; --zoom: ${p.imageZoom || 1}; transform: scale(var(--zoom)); transition:transform 0.4s ease;"
           onerror="this.parentElement.style.background='linear-gradient(135deg,#e53935 0%,#b71c1c 100%)'; this.style.display='none';">
       </div>
       <div class="product-info"
         style="padding:24px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border-radius:0 0 12px 12px; box-shadow:0 4px 20px rgba(0,0,0,0.07);">
         <div>
           <h3 class="product-name" style="font-size:17px; margin-bottom:8px; color:var(--dark);">${p.name}</h3>
-          <p class="product-description" style="color:var(--light); font-size:14px; line-height:1.6; margin-bottom:20px;">
-            ${p.apps.length > 90 ? p.apps.substring(0, 90) + '...' : p.apps}
-          </p>
+          <div class="product-modal-tags" style="margin-bottom:20px; gap:6px;">
+            ${p.apps.split(',').slice(0, 5).map(a => `<span class="product-modal-tag" style="font-size:11px; padding:4px 10px; line-height:1.2;">${a.trim()}</span>`).join('')}
+            ${p.apps.split(',').length > 5 ? `<span class="product-modal-tag" style="font-size:11px; padding:4px 10px; line-height:1.2;">+${p.apps.split(',').length - 3}</span>` : ''}
+          </div>
         </div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <button onclick="event.stopPropagation(); openProductModal('${p.id}')"
@@ -761,7 +762,7 @@
             style="padding:10px 18px; font-size:13px; border:2px solid var(--primary,#e53935); background:transparent; color:var(--primary,#e53935); border-radius:6px; cursor:pointer; flex:1; min-width:110px; font-weight:600; transition:all 0.2s;"
             onmouseover="this.style.background='var(--primary,#e53935)';this.style.color='#fff';"
             onmouseout="this.style.background='transparent';this.style.color='var(--primary,#e53935)';">
-            Get Quote
+            GET QUOTE
           </button>
         </div>
       </div>

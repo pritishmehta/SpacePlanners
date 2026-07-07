@@ -2151,7 +2151,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 25% 80px 80px 80px;
+  padding: 25% 80px 200px 80px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -6316,4 +6316,54 @@ header.scrolled {
   .cookie-icon {
     display: none;
   }
+}
+
+/* ==============================================
+   SECTOR POPUP MODAL (HOMEPAGE)
+============================================== */
+.sector-modal-content {
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.sector-products-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.sector-category-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--mid);
+  margin-bottom: 12px;
+}
+
+.sector-logos {
+  padding-top: 24px;
+  border-top: 1px solid #f0f4f8;
+}
+
+.sector-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.sector-logo-placeholder {
+  padding: 16px 24px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
 }

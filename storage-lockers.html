@@ -627,16 +627,17 @@
       onclick="handleCardClick(event, '${p.id}')">
       <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0;">
         <img src="${p.image}" alt="${p.name}" loading="lazy"
-          style="width:100%; height:220px; object-fit:cover; object-position:${p.imageOffset || 'center'}; --zoom: ${p.imageZoom || 1}; transform: scale(var(--zoom)); transition:transform 0.4s ease;"
+          style="width:100%; height:220px; object-fit:cover; object-position:${p.imageOffset || 'center'}; transform-origin:${p.imageOffset || 'center'}; --zoom: ${p.imageZoom || 1}; transform: scale(var(--zoom)); transition:transform 0.4s ease;"
           onerror="this.parentElement.style.background='linear-gradient(135deg,#e53935 0%,#b71c1c 100%)'; this.style.display='none';">
       </div>
       <div class="product-info"
         style="padding:24px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border-radius:0 0 12px 12px; box-shadow:0 4px 20px rgba(0,0,0,0.07);">
         <div>
           <h3 class="product-name" style="font-size:17px; margin-bottom:8px; color:var(--dark);">${p.name}</h3>
-          <p class="product-description" style="color:var(--light); font-size:14px; line-height:1.6; margin-bottom:20px;">
-            ${p.apps.length > 90 ? p.apps.substring(0, 90) + '...' : p.apps}
-          </p>
+          <div class="product-modal-tags" style="margin-bottom:20px; gap:6px;">
+            ${p.apps.split(',').slice(0, 3).map(a => `<span class="product-modal-tag" style="font-size:11px; padding:4px 10px; line-height:1.2;">${a.trim()}</span>`).join('')}
+            ${p.apps.split(',').length > 3 ? `<span class="product-modal-tag" style="font-size:11px; padding:4px 10px; line-height:1.2;">+${p.apps.split(',').length - 3}</span>` : ''}
+          </div>
         </div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <button onclick="event.stopPropagation(); openProductModal('${p.id}')"
