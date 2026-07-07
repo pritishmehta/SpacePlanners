@@ -5726,24 +5726,14 @@ footer {
 @media (min-width: 769px) {
   .sectors-scroll-container {
     overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 transparent;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding-bottom: 20px;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
   }
 
   .sectors-scroll-container::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .sectors-scroll-container::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .sectors-scroll-container::-webkit-scrollbar-thumb {
-    background-color: #cbd5e1;
-    border-radius: 20px;
+    display: none;
   }
 
   .sectors-grid {
@@ -5840,7 +5830,7 @@ footer {
   border: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-  border-radius: 0;
+  aspect-ratio: 1 / 1;
 }
 
 .sectors-grid>.product-card:hover {
@@ -6426,12 +6416,8 @@ header.scrolled {
 
 .sector-logo-placeholder {
   padding: 16px 24px;
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
-  border-radius: 8px;
-  color: #64748b;
-  font-size: 14px;
-  font-weight: 600;
+  background: transparent;
+  border: none;
   text-align: center;
   flex: 1;
   min-width: 100px;
