@@ -263,8 +263,8 @@
       if (slideTimer) clearInterval(slideTimer);
       slideTimer = setInterval(nextSlide, 5000);
     }
-    function nextSlide() { currentSlide = (currentSlide + 1) % 4; updateSlide(); }
-    function prevSlide() { currentSlide = (currentSlide - 1 + 4) % 4; updateSlide(); }
+    function nextSlide() { currentSlide = (currentSlide + 1) % 3; updateSlide(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + 3) % 3; updateSlide(); }
     function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
     function updateSlide() {
       document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
@@ -277,59 +277,40 @@
   <section class="carousel-section" aria-label="Featured products slideshow">
     <div class="carousel-container">
       <div class="carousel-slide active" id="slide0">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/document storage compactor carousel 1.webp"
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;" src="Lockers/Carousel 3.png"
           alt="Mobile Compactor Storage System by Space Planners India" loading="eager">
       </div>
       <div class="carousel-slide" id="slide1">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/piegon hole compactor carousel 2.webp"
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;" src="Lockers/Carousel.png"
           alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
       </div>
       <div class="carousel-slide" id="slide2">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/Heavy duty compactor carousel 3.webp"
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;" src="Lockers/locker carousel 1.png"
           alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
-      </div>
-      <div class="carousel-slide" id="slide3">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/Drawer compactor carousel 4.webp"
-          alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
       </div>
       <div class="slide-overlay"></div>
       <script>
         const slideContent = {
           0: {
-            title: "Your Space Is Full. We Fix That.",
-            description: "Motorised compactors save up to 50% floor space. Trusted by Sun Pharma, Kokilaben Hospital, IIT Bombay, and 500+ organisations across India."
+            title: "School Lockers",
           },
           1: {
-            title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
-            description: "Galvanised steel racks built for India's toughest warehouses. OSHA-aligned safety design. Modular and scalable — expand without relocating."
+            title: "Office Lockers",
           },
           2: {
-            title: "Secure Lockers. Certified for Healthcare.",
-            description: "NABH-aligned lockers for hospitals, offices and institutions. Antimicrobial coating available. Digital, RFID and biometric lock options."
+            title: "Gym Lockers",
           },
-          3: {
-            title: "Indexed Archives. Audit-Ready Storage.",
-            description: "Mobile compactors and filing systems for government agencies, corporate records and document archives. GeM portal compatible — direct procurement available."
-          }
         };
 
         function updateSlideTitle(index) {
-          const content = slideContent[index % 4];
+          const content = slideContent[index % 3];
           document.getElementById('slideTitle').textContent = content.title;
           document.getElementById('slideDesc').textContent = content.description;
           document.querySelector('.slide-eyebrow').textContent = content.eyebrow;
         }
       </script>
       <div class="slide-content">
-        <p class="slide-eyebrow">India's Storage Engineers · Since 2004</p>
-        <h1 class="slide-title" id="slideTitle">Your Space Is Full. We Fix That.</h1>
-        <p class="slide-description" id="slideDesc">Motorised compactors, heavy-duty racks and certified
-          storage systems — engineered for India's most demanding facilities. GMP, NABH and GeM compliant.
-          Pan-India installation.</p>
+        <h1 class="slide-title" id="slideTitle">School Lockers</h1>
         <div class="slide-cta">
           <button class="btn-white"
             onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
@@ -343,7 +324,6 @@
         <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
         <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
         <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-        <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
       </div>
     </div>
   </section>
