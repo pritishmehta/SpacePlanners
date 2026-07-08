@@ -205,6 +205,12 @@ document.addEventListener('click', (e) => {
         const btn = document.getElementById('floatInqBtn');
         if (btn) btn.setAttribute('aria-expanded', 'false');
     }
+
+    // Close any modal when clicking its overlay (outside modal-content)
+    if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 });
 
 // ── GENERAL UI INITIALIZATION ─────────────────────────────────────────────

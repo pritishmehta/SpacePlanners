@@ -68,7 +68,7 @@
   </noscript>
   <link rel="stylesheet" href="carousel-new.css">
   <link rel="stylesheet" href="style.css">
-  <script src="js/load-components.js"></script>
+  <script src="js/load-components.js?v=2"></script>
 
   <!-- ===== GOOGLE ADS CONVERSION TRACKING ===== -->
   <!-- Uncomment and replace AW-XXXXXXXXXX with your actual Google Ads conversion ID when ready
@@ -289,10 +289,10 @@
       <script>
         const slideContent = {
           0: {
-            title: "Cupboard Storage",
+            title: "Storage Cupboard",
           },
           1: {
-            title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
+            title: "Storage Cabinets",
           }
         };
 
@@ -304,7 +304,7 @@
         }
       </script>
       <div class="slide-content">
-        <h1 class="slide-title" id="slideTitle">Cupboard Storage</h1>
+        <h1 class="slide-title" id="slideTitle">Storage Cupboard</h1>
         <div class="slide-cta">
           <button class="btn-white"
             onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
@@ -407,7 +407,7 @@
       <div style="max-width:1240px; margin:0 auto; padding:0 24px;">
         <div class="section-header-small reveal" style="text-align:center; margin-bottom:48px;">
           <span class="section-badge">Our Range</span>
-          <h2 class="section-title">Filing Cabinets & Cupboards</h2>
+          <h2 class="section-title">Storage Cabinets & Cupboards</h2>
           <div class="accent-line"></div>
           <p class="section-subtitle" style="max-width:640px; margin:16px auto 0;">Organized and accessible
             storage for documents and components</p>
@@ -668,8 +668,7 @@
       <span class="product-modal-label">Product Portfolio</span>
       <h2 class="product-modal-title">${p.name}</h2>
       <div class="product-modal-description">
-        Building long-term storage efficiency with our precision-engineered ${p.name}.
-        Designed for maximum space utilization and durability in professional environments.
+        ${p.desc.replace(/<br\s*\/?>/gi, ' ')}
       </div>
       <div class="product-modal-meta">
         <span class="product-modal-meta-label">Ideal Applications</span>

@@ -15,7 +15,7 @@ const EMAILJS_CONFIG = {
 
 const Validators = {
     email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-    phone: (value) => /^(?:(?:\+|0{0,2})91)?([6-9]\d{9})$/.test(value.replace(/[\s\-\(\)]/g, '')),
+    phone: (value) => /^\+?\d{7,15}$/.test(value.replace(/[\s\-\(\)\.]/g, '')),
     name: (value) => value.trim().length >= 3 && !/<[a-z][\s\S]*>/i.test(value),
     required: (value) => value.trim().length > 0
 };
@@ -153,7 +153,7 @@ function validateField(input) {
             errorMsg = 'Please enter a valid email address.';
         } else if (input.type === 'tel' && !Validators.phone(value)) {
             isValid = false;
-            errorMsg = 'Enter a valid 10-digit phone number.';
+            errorMsg = 'Enter a valid phone number.';
         } else if (input.name === 'name' && !Validators.name(value)) {
             isValid = false;
             errorMsg = 'Name must be at least 3 characters.';
