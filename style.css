@@ -2769,10 +2769,10 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   padding: 0 40px;
 }
 
-/* Wider container for the sector cards so they're not squished */
+/* Sectors container matches the standard container width for card alignment */
 .sectors-section .container {
-  max-width: 1600px;
-  padding: 0 50px;
+  max-width: 1280px;
+  padding: 0 40px;
 }
 
 
@@ -5716,14 +5716,16 @@ footer {
   .sectors-grid {
     display: flex;
     flex-wrap: nowrap;
-    gap: 18px;
+    gap: 24px;
     margin-top: 40px;
+    width: 120%;
+    height: 400px;
   }
 
   .sectors-grid>.product-card {
-    flex: 0 0 calc(25% - 13.5px);
-    scroll-snap-align: start;
+    flex: 0 0 240px;
   }
+
 }
 
 .sector-nav-btn {
@@ -5753,11 +5755,11 @@ footer {
 }
 
 .sector-nav-btn.prev-btn {
-  left: -24px;
+  left: -50px;
 }
 
 .sector-nav-btn.next-btn {
-  right: -24px;
+  right: -50px;
 }
 
 @media (max-width: 1024px) {
@@ -5766,10 +5768,10 @@ footer {
   }
 }
 
-/* Tablet: 3-column scrollable */
+/* Tablet: 4-column scrollable */
 @media (min-width: 769px) and (max-width: 1200px) {
   .sectors-grid>.product-card {
-    flex: 0 0 calc(33.333% - 12px);
+    flex: 0 0 240px;
   }
 }
 
@@ -5779,7 +5781,7 @@ footer {
     display: flex !important;
     flex-wrap: nowrap !important;
     width: max-content;
-    gap: 15px;
+    gap: 10px;
     margin-top: 20px;
     padding-bottom: 4px;
   }
@@ -5802,12 +5804,11 @@ footer {
   display: flex;
   flex-direction: column;
   background: var(--white);
-  border-radius: 0;
+  border-radius: 15px;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-  aspect-ratio: 1 / 1;
 }
 
 .sectors-grid>.product-card:hover {
@@ -5820,7 +5821,7 @@ footer {
 /* Icon Box for Sector Cards */
 .sectors-grid .sector-icon-box {
   width: 100%;
-  height: 130px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
