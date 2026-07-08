@@ -4418,7 +4418,7 @@ footer {
 .hero-section {
   padding: 48px 0 36px;
   text-align: center;
-  background: linear-gradient(135deg, #1a1a1a 60%, #2d2d2d);
+  background: var(--red-dark);
   position: relative;
   overflow: hidden;
 }
@@ -4427,7 +4427,6 @@ footer {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('Compactors/ChatGPT Image Jan 27, 2026, 01_58_28 PM.webp') center/cover no-repeat;
   opacity: .12;
 }
 
@@ -4444,7 +4443,8 @@ footer {
   margin-top: 150px;
   margin-bottom: 12px;
   line-height: 1.15;
-  background: rgba(229, 57, 53, .15);
+  background: var(--red-dark);
+  letter-spacing: 3px;
 }
 
 .hero-breadcrumb {
