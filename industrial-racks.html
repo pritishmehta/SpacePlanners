@@ -263,8 +263,8 @@
       if (slideTimer) clearInterval(slideTimer);
       slideTimer = setInterval(nextSlide, 5000);
     }
-    function nextSlide() { currentSlide = (currentSlide + 1) % 4; updateSlide(); }
-    function prevSlide() { currentSlide = (currentSlide - 1 + 4) % 4; updateSlide(); }
+    function nextSlide() { currentSlide = (currentSlide + 1) % 2; updateSlide(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + 2) % 2; updateSlide(); }
     function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
     function updateSlide() {
       document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
@@ -278,23 +278,12 @@
     <div class="carousel-container">
       <div class="carousel-slide active" id="slide0">
         <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/document storage compactor carousel 1.webp"
-          alt="Mobile Compactor Storage System by Space Planners India" loading="eager">
+          src="Racks/slotted-angle-racking.webp" alt="Mobile Compactor Storage System by Space Planners India"
+          loading="eager">
       </div>
       <div class="carousel-slide" id="slide1">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/piegon hole compactor carousel 2.webp"
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;" src="Racks/Carousel 2.webp"
           alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
-      </div>
-      <div class="carousel-slide" id="slide2">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/Heavy duty compactor carousel 3.webp"
-          alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
-      </div>
-      <div class="carousel-slide" id="slide3">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/Drawer compactor carousel 4.webp"
-          alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
       </div>
       <div class="slide-overlay"></div>
       <script>
@@ -306,14 +295,6 @@
           1: {
             title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
             description: "Galvanised steel racks built for India's toughest warehouses. OSHA-aligned safety design. Modular and scalable — expand without relocating."
-          },
-          2: {
-            title: "Secure Lockers. Certified for Healthcare.",
-            description: "NABH-aligned lockers for hospitals, offices and institutions. Antimicrobial coating available. Digital, RFID and biometric lock options."
-          },
-          3: {
-            title: "Indexed Archives. Audit-Ready Storage.",
-            description: "Mobile compactors and filing systems for government agencies, corporate records and document archives. GeM portal compatible — direct procurement available."
           }
         };
 
@@ -342,8 +323,6 @@
       <div class="carousel-controls" role="tablist">
         <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
         <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
-        <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-        <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
       </div>
     </div>
   </section>
@@ -443,6 +422,17 @@
         <div id="productGrid"
           style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px;">
           <!-- rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section class="product-help-cta" style="background: var(--red-dark); padding: 50px 20px; text-align: center; margin: 0 0 60px 0; color: #fff;">
+      <div class="container" style="max-width: 900px; margin: 0 auto;">
+        <h3 style="font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 12px; color: #fff;">Need a Specialized Racking System?</h3>
+        <p style="font-family: var(--font-sans); font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">If you can't find the exact dimensions or load capacity you're looking for, we specialize in <strong>personalized industrial racks</strong>. Our engineers can design and manufacture a robust racking system tailored precisely to your facility's load requirements.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <button style="display:inline-flex; align-items:center; padding: 14px 28px; background: #fff; color: var(--red-dark); border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Customized Racks'})">Request Custom Design</button>
+          <a href="https://wa.me/912240033385?text=I%20need%20a%20customized%20industrial%20racking%20solution." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding: 14px 28px; border: 2px solid rgba(255,255,255,0.5); color: #fff; border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='#fff'; this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.5)'; this.style.background='transparent'; this.style.transform='none';">Chat with an Expert</a>
         </div>
       </div>
     </section>
@@ -605,7 +595,7 @@
         {
           "id": "r1",
           "name": "Decking Panel Racking System",
-          "image": "Racks/standard-decking-panel-rack.webp",
+          "image": "Racks/Decking.webp",
           "imageOffset": "100% 20%",
           "imageZoom": 1,
           "modalObjectFit": "contain", "modalImageOffset": "center",
@@ -616,7 +606,7 @@
         {
           "id": "r2",
           "name": "Pallet Racking System",
-          "image": "Racks/industrial-shelving-system.webp",
+          "image": "Racks/Pallet.webp",
           "imageOffset": "center",
           "imageZoom": 1,
           "modalObjectFit": "contain", "modalImageOffset": "center",
@@ -628,9 +618,9 @@
           "id": "r3",
           "name": "Slotted Angle Racks",
           "image": "Racks/slotted-angle-racking.webp",
-          "imageOffset": "center",
+          "imageOffset": "100% 60%",
           "imageZoom": 1,
-          "modalObjectFit": "contain", "modalImageOffset": "center",
+          "modalObjectFit": "contain", "modalImageOffset": "10% 70%",
           "modalImageZoom": 1,
           "apps": "Restaurants, Offices, Pharamaceutical, Education & Libraries, Retail & E-Commerce",
           "desc": "Versatile shelving systems designed to organize light and medium-duty inventory across commercial and industrial spaces.<br><br>Combining adjustable shelving, durable construction, and cost-effective design for everyday storage applications."
@@ -639,9 +629,9 @@
           "id": "r4",
           "name": "Sectional Panel Heavy Duty Racks",
           "image": "Racks/high-capacity-pallet-racks.webp",
-          "imageOffset": "center",
+          "imageOffset": "100% 25%%",
           "imageZoom": 1,
-          "modalObjectFit": "contain", "modalImageOffset": "center",
+          "modalObjectFit": "contain", "modalImageOffset": "70% 10%",
           "modalImageZoom": 1,
           "apps": "Warehouse, Pharamaceutical, Retail & E-Commerce",
           "desc": "Heavy-duty shelving systems engineered to support high-capacity storage without compromising accessibility or durability.<br><br>Combining reinforced steel construction, adjustable shelves, and exceptional load-bearing performance for demanding environments."
@@ -652,7 +642,7 @@
           "image": "Racks/mezzanine-floor-racking.webp",
           "imageOffset": "center",
           "imageZoom": 1,
-          "modalObjectFit": "contain", "modalImageOffset": "center",
+          "modalObjectFit": "contain", "modalImageOffset": "70% 100%",
           "modalImageZoom": 1,
           "apps": "Warehouse, Industrial",
           "desc": "Maximize warehouse storage by utilizing vertical space with intelligently designed multi-level racking solutions.<br><br>Combining structural strength, optimized accessibility, and scalable layouts to significantly increase storage capacity."
@@ -663,10 +653,21 @@
           "image": "Racks/multi-tier-storage-racks.webp",
           "imageOffset": "100% 20%",
           "imageZoom": 1,
-          "modalImageOffset": "center",
+          "modalObjectFit": "contain", "modalImageOffset": "70% 100%",
           "modalImageZoom": 1,
           "apps": "Warehouse, Industrial",
           "desc": "Create additional usable floor space by transforming unused vertical height into efficient storage or operational areas.<br><br>Combining structural integrity, customized layouts, and seamless integration to maximize your facility's potential."
+        },
+        {
+          "id": "r7",
+          "name": "Stainless Steel Rack",
+          "image": "Racks/ss rack.webp",
+          "imageOffset": "100% 5%",
+          "imageZoom": 1,
+          "modalObjectFit": "contain", "modalImageOffset": "0% 0%",
+          "modalImageZoom": 1,
+          "apps": "Pharmaceutical, FMCG, Hospitals, Engineering",
+          "desc": "Engineered for environments where hygiene and durability are non-negotiable. Stainless steel construction resists corrosion, moisture, and chemical exposure — meeting GMP, HACCP, and NABH standards across pharma, food processing, cold storage, and healthcare facilities."
         }
       ];
 

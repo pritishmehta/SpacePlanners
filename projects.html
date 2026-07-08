@@ -362,11 +362,6 @@
     <div class="case-study-section" style="margin:20px 0 12px"><p class="case-study-label">The Challenge</p><p class="case-study-text">${c.challenge}</p></div>
     <div class="case-study-section" style="margin-bottom:12px"><p class="case-study-label">Our Solution</p><p class="case-study-text">${c.solution}</p></div>
 
-    <div style="background:rgba(26,26,26,.05);padding:16px;border-radius:10px;margin:20px 0;border-left:4px solid var(--red);">
-      <p style="font-style:italic;color:var(--mid);margin-bottom:10px;font-size:14px;">${c.testimony}</p>
-      <p style="font-weight:700;color:var(--dark);margin:0;font-size:13px;">— ${c.testimonyAuthor}</p>
-    </div>
-
     <div class="modal-buttons">
       <button class="modal-btn" onclick="closeCaseModal();openInquiryModal({specificProduct:'Similar Project Inquiry'})">Similar Project Inquiry</button>
       <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I want to discuss a ${encodeURIComponent(c.whatsapp)} project','_blank')">WhatsApp</button>

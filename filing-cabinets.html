@@ -447,6 +447,17 @@
       </div>
     </section>
 
+    <section class="product-help-cta" style="background: var(--red-dark); padding: 50px 20px; text-align: center; margin: 0 0 60px 0; color: #fff;">
+      <div class="container" style="max-width: 900px; margin: 0 auto;">
+        <h3 style="font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 12px; color: #fff;">Can't Find the Right Cabinet?</h3>
+        <p style="font-family: var(--font-sans); font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">From unique drawer configurations to specialized security features, we manufacture <strong>personalized filing cabinets and cupboards</strong> to fit your exact operational needs.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <button style="display:inline-flex; align-items:center; padding: 14px 28px; background: #fff; color: var(--red-dark); border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';" onclick="openInquiryModal({category:'Filing Cabinets', specificProduct:'Customized Cabinet'})">Request Custom Design</button>
+          <a href="https://wa.me/912240033385?text=I%20need%20a%20customized%20filing%20cabinet%20setup." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding: 14px 28px; border: 2px solid rgba(255,255,255,0.5); color: #fff; border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='#fff'; this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.5)'; this.style.background='transparent'; this.style.transform='none';">Chat with an Expert</a>
+        </div>
+      </div>
+    </section>
+
 
 
 
@@ -601,14 +612,14 @@
 
       // ── PRODUCTS GRID ──
       const productsData = [
-        { "id": "f1", "name": "Perforated Drawer Cabinet", "image": "Cupboard Cabinets/perforated-storage-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Pharmacy and Medicine Boxes" },
-        { "id": "f2", "name": "Drawer Cabinet", "image": "Cupboard Cabinets/vertical-drawer-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Small Components" },
-        { "id": "f3", "name": "Poster Storage Drawer Cabinet", "image": "Cupboard Cabinets/secure-document-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Film Posters, Small Components" },
-        { "id": "f4", "name": "Filing Cabinet", "image": "Cupboard Cabinets/standard-office-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Organizing Files and Documents" },
-        { "id": "f5", "name": "Storewell Cupboard", "image": "Cupboard Cabinets/office-storage-cupboard.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks" },
-        { "id": "f6", "name": "Glass Door Cupboard", "image": "Cupboard Cabinets/industrial-storage-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks" },
-        { "id": "f7", "name": "Pigeon Hole Cupboard", "image": "Cupboard Cabinets/metal-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks" },
-        { "id": "f8", "name": "Sliding Door Cupboard", "image": "Cupboard Cabinets/steel-cupboard-storage.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks" }
+        { "id": "f1", "name": "Perforated Drawer Cabinet", "image": "Cupboard Cabinets/perforated-storage-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Pharmacy and Medicine Boxes", "desc": "Specialized cabinet with perforated drawers allowing ventilation and easy visibility. Excellent for pharmacy storage and medicine boxes." },
+        { "id": "f2", "name": "Drawer Cabinet", "image": "Cupboard Cabinets/vertical-drawer-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Small Components", "desc": "Heavy-duty vertical drawer cabinets designed for organized storage of small components, tools, and archives. Smooth gliding mechanism ensures easy access." },
+        { "id": "f3", "name": "Poster Storage Drawer Cabinet", "image": "Cupboard Cabinets/secure-document-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Film Posters, Small Components", "desc": "Wide, flat-drawer cabinets engineered for storing large format documents, blueprints, film posters, and artwork without folding or creasing." },
+        { "id": "f4", "name": "Filing Cabinet", "image": "Cupboard Cabinets/standard-office-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Organizing Files and Documents", "desc": "Standard office filing cabinet with deep drawers for systematic organization of files, folders, and important documents. Features central locking for security." },
+        { "id": "f5", "name": "Storewell Cupboard", "image": "Cupboard Cabinets/office-storage-cupboard.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Classic steel cupboard offering versatile storage with adjustable shelves. A staple for libraries, offices, and banks needing secure bulk storage." },
+        { "id": "f6", "name": "Glass Door Cupboard", "image": "Cupboard Cabinets/industrial-storage-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Elegant storage cupboards featuring transparent glass doors. Perfect for displaying books, awards, or keeping easily identifiable files in offices." },
+        { "id": "f7", "name": "Pigeon Hole Cupboard", "image": "Cupboard Cabinets/metal-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "70% 40%", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Multi-compartment pigeon hole cupboards ideal for sorting mail, organizing internal documents, or storing individual employee items efficiently." },
+        { "id": "f8", "name": "Sliding Door Cupboard", "image": "Cupboard Cabinets/steel-cupboard-storage.webp", "imageOffset": "0% 100%", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "100% 5%", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Space-efficient cupboards with smooth sliding doors. Perfect for narrow aisles where traditional swing doors would obstruct pathways." }
       ];
 
       // Card click — opens product modal unless Get Quote was clicked
