@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
+@font-face {
+  font-family: 'Astro Futuristic';
+  src: url('assets/fonts/as.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Overcame Demo';
+  src: url('assets/fonts/OvercameDemoRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ============================================================
    SPACE PLANNERS INDIA — Master Stylesheet
    ============================================================ */
@@ -177,6 +191,8 @@ ul {
   white-space: nowrap;
   display: flex;
   align-items: center;
+  transform: translateY(-5px);
+  /* Change this number to move PLANNERS up (negative) or down (positive) */
 }
 
 #sp-loader .word-planners span {
@@ -5707,19 +5723,18 @@ footer {
     margin-top: 40px;
     width: 120%;
     height: auto;
-    /* was 400px — this was crushing everything */
   }
 
   .sectors-grid>.product-card {
     flex: 0 0 280px;
-    /* was 240px — too narrow for text */
   }
 }
 
-.sectors-grid>.product-card {
-  flex: 0 0 280px;
-  /* was 240px — too narrow for text */
-}
+.sectors-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .sectors-scroll-container::-webkit-scrollbar {
@@ -5732,13 +5747,11 @@ footer {
   gap: 24px;
   margin-top: 40px;
   width: 120%;
-  height: 400px;
+  height: auto;
 }
 
 .sectors-grid>.product-card {
   flex: 0 0 240px;
-}
-
 }
 
 .sector-nav-btn {

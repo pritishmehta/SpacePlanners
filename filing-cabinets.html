@@ -263,8 +263,8 @@
       if (slideTimer) clearInterval(slideTimer);
       slideTimer = setInterval(nextSlide, 5000);
     }
-    function nextSlide() { currentSlide = (currentSlide + 1) % 4; updateSlide(); }
-    function prevSlide() { currentSlide = (currentSlide - 1 + 4) % 4; updateSlide(); }
+    function nextSlide() { currentSlide = (currentSlide + 1) % 2; updateSlide(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + 2) % 2; updateSlide(); }
     function goToSlide(n) { currentSlide = n; updateSlide(); resetTimer(); }
     function updateSlide() {
       document.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
@@ -277,59 +277,34 @@
   <section class="carousel-section" aria-label="Featured products slideshow">
     <div class="carousel-container">
       <div class="carousel-slide active" id="slide0">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/document storage compactor carousel 1.webp"
-          alt="Mobile Compactor Storage System by Space Planners India" loading="eager">
+        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;" src="Cupboard Cabinets/Carousel .png"
+          alt="Cupboards" loading="eager">
       </div>
       <div class="carousel-slide" id="slide1">
         <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
           src="Compactors/piegon hole compactor carousel 2.webp"
           alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
       </div>
-      <div class="carousel-slide" id="slide2">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/Heavy duty compactor carousel 3.webp"
-          alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
-      </div>
-      <div class="carousel-slide" id="slide3">
-        <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-          src="Compactors/Drawer compactor carousel 4.webp"
-          alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
-      </div>
       <div class="slide-overlay"></div>
       <script>
         const slideContent = {
           0: {
-            title: "Your Space Is Full. We Fix That.",
-            description: "Motorised compactors save up to 50% floor space. Trusted by Sun Pharma, Kokilaben Hospital, IIT Bombay, and 500+ organisations across India."
+            title: "Cupboard Storage",
           },
           1: {
             title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
-            description: "Galvanised steel racks built for India's toughest warehouses. OSHA-aligned safety design. Modular and scalable — expand without relocating."
-          },
-          2: {
-            title: "Secure Lockers. Certified for Healthcare.",
-            description: "NABH-aligned lockers for hospitals, offices and institutions. Antimicrobial coating available. Digital, RFID and biometric lock options."
-          },
-          3: {
-            title: "Indexed Archives. Audit-Ready Storage.",
-            description: "Mobile compactors and filing systems for government agencies, corporate records and document archives. GeM portal compatible — direct procurement available."
           }
         };
 
         function updateSlideTitle(index) {
-          const content = slideContent[index % 4];
+          const content = slideContent[index % 2];
           document.getElementById('slideTitle').textContent = content.title;
           document.getElementById('slideDesc').textContent = content.description;
           document.querySelector('.slide-eyebrow').textContent = content.eyebrow;
         }
       </script>
       <div class="slide-content">
-        <p class="slide-eyebrow">India's Storage Engineers · Since 2004</p>
-        <h1 class="slide-title" id="slideTitle">Your Space Is Full. We Fix That.</h1>
-        <p class="slide-description" id="slideDesc">Motorised compactors, heavy-duty racks and certified
-          storage systems — engineered for India's most demanding facilities. GMP, NABH and GeM compliant.
-          Pan-India installation.</p>
+        <h1 class="slide-title" id="slideTitle">Cupboard Storage</h1>
         <div class="slide-cta">
           <button class="btn-white"
             onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
@@ -342,14 +317,12 @@
       <div class="carousel-controls" role="tablist">
         <button class="control-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
         <button class="control-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
-        <button class="control-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-        <button class="control-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
       </div>
     </div>
   </section>
 
   <!-- 2. BRUYNZEEL STATS RIBBON -->
-  <div style="background:#fff; padding-bottom: 40px;margin-top: 60px;">
+  <div style="background:#fff; padding-bottom: 40px; margin-top: 5px;">
     <div class="stats-ribbon" role="region" aria-label="Company statistics" id="statsRibbon">
       <div class="stats-strip">
         <div class="stat-strip-item" data-target="2000" data-suffix="+" data-label="Installations" id="s-inst">
@@ -447,13 +420,23 @@
       </div>
     </section>
 
-    <section class="product-help-cta" style="background: var(--red-dark); padding: 50px 20px; text-align: center; margin: 0 0 60px 0; color: #fff;">
+    <section class="product-help-cta"
+      style="background: var(--red-dark); padding: 50px 20px; text-align: center; margin: 0 0 60px 0; color: #fff;">
       <div class="container" style="max-width: 900px; margin: 0 auto;">
-        <h3 style="font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 12px; color: #fff;">Can't Find the Right Cabinet?</h3>
-        <p style="font-family: var(--font-sans); font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">From unique drawer configurations to specialized security features, we manufacture <strong>personalized filing cabinets and cupboards</strong> to fit your exact operational needs.</p>
+        <h3
+          style="font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 12px; letter-spacing: 2px; color: #fff;">
+          Can't Find the Right Cabinet?</h3>
+        <p
+          style="font-family: var(--font-sans); font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+          We specialise in personalised storage solutions. Tell us your requirement and our team will handle the rest.
+        </p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <button style="display:inline-flex; align-items:center; padding: 14px 28px; background: #fff; color: var(--red-dark); border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';" onclick="openInquiryModal({category:'Filing Cabinets', specificProduct:'Customized Cabinet'})">Request Custom Design</button>
-          <a href="https://wa.me/912240033385?text=I%20need%20a%20customized%20filing%20cabinet%20setup." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding: 14px 28px; border: 2px solid rgba(255,255,255,0.5); color: #fff; border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='#fff'; this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.5)'; this.style.background='transparent'; this.style.transform='none';">Chat with an Expert</a>
+          <button
+            style="display:inline-flex; align-items:center; padding: 14px 28px; background: #fff; color: var(--red-dark); border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;"
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)';"
+            onmouseout="this.style.transform='none'; this.style.boxShadow='none';"
+            onclick="openInquiryModal({category:'Filing Cabinets', specificProduct:'Customized Cabinet'})">Send
+            Inquiry</button>
         </div>
       </div>
     </section>
@@ -612,14 +595,14 @@
 
       // ── PRODUCTS GRID ──
       const productsData = [
-        { "id": "f1", "name": "Perforated Drawer Cabinet", "image": "Cupboard Cabinets/perforated-storage-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Pharmacy and Medicine Boxes", "desc": "Specialized cabinet with perforated drawers allowing ventilation and easy visibility. Excellent for pharmacy storage and medicine boxes." },
-        { "id": "f2", "name": "Drawer Cabinet", "image": "Cupboard Cabinets/vertical-drawer-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Small Components", "desc": "Heavy-duty vertical drawer cabinets designed for organized storage of small components, tools, and archives. Smooth gliding mechanism ensures easy access." },
-        { "id": "f3", "name": "Poster Storage Drawer Cabinet", "image": "Cupboard Cabinets/secure-document-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Film Posters, Small Components", "desc": "Wide, flat-drawer cabinets engineered for storing large format documents, blueprints, film posters, and artwork without folding or creasing." },
-        { "id": "f4", "name": "Filing Cabinet", "image": "Cupboard Cabinets/standard-office-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Organizing Files and Documents", "desc": "Standard office filing cabinet with deep drawers for systematic organization of files, folders, and important documents. Features central locking for security." },
-        { "id": "f5", "name": "Storewell Cupboard", "image": "Cupboard Cabinets/office-storage-cupboard.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Classic steel cupboard offering versatile storage with adjustable shelves. A staple for libraries, offices, and banks needing secure bulk storage." },
-        { "id": "f6", "name": "Glass Door Cupboard", "image": "Cupboard Cabinets/industrial-storage-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Elegant storage cupboards featuring transparent glass doors. Perfect for displaying books, awards, or keeping easily identifiable files in offices." },
-        { "id": "f7", "name": "Pigeon Hole Cupboard", "image": "Cupboard Cabinets/metal-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "70% 40%", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Multi-compartment pigeon hole cupboards ideal for sorting mail, organizing internal documents, or storing individual employee items efficiently." },
-        { "id": "f8", "name": "Sliding Door Cupboard", "image": "Cupboard Cabinets/steel-cupboard-storage.webp", "imageOffset": "0% 100%", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "100% 5%", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Space-efficient cupboards with smooth sliding doors. Perfect for narrow aisles where traditional swing doors would obstruct pathways." }
+        { "id": "f1", "name": "Perforated Drawer Cabinet", "image": "Cupboard Cabinets/perforated-storage-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Pharmacy and Medicine Boxes", "desc": "Ventilated drawer storage systems engineered for organized storage in temperature and humidity-controlled environments.Combining perforated construction, smooth drawer operation, and efficient space utilization to protect sensitive materials." },
+        { "id": "f2", "name": "Drawer Cabinet", "image": "Cupboard Cabinets/vertical-drawer-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Small Components", "desc": "High-capacity drawer storage systems designed to organize drawings, documents, tools, and other flat or small-format materials.Combining smooth-glide drawers, durable steel construction, and customizable layouts for efficient storage and retrieval." },
+        { "id": "f3", "name": "Poster Storage Drawer Cabinet", "image": "Cupboard Cabinets/secure-document-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Archives, Film Posters, Small Components", "desc": "Specialized flat-file storage systems designed for the safe archiving and preservation of posters, maps, drawings, and large-format documents.Combining spacious flat drawers, durable steel construction, and smooth operation to protect valuable materials from damage." },
+        { "id": "f4", "name": "Filing Cabinet", "image": "Cupboard Cabinets/standard-office-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Organizing Files and Documents", "desc": "Professional filing systems designed to keep documents secure, organized, and readily accessible in busy workplaces.Combining smooth drawer operation, secure locking mechanisms, and durable construction for dependable everyday use." },
+        { "id": "f5", "name": "Storewell Cupboard", "image": "Cupboard Cabinets/indus sto.png", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Versatile steel storage cupboards designed for the secure organization of office supplies, files, equipment, and general inventory.Combining robust construction, adjustable shelving, and secure locking options for reliable everyday storage." },
+        { "id": "f6", "name": "Glass Door Cupboard", "image": "Cupboard Cabinets/Glass door main.png", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Elegant storage cupboards featuring transparent glass doors. Perfect for displaying books, awards, or keeping easily identifiable files in offices." },
+        { "id": "f7", "name": "Pigeon Hole Cupboard", "image": "Cupboard Cabinets/metal-filing-cabinet.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "70% 40%", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Efficient compartmentalized storage cupboards designed to organize files, mail, documents, and small inventory with ease.Combining modular pigeon hole compartments, durable construction, and quick accessibility for streamlined operations." },
+        { "id": "f8", "name": "Sliding Door Cupboard", "image": "Cupboard Cabinets/steel-cupboard-storage.webp", "imageOffset": "0% 100%", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "100% 5%", "modalImageZoom": 1, "apps": "Library, Offices, Banks", "desc": "Space-saving steel cupboards engineered to provide secure storage where swing-door access is limited.Combining smooth sliding doors, adjustable shelving, and durable construction for efficient everyday organization." }
       ];
 
       // Card click — opens product modal unless Get Quote was clicked

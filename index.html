@@ -264,8 +264,8 @@
         <div class="scene">
             <div class="main-row">
                 <canvas id="c"></canvas>
-                <div class="word-planners" id="planners">
-                    <span>&nbsp;PLANNERS</span>
+                <div class="word-planners" id="planners" style="font-family: 'Overcame Demo', sans-serif;">
+                    <span>&nbsp;PL<span style="color: #c0392b;">A</span>NNERS</span>
                 </div>
             </div>
             <div class="progress-track">
@@ -341,7 +341,7 @@
 
                 // SPACE — centred, letter spacing compresses with box
                 const ls = lerp(20, 4, progress);
-                ctx.font = `200 26px 'Josefin Sans', sans-serif`;
+                ctx.font = `200 20px 'Astro Futuristic', sans-serif`;
                 ctx.fillStyle = '#1a1a1a';
                 ctx.textBaseline = 'middle';
 
@@ -350,7 +350,8 @@
                 const totalW = cw.reduce((a, b) => a + b, 0) + ls * (word.length - 1);
                 let x = W / 2 - totalW / 2;
                 word.forEach((l, i) => {
-                    ctx.fillText(l, x, H / 2);
+                    let yOffset = 12; // Change this number to move SPACE up (negative) or down (positive)
+                    ctx.fillText(l, x, (H / 2) + yOffset);
                     x += cw[i] + (i < word.length - 1 ? ls : 0);
                 });
             }
@@ -408,13 +409,13 @@
             <div class="carousel-container">
                 <div class="carousel-slide active" id="slide0">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Compactors/high-density-mobile-storage.webp"
-                        alt="Mobile Compactor Storage System by Space Planners India" loading="eager">
+                        src="Compactors/Document Storage.webp" alt="Document Storage System by Space Planners India"
+                        loading="eager">
                 </div>
                 <div class="carousel-slide" id="slide1">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Racks/mezzanine-floor-racking.webp"
-                        alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
+                        src="Racks/Carousel 2.png" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
+                        loading="lazy">
                 </div>
                 <div class="carousel-slide" id="slide2">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
@@ -423,7 +424,7 @@
                 </div>
                 <div class="carousel-slide" id="slide3">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Compactors/heavy-duty-compactor-system.webp"
+                        src="Cupboard Cabinets/Carousel .png"
                         alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
                 </div>
                 <div class="slide-overlay"></div>
@@ -431,19 +432,15 @@
                     const slideContent = {
                         0: {
                             title: "Your Space Is Full. We Fix That.",
-                            description: "Motorised compactors save up to 50% floor space. Trusted by Sun Pharma, Kokilaben Hospital, IIT Bombay, and 500+ organisations across India."
                         },
                         1: {
                             title: "Heavy-Duty Racks. Up to 10 Tons Capacity.",
-                            description: "Galvanised steel racks built for India's toughest warehouses. OSHA-aligned safety design. Modular and scalable — expand without relocating."
                         },
                         2: {
                             title: "Secure Lockers. Certified for Healthcare.",
-                            description: "NABH-aligned lockers for hospitals, offices and institutions. Antimicrobial coating available. Digital, RFID and biometric lock options."
                         },
                         3: {
                             title: "Indexed Archives. Audit-Ready Storage.",
-                            description: "Mobile compactors and filing systems for government agencies, corporate records and document archives. GeM portal compatible — direct procurement available."
                         }
                     };
 

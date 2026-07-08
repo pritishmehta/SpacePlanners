@@ -349,7 +349,7 @@
   </section>
 
   <!-- 2. BRUYNZEEL STATS RIBBON -->
-  <div style="background:#fff; padding-bottom: 40px;margin-top: 60px;">
+  <div style="background:#fff; padding-bottom: 40px; margin-top: 5px;">
     <div class="stats-ribbon" role="region" aria-label="Company statistics" id="statsRibbon">
       <div class="stats-strip">
         <div class="stat-strip-item" data-target="2000" data-suffix="+" data-label="Installations" id="s-inst">
@@ -447,13 +447,23 @@
       </div>
     </section>
 
-    <section class="product-help-cta" style="background: var(--red-dark); padding: 50px 20px; text-align: center; margin: 0 0 60px 0; color: #fff;">
+    <section class="product-help-cta"
+      style="background: var(--red-dark); padding: 50px 20px; text-align: center; margin: 0 0 60px 0; color: #fff;">
       <div class="container" style="max-width: 900px; margin: 0 auto;">
-        <h3 style="font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 12px; color: #fff;">Looking for a Custom Locker Setup?</h3>
-        <p style="font-family: var(--font-sans); font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">Whether you need specialized locking mechanisms, custom sizes, or specific finishes, we build <strong>personalized locker systems</strong> tailored to any industry requirements.</p>
+        <h3
+          style="font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 12px; letter-spacing: 2px; color: #fff;">
+          Can't Find the Right Locker?</h3>
+        <p
+          style="font-family: var(--font-sans); font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+          We specialise in personalised storage solutions. Tell us your requirement and our team will handle the rest.
+        </p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <button style="display:inline-flex; align-items:center; padding: 14px 28px; background: #fff; color: var(--red-dark); border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';" onclick="openInquiryModal({category:'Lockers', specificProduct:'Customized Lockers'})">Request Custom Design</button>
-          <a href="https://wa.me/912240033385?text=I%20need%20a%20customized%20locker%20setup." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding: 14px 28px; border: 2px solid rgba(255,255,255,0.5); color: #fff; border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='#fff'; this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.5)'; this.style.background='transparent'; this.style.transform='none';">Chat with an Expert</a>
+          <button
+            style="display:inline-flex; align-items:center; padding: 14px 28px; background: #fff; color: var(--red-dark); border-radius: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;"
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)';"
+            onmouseout="this.style.transform='none'; this.style.boxShadow='none';"
+            onclick="openInquiryModal({category:'Filing Cabinets', specificProduct:'Customized Cabinet'})">Send
+            Inquiry</button>
         </div>
       </div>
     </section>
@@ -615,12 +625,12 @@
 
       // ── PRODUCTS GRID ──
       const productsData = [
-        { "id": "l1", "name": "Gym Lockers", "image": "Lockers/gym-storage-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Gyms, Education & Libraries, Industrial", "desc": "Durable and secure lockers designed specifically for gymnasiums and fitness centers. Features ventilated doors and robust locking mechanisms to keep personal belongings safe." },
-        { "id": "l2", "name": "Personal Staff Locker", "image": "Lockers/factory-staff-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Education & Libraries, Industrial", "desc": "Ideal for factories and industrial environments. Provides employees with a secure space for uniforms, PPE, and personal items, ensuring a clutter-free workspace." },
-        { "id": "l3", "name": "School Locker", "image": "Lockers/bag-and-helmet-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices", "desc": "Sturdy and student-friendly lockers perfect for schools and educational institutions. Built to withstand daily wear and tear while providing ample space for books and bags." },
-        { "id": "l4", "name": "Stainless Steel Locker", "image": "Lockers/ss locker.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Industries, Banks, Educational Institutions", "desc": "Premium stainless steel lockers offering maximum resistance against rust and corrosion. Perfect for cleanrooms, hospitals, and food processing facilities." },
-        { "id": "l5", "name": "Mobile Phone Locker (Numerical Lock)", "image": "Lockers/mobile-phone-digital-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Industries, Banks, Educational Institutions", "desc": "Compact, highly secure compartments designed specifically for mobile phones and small valuables. Equipped withmultiple locking options." },
-        { "id": "l6", "name": "Tower Locker", "image": "Lockers/tower-style-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices", "desc": "Space-saving vertical tower lockers that maximize storage capacity in narrow spaces. Ideal for offices and tight corridors." }
+        { "id": "l1", "name": "Gym Lockers", "image": "Lockers/gym-storage-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Gyms, Education & Libraries, Industrial", "desc": "Modern locker systems designed to provide secure, organized storage for personal belongings in fitness and wellness facilities. Combining durable construction, ventilation features, and customizable locking options for everyday convenience and security." },
+        { "id": "l2", "name": "Personal Staff Lockers", "image": "Lockers/factory-staff-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Education & Libraries, Industrial", "desc": "Secure and durable locker solutions designed to safely store employees' personal belongings in modern workplaces.Combining customizable configurations, reliable locking options, and robust construction for everyday security and convenience." },
+        { "id": "l3", "name": "School Lockers", "image": "Lockers/bag-and-helmet-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Education & Libraries", "desc": "Functional and durable locker systems designed to keep students' belongings safe, organized, and easily accessible throughout the day.Combining space- efficient designs, sturdy construction, and secure locking options for educational environments." },
+        { "id": "l4", "name": "Stainless Steel Lockers", "image": "Lockers/ss locker.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Industries, Banks, Educational Institutions", "desc": "Premium stainless steel locker systems engineered for hygienic, corrosion-resistant storage in demanding environments.Combining seamless construction, superior durability, and easy maintenance for long-lasting performance in clean facilities." },
+        { "id": "l5", "name": "Mobile Phone Lockers", "image": "Lockers/mobile-phone-digital-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices, Industries, Banks, Educational Institutions", "desc": "Secure storage solutions designed for the safe management of mobile phones and personal electronic devices.Combining individual compartments, flexible locking options, and durable construction for organized and controlled access." },
+        { "id": "l6", "name": "Tower Lockers", "image": "Lockers/tower-style-lockers.webp", "imageOffset": "center", "imageZoom": 1, "modalObjectFit": "contain", "modalImageOffset": "center", "modalImageZoom": 1, "apps": "Offices", "desc": "Space-efficient vertical locker systems engineered to maximize personal storage in compact environments.Combining sleek design, durable steel construction, and customizable locking options for secure everyday use." }
       ];
 
       // Card click — opens product modal unless Get Quote was clicked
