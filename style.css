@@ -5699,32 +5699,45 @@ footer {
   background: rgba(196, 30, 58, 0.03);
 }
 
-/* Desktop: 4-card scrollable carousel */
 @media (min-width: 769px) {
-  .sectors-scroll-container {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 20px;
-    scroll-snap-type: x mandatory;
-  }
-
-  .sectors-scroll-container::-webkit-scrollbar {
-    display: none;
-  }
-
   .sectors-grid {
     display: flex;
     flex-wrap: nowrap;
     gap: 24px;
     margin-top: 40px;
     width: 120%;
-    height: 400px;
+    height: auto;
+    /* was 400px — this was crushing everything */
   }
 
   .sectors-grid>.product-card {
-    flex: 0 0 240px;
+    flex: 0 0 280px;
+    /* was 240px — too narrow for text */
   }
+}
+
+.sectors-grid>.product-card {
+  flex: 0 0 280px;
+  /* was 240px — too narrow for text */
+}
+}
+
+.sectors-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sectors-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  margin-top: 40px;
+  width: 120%;
+  height: 400px;
+}
+
+.sectors-grid>.product-card {
+  flex: 0 0 240px;
+}
 
 }
 
@@ -5794,8 +5807,16 @@ footer {
   }
 
   .sectors-grid .sector-icon-box {
-    height: 110px !important;
-    padding: 20px;
+    width: 100%;
+    height: 140px;
+    /* was 220px — way too tall for just an icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
   }
 }
 
