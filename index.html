@@ -1638,7 +1638,7 @@
 
             if (container && prevBtn && nextBtn) {
                 const grid = container.querySelector('.sectors-grid');
-                
+
                 // Clone items twice for infinite loop illusion
                 const items = Array.from(grid.children);
                 items.forEach(item => grid.appendChild(item.cloneNode(true)));
@@ -1650,7 +1650,7 @@
                     const gap = parseInt(window.getComputedStyle(grid).gap) || 18;
                     return (itemWidth + gap) * items.length;
                 };
-                
+
                 // Initialize position to the middle set smoothly
                 setTimeout(() => {
                     container.scrollLeft = getSetWidth();
@@ -1683,22 +1683,6 @@
     <script src="js/data.js"></script>
     <script src="forms-handler.js"></script>
     <script src="js/nav-scroll.js"></script>
-    <!-- Config & Maps Loader -->
-    <script src="js/config.js"></script>
-    <script>
-        (function () {
-            // Check if key exists (optional but recommended for local dev/handling)
-            if (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.GOOGLE_MAPS_API_KEY) {
-                const script = document.createElement('script');
-                script.src = `https://maps.googleapis.com/maps/api/js?key=${AIzaSyBUUbZpDakxgmsRwIaaneBYmihaVafUfdQ}&callback=initMap&loading=async`;
-                script.async = true;
-                script.defer = true;
-                document.body.appendChild(script);
-                console.log('Google Maps API loaded securely via config');
-            } else {
-                console.warn('Google Maps API key missing. Check js/config.js');
-            }
-        })();
     </script>
 </body>
 
