@@ -55,7 +55,7 @@
     <!-- ===== SECURITY META TAGS (FOR STATIC HOSTING) ===== -->
     <!-- Content-Security-Policy: restrict where resources can be loaded from -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-                   script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://www.googletagmanager.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; 
+                   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; 
                    img-src 'self' data: https:; 
                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
                    font-src 'self' https://fonts.gstatic.com; 
@@ -917,7 +917,7 @@
                                     <div class="product-info">
                                         <h3 class="product-name">
                                             Museums & Archives</h3>
-                                        <p class="product-description">reservation-focused storage that safeguards
+                                        <p class="product-description">Reservation-focused storage that safeguards
                                             valuable collections, artifacts, artwork, and historical archives.</p>
                                     </div>
                                 </a>
@@ -1048,11 +1048,12 @@
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label for="name">Full Name *</label>
-                                    <input type="text" id="name" name="name" placeholder="Rajesh Kumar" required />
+                                    <input type="text" id="name" name="name" placeholder="Enter Name" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone Number *</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
+                                    <input type="tel" id="phone" name="phone" placeholder="Enter Phone Number"
+                                        required />
                                 </div>
                                 <div class="form-group">
                                     <label for="product">Product Interest *</label>
@@ -1067,13 +1068,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" placeholder="rajesh@example.com"
+                                    <input type="email" id="email" name="email" placeholder="Enter Email Address"
                                         required />
                                 </div>
                                 <div class="form-group full">
                                     <label for="message">Your Message</label>
-                                    <textarea id="message" name="message"
-                                        placeholder="Describe your space, approximate dimensions, and storage requirements..."></textarea>
+                                    <textarea id="message" name="message" placeholder=""></textarea>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary form-submit">
@@ -1471,8 +1471,8 @@
         const sectorsData = {
             pharma: {
                 title: "Pharmaceutical",
-                desc: "GMP and SS-grade compactors, lockers, and perforated drawer cabinets built for clean room compliance and sterile storage.",
-                logos: ["logos/pharma/Cipla.svg", "logos/pharma/lupin.svg", "logos/pharma/Gelnmark.svg", "logos/pharma/alkem.svg", "logos/pharma/Ajanta.svg"],
+                desc: "Secure, compliant storage systems for regulated materials, documentation, and laboratory environments",
+                logos: ["logos/pharma/cipla.svg", "logos/pharma/lupin.svg", "logos/pharma/Gelnmark.svg", "logos/pharma/alkem.svg", "logos/pharma/ajanta.svg"],
                 products: {
                     "Compactors": ["Stainless Steel Compactor", "Perforated Compactor", "Drawer Compactor", "Document Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor"],
                     "Racks": ["Stainless Steel Rack"],
@@ -1482,7 +1482,7 @@
             },
             hospital: {
                 title: "Hospitals",
-                desc: "Stainless steel and GMP-certified storage across wards, pharmacies, and staff areas — NABH-ready from day one.",
+                desc: "Hygienic, high-density storage for medical records, supplies, equipment, and critical healthcare assets.",
                 logos: ["logos/hospital/saifee.svg", "logos/hospital/hinduja.svg", "logos/hospital/KEM.svg", "logos/hospital/nanavati.svg", "logos/hospital/somaiya_hospital.svg"],
                 products: {
                     "Compactors": ["Stainless Steel Compactor", "Perforated Compactor", "Drawer Compactor", "Document Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor"],
@@ -1494,8 +1494,8 @@
             },
             corporate: {
                 title: "Corporate Offices",
-                desc: "Complete office storage from compactors to cupboards, designed for space efficiency and a professional finish.",
-                logos: ["logos/corporate/tata_motors.svg", "logos/corporate/BajajE.svg", "logos/corporate/hindalco.svg", "logos/corporate/bisleri.svg", "logos/corporate/Mahindra & Mahindra Logo SVG.svg"],
+                desc: "Intelligent workspace storage that maximizes efficiency while keeping documents and assets organized.",
+                logos: ["logos/corporate/tata_motors.svg", "logos/corporate/bajajE.svg", "logos/corporate/hindalco.svg", "logos/corporate/bisleri.svg", "logos/corporate/mm.svg"],
                 products: {
                     "Compactors": ["Stainless Steel Compactor", "Perforated Compactor", "Drawer Compactor", "Document Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor"],
                     "Racks": ["Pallet Racking System", "Decking Panel Racking System", "Slotted Angle Racks", "Sectional Panel Heavy Duty Racks", "Multi-Tier Racking System", "Mezzanine Racking Systems"],
@@ -1506,8 +1506,8 @@
             },
             banking: {
                 title: "Banking",
-                desc: "RSecure document compactors, staff lockers, and multi-drawer cabinets built for audit trails and branch-level access control.",
-                logos: ["logos/banking/RBI.svg", "logos/banking/SBI.svg", "logos/banking/Union_bank.svg", "logos/banking/SVC.svg", "logos/banking/rbl.svg"],
+                desc: "High-security storage solutions for confidential records, documents, and valuable assets.",
+                logos: ["logos/banking/reservebank.svg", "logos/banking/sbibank.svg", "logos/banking/unionbank.svg", "logos/banking/svcbank.svg", "logos/banking/rblbank.svg"],
                 products: {
                     "Compactors": ["Document Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor", "Perforated Compactor", "Drawer Compactor"],
                     "Racks": ["Slotted Angle Racks", "Sectional Panel Heavy Duty Racks"],
@@ -1518,7 +1518,7 @@
             },
             education: {
                 title: "Education & Libraries",
-                desc: "Durable compactors, school lockers, and modular racking for libraries, staff rooms, and administrative record storage.",
+                desc: "Organized storage for libraries, records, laboratory equipment, and institutional resources",
                 logos: ["logos/education/IITB.svg", "logos/education/Somaiya_Vidyavihar_id34BHBsHW_1.svg", "logos/education/TPS.svg", "logos/education/chetana.svg", "logos/education/atmiya.svg",],
                 products: {
                     "Compactors": ["Document Storage Compactor", "Heavy Duty Compactor", "Drawer Compactor"],
@@ -1530,7 +1530,7 @@
             },
             government: {
                 title: "Government Offices",
-                desc: " GeM-compatible compactors, sectional racks, and full cabinet systems built for document volume and departmental compliance.",
+                desc: "Durable archival storage designed to protect public records, files, and essential documents for decades.",
                 logos: ["logos/government/BHEL.svg", "logos/government/HAL.svg", "logos/government/Indian_Navy_crest.svg", "logos/government/mazgoan.svg", "logos/government/WR.svg"],
                 products: {
                     "Compactors": ["Document Storage Compactor", "Heavy Duty Compactor", "Perforated Compactor", "Drawer Compactor"],
@@ -1542,7 +1542,7 @@
             },
             fmcg: {
                 title: "FMCG Companies",
-                desc: "High-density racking, mobile compactors, and industrial storage across your warehouses, factories, and distribution centres.",
+                desc: "Optimized storage systems that improve inventory management, stock rotation, and warehouse efficiency.",
                 logos: ["logos/FMCG/Kellogg's-Logo.svg", "logos/FMCG/Cocacola.svg", "logos/FMCG/HUL.svg", "logos/FMCG/Anchor.svg"],
                 products: {
                     "Compactors": ["Document Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor", "Perforated Compactor", "Drawer Compactor", "Stainless Steel Compactor"],
@@ -1554,8 +1554,8 @@
             },
             museum: {
                 title: "Museums & Archives",
-                desc: " Archival-grade compactors, perforated cabinets, and poster storage systems that protect and preserve for the long term.",
-                logos: ["logos/museums/BNHS.svg", "logos/museums/FHF.svg", "logos/museums/tata%20archives.svg"],
+                desc: "Reservation-focused storage that safeguards valuable collections, artifacts, artwork, and historical archives.",
+                logos: ["logos/museums/bnhs_logo.svg", "logos/museums/fhf_logo.svg", "logos/museums/tata_archives.svg"],
                 products: {
                     "Compactors": ["Document Storage Compactor", "Heavy Duty Compactor", "Perforated Compactor", "Drawer Compactor"],
                     "Racks": ["Slotted Angle Racks", "Sectional Panel Heavy Duty Racks"],
