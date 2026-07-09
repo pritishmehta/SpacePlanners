@@ -8,9 +8,9 @@ const MAILTO_CONFIG = {
 };
 
 const EMAILJS_CONFIG = {
-    PUBLIC_KEY: '',   // Replace with your EmailJS Public Key
-    SERVICE_ID: '',   // Replace with your EmailJS Service ID
-    TEMPLATE_ID: ''  // Replace with your EmailJS Template ID
+    PUBLIC_KEY: 'YsgZA8c4bevwmotxf',   // Replace with your EmailJS Public Key
+    SERVICE_ID: 'service_hoh00up',   // Replace with your EmailJS Service ID
+    TEMPLATE_ID: 'template_7orqbna'  // Replace with your EmailJS Template ID
 };
 
 const Validators = {
@@ -37,6 +37,33 @@ function sanitizeInput(str) {
         .trim();
 }
 
+/* ── EMAILJS LOADER ── */
+let _emailjsReady = null;
+function loadEmailJS() {
+    if (_emailjsReady) return _emailjsReady;
+    _emailjsReady = new Promise((resolve) => {
+        if (window.emailjs) { resolve(window.emailjs); return; }
+        if (document.querySelector('script[src*="email.min.js"]')) {
+            // Script tag already exists — wait for it
+            const poll = setInterval(() => {
+                if (window.emailjs) { clearInterval(poll); resolve(window.emailjs); }
+            }, 100);
+            return;
+        }
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+        script.onload = () => {
+            if (window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+                emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+            }
+            resolve(window.emailjs);
+        };
+        script.onerror = () => resolve(null);
+        document.head.appendChild(script);
+    });
+    return _emailjsReady;
+}
+
 /* ── INITIALIZATION ── */
 document.addEventListener('DOMContentLoaded', () => {
     // Dynamically load Google reCAPTCHA script
@@ -48,18 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(script);
     }
 
-    // Dynamically load EmailJS script
-    if (!document.querySelector('script[src*="email.min.js"]')) {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-        script.async = true;
-        script.onload = () => {
-            if (window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-                emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-            }
-        };
-        document.head.appendChild(script);
-    }
+    // Pre-load EmailJS early
+    loadEmailJS();
 
     // Initialize all forms after components are loaded
     document.addEventListener('componentsLoaded', initAllForms);
@@ -206,22 +223,29 @@ async function submitFormToBackend(formElement, formName) {
         }
 
         const subject = `[Space Planners] New ${formName.replace(/_/g, ' ')} submission`;
-        
-        if (window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+
+        if (EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+            // Wait for EmailJS to be fully loaded
+            const ejs = await loadEmailJS();
+            if (!ejs) throw new Error('EmailJS failed to load.');
+
             const templateParams = {
                 subject: subject,
                 message: body,
                 from_name: formData.get('name') || 'Website User',
                 reply_to: formData.get('email') || MAILTO_CONFIG.TO
             };
-            
-            await emailjs.send(
-                EMAILJS_CONFIG.SERVICE_ID, 
-                EMAILJS_CONFIG.TEMPLATE_ID, 
+
+            console.log('[EmailJS] Sending with params:', templateParams);
+            const response = await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
                 templateParams
             );
+            console.log('[EmailJS] Success:', response);
         } else {
             // Fallback to mailto if EmailJS is not configured yet
+            console.warn('[Form] EmailJS not configured — falling back to mailto');
             const encodedSubject = encodeURIComponent(subject);
             const encodedBody = encodeURIComponent(body);
             window.location.href = `mailto:${MAILTO_CONFIG.TO}?subject=${encodedSubject}&body=${encodedBody}`;
@@ -229,7 +253,7 @@ async function submitFormToBackend(formElement, formName) {
 
         return { success: true };
     } catch (error) {
-        console.error('Email sending error:', error);
+        console.error('[Form] Email sending error:', error.status, error.text || error.message || error);
         return { success: false };
     }
 }
@@ -325,7 +349,7 @@ async function handleSubmission(form, type, onSuccess) {
     }
 
     if (result.success) {
-        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+        try { if (typeof grecaptcha !== 'undefined') grecaptcha.reset(); } catch (_) {}
         onSuccess();
     } else {
         showToast('Failed to send. Please check your connection.', 'error');

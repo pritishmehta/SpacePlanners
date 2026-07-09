@@ -55,12 +55,12 @@
     <!-- ===== SECURITY META TAGS (FOR STATIC HOSTING) ===== -->
     <!-- Content-Security-Policy: restrict where resources can be loaded from -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-                   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; 
+                   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://cdn.jsdelivr.net; 
                    img-src 'self' data: https:; 
                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
                    font-src 'self' https://fonts.gstatic.com; 
                    frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/;
-                   connect-src 'self' https://*.googleapis.com https://*.gstatic.com;">
+                   connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://api.emailjs.com;">
     <!-- Referrer Policy: control how much referrer info is sent out -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <!-- Note: X-Frame-Options cannot be set via meta tag. Use server config for that. -->
@@ -1495,7 +1495,7 @@
             corporate: {
                 title: "Corporate Offices",
                 desc: "Intelligent workspace storage that maximizes efficiency while keeping documents and assets organized.",
-                logos: ["logos/Corporate/tata_motors.svg", "logos/Corporate/bajajE.svg", "logos/Corporate/hindalco.svg", "logos/Corporate/bisleri.svg", "logos/Corporate/mm.svg"],
+                logos: ["logos/Corporate/tata_motors.svg", "logos/Corporate/bajaj.svg", "logos/Corporate/hindalco.svg", "logos/Corporate/bisleri.svg", "logos/Corporate/mm.svg"],
                 products: {
                     "Compactors": ["Stainless Steel Compactor", "Perforated Compactor", "Drawer Compactor", "Document Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor"],
                     "Racks": ["Pallet Racking System", "Decking Panel Racking System", "Slotted Angle Racks", "Sectional Panel Heavy Duty Racks", "Multi-Tier Racking System", "Mezzanine Racking Systems"],
