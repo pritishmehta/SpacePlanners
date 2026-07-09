@@ -205,7 +205,7 @@ ul {
 }
 
 #sp-loader .progress-track {
-  width: 300px;
+  width: min(300px, 90vw);
   height: 1.5px;
   background: #e0e0e0;
   overflow: hidden;
@@ -3027,7 +3027,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 28px;
 }
 
@@ -5236,7 +5236,7 @@ footer {
 ============================================== */
 .category-product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 30px;
   margin-top: 40px;
 }
@@ -6347,13 +6347,179 @@ header.scrolled {
   min-width: 100px;
 }
 
-@media (max-width: 768px) {
+/* ==============================================
+   MOBILE & ACCESSIBILITY RESPONSIVENESS FIXES
+============================================== */
 
-  button,
-  a,
-  [role="button"] {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
+@media (max-width: 768px) {
+  .modal.active {
+    padding: 12px 10px !important;
+  }
+
+  /* 1. PRODUCT DETAIL MODAL MOBILE UX OPTIMIZATION */
+  .modal-content.product-modal-content {
+    width: 95vw !important;
+    max-width: 540px !important;
+    height: 90vh !important;
+    max-height: 680px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .product-modal-split {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+  }
+
+  .product-modal-image {
+    height: 150px !important;
+    flex: 0 0 150px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .product-modal-image img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    padding: 0 !important;
+  }
+
+  .product-modal-details {
+    flex: 1 1 auto !important;
+    padding: 20px 20px 0 20px !important; /* bottom padding handled by action overlay */
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+  }
+
+  .product-modal-title {
+    font-size: 1.5rem !important;
+    margin: 8px 0 12px !important;
+  }
+
+  .product-modal-description {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .product-modal-meta {
+    margin-bottom: 20px !important;
+  }
+
+  .product-modal-actions {
+    position: sticky !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: var(--white) !important;
+    padding: 12px 0 16px 0 !important;
+    margin-top: auto !important;
+    z-index: 10 !important;
+    box-shadow: 0 -15px 15px -5px var(--white) !important; /* Fade gradient below scrolling text */
+    display: flex !important;
+    border-top: 1px solid #eee !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .product-modal-actions button,
+  .product-modal-actions a {
+    width: 100% !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 2. HERO CAROUSEL OPTIMIZATION FOR MOBILE */
+  .carousel-container {
+    min-height: 400px !important;
+  }
+
+  .slide-content {
+    padding: 70px 16px 50px 16px !important;
+    justify-content: center !important;
+  }
+
+  .slide-title {
+    font-size: 1.625rem !important; /* Avoid huge typography wrapping on small viewports */
+    line-height: 1.3 !important;
+  }
+
+  .slide-description {
+    font-size: 0.8125rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .carousel-nav {
+    display: none !important; /* Hide left/right arrows to prevent overlapping layouts */
+  }
+
+  .carousel-controls {
+    bottom: 12px !important;
+    gap: 8px !important;
+  }
+
+  .control-dot,
+  .carousel-dot {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  .control-dot.active,
+  .carousel-dot.active {
+    width: 24px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  /* 3. HEADER LAYOUT OPTIMIZATION (FOR SCREEN WIDTHS < 360px) */
+  .header-main {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  .logo img {
+    height: 42px !important; /* Scale logo down slightly to fit */
+  }
+
+  .header-actions {
+    gap: 8px !important;
+  }
+
+  .header-actions .btn-primary {
+    display: none !important; /* Hide 'Get Free Quote' header button. It's redundant due to bottom CTA and hamburger menu */
+  }
+
+  /* Make products-grid exactly 1 column on extremely small devices */
+  .products-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .slide-content {
+    padding: 60px 12px 45px 12px !important;
+  }
+
+  .slide-title {
+    font-size: 1.375rem !important;
+  }
+
+  .slide-description {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important; /* Shorten description so it doesn't take too much vertical height */
   }
 }
