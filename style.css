@@ -6338,14 +6338,14 @@ header.scrolled {
 }
 
 .sector-logos {
-  padding-top: 24px;
+  padding-top: 20px;
   border-top: 1px solid #f0f4f8;
 }
 
 .sector-logos-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
   margin-top: 16px;
 }
 
@@ -6405,7 +6405,8 @@ header.scrolled {
 
   .product-modal-details {
     flex: 1 1 auto !important;
-    padding: 20px 20px 0 20px !important; /* bottom padding handled by action overlay */
+    padding: 20px 20px 0 20px !important;
+    /* bottom padding handled by action overlay */
     overflow-y: auto !important;
     display: flex !important;
     flex-direction: column !important;
@@ -6436,7 +6437,8 @@ header.scrolled {
     padding: 12px 0 16px 0 !important;
     margin-top: auto !important;
     z-index: 10 !important;
-    box-shadow: 0 -15px 15px -5px var(--white) !important; /* Fade gradient below scrolling text */
+    box-shadow: 0 -15px 15px -5px var(--white) !important;
+    /* Fade gradient below scrolling text */
     display: flex !important;
     border-top: 1px solid #eee !important;
     width: 100% !important;
@@ -6453,6 +6455,7 @@ header.scrolled {
 }
 
 @media (max-width: 480px) {
+
   /* 2. HERO CAROUSEL OPTIMIZATION FOR MOBILE */
   .carousel-container {
     min-height: 400px !important;
@@ -6464,7 +6467,8 @@ header.scrolled {
   }
 
   .slide-title {
-    font-size: 1.625rem !important; /* Avoid huge typography wrapping on small viewports */
+    font-size: 1.625rem !important;
+    /* Avoid huge typography wrapping on small viewports */
     line-height: 1.3 !important;
   }
 
@@ -6475,7 +6479,8 @@ header.scrolled {
   }
 
   .carousel-nav {
-    display: none !important; /* Hide left/right arrows to prevent overlapping layouts */
+    display: none !important;
+    /* Hide left/right arrows to prevent overlapping layouts */
   }
 
   .carousel-controls {
@@ -6496,6 +6501,7 @@ header.scrolled {
 }
 
 @media (max-width: 360px) {
+
   /* 3. HEADER LAYOUT OPTIMIZATION (FOR SCREEN WIDTHS < 360px) */
   .header-main {
     padding: 10px 12px !important;
@@ -6503,7 +6509,8 @@ header.scrolled {
   }
 
   .logo img {
-    height: 42px !important; /* Scale logo down slightly to fit */
+    height: 42px !important;
+    /* Scale logo down slightly to fit */
   }
 
   .header-actions {
@@ -6511,14 +6518,15 @@ header.scrolled {
   }
 
   .header-actions .btn-primary {
-    display: none !important; /* Hide 'Get Free Quote' header button. It's redundant due to bottom CTA and hamburger menu */
+    display: none !important;
+    /* Hide 'Get Free Quote' header button. It's redundant due to bottom CTA and hamburger menu */
   }
 
   /* Make products-grid exactly 1 column on extremely small devices */
   .products-grid {
     grid-template-columns: 1fr !important;
   }
-  
+
   .slide-content {
     padding: 60px 12px 45px 12px !important;
   }
@@ -6531,9 +6539,11 @@ header.scrolled {
     display: -webkit-box !important;
     -webkit-line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
-    overflow: hidden !important; /* Shorten description so it doesn't take too much vertical height */
+    overflow: hidden !important;
+    /* Shorten description so it doesn't take too much vertical height */
   }
 }
+
 /* -- SECTOR MODAL NEW DESIGN -- */
 .sector-wrap {
   background: #ffffff;
@@ -6548,17 +6558,20 @@ header.scrolled {
   overflow: hidden;
   background: #d0d0d0;
 }
+
 .sector-wrap .banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+
 .sector-wrap .banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.52) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.52) 100%);
 }
+
 .sector-wrap .banner-content {
   position: absolute;
   bottom: 28px;
@@ -6569,20 +6582,23 @@ header.scrolled {
   justify-content: space-between;
   gap: 16px;
 }
+
 .sector-wrap .banner-eyebrow {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 6px;
 }
+
 .sector-wrap .banner-title {
   font-size: 32px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.15;
 }
+
 .sector-wrap .banner-badge {
   background: #C41212;
   color: #ffffff;
@@ -6596,14 +6612,16 @@ header.scrolled {
   flex-shrink: 0;
 }
 
-.sector-wrap .inner { padding: 32px 36px 36px; }
+.sector-wrap .inner {
+  padding: 32px 36px 36px;
+}
 
 .sector-wrap .sector-desc {
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   line-height: 1.7;
   margin-bottom: 28px;
-  max-width: 580px;
+  max-width: 800px;
 }
 
 .sector-wrap .tabs-wrap {
@@ -6612,15 +6630,17 @@ header.scrolled {
   overflow: hidden;
   margin-bottom: 28px;
 }
+
 .sector-wrap .tabs-nav {
   display: flex;
   border-bottom: 1px solid #e5e5e5;
   overflow-x: auto;
   background: #fafafa;
 }
+
 .sector-wrap .tab-btn {
   padding: 12px 20px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   color: #888888;
   background: transparent;
@@ -6633,12 +6653,17 @@ header.scrolled {
   align-items: center;
   gap: 6px;
 }
-.sector-wrap .tab-btn:hover { color: #444444; }
+
+.sector-wrap .tab-btn:hover {
+  color: #444444;
+}
+
 .sector-wrap .tab-btn.active {
   color: #C41212;
   border-bottom-color: #C41212;
   background: #ffffff;
 }
+
 .sector-wrap .tab-count {
   font-size: 11px;
   font-weight: 400;
@@ -6646,14 +6671,21 @@ header.scrolled {
   opacity: 0.65;
 }
 
-.sector-wrap .tab-panel { display: none; padding: 20px 20px; }
-.sector-wrap .tab-panel.active { display: block; }
+.sector-wrap .tab-panel {
+  display: none;
+  padding: 20px 20px;
+}
+
+.sector-wrap .tab-panel.active {
+  display: block;
+}
 
 .sector-wrap .product-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
 }
+
 .sector-wrap .product-item {
   display: flex;
   align-items: center;
@@ -6662,16 +6694,18 @@ header.scrolled {
   border-radius: 8px;
   background: #f8f8f8;
   border: 1px solid #eeeeee;
-  font-size: 13px;
+  font-size: 16px;
   color: #333333;
   transition: border-color 0.15s, background 0.15s;
   cursor: default;
 }
+
 .sector-wrap .product-item:hover {
   background: #fff0f0;
   border-color: #C41212;
   color: #C41212;
 }
+
 .sector-wrap .product-item .dot {
   width: 5px;
   height: 5px;
@@ -6681,12 +6715,14 @@ header.scrolled {
   opacity: 0.5;
 }
 
-.sector-wrap .trusted-section { margin-bottom: 28px; }
+.sector-wrap .trusted-section {
+  margin-bottom: 28px;
+}
+
 .sector-wrap .trusted-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
   color: #aaaaaa;
   margin-bottom: 12px;
 }
@@ -6695,14 +6731,25 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   padding: 18px 22px;
   background: #fafafa;
   border: 1px solid #e5e5e5;
   border-radius: 10px;
 }
-.sector-wrap .cta-text { font-size: 14px; color: #555555; line-height: 1.5; }
-.sector-wrap .cta-text strong { color: #111111; }
+
+.sector-wrap .cta-text {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+  text-transform: none !important;
+}
+
+.sector-wrap .cta-text strong {
+  color: #111111;
+  text-transform: none !important;
+}
+
 .sector-wrap .cta-btn {
   padding: 11px 24px;
   background: #C41212;
@@ -6714,17 +6761,23 @@ header.scrolled {
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
+  text-transform: none !important;
 }
-.sector-wrap .cta-btn:hover { background: #a50f0f; }
+
+.sector-wrap .cta-btn:hover {
+  background: #a50f0f;
+}
 
 @media (max-width: 600px) {
   .sector-wrap .product-grid {
     grid-template-columns: 1fr;
   }
+
   .sector-wrap .banner-content {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .sector-wrap .cta-bar {
     flex-direction: column;
     align-items: flex-start;
