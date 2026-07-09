@@ -207,8 +207,21 @@ document.addEventListener('click', (e) => {
     }
 
     // Close any modal when clicking its overlay (outside modal-content)
-    if (e.target.classList.contains('modal')) {
+    if (e.target && e.target.classList && e.target.classList.contains('modal')) {
         e.target.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Close modals on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (typeof closeInquiryModal === 'function') closeInquiryModal();
+        if (typeof closeProductModal === 'function') closeProductModal();
+        if (typeof closeMobileNav === 'function') closeMobileNav();
+        document.querySelectorAll('.modal.active').forEach(m => {
+            m.classList.remove('active');
+        });
         document.body.style.overflow = '';
     }
 });

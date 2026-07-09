@@ -5794,6 +5794,15 @@ footer {
   }
 }
 
+@media (min-width: 1025px) and (max-width: 1350px) {
+  .sector-nav-btn.prev-btn {
+    left: -20px;
+  }
+  .sector-nav-btn.next-btn {
+    right: -20px;
+  }
+}
+
 /* Tablet: 4-column scrollable */
 @media (min-width: 769px) and (max-width: 1200px) {
   .sectors-grid>.product-card {

@@ -66,7 +66,6 @@
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
   </noscript>
-  <link rel="stylesheet" href="carousel-new.css">
   <link rel="stylesheet" href="style.css">
   <script src="js/load-components.js?v=2"></script>
 
@@ -310,7 +309,7 @@
         }
       </script>
       <div class="slide-content">
-        <h1 class="slide-title" id="slideTitle">School Lockers</h1>
+        <h1 class="slide-title" id="slideTitle">Personal & Industrial Storage Lockers</h1>
         <div class="slide-cta">
           <button class="btn-white"
             onclick="openInquiryModal({category:'General', specificProduct:'Free Storage Assessment'})"
@@ -576,7 +575,6 @@
     <footer id="footer-placeholder"></footer>
 
     <script src="forms-handler.js"></script>
-    <script src="js/carousel-new.js"></script>
     <script>
 
 
@@ -592,15 +590,6 @@
 
         // Stats animation
         initStatsStrip();
-
-        /* keyboard close */
-        document.addEventListener('keydown', e => {
-          if (e.key === 'Escape') {
-            if (typeof closeInquiryModal === 'function') closeInquiryModal();
-            if (typeof closeProductModal === 'function') closeProductModal();
-            if (typeof closeMobileNav === 'function') closeMobileNav();
-          }
-        });
       });
 
       // ── PRODUCTS GRID ──
@@ -636,8 +625,8 @@
         <div>
           <h3 class="product-name" style="font-size:17px; margin-bottom:8px; color:var(--dark);">${p.name}</h3>
           <div class="product-modal-tags" style="margin-bottom:12px; gap:6px;">
-            ${p.apps.split(',').slice(0, 3).map(a => `<span class="product-modal-tag" style="font-size:11px; padding:4px 10px; line-height:1.2;">${a.trim()}</span>`).join('')}
-            ${p.apps.split(',').length > 3 ? `<span class="product-modal-tag" style="font-size:11px; padding:4px 10px; line-height:1.2;">+${p.apps.split(',').length - 3}</span>` : ''}
+            ${p.apps.split(',').slice(0, 3).map(a => `<span class="product-modal-tag" style="font-size:12px; padding:4px 10px; line-height:1.2;">${a.trim()}</span>`).join('')}
+            ${p.apps.split(',').length > 3 ? `<span class="product-modal-tag" style="font-size:12px; padding:4px 10px; line-height:1.2;">+${p.apps.split(',').length - 3}</span>` : ''}
           </div>
         </div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">

@@ -66,7 +66,6 @@
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
   </noscript>
-  <link rel="stylesheet" href="carousel-new.css">
   <link rel="stylesheet" href="style.css">
   <script src="js/load-components.js"></script>
 
@@ -568,7 +567,6 @@
     <footer id="footer-placeholder"></footer>
 
     <script src="forms-handler.js"></script>
-    <script src="js/carousel-new.js"></script>
     <script>
 
 
@@ -582,14 +580,6 @@
         document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
 
         initStatsStrip();
-
-        document.addEventListener('keydown', e => {
-          if (e.key === 'Escape') {
-            if (typeof closeInquiryModal === 'function') closeInquiryModal();
-            if (typeof closeProductModal === 'function') closeProductModal();
-            if (typeof closeMobileNav === 'function') closeMobileNav();
-          }
-        });
       });
 
       // ── PRODUCTS GRID ──

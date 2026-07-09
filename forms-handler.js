@@ -8,9 +8,9 @@ const MAILTO_CONFIG = {
 };
 
 const EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'YOUR_PUBLIC_KEY',   // Replace with your EmailJS Public Key
-    SERVICE_ID: 'YOUR_SERVICE_ID',   // Replace with your EmailJS Service ID
-    TEMPLATE_ID: 'YOUR_TEMPLATE_ID'  // Replace with your EmailJS Template ID
+    PUBLIC_KEY: '',   // Replace with your EmailJS Public Key
+    SERVICE_ID: '',   // Replace with your EmailJS Service ID
+    TEMPLATE_ID: ''  // Replace with your EmailJS Template ID
 };
 
 const Validators = {
@@ -122,20 +122,9 @@ function setupRealTimeValidation(form) {
     inputs.forEach(input => {
         input.addEventListener('blur', () => validateField(input));
 
-        if (input.type === 'tel') {
-            input.addEventListener('input', (e) => {
-                let cleaned = e.target.value.replace(/\D/g, '');
-                let match = cleaned.match(/^(?:91)?(\d{0,5})(\d{0,5})$/);
-                if (match && match[1]) {
-                    e.target.value = '+91 ' + match[1] + (match[2] ? ' ' + match[2] : '');
-                }
-                if (input.classList.contains('is-invalid')) validateField(input);
-            });
-        } else {
-            input.addEventListener('input', () => {
-                if (input.classList.contains('is-invalid')) validateField(input);
-            });
-        }
+        input.addEventListener('input', () => {
+            if (input.classList.contains('is-invalid')) validateField(input);
+        });
     });
 }
 
