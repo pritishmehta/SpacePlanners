@@ -35,6 +35,10 @@
             if (header.classList.contains('scrolled') !== shouldScroll) {
                 header.classList.toggle('scrolled', shouldScroll);
             }
+            const bar = document.getElementById('spMobileCtaBar');
+            if (bar) {
+                bar.classList.toggle('sp-mobile-cta-visible', window.scrollY > 400);
+            }
         }
 
         window.addEventListener('scroll', onScroll, { passive: true });

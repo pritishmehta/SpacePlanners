@@ -113,6 +113,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 1rem;
+  overflow-x: hidden;
 }
 
 body {
@@ -2087,8 +2088,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
    HERO CAROUSEL
 ============================================== */
 .carousel-section {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
   position: relative;
 }
 
@@ -4707,8 +4707,8 @@ footer {
   }
 
   .float-stack {
-    bottom: 20px;
-    right: 16px;
+    bottom: 100px;
+    right: 12px;
   }
 
   .carousel-container {
