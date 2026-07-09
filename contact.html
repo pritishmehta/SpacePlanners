@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Space Planners India | Get a Free Quote | Mumbai</title>
   <meta name="description"
-    content="Contact Space Planners India for premium storage solutions. Call +91-22-40033385, email sales@spaceplannersindia.in, or fill the form for a free site assessment and quote. Mumbai-based, pan-India delivery.">
+    content="Call +91-22-40033385 or fill the form for a free storage assessment. Space Planners India — Mumbai-based, pan-India delivery since 2004.">
   <meta name="keywords"
     content="contact space planners india, storage solutions quote, mobile compactor inquiry, industrial racks Mumbai, free storage assessment">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -678,7 +678,7 @@
         <div class="contact-card-icon">&#128172;</div>
         <div class="contact-card-title">WhatsApp Us</div>
         <div class="contact-card-sub">Share photos of your space.<br>Get an instant preliminary quote.</div>
-        <a href="https://wa.me/912240033385" target="_blank" rel="noopener" class="contact-card-link">Chat on WhatsApp
+        <a href="https://wa.me/912240033385" target="_blank" rel="noopener noreferrer" class="contact-card-link">Chat on WhatsApp
           &rarr;</a>
       </div>
     </div>
@@ -808,7 +808,7 @@
     <p>Get a free site assessment + 3D layout design &mdash; no obligation.</p>
     <div class="cta-strip-btns">
       <a href="tel:+912240033385" class="cta-btn-white">&#128222; Call Now</a>
-      <a href="https://wa.me/912240033385" target="_blank" rel="noopener" class="cta-btn-outline">&#128172; WhatsApp</a>
+      <a href="https://wa.me/912240033385" target="_blank" rel="noopener noreferrer" class="cta-btn-outline">&#128172; WhatsApp</a>
     </div>
   </section>
 
@@ -827,7 +827,7 @@
         const name = document.getElementById('cf-name').value.trim();
         const phone = document.getElementById('cf-phone').value.trim();
         if (!name || !phone) {
-          alert('Please enter your name and phone number.');
+          showToast('Please enter your name and phone number.', 'error');
           return;
         }
         const product = document.getElementById('cf-product').value || 'General inquiry';
