@@ -721,6 +721,7 @@ header.scrolled .logo img {
   padding: 8px;
   cursor: pointer;
   z-index: 1001;
+  flex-shrink: 0;
 }
 
 .hamburger span {
@@ -857,8 +858,18 @@ body:not(.transparent-nav) main {
     padding: 16px 24px;
   }
 
+  /* Keep scrolled padding consistent on mobile — overrides the desktop 10px 40px */
+  header.scrolled .header-main {
+    padding: 10px 24px;
+  }
+
   .logo img {
     height: 60px;
+  }
+
+  /* Override desktop scrolled logo height so it stays small on mobile */
+  header.scrolled .logo img {
+    height: 50px;
   }
 
   body:not(.transparent-nav) main {
