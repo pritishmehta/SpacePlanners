@@ -237,12 +237,6 @@ ul {
 
 
 /* ── Utility ── */
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
 @media (max-width: 640px) {
   .container {
     padding: 0 20px;
@@ -312,8 +306,9 @@ ul {
   font-family: var(--font-serif);
   font-size: clamp(28px, 4vw, 48px);
   font-weight: 700;
-  color: var(--dark);
   line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--dark);
   margin-bottom: 16px;
 }
 
@@ -686,24 +681,32 @@ header.scrolled .logo img {
 }
 
 .btn-primary {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 14px 32px;
   border-radius: 0;
-  background: var(--red);
+  background: var(--primary);
   color: var(--white);
   border: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  transition: var(--trans);
+  cursor: pointer;
+  text-decoration: none;
   white-space: nowrap;
+  transition: var(--trans);
 }
 
 .btn-primary:hover {
-  background: var(--red-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(229, 57, 53, .35);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  background: var(--primary-dark);
 }
 
 /* Hamburger */
@@ -856,7 +859,8 @@ body:not(.transparent-nav) main {
     height: 60px;
   }
 
-  main {
+  body.transparent-nav main,
+  body:not(.transparent-nav) main {
     padding-top: 92px;
   }
 
@@ -1301,24 +1305,6 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   transform: scale(0.98);
 }
 
-/* Primary CTA Button (for other sections) */
-.btn-primary {
-  background: var(--primary);
-  color: var(--white);
-  border: none;
-  padding: 14px 32px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 0;
-  cursor: pointer;
-  transition: var(--trans);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
 /* Hero Gradient Overlay */
 .slide-overlay {
   position: absolute;
@@ -1330,17 +1316,6 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   z-index: 1;
   /* Below the text content but above the image */
   pointer-events: none;
-}
-
-.btn-primary:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-  background: var(--primary-dark);
 }
 
 /* Ensure buttons don't have full width styling in hero */
@@ -2287,6 +2262,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .control-dot,
 .carousel-dot {
+  position: relative;
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -2295,6 +2271,18 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   cursor: pointer;
   transition: var(--trans);
   padding: 0;
+}
+
+/* Invisible 44px tap target — keeps the visible dot small without shrinking the hit area */
+.control-dot::before,
+.carousel-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
 }
 
 .control-dot.active,
@@ -2717,16 +2705,6 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   flex-shrink: 0;
 }
 
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--dark);
-  margin-bottom: 16px;
-}
-
 .section-title span {
   color: var(--orange);
 }
@@ -3087,57 +3065,12 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   font-weight: 600;
 }
 
-/* ─── Case Study Card ─── */
-.case-study-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  transition: var(--trans);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--shadow-sm);
-  position: relative;
-}
-
-.case-study-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-8px);
-  border-color: var(--red);
-}
-
-.case-study-image {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.case-study-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .5s ease;
-}
-
+/* Hover-zoom on the case-study card image (kept — not covered by the live .case-studies-scroll block below) */
 .case-study-card:hover .case-study-image img {
   transform: scale(1.08);
 }
 
-.case-study-image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  font-weight: 600;
-}
-
-/* Industry Badge */
+/* Industry Badge — live, used by projects.html's rendered case cards */
 .industry-badge {
   position: absolute;
   top: 12px;
@@ -3146,59 +3079,12 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: white;
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(229, 57, 53, 0.3);
   z-index: 10;
-}
-
-.case-study-content {
-  padding: 24px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.case-study-title {
-  font-family: var(--font-serif);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 6px;
-}
-
-.case-study-subtitle {
-  font-size: 13px;
-  color: var(--light);
-  margin-bottom: 14px;
-  font-weight: 500;
-}
-
-.case-study-section {
-  margin-bottom: 12px;
-}
-
-.case-study-label {
-  font-size: 10px;
-  color: #aaa;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: .06em;
-  margin-bottom: 4px;
-}
-
-.case-study-text {
-  font-size: 13px;
-  color: var(--mid);
-  line-height: 1.55;
-}
-
-.case-study-text.result {
-  font-weight: 600;
-  color: var(--red);
-  font-size: 14px;
 }
 
 /* Top Metric Highlight */
@@ -3218,22 +3104,22 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 /* View More Button */
 .view-more-btn {
-  margin-top: auto;
-  padding: 10px 14px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px;
   background: transparent;
   color: var(--red);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 12px;
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  font-size: 13px;
   font-weight: 700;
   transition: var(--trans);
   cursor: pointer;
-  align-self: flex-start;
 }
 
 .view-more-btn:hover {
   background: var(--red);
-  color: white;
+  color: var(--white);
   border-color: var(--red);
 }
 
@@ -3352,6 +3238,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .case-study-card {
+  position: relative;
   flex: 0 0 360px;
   background: var(--white);
   border-radius: var(--radius);
@@ -3410,7 +3297,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .case-study-label {
-  font-size: 10px;
+  font-size: 11px;
   color: #aaa;
   text-transform: uppercase;
   font-weight: 700;
@@ -4258,7 +4145,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   gap: 12px;
 }
 
-.faq-item {
+.faq-list .faq-item {
   background: var(--white);
   border-radius: 10px;
   overflow: hidden;
@@ -4266,7 +4153,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   border: 1px solid var(--border);
 }
 
-.faq-question {
+.faq-list .faq-question {
   padding: 10px 20px;
   cursor: pointer;
   display: flex;
@@ -4278,12 +4165,12 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   font-size: 15px;
 }
 
-.faq-question:hover {
+.faq-list .faq-question:hover {
   background: rgba(229, 57, 53, .03);
   padding-left: 28px;
 }
 
-.faq-toggle {
+.faq-list .faq-toggle {
   font-size: 18px;
   color: var(--red);
   transition: transform .3s;
@@ -4291,23 +4178,23 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   margin-left: 16px;
 }
 
-.faq-item.active .faq-toggle {
+.faq-list .faq-item.active .faq-toggle {
   transform: rotate(45deg);
 }
 
-.faq-answer {
+.faq-list .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height .35s ease;
   padding: 0 24px;
 }
 
-.faq-item.active .faq-answer {
+.faq-list .faq-item.active .faq-answer {
   max-height: 400px;
   padding: 0 24px 22px;
 }
 
-.faq-answer-text {
+.faq-list .faq-answer-text {
   color: var(--light);
   line-height: 1.75;
   font-size: 14px;
@@ -4715,25 +4602,6 @@ footer {
   border-color: var(--red);
 }
 
-/* Product view more */
-.view-more-btn {
-  width: 100%;
-  padding: 11px;
-  background: transparent;
-  color: var(--red);
-  border: 2px solid var(--red);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 13px;
-  transition: var(--trans);
-  margin-top: 14px;
-}
-
-.view-more-btn:hover {
-  background: var(--red);
-  color: var(--white);
-}
-
 /* ==============================================
    RESPONSIVE — 1024px
 ============================================== */
@@ -4907,8 +4775,6 @@ footer {
   }
 
   .carousel-controls {
-    right: 50%;
-    transform: translateX(50%);
     bottom: 20px;
   }
 
@@ -5278,7 +5144,7 @@ footer {
   input[type="tel"],
   select,
   textarea,
-  button,
+  button:not(.control-dot):not(.carousel-dot):not(.popup-close):not(.close-btn):not(.hamburger),
   .btn-primary,
   .btn-secondary,
   .btn-outline,
@@ -5286,10 +5152,21 @@ footer {
   .btn-outline-white,
   .filter-btn,
   .category-btn {
-    min-height: 20px !important;
+    min-height: 44px !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     line-height: 1.5 !important;
+  }
+
+  /* Small decorative controls get their own explicit 44px hit target instead */
+  .popup-close,
+  .close-btn,
+  .clients-nav,
+  .clients-nav-vertical,
+  .carousel-nav,
+  .cookie-btn {
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
@@ -5546,7 +5423,7 @@ footer {
 
 .product-modal-split {
   height: 75vh !important;
-  min-height: 500px !important;
+  min-height: min(500px, 80vh) !important;
 }
 
 .product-modal-image img {
@@ -5634,7 +5511,7 @@ footer {
 }
 
 /* Each logo card — single row, no wrap */
-.client-logo-item {
+.clients-ticker .client-logo-item {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -5645,7 +5522,7 @@ footer {
   cursor: default;
 }
 
-.logo-img {
+.clients-ticker .logo-img {
   height: 36px;
   width: auto;
   max-width: 110px;
@@ -5655,11 +5532,11 @@ footer {
   display: block;
 }
 
-.client-logo-item:hover .logo-img {
+.clients-ticker .client-logo-item:hover .logo-img {
   filter: grayscale(0%) opacity(1);
 }
 
-.logo-name {
+.clients-ticker .logo-name {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: .07em;
@@ -5669,7 +5546,7 @@ footer {
   transition: color .25s;
 }
 
-.client-logo-item:hover .logo-name {
+.clients-ticker .client-logo-item:hover .logo-name {
   color: var(--dark);
 }
 
@@ -5678,11 +5555,11 @@ footer {
     animation-duration: 22s;
   }
 
-  .logo-img {
+  .clients-ticker .logo-img {
     height: 28px;
   }
 
-  .client-logo-item {
+  .clients-ticker .client-logo-item {
     padding: 8px 18px;
   }
 }
@@ -5971,20 +5848,6 @@ footer {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .faq-question {
-    padding: 20px 24px;
-  }
-
-  .faq-answer {
-    padding: 0 24px;
-  }
-
-  .faq-item.active .faq-answer {
-    padding: 0 24px 20px;
-  }
-}
-
 /* -- FAQ Section -- */
 .faq-section {
   padding: 100px 0;
@@ -6001,7 +5864,7 @@ footer {
   gap: 16px;
 }
 
-.faq-item {
+.faq-grid .faq-item {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 0;
@@ -6009,12 +5872,12 @@ footer {
   transition: var(--trans);
 }
 
-.faq-item:hover {
+.faq-grid .faq-item:hover {
   border-color: var(--red);
   box-shadow: var(--shadow-md);
 }
 
-.faq-question {
+.faq-grid .faq-question {
   padding: 24px 32px;
   display: flex;
   justify-content: space-between;
@@ -6023,7 +5886,7 @@ footer {
   user-select: none;
 }
 
-.faq-question h3 {
+.faq-grid .faq-question h3 {
   font-size: 18px;
   font-weight: 600;
   color: var(--dark);
@@ -6032,16 +5895,16 @@ footer {
   line-height: 1.4;
 }
 
-.faq-item.active {
+.faq-grid .faq-item.active {
   border-color: var(--red);
   box-shadow: var(--shadow-md);
 }
 
-.faq-item.active .faq-question h3 {
+.faq-grid .faq-item.active .faq-question h3 {
   color: var(--red);
 }
 
-.faq-icon {
+.faq-grid .faq-icon {
   width: 24px;
   height: 24px;
   position: relative;
@@ -6050,51 +5913,51 @@ footer {
   margin-left: 20px;
 }
 
-.faq-icon::before,
-.faq-icon::after {
+.faq-grid .faq-icon::before,
+.faq-grid .faq-icon::after {
   content: '';
   position: absolute;
   background: var(--light);
   transition: background 0.3s ease;
 }
 
-.faq-icon::before {
+.faq-grid .faq-icon::before {
   width: 2px;
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.faq-icon::after {
+.faq-grid .faq-icon::after {
   width: 100%;
   height: 2px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.faq-item.active .faq-icon {
+.faq-grid .faq-item.active .faq-icon {
   transform: rotate(45deg);
 }
 
-.faq-item.active .faq-icon::before,
-.faq-item.active .faq-icon::after {
+.faq-grid .faq-item.active .faq-icon::before,
+.faq-grid .faq-item.active .faq-icon::after {
   background: var(--red);
 }
 
-.faq-answer {
+.faq-grid .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
   padding: 0 32px;
 }
 
-.faq-item.active .faq-answer {
+.faq-grid .faq-item.active .faq-answer {
   max-height: 500px;
   /* Adjust as needed */
   padding: 0 32px 24px;
 }
 
-.faq-answer p {
+.faq-grid .faq-answer p {
   font-size: 15px;
   line-height: 1.7;
   color: var(--mid);
@@ -6106,19 +5969,19 @@ footer {
     padding: 60px 0;
   }
 
-  .faq-question {
+  .faq-grid .faq-question {
     padding: 20px 24px;
   }
 
-  .faq-answer {
+  .faq-grid .faq-answer {
     padding: 0 24px;
   }
 
-  .faq-item.active .faq-answer {
+  .faq-grid .faq-item.active .faq-answer {
     padding: 0 24px 20px;
   }
 
-  .faq-question h3 {
+  .faq-grid .faq-question h3 {
     font-size: 16px;
   }
 }
