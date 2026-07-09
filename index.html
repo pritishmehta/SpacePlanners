@@ -282,12 +282,23 @@
             const loader = document.getElementById('sp-loader');
 
             const RED = '#c0392b';
-            const STROKE = 3.5;
+
+            // ── Responsive scaling: everything derives from viewport width ──
+            // Max out at the original desktop values; shrink proportionally on small screens.
+            // We leave 40px of breathing room on each side (80px total) so the animation
+            // never overflows and always stays on a single line with PLANNERS.
+            const VW = Math.min(window.innerWidth, window.screen.width);
+            const SCALE = Math.min(1, (VW - 80) / 420);   // 420 = original START_W
+
+            const STROKE = Math.max(2, 3.5 * SCALE);
             const S2 = STROKE / 2;
-            const FINAL_H = 140;
-            const FINAL_W = 140;
-            const START_W = 420;
-            const ARM = 24;
+            const FINAL_H = Math.round(140 * SCALE);
+            const FINAL_W = Math.round(140 * SCALE);
+            const START_W = Math.round(420 * SCALE);
+            const ARM    = Math.round(24  * SCALE);
+            const FONT_SZ = Math.max(12, Math.round(20 * SCALE));
+            // PLANNERS reveal expands to fill the gap between FINAL_W and ~400px
+            const PLANNERS_MAX_W = Math.round(260 * SCALE);
 
             // ── Timing: total 950ms ──
             const COMPRESS_DEL = 0;
@@ -339,8 +350,8 @@
                 ctx.beginPath(); ctx.moveTo(W - S2, H - S2); ctx.lineTo(W - S2 - barLen, H - S2); ctx.stroke();
 
                 // SPACE — centred, letter spacing compresses with box
-                const ls = lerp(20, 4, progress);
-                ctx.font = `200 20px 'Astro Futuristic', sans-serif`;
+                const ls = lerp(20 * SCALE, 4 * SCALE, progress);
+                ctx.font = `200 ${FONT_SZ}px 'Astro Futuristic', sans-serif`;
                 ctx.fillStyle = '#1a1a1a';
                 ctx.textBaseline = 'middle';
 
@@ -349,7 +360,7 @@
                 const totalW = cw.reduce((a, b) => a + b, 0) + ls * (word.length - 1);
                 let x = W / 2 - totalW / 2;
                 word.forEach((l, i) => {
-                    let yOffset = 12; // Change this number to move SPACE up (negative) or down (positive)
+                    const yOffset = Math.round(12 * SCALE); // proportional vertical offset
                     ctx.fillText(l, x, (H / 2) + yOffset);
                     x += cw[i] + (i < word.length - 1 ? ls : 0);
                 });
@@ -364,7 +375,7 @@
                 draw(easeInOut(Math.min(Math.max((e - COMPRESS_DEL) / COMPRESS_DUR, 0), 1)));
 
                 const pp = easeOut(Math.min(Math.max((e - PLANNERS_DEL) / PLANNERS_DUR, 0), 1));
-                planners.style.maxWidth = lerp(0, 260, pp) + 'px';
+                planners.style.maxWidth = lerp(0, PLANNERS_MAX_W, pp) + 'px';
                 planners.style.opacity = Math.min(pp * 2, 1);
 
                 prog.style.width = Math.min(e / TOTAL, 1) * 100 + '%';

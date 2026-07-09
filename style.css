@@ -197,7 +197,7 @@ ul {
 }
 
 #sp-loader .word-planners span {
-  font-size: 1.75rem;
+  font-size: clamp(0.9rem, 4.2vw, 1.75rem);
   font-weight: 400;
   color: #1a1a1a;
   letter-spacing: 0.06em;
