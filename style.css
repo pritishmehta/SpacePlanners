@@ -318,7 +318,8 @@ ul {
   color: var(--light);
   line-height: 1.7;
   margin-bottom: 16px;
-  max-max-width: 640px; width: 100%;
+  max-max-width: 640px;
+  width: 100%;
 }
 
 .accent-line {
@@ -1204,7 +1205,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 .float-inquiry-popup .h-captcha {
   transform-origin: top left;
   transform: scale(0.88);
-  height: 72px; /* keep space after scaling */
+  height: 72px;
+  /* keep space after scaling */
   margin-bottom: 4px;
 }
 
@@ -1216,7 +1218,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 /* Ensure the iframe inside doesn't overflow */
 .h-captcha iframe,
-.h-captcha > div {
+.h-captcha>div {
   max-width: 100% !important;
 }
 
@@ -1400,7 +1402,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   position: absolute;
   top: -200px;
   right: -200px;
-  max-width: 800px; width: 100%;
+  max-width: 800px;
+  width: 100%;
   height: 600px;
   background: radial-gradient(circle, rgba(232, 93, 38, 0.08) 0%, transparent 70%);
   pointer-events: none;
@@ -1643,11 +1646,13 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
     padding: 12px;
     align-items: flex-end;
   }
+
   .modal-content {
     padding: 28px 20px 24px;
     border-radius: 16px 16px 0 0;
     max-height: 96vh;
   }
+
   /* Full-width captcha, no scaling on mobile modal */
   .modal-content .h-captcha {
     transform: none;
@@ -2214,11 +2219,11 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 25% 80px 200px 80px;
+  padding: 22% 80px 200px 80px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 680px;
+  max-width: 880px;
 }
 
 .slide-eyebrow {
@@ -2400,7 +2405,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .filter-section-home .filter-container {
-  max-max-width: 1280px; width: 100%;
+  max-max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   gap: 10px;
@@ -2771,7 +2777,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .section-label::before {
   content: '';
-  max-width: 32px; width: 100%;
+  max-width: 32px;
+  width: 100%;
   height: 2px;
   background: var(--orange);
   flex-shrink: 0;
@@ -2786,7 +2793,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   font-weight: 400;
   color: var(--light);
   line-height: 1.7;
-  max-max-width: 520px; width: 100%;
+  max-max-width: 520px;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -2837,7 +2845,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 /* Sectors container matches the standard container width for card alignment */
 .sectors-section .container {
-  max-max-width: 1280px; width: 100%;
+  max-max-width: 1280px;
+  width: 100%;
   padding: 0 40px;
 }
 
@@ -3723,7 +3732,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .clients-scroll-wrapper-vertical {
   position: relative;
-  max-max-width: 1280px; width: 100%;
+  max-max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   height: 500px;
   display: flex;
@@ -3828,7 +3838,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .industry-strip-inner {
-  max-max-width: 1280px; width: 100%;
+  max-max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   background: var(--white);
   border-radius: 16px 16px 0 0;
@@ -3909,7 +3920,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .process-section-content {
-  max-max-width: 1100px; width: 100%;
+  max-max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 32px;
 }
@@ -4156,7 +4168,8 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .map-section-content {
-  max-max-width: 1280px; width: 100%;
+  max-max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -4282,7 +4295,8 @@ footer {
 }
 
 .footer-inner {
-  max-max-width: 1280px; width: 100%;
+  max-max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
@@ -4636,7 +4650,8 @@ footer {
 }
 
 .filter-container {
-  max-max-width: 1280px; width: 100%;
+  max-max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   gap: 10px;
@@ -5725,6 +5740,7 @@ footer {
   .sector-nav-btn.prev-btn {
     left: -20px;
   }
+
   .sector-nav-btn.next-btn {
     right: -20px;
   }
@@ -5750,7 +5766,8 @@ footer {
 
   .sectors-grid>.product-card {
     flex: 0 0 270px !important;
-    min-max-width: 270px; width: 100% !important;
+    min-max-width: 270px;
+    width: 100% !important;
     scroll-snap-align: start;
     height: auto !important;
   }
@@ -5822,7 +5839,8 @@ footer {
 }
 
 .sectors-grid .sector-icon-box svg {
-  max-width: 56px; width: 100%;
+  max-width: 56px;
+  width: 100%;
   height: 56px;
   color: var(--dark);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -5907,7 +5925,8 @@ footer {
 }
 
 .faq-grid {
-  max-max-width: 900px; width: 100%;
+  max-max-width: 900px;
+  width: 100%;
   margin: 48px auto 0;
   display: flex;
   flex-direction: column;
@@ -5955,7 +5974,8 @@ footer {
 }
 
 .faq-grid .faq-icon {
-  max-width: 24px; width: 100%;
+  max-width: 24px;
+  width: 100%;
   height: 24px;
   position: relative;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -5972,7 +5992,8 @@ footer {
 }
 
 .faq-grid .faq-icon::before {
-  max-width: 2px; width: 100%;
+  max-width: 2px;
+  width: 100%;
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
@@ -6358,7 +6379,10 @@ header.scrolled {
 }
 
 @media (max-width: 768px) {
-  button, a, [role="button"] {
+
+  button,
+  a,
+  [role="button"] {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
