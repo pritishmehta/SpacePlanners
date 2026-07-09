@@ -1,0 +1,274 @@
+--- UNUSED FILES ---
+assets\sectors\corporate_office_sector_1773926495247.png
+assets\sectors\government_archives_sector_1773926446028.png
+assets\sectors\healthcare_records_sector_1773926429695.png
+assets\sectors\industrial_warehouse_sector_1773926460914.png
+assets\sectors\library_education_sector_1773926478421.png
+assets\sectors\localhost_3000_content_1773925637513.png
+assets\sectors\pharmaceutical_storage_sector_1773926415250.png
+Compactors\1.webp
+Compactors\1stainless-steel-compactor.webp
+Compactors\20140822_102806.webp
+Compactors\archive-storage-compactor.webp
+Compactors\art-compactor.webp
+Compactors\art-storage-compactor.webp
+Compactors\compactor-layout-design.webp
+Compactors\compactors-10.webp
+Compactors\compactors-13.webp
+Compactors\compactors-15.webp
+Compactors\compactors-16.webp
+Compactors\compactors-19.webp
+Compactors\compactors-2.webp
+Compactors\compactors-20.webp
+Compactors\compactors-21.webp
+Compactors\compactors-22.webp
+Compactors\compactors-3.webp
+Compactors\compactors-4.webp
+Compactors\compactors-5.webp
+Compactors\compactors-6.webp
+Compactors\compactors-7.webp
+Compactors\compactors-8.webp
+Compactors\compactors-9.webp
+Compactors\doc-storage-compactor.webp
+Compactors\document storage compactor carousel 1.webp
+Compactors\document-storage-compactor.webp
+Compactors\heavy-duty-2.webp
+Compactors\heavy-duty-compactor-system.webp
+Compactors\heavy-duty-storage-racks.webp
+Compactors\high-density-mobile-storage.webp
+Compactors\hospital-storage-compactor.webp
+Compactors\image.webp
+Compactors\industrial-storage-compactor.webp
+Compactors\mechanical-mobile-compactor.webp
+Compactors\mobile-compactor-aisle-view.webp
+Compactors\mobile-shelving-system.webp
+Compactors\motorized-compactor-storage.webp
+Compactors\office-document-compactor.webp
+Compactors\pharmaceutical-gmp-compactor.webp
+Compactors\pigeon-hole-sorting-racks.webp
+Compactors\pigeon-hole.webp
+Compactors\premium-office-compactor.webp
+Compactors\site-installation-compactor.webp
+Compactors\stepped-compactor.webp
+Compactors\stepped-storage-compactor.webp
+Compactors\storage-system-installation.webp
+Compactors\warehouse-compactor-racks.webp
+Cupboard Cabinets\cupboard-cabinets-23.webp
+Cupboard Cabinets\cupboard-cabinets-24.webp
+Cupboard Cabinets\cupboard-cabinets-25.webp
+Cupboard Cabinets\cupboard-cabinets-26.webp
+Cupboard Cabinets\cupboard-cabinets-27.webp
+Cupboard Cabinets\cupboard-cabinets-30.webp
+Cupboard Cabinets\cupboard-cabinets-35.webp
+Cupboard Cabinets\custom-office-storage-unit.webp
+Cupboard Cabinets\drawer-cabinet.webp
+Cupboard Cabinets\industrial-storage-cabinet.webp
+Cupboard Cabinets\office-drawer-unit.webp
+Cupboard Cabinets\office-storage-cupboard.webp
+Cupboard Cabinets\perforated-cabinet.webp
+Cupboard Cabinets\sliding-door-closed.webp
+Cupboard Cabinets\sliding-door-cupboard-ad.webp
+Cupboard Cabinets\sliding-door-cupboard-interior.webp
+Cupboard Cabinets\sliding-door-cupboard-promotion.webp
+Cupboard Cabinets\sliding-door-open.webp
+Cupboard Cabinets\sliding-door-storage-cupboard.webp
+files_to_rename.json
+filing_cabinets_1772984391777.png
+Loading.mp4
+Lockers\18-door-industrial-locker.webp
+Lockers\18-door-locker-with-inbuilt-handles-staple.webp
+Lockers\18-door-multicolored-locker.webp
+Lockers\18-door-staff-locker-unit.webp
+Lockers\18-locker-unit-2.webp
+Lockers\lockers-37.webp
+Lockers\lockers-39.webp
+Lockers\lockers-40.webp
+Lockers\lockers-41.webp
+Lockers\lockers-42.webp
+Lockers\lockers-43.webp
+Lockers\lockers-44.webp
+Lockers\lockers-45.webp
+Lockers\lockers-46.webp
+Lockers\lockers-47.webp
+Lockers\mobile-phone-cam-lockers.webp
+Lockers\personal-storage-locker.webp
+Lockers\school-student-lockers.webp
+logos\Corporate\shapoorji.svg
+logos\FMCG\anchor global.jpeg
+logos\pharma.svg
+logos\space planners logo new white bg.PNG
+Racks\Carousel-1.webp
+Racks\ChatGPT Image Jan 27, 2026, 02_12_39 PM-1 (1).webp
+Racks\complex-multi-tier-racking.webp
+Racks\decking-panel-rack-5.webp
+Racks\decking-panel-rack.webp
+Racks\decking-panel-storage-rack-blue.webp
+Racks\distribution-center-shelving.webp
+Racks\heavy-duty-pallet-racking.webp
+Racks\heavy-item-storage-racks.webp
+Racks\industrial-shelving-system.webp
+Racks\industrial-storage-solution.webp
+Racks\logistics-warehouse-racks.webp
+Racks\multi-tier-racking-2.webp
+Racks\Pallet.webp
+Racks\racks-48.webp
+Racks\racks-49.webp
+Racks\racks-50.webp
+Racks\racks-51.webp
+Racks\racks-52.webp
+Racks\racks-53.webp
+Racks\racks-54.webp
+Racks\racks-58.webp
+Racks\racks-59.webp
+Racks\racks-60.webp
+Racks\racks-61.webp
+Racks\standard-decking-panel-rack.webp
+Racks\warehouse-storage-racks.webp
+robots.txt
+
+--- USED FILES ---
+about.html
+assets\fonts\as.ttf
+assets\fonts\OvercameDemoRegular.ttf
+compactor-storage.html
+Compactors\2.webp
+Compactors\3.webp
+Compactors\document compactor.webp
+Compactors\Document Storage.webp
+Compactors\Drawer compactor carousel 4.webp
+Compactors\Heavy duty compactor carousel 3.webp
+Compactors\perforated.webp
+Compactors\piegon hole compactor carousel 2.webp
+Compactors\ss-compactor.webp
+components\client-logos.html
+components\cookie-consent.html
+components\floating-buttons.html
+components\footer.html
+components\header.html
+components\mobile-nav.html
+components\modals.html
+contact.html
+Cupboard Cabinets\Carousel .png
+Cupboard Cabinets\Carousel 2.png
+Cupboard Cabinets\filing-cabinet.webp
+Cupboard Cabinets\Glass door main.png
+Cupboard Cabinets\indus sto.png
+Cupboard Cabinets\metal-filing-cabinet.webp
+Cupboard Cabinets\perforated-storage-cabinet.webp
+Cupboard Cabinets\secure-document-cabinet.webp
+Cupboard Cabinets\standard-office-filing-cabinet.webp
+Cupboard Cabinets\steel-cupboard-storage.webp
+Cupboard Cabinets\vertical-drawer-filing-cabinet.webp
+disclaimer.html
+favicon.svg
+filing-cabinets.html
+forms-handler.js
+index.html
+industrial-racks.html
+js\data.js
+js\load-components.js
+js\nav-scroll.js
+Loading.gif
+Lockers\bag-and-helmet-lockers.webp
+Lockers\Carousel 3.png
+Lockers\Carousel.png
+Lockers\factory-staff-lockers.webp
+Lockers\gym-storage-lockers.webp
+Lockers\locker carousel 1.png
+Lockers\mobile-phone-digital-lockers.webp
+Lockers\premium-multicolored-lockers.webp
+Lockers\ss locker.webp
+Lockers\tower-style-lockers.webp
+logo.png
+logos\banking\rblbank.svg
+logos\banking\reservebank.svg
+logos\banking\sbibank.svg
+logos\banking\svcbank.svg
+logos\banking\unionbank.svg
+logos\BIA.webp
+logos\BNI.webp
+logos\Client\alkem.svg
+logos\Client\bisleri.svg
+logos\Client\cbre.svg
+logos\Client\cipla.svg
+logos\Client\Cocacola.svg
+logos\Client\colliers.svg
+logos\Client\cushman.svg
+logos\Client\dr_reddy.svg
+logos\Client\glenmark.svg
+logos\Client\HAL.svg
+logos\Client\Hindustan_Unilever.svg
+logos\Client\honda.svg
+logos\Client\iit.svg
+logos\Client\indian_army.svg
+logos\Client\indian_oil.svg
+logos\Client\jindal.svg
+logos\Client\lic.svg
+logos\Client\loreal.svg
+logos\Client\lupin.svg
+logos\Client\Mahindra.svg
+logos\Client\primal.svg
+logos\Client\pwd.svg
+logos\Client\raymond.svg
+logos\Client\rbi.svg
+logos\Client\sbi.svg
+logos\Client\standard_Charterd.svg
+logos\Client\sterling.svg
+logos\Client\tcs.svg
+logos\Client\university of mumbai.svg
+logos\Client\western_railway.svg
+logos\Client\wipro.svg
+logos\Client\zydus.svg
+logos\Corporate\bajaj.svg
+logos\Corporate\bisleri.svg
+logos\Corporate\hindalco.svg
+logos\Corporate\mm.svg
+logos\Corporate\tata_motors.svg
+logos\education\atmiya.svg
+logos\education\chetana.svg
+logos\education\IITB.svg
+logos\education\Somaiya_Vidyavihar_id34BHBsHW_1.svg
+logos\education\TPS.svg
+logos\FMCG\Anchor.svg
+logos\FMCG\Cocacola.svg
+logos\FMCG\HUL.svg
+logos\FMCG\Kellogg's-Logo.svg
+logos\government\BHEL.svg
+logos\government\HAL.svg
+logos\government\Indian_Navy_crest.svg
+logos\government\mazgoan.svg
+logos\government\WR.svg
+logos\hospital\hinduja.svg
+logos\hospital\KEM.svg
+logos\hospital\nanavati.svg
+logos\hospital\saifee.svg
+logos\hospital\somaiya_hospital.svg
+logos\logo.svg
+logos\museums\bnhs_logo.svg
+logos\museums\fhf_logo.svg
+logos\museums\tata_archives.svg
+logos\pharma\ajanta.svg
+logos\pharma\alkem.svg
+logos\pharma\cipla.svg
+logos\pharma\Gelnmark.svg
+logos\pharma\lupin.svg
+logos\Rotary.webp
+logos\whatsapp.svg
+privacy-policy.html
+projects.html
+project_corporate.png
+project_warehouse.png
+Racks\Carousel 1.png
+Racks\Carousel 2.png
+Racks\Decking.webp
+Racks\high-capacity-pallet-racks.webp
+Racks\mezzanine-floor-racking.webp
+Racks\multi-tier-storage-racks.webp
+Racks\Pallet Racking new.png
+Racks\slotted-angle-racking.webp
+Racks\ss rack.webp
+sitemap.xml
+space planners logo new black bg.png
+storage-lockers.html
+style.css
+terms-of-use.html

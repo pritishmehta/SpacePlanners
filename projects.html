@@ -319,8 +319,9 @@
     <script>
 
         function renderCases() {
+            window._caseData = cases;
             document.getElementById('casesGrid').innerHTML = cases.map((c, i) => `
-    <div class="case-study-card" style="flex:unset;" onclick='openCaseModal(${JSON.stringify(c).replace(/'/g, "\\'")})'  role="button" tabindex="0">
+    <div class="case-study-card" style="flex:unset;" onclick="openCaseModal(${i})"  role="button" tabindex="0">
       <div class="case-study-image"><img src="${c.img}" alt="${c.title} case study" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'case-study-image-placeholder\\'></div>'"></div>
       <div class="industry-badge">${c.industry}</div>
       <div class="case-study-content">
@@ -330,12 +331,14 @@
         <div class="case-study-section"><p class="case-study-label">Challenge</p><p class="case-study-text">${c.challenge.substring(0, 85)}…</p></div>
 
 
-        <button class="view-more-btn" style="margin-top:12px;" onclick="event.stopPropagation();openCaseModal(${JSON.stringify(c).replace(/'/g, "\\'")})">Read Full Case Study →</button>
+        <button class="view-more-btn" style="margin-top:12px;" onclick="event.stopPropagation();openCaseModal(${i})">Read Full Case Study →</button>
       </div>
     </div>`).join('');
         }
 
-        function openCaseModal(c) {
+        function openCaseModal(indexOrObj) {
+            const c = (typeof indexOrObj === 'number') ? window._caseData[indexOrObj] : indexOrObj;
+            if (!c) return;
             document.getElementById('caseDetailContent').innerHTML = `
     <div style="margin-bottom:24px;">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
@@ -364,7 +367,7 @@
 
     <div class="modal-buttons">
       <button class="modal-btn" onclick="closeCaseModal();openInquiryModal({specificProduct:'Similar Project Inquiry'})">Similar Project Inquiry</button>
-      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I want to discuss a ${encodeURIComponent(c.whatsapp)} project','_blank')">WhatsApp</button>
+      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I want to discuss a similar project','_blank')">WhatsApp</button>
     </div>`;
             document.getElementById('caseModal').classList.add('active');
             document.body.style.overflow = 'hidden';

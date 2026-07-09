@@ -3,8 +3,7 @@
    ============================================================ */
 
 const WEB3FORMS_CONFIG = {
-    ACCESS_KEY: '36ae91c0-6e7e-4cbe-9332-99573a05cb19',
-    TO: 'pritishmehta18@gmail.com'
+    ACCESS_KEY: '36ae91c0-6e7e-4cbe-9332-99573a05cb19'
 };
 
 const Validators = {
@@ -31,40 +30,10 @@ function sanitizeInput(str) {
         .trim();
 }
 
-/* ── HCAPTCHA INTEGRATION ── */
-const HCAPTCHA_SITE_KEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2'; // Web3Forms hCaptcha site key
 
-function loadHCaptcha() {
-    if (document.querySelector('script[src*="hcaptcha.com"]')) return;
-    const script = document.createElement('script');
-    script.src = 'https://js.hcaptcha.com/1/api.js';
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-}
-
-function injectHCaptcha(form) {
-    if (form.querySelector('.h-captcha')) return; // already injected
-    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.form-submit');
-    const wrapper = document.createElement('div');
-    wrapper.className = 'h-captcha';
-    wrapper.setAttribute('data-sitekey', HCAPTCHA_SITE_KEY);
-
-    // Prefer inserting inside .form-actions (before the submit button)
-    const formActions = submitBtn && submitBtn.closest('.form-actions');
-    if (formActions) {
-        formActions.insertBefore(wrapper, submitBtn);
-    } else if (submitBtn) {
-        // Fallback: insert before the submit button's parent container
-        submitBtn.parentNode.insertBefore(wrapper, submitBtn);
-    } else {
-        form.appendChild(wrapper);
-    }
-}
 
 /* ── INITIALIZATION ── */
 document.addEventListener('DOMContentLoaded', () => {
-    loadHCaptcha();
     // Initialize all forms after components are loaded
     document.addEventListener('componentsLoaded', initAllForms);
     // Fallback if already loaded
@@ -83,7 +52,6 @@ function initAllForms() {
         const el = document.getElementById(f.id);
         if (el) {
             setupRealTimeValidation(el);
-            injectHCaptcha(el);
             if (f.handler) {
                 el.onsubmit = f.handler;
             }
@@ -231,11 +199,14 @@ async function submitFormToBackend(formElement, formName) {
             access_key: WEB3FORMS_CONFIG.ACCESS_KEY,
             subject: subject,
             from_name: fields['name'] || 'Website Visitor',
-            email: fields['email'] || WEB3FORMS_CONFIG.TO,
             message: message,
             botcheck: ''
         };
 
+        // Only include replyto if the submitter provided an email
+        if (fields['email']) {
+            payload.replyto = fields['email'];
+        }
 
         console.log('[Web3Forms] Sending submission...');
         const response = await fetch('https://api.web3forms.com/submit', {
@@ -249,7 +220,7 @@ async function submitFormToBackend(formElement, formName) {
             console.log('[Web3Forms] Success:', result);
             return { success: true };
         } else {
-            console.error('[Web3Forms] Failed:', result);
+            console.error('[Web3Forms] Failed — Status:', response.status, '| Response:', JSON.stringify(result));
             return { success: false };
         }
     } catch (error) {
@@ -325,14 +296,6 @@ async function handleSubmission(form, type, onSuccess) {
     // 1. Validate Form Fields
     if (!validateAll(form)) return;
 
-    // 2. Validate hCaptcha
-    const hCaptchaEl = form.querySelector('.h-captcha');
-    const hCaptchaResponse = hCaptchaEl ? hCaptchaEl.querySelector('[name="h-captcha-response"]')?.value : null;
-    if (hCaptchaEl && !hCaptchaResponse) {
-        showToast('Please complete the CAPTCHA verification.', 'error');
-        return;
-    }
-
     const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalText = btn ? btn.textContent : '';
     if (btn) {
@@ -348,12 +311,6 @@ async function handleSubmission(form, type, onSuccess) {
     }
 
     if (result.success) {
-        // Reset hCaptcha widget after successful submission
-        try {
-            if (typeof hcaptcha !== 'undefined' && hCaptchaEl) {
-                hcaptcha.reset();
-            }
-        } catch (_) { }
         onSuccess();
     } else {
         showToast('Failed to send. Please check your connection.', 'error');
