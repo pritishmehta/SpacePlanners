@@ -1348,30 +1348,6 @@
                     initReveal();
                 });
 
-                function submitAssessment(event) {
-                    event.preventDefault();
-                    const name = document.getElementById('name').value.trim();
-                    const phone = document.getElementById('phone').value.trim();
-                    const ep = document.getElementById('email').value.trim();
-
-                    if (!name || !phone || !email) {
-                        if (typeof showToast === 'function') showToast('Please fill in all required fields.', 'error');
-                        return;
-                    }
-
-                    if (typeof gtag === 'function') gtag('event', 'generate_lead', {
-                        event_category: 'engagement',
-                        event_label: 'assessment_form',
-                        email: email
-                    });
-
-                    const successModal = document.getElementById('successModal');
-                    if (successModal) {
-                        successModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
-                    event.target.reset();
-                }
 
                 /* ── STATS STRIP COUNT-UP ── */
                 function initStatsStrip() {
