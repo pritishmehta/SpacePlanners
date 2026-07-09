@@ -1054,22 +1054,25 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   bottom: 210px;
   right: 28px;
   z-index: 1200;
-  width: 320px;
+  width: 360px;
   background: var(--white);
   border-radius: 14px;
   box-shadow: 0 12px 50px rgba(0, 0, 0, .2);
-  padding: 24px;
+  padding: 20px;
   display: none;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   animation: popupIn .3s cubic-bezier(.4, 0, .2, 1);
   border: 1px solid var(--border);
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
   .float-inquiry-popup {
-    width: 290px;
-    bottom: 240px;
+    width: 340px;
+    bottom: 200px;
     right: 12px;
   }
 }
@@ -1077,9 +1080,10 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 @media (max-width: 480px) {
   .float-inquiry-popup {
     width: calc(100vw - 24px);
-    max-width: none;
-    bottom: 240px;
+    max-width: 360px;
+    bottom: 180px;
     right: 12px;
+    left: 12px;
   }
 }
 
@@ -1183,6 +1187,37 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--light);
   text-align: center;
   margin: 12px 0 0 0;
+}
+
+/* ── hCAPTCHA WIDGET LAYOUT ── */
+/* Force the captcha onto its own row, never beside the submit button */
+.h-captcha {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  /* Scale down to fit in constrained containers like the popup */
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Inside the floating popup: scale the widget to fit the narrow container */
+.float-inquiry-popup .h-captcha {
+  transform-origin: top left;
+  transform: scale(0.88);
+  height: 72px; /* keep space after scaling */
+  margin-bottom: 4px;
+}
+
+/* Inside the inquiry modal: full-width, no scaling needed */
+.modal-content .h-captcha {
+  transform: none;
+  margin-bottom: 16px;
+}
+
+/* Ensure the iframe inside doesn't overflow */
+.h-captcha iframe,
+.h-captcha > div {
+  max-width: 100% !important;
 }
 
 .whatsapp-float {
@@ -1581,12 +1616,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   background: var(--white);
   border-radius: 16px;
   padding: 40px;
-  max-width: 520px;
+  max-width: 540px;
   width: 100%;
   position: relative;
   animation: modalIn .35s cubic-bezier(.4, 0, .2, 1);
-  max-height: 90vh;
+  max-height: 92vh;
   overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 @keyframes modalIn {
@@ -1598,6 +1635,22 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   to {
     opacity: 1;
     transform: translateY(0) scale(1)
+  }
+}
+
+@media (max-width: 600px) {
+  .modal.active {
+    padding: 12px;
+    align-items: flex-end;
+  }
+  .modal-content {
+    padding: 28px 20px 24px;
+    border-radius: 16px 16px 0 0;
+    max-height: 96vh;
+  }
+  /* Full-width captcha, no scaling on mobile modal */
+  .modal-content .h-captcha {
+    transform: none;
   }
 }
 
@@ -1692,6 +1745,23 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   background: var(--red-dark);
   transform: translateY(-1px);
   box-shadow: 0 5px 15px rgba(229, 57, 53, .35);
+}
+
+/* Form submit area — captcha sits above, button below, always full-width */
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
 }
 
 /* Product modal image area */

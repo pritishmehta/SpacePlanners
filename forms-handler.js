@@ -2,15 +2,9 @@
    SPACE PLANNERS INDIA — Consolidated Form Handling & Validation
    ============================================================ */
 
-const MAILTO_CONFIG = {
+const WEB3FORMS_CONFIG = {
+    ACCESS_KEY: '36ae91c0-6e7e-4cbe-9332-99573a05cb19',
     TO: 'pritishmehta18@gmail.com'
-    //RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // REPLACE WITH YOUR SITE KEY
-};
-
-const EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'YsgZA8c4bevwmotxf',   // Replace with your EmailJS Public Key
-    SERVICE_ID: 'service_hoh00up',   // Replace with your EmailJS Service ID
-    TEMPLATE_ID: 'template_7orqbna'  // Replace with your EmailJS Template ID
 };
 
 const Validators = {
@@ -37,47 +31,40 @@ function sanitizeInput(str) {
         .trim();
 }
 
-/* ── EMAILJS LOADER ── */
-let _emailjsReady = null;
-function loadEmailJS() {
-    if (_emailjsReady) return _emailjsReady;
-    _emailjsReady = new Promise((resolve) => {
-        if (window.emailjs) { resolve(window.emailjs); return; }
-        if (document.querySelector('script[src*="email.min.js"]')) {
-            // Script tag already exists — wait for it
-            const poll = setInterval(() => {
-                if (window.emailjs) { clearInterval(poll); resolve(window.emailjs); }
-            }, 100);
-            return;
-        }
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-        script.onload = () => {
-            if (window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-                emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-            }
-            resolve(window.emailjs);
-        };
-        script.onerror = () => resolve(null);
-        document.head.appendChild(script);
-    });
-    return _emailjsReady;
+/* ── HCAPTCHA INTEGRATION ── */
+const HCAPTCHA_SITE_KEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2'; // Web3Forms hCaptcha site key
+
+function loadHCaptcha() {
+    if (document.querySelector('script[src*="hcaptcha.com"]')) return;
+    const script = document.createElement('script');
+    script.src = 'https://js.hcaptcha.com/1/api.js';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+}
+
+function injectHCaptcha(form) {
+    if (form.querySelector('.h-captcha')) return; // already injected
+    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.form-submit');
+    const wrapper = document.createElement('div');
+    wrapper.className = 'h-captcha';
+    wrapper.setAttribute('data-sitekey', HCAPTCHA_SITE_KEY);
+
+    // Prefer inserting inside .form-actions (before the submit button)
+    const formActions = submitBtn && submitBtn.closest('.form-actions');
+    if (formActions) {
+        formActions.insertBefore(wrapper, submitBtn);
+    } else if (submitBtn) {
+        // Fallback: insert before the submit button's parent container
+        submitBtn.parentNode.insertBefore(wrapper, submitBtn);
+    } else {
+        form.appendChild(wrapper);
+    }
 }
 
 /* ── INITIALIZATION ── */
 document.addEventListener('DOMContentLoaded', () => {
-    // Dynamically load Google reCAPTCHA script
-    if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
-        const script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js';
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
-    }
-
-    // Pre-load EmailJS early
-    loadEmailJS();
-
+    loadHCaptcha();
     // Initialize all forms after components are loaded
     document.addEventListener('componentsLoaded', initAllForms);
     // Fallback if already loaded
@@ -96,7 +83,7 @@ function initAllForms() {
         const el = document.getElementById(f.id);
         if (el) {
             setupRealTimeValidation(el);
-            //injectReCaptcha(el); // Inject reCAPTCHA container
+            injectHCaptcha(el);
             if (f.handler) {
                 el.onsubmit = f.handler;
             }
@@ -104,34 +91,7 @@ function initAllForms() {
     });
 }
 
-/**
- * Injects reCAPTCHA widget into the form
- */
-/**function injectReCaptcha(form) {
-    if (form.querySelector('.g-recaptcha')) return;
 
-    const recaptchaDiv = document.createElement('div');
-    recaptchaDiv.className = 'g-recaptcha';
-    recaptchaDiv.setAttribute('data-sitekey', MAILTO_CONFIG.RECAPTCHA_SITE_KEY);
-    recaptchaDiv.style.marginBottom = '20px';
-
-    // Insert before the submit button
-    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.form-submit');
-    if (submitBtn) {
-        const parent = submitBtn.parentElement;
-        // Check if the button is inside a button group (flex container with multiple buttons)
-        const isButtonGroup = parent && parent.children.length > 1 &&
-            Array.from(parent.children).some(c => c.tagName === 'BUTTON' && c !== submitBtn);
-
-        if (isButtonGroup) {
-            parent.parentNode.insertBefore(recaptchaDiv, parent);
-        } else {
-            submitBtn.parentNode.insertBefore(recaptchaDiv, submitBtn);
-        }
-    } else {
-        form.appendChild(recaptchaDiv);
-    }
-}*/
 
 /* ── REAL-TIME VALIDATION ── */
 function setupRealTimeValidation(form) {
@@ -208,52 +168,92 @@ function getFieldLabel(input) {
 async function submitFormToBackend(formElement, formName) {
     try {
         const formData = new FormData(formElement);
-        formData.append('timestamp', new Date().toISOString());
-        formData.append('form_type', formName);
 
-        // Build a plain-text email body from all form fields with sanitization
-        let body = `Form: ${sanitizeInput(formName)}\n`;
-        body += `Submitted: ${new Date().toLocaleString()}\n`;
-        body += `${'─'.repeat(40)}\n`;
+        // Collect all form fields into a clean object
+        const fields = {};
+        const SKIP_KEYS = new Set(['_token', 'botcheck', 'form_type', 'timestamp']);
         for (const [key, value] of formData.entries()) {
-            if (key !== '_token' && !key.startsWith('g-recaptcha')) {
-                const sanitizedValue = sanitizeInput(value);
-                body += `${sanitizeInput(key)}: ${sanitizedValue}\n`;
+            if (!SKIP_KEYS.has(key) && !key.startsWith('g-recaptcha') && value.trim()) {
+                fields[sanitizeInput(key)] = sanitizeInput(value);
             }
         }
 
-        const subject = `[Space Planners] New ${formName.replace(/_/g, ' ')} submission`;
+        // Map form name + current page → a descriptive label
+        const PAGE_LABELS = {
+            'index': { general_inquiry: 'Home Page — General Inquiry', site_assessment: 'Home Page — Free Assessment', product_finder: 'Home Page — Product Finder', floating_inquiry: 'Quick Inquiry (Popup)' },
+            'compactor-storage': { general_inquiry: 'Compactor Storage — Inquiry', floating_inquiry: 'Compactor Storage — Quick Inquiry' },
+            'industrial-racks': { general_inquiry: 'Industrial Racks — Inquiry', floating_inquiry: 'Industrial Racks — Quick Inquiry' },
+            'storage-lockers': { general_inquiry: 'Storage Lockers — Inquiry', floating_inquiry: 'Storage Lockers — Quick Inquiry' },
+            'filing-cabinets': { general_inquiry: 'Filing Cabinets — Inquiry', floating_inquiry: 'Filing Cabinets — Quick Inquiry' },
+            'contact': { general_inquiry: 'Contact Page — Inquiry', floating_inquiry: 'Contact Page — Quick Inquiry' },
+            'about': { general_inquiry: 'About Page — Inquiry', floating_inquiry: 'About Page — Quick Inquiry' },
+            'projects': { general_inquiry: 'Projects Page — Inquiry', floating_inquiry: 'Projects Page — Quick Inquiry' },
+        };
 
-        if (EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-            // Wait for EmailJS to be fully loaded
-            const ejs = await loadEmailJS();
-            if (!ejs) throw new Error('EmailJS failed to load.');
+        const pagePath = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        const pageMap = PAGE_LABELS[pagePath] || {};
+        const formLabel = pageMap[formName]
+            || formName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
-            const templateParams = {
-                subject: subject,
-                message: body,
-                from_name: formData.get('name') || 'Website User',
-                reply_to: formData.get('email') || MAILTO_CONFIG.TO
-            };
+        const subject = `[Space Planners] ${formLabel} — ${fields['name'] || 'Website Visitor'}`;
+        const submittedAt = new Date().toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
 
-            console.log('[EmailJS] Sending with params:', templateParams);
-            const response = await emailjs.send(
-                EMAILJS_CONFIG.SERVICE_ID,
-                EMAILJS_CONFIG.TEMPLATE_ID,
-                templateParams
-            );
-            console.log('[EmailJS] Success:', response);
-        } else {
-            // Fallback to mailto if EmailJS is not configured yet
-            console.warn('[Form] EmailJS not configured — falling back to mailto');
-            const encodedSubject = encodeURIComponent(subject);
-            const encodedBody = encodeURIComponent(body);
-            window.location.href = `mailto:${MAILTO_CONFIG.TO}?subject=${encodedSubject}&body=${encodedBody}`;
+
+        const FIELD_LABELS = {
+            name: 'Full Name', phone: 'Phone Number', email: 'Email Address',
+            product: 'Product Interest', message: 'Message / Notes', company: 'Company',
+            city: 'City', requirement: 'Requirement', product_interest: 'Product Interest',
+            specific_product: 'Specific Product', category: 'Category',
+            space_size: 'Space Size', budget: 'Budget', timeline: 'Timeline'
+        };
+
+        // Build clean plain-text message
+
+        let message = '';
+        message += `  SPACE PLANNERS INDIA  |  New Enquiry \n\n`;
+        message += `  Form Type  :  ${formLabel} \n\n`;
+        message += `  Received   :  ${submittedAt} \n\n`;
+        message += `  SUBMISSION DETAILS \n\n`;
+
+        for (const [key, value] of Object.entries(fields)) {
+            const label = (FIELD_LABELS[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())).padEnd(20);
+            message += `  ${label}:  ${value} \n\n`;
         }
 
-        return { success: true };
+        message += `  Reply directly to this email to respond to the enquiry. \n\n`;
+        if (fields['email']) message += `  Lead Email  :  ${fields['email']} \n\n`;
+        if (fields['phone']) message += `  Lead Phone  :  ${fields['phone']} \n\n`;
+
+        message += `  Space Planners India  —  spaceplannersindia.in \n\n`;
+        message += `  This is an automated notification from your website. \n\n`;
+
+        const payload = {
+            access_key: WEB3FORMS_CONFIG.ACCESS_KEY,
+            subject: subject,
+            from_name: fields['name'] || 'Website Visitor',
+            email: fields['email'] || WEB3FORMS_CONFIG.TO,
+            message: message,
+            botcheck: ''
+        };
+
+
+        console.log('[Web3Forms] Sending submission...');
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            console.log('[Web3Forms] Success:', result);
+            return { success: true };
+        } else {
+            console.error('[Web3Forms] Failed:', result);
+            return { success: false };
+        }
     } catch (error) {
-        console.error('[Form] Email sending error:', error.status, error.text || error.message || error);
+        console.error('[Form] Submission error:', error.message || error);
         return { success: false };
     }
 }
@@ -325,14 +325,13 @@ async function handleSubmission(form, type, onSuccess) {
     // 1. Validate Form Fields
     if (!validateAll(form)) return;
 
-    // 2. Validate reCAPTCHA
-    //if (typeof grecaptcha !== 'undefined') {
-    //    const response = grecaptcha.getResponse();
-    //    if (!response) {
-    //        showToast('Please verify that you are not a robot.', 'error');
-    //        return;
-    //    }
-    //}
+    // 2. Validate hCaptcha
+    const hCaptchaEl = form.querySelector('.h-captcha');
+    const hCaptchaResponse = hCaptchaEl ? hCaptchaEl.querySelector('[name="h-captcha-response"]')?.value : null;
+    if (hCaptchaEl && !hCaptchaResponse) {
+        showToast('Please complete the CAPTCHA verification.', 'error');
+        return;
+    }
 
     const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalText = btn ? btn.textContent : '';
@@ -349,7 +348,12 @@ async function handleSubmission(form, type, onSuccess) {
     }
 
     if (result.success) {
-        try { if (typeof grecaptcha !== 'undefined') grecaptcha.reset(); } catch (_) {}
+        // Reset hCaptcha widget after successful submission
+        try {
+            if (typeof hcaptcha !== 'undefined' && hCaptchaEl) {
+                hcaptcha.reset();
+            }
+        } catch (_) { }
         onSuccess();
     } else {
         showToast('Failed to send. Please check your connection.', 'error');
