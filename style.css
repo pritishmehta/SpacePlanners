@@ -112,7 +112,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 body {
@@ -196,7 +196,7 @@ ul {
 }
 
 #sp-loader .word-planners span {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 400;
   color: #1a1a1a;
   letter-spacing: 0.06em;
@@ -218,7 +218,7 @@ ul {
 
 #sp-loader .replay {
   margin-top: 28px;
-  font-size: 10px;
+  font-size: 0.625rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #bbb;
@@ -243,11 +243,11 @@ ul {
   }
 
   .section-title {
-    font-size: 26px;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
   }
 
   .section-subtitle {
-    font-size: 14px;
+    font-size: 0.875rem;
     padding: 0 10px;
   }
 }
@@ -293,7 +293,7 @@ ul {
   display: inline-block;
   background: rgba(229, 57, 53, .08);
   color: var(--red);
-  font-size: 11px;
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -304,7 +304,7 @@ ul {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.01em;
@@ -313,11 +313,11 @@ ul {
 }
 
 .section-subtitle {
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--light);
   line-height: 1.7;
   margin-bottom: 16px;
-  max-width: 640px;
+  max-max-width: 640px; width: 100%;
 }
 
 .accent-line {
@@ -367,7 +367,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
   opacity: 0;
@@ -382,7 +382,7 @@ ul {
 }
 
 .toast .toast-icon {
-  font-size: 20px;
+  font-size: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -528,7 +528,7 @@ header.scrolled .logo img {
 
 .main-nav a {
   font-family: var(--font-sans);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--dark);
   letter-spacing: 0.01em;
@@ -621,7 +621,7 @@ header.scrolled .logo img {
 .nav-dropdown a {
   padding: 4px 24px;
 
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--dark);
   border-radius: 0;
@@ -667,7 +667,7 @@ header.scrolled .logo img {
   border: 3px solid var(--red);
   color: var(--red);
   background: var(--white);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   transition: var(--trans);
   white-space: nowrap;
@@ -690,7 +690,7 @@ header.scrolled .logo img {
   background: var(--primary);
   color: var(--white);
   border: none;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
@@ -789,7 +789,7 @@ header.scrolled .logo img {
 .mobile-nav-close {
   background: none;
   border: none;
-  font-size: 28px;
+  font-size: 1.75rem;
   color: var(--mid);
   cursor: pointer;
   padding: 10px;
@@ -815,7 +815,7 @@ header.scrolled .logo img {
   align-items: center;
   gap: 12px;
   padding: 14px 24px;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--dark);
   text-transform: capitalize;
@@ -876,7 +876,7 @@ body:not(.transparent-nav) main {
 
   .header-actions .btn-primary {
     padding: 8px 16px;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }
 
@@ -1028,7 +1028,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .float-inquiry-btn:hover {
@@ -1105,14 +1105,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 
 .popup-title {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--dark);
   margin: 0;
 }
 
 .popup-subtitle {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--light);
   margin: 4px 0 0 0;
 }
@@ -1128,7 +1128,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   width: 24px;
   height: 24px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 0.875rem;
   padding: 0;
   display: flex;
   align-items: center;
@@ -1146,7 +1146,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   padding: 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-bottom: 12px;
   font-family: var(--font-sans);
   transition: var(--trans);
@@ -1166,7 +1166,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   border: none;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: var(--trans);
   font-family: var(--font-sans);
@@ -1178,7 +1178,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .popup-note {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--light);
   text-align: center;
   margin: 12px 0 0 0;
@@ -1228,7 +1228,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--white);
   border: none;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1255,7 +1255,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--primary);
   border: none;
   padding: 14px 32px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: 0;
   cursor: pointer;
@@ -1285,7 +1285,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--white);
   border: 2px solid var(--white);
   padding: 12px 28px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: 0;
   cursor: pointer;
@@ -1344,7 +1344,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .error-message {
   color: var(--red);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 500;
   margin-top: 4px;
   display: none;
@@ -1364,7 +1364,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   position: absolute;
   top: -200px;
   right: -200px;
-  width: 800px;
+  max-width: 800px; width: 100%;
   height: 600px;
   background: radial-gradient(circle, rgba(232, 93, 38, 0.08) 0%, transparent 70%);
   pointer-events: none;
@@ -1407,7 +1407,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .benefit-num {
   font-family: var(--font-display);
-  font-size: 35px;
+  font-size: 2.1875rem;
   font-weight: 900;
   color: var(--orange);
   opacity: 0.5;
@@ -1418,7 +1418,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .benefit-text h4 {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1427,7 +1427,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .benefit-text p {
-  font-size: 13px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: var(--silver);
   line-height: 1.5;
 }
@@ -1443,7 +1443,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .assessment-form h3 {
   font-family: var(--font-display);
-  font-size: 30px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 800;
   letter-spacing: 0.04em;
   color: var(--dark);
@@ -1451,7 +1451,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .assessment-form p {
-  font-size: 16px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: var(--light);
   margin-bottom: 36px;
 }
@@ -1474,7 +1474,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .form-group label {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1488,7 +1488,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   border: 1px solid var(--border);
   color: var(--dark);
   padding: 13px 16px;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: border-color 0.3s;
   border-radius: 8px;
   outline: none;
@@ -1537,7 +1537,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   margin-top: 10px;
   width: fit-content;
   padding: 12px 28px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 @media(max-width:1024px) {
@@ -1614,7 +1614,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--mid);
   display: flex;
   align-items: center;
@@ -1630,7 +1630,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .modal-title {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: 1.625rem;
   color: var(--dark);
   margin: 10px 0 24px;
   font-weight: 700;
@@ -1644,7 +1644,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   display: block;
   margin-bottom: 7px;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--mid);
 }
 
@@ -1656,7 +1656,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   border: 2px solid var(--border);
   border-radius: 8px;
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: var(--trans);
   background: var(--white);
   color: var(--dark);
@@ -1683,7 +1683,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   border: none;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 0.9375rem;
   transition: var(--trans);
 }
 
@@ -1717,7 +1717,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .feature-list {
@@ -1730,7 +1730,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--mid);
 }
 
@@ -1738,7 +1738,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   content: '✓';
   color: var(--red);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
@@ -1756,7 +1756,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--red);
   border-radius: 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: var(--trans);
   display: flex;
   align-items: center;
@@ -1985,7 +1985,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 /* Animated counter number */
 .stat-strip-num {
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--dark);
   line-height: 1;
@@ -1994,7 +1994,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .stat-strip-num span {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--red);
   margin-left: 2px;
@@ -2005,7 +2005,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .stat-strip-label {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -2025,7 +2025,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 600;
   color: #ccc;
   letter-spacing: .06em;
@@ -2152,7 +2152,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .slide-eyebrow {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: .15em;
   text-transform: uppercase;
@@ -2163,7 +2163,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .slide-title {
   font-family: var(--font-serif);
-  font-size: clamp(30px, 4.5vw, 56px);
+  font-size: clamp(2rem, 5vw, 4.25rem);
   font-weight: 800;
   color: var(--white);
   line-height: 1.1;
@@ -2172,7 +2172,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .slide-description {
-  font-size: 17px;
+  font-size: 1.0625rem;
   color: rgba(255, 255, 255, .95);
   margin-bottom: 32px;
   max-width: 480px;
@@ -2194,7 +2194,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   background: var(--white);
   color: var(--dark);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: var(--trans);
 }
 
@@ -2210,7 +2210,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   background: transparent;
   color: var(--white);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: var(--trans);
 }
 
@@ -2231,7 +2231,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   background: rgba(255, 255, 255, .18);
   backdrop-filter: blur(6px);
   color: var(--white);
-  font-size: 22px;
+  font-size: 1.375rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2330,7 +2330,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .filter-section-home .filter-container {
-  max-width: 1280px;
+  max-max-width: 1280px; width: 100%;
   margin: 0 auto;
   display: flex;
   gap: 10px;
@@ -2384,7 +2384,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .sidebar-title {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 20px;
@@ -2405,7 +2405,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--mid);
   border-radius: 8px;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 0.8125rem;
   transition: var(--trans);
   position: relative;
   overflow: hidden;
@@ -2495,7 +2495,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   justify-content: center;
   background: linear-gradient(135deg, #4facfe, #00f2fe);
   color: var(--white);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
@@ -2508,7 +2508,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .product-name {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 10px;
@@ -2516,7 +2516,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .product-description {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--light);
   margin-bottom: 14px;
   line-height: 1.55;
@@ -2534,7 +2534,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--mid);
   padding: 4px 10px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 600;
   transition: var(--trans);
 }
@@ -2551,7 +2551,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .applications-label {
-  font-size: 10px;
+  font-size: 0.625rem;
   color: #aaa;
   text-transform: uppercase;
   font-weight: 700;
@@ -2560,7 +2560,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .applications-text {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--mid);
   font-weight: 500;
 }
@@ -2658,7 +2658,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .industry-name {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2669,7 +2669,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .industry-desc {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--light);
   line-height: 1.6;
 }
@@ -2688,7 +2688,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .section-label {
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -2701,7 +2701,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .section-label::before {
   content: '';
-  width: 32px;
+  max-width: 32px; width: 100%;
   height: 2px;
   background: var(--orange);
   flex-shrink: 0;
@@ -2712,11 +2712,11 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .section-sub {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--light);
   line-height: 1.7;
-  max-width: 520px;
+  max-max-width: 520px; width: 100%;
   margin-top: 20px;
 }
 
@@ -2767,7 +2767,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 /* Sectors container matches the standard container width for card alignment */
 .sectors-section .container {
-  max-width: 1280px;
+  max-max-width: 1280px; width: 100%;
   padding: 0 40px;
 }
 
@@ -2818,7 +2818,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .finder-benefits li {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: var(--mid);
   display: flex;
   align-items: center;
@@ -2828,7 +2828,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 .finder-benefits li span {
   color: var(--red);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .finder-form-box {
@@ -2840,14 +2840,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .finder-form-title {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 6px;
 }
 
 .finder-form-subtitle {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, .55);
   margin-bottom: 28px;
 }
@@ -2860,7 +2860,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .finder-form .form-group label {
   color: rgba(255, 255, 255, .75);
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: .07em;
 }
@@ -2889,7 +2889,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   border: none;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   letter-spacing: .04em;
   text-transform: uppercase;
   transition: var(--trans);
@@ -2934,7 +2934,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   background: var(--red);
   color: var(--white);
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -2946,14 +2946,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .process-step-content h4 {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 4px;
 }
 
 .process-step-content p {
-  font-size: 13px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: var(--light);
   line-height: 1.55;
 }
@@ -3031,7 +3031,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--white);
   padding: 5px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   z-index: 5;
 }
@@ -3042,14 +3042,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .project-title {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 8px;
 }
 
 .project-description {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--light);
   margin-bottom: 14px;
   line-height: 1.55;
@@ -3063,7 +3063,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--mid);
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
@@ -3081,7 +3081,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: white;
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -3113,7 +3113,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   color: var(--red);
   border: 2px solid var(--red);
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   transition: var(--trans);
   cursor: pointer;
@@ -3170,13 +3170,13 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .result-icon {
-  font-size: 32px;
+  font-size: 2rem;
   margin-bottom: 12px;
 }
 
 .result-metric {
   font-family: var(--font-serif);
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 800;
   color: var(--red);
   line-height: 1;
@@ -3184,14 +3184,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .result-label {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 4px;
 }
 
 .result-detail {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--light);
   font-weight: 500;
 }
@@ -3207,11 +3207,11 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   }
 
   .result-metric {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .result-label {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 }
 
@@ -3279,14 +3279,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .case-study-title {
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: 1.1875rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 4px;
 }
 
 .case-study-subtitle {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--red);
   font-weight: 700;
   text-transform: uppercase;
@@ -3299,7 +3299,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .case-study-label {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: #aaa;
   text-transform: uppercase;
   font-weight: 700;
@@ -3308,7 +3308,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .case-study-text {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--mid);
   line-height: 1.55;
 }
@@ -3316,7 +3316,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 .case-study-text.result {
   color: var(--red);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .scroll-nav {
@@ -3333,7 +3333,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   align-items: center;
   justify-content: center;
   color: var(--red);
-  font-size: 18px;
+  font-size: 1.125rem;
   transition: var(--trans);
   cursor: pointer;
   box-shadow: var(--shadow-sm);
@@ -3409,14 +3409,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   position: absolute;
   top: 18px;
   right: 22px;
-  font-size: 48px;
+  font-size: 3rem;
   color: rgba(229, 57, 53, .1);
   font-family: serif;
   line-height: 1;
 }
 
 .testimonial-text {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--mid);
   line-height: 1.75;
   margin-bottom: 24px;
@@ -3438,26 +3438,26 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--white);
   flex-shrink: 0;
 }
 
 .testimonial-name {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--dark);
 }
 
 .testimonial-role {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--light);
   margin-top: 2px;
 }
 
 .testimonial-stars {
   color: #f59e0b;
-  font-size: 13px;
+  font-size: 0.8125rem;
   margin-bottom: 14px;
 }
 
@@ -3477,7 +3477,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .clients-label {
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #aaa;
   text-transform: uppercase;
   font-weight: 700;
@@ -3544,7 +3544,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   padding: 24px 16px;
   text-align: center;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--mid);
   transition: var(--trans);
   cursor: default;
@@ -3589,18 +3589,18 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 800;
   color: var(--red);
 }
 
 .client-logo-item .logo-icon {
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 1;
 }
 
 .client-logo-item .logo-name {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--mid);
   letter-spacing: .03em;
@@ -3625,7 +3625,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   align-items: center;
   justify-content: center;
   color: var(--red);
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: var(--trans);
@@ -3653,7 +3653,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .clients-scroll-wrapper-vertical {
   position: relative;
-  max-width: 1280px;
+  max-max-width: 1280px; width: 100%;
   margin: 0 auto;
   height: 500px;
   display: flex;
@@ -3725,7 +3725,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   align-items: center;
   justify-content: center;
   color: var(--red);
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: var(--trans);
@@ -3758,7 +3758,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .industry-strip-inner {
-  max-width: 1280px;
+  max-max-width: 1280px; width: 100%;
   margin: 0 auto;
   background: var(--white);
   border-radius: 16px 16px 0 0;
@@ -3816,7 +3816,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .industry-icon-card .ind-icon {
-  font-size: 36px;
+  font-size: 2.25rem;
   line-height: 1;
   transition: transform .3s ease;
 }
@@ -3826,7 +3826,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .industry-icon-card .ind-label {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .08em;
@@ -3839,7 +3839,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .process-section-content {
-  max-width: 1100px;
+  max-max-width: 1100px; width: 100%;
   margin: 0 auto;
   padding: 0 32px;
 }
@@ -3865,7 +3865,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .process-step-num {
   font-family: var(--font-serif);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--light);
   letter-spacing: .06em;
@@ -3896,14 +3896,14 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .process-step-item h4 {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 4px;
 }
 
 .process-step-item p {
-  font-size: 12px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: var(--light);
   line-height: 1.5;
   max-width: 160px;
@@ -3923,7 +3923,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   position: absolute;
   right: -6px;
   top: -12px;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: var(--border);
 }
 
@@ -3986,7 +3986,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   top: -10px;
   right: 12px;
   font-family: var(--font-serif);
-  font-size: 88px;
+  font-size: 5.5rem;
   font-weight: 900;
   color: rgba(229, 57, 53, .06);
   line-height: 1;
@@ -4020,7 +4020,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 /* Step label e.g. "Step 01" */
 .process-card-step {
-  font-size: 10px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -4031,7 +4031,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 /* Step title */
 .process-card-title {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 6px;
@@ -4040,7 +4040,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 /* Tagline */
 .process-card-sub {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--light);
   line-height: 1.5;
   margin-bottom: 16px;
@@ -4051,7 +4051,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   position: absolute;
   bottom: 20px;
   right: 18px;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #ddd;
   transition: color .3s, transform .3s;
 }
@@ -4067,7 +4067,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 
 .client-logo {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #ccc;
   letter-spacing: .02em;
   transition: var(--trans);
@@ -4086,7 +4086,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .map-section-content {
-  max-width: 1280px;
+  max-max-width: 1280px; width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -4164,7 +4164,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
   transition: var(--trans);
   font-weight: 600;
   color: var(--dark);
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .faq-list .faq-question:hover {
@@ -4173,7 +4173,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 }
 
 .faq-list .faq-toggle {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: var(--red);
   transition: transform .3s;
   flex-shrink: 0;
@@ -4199,7 +4199,7 @@ body.transparent-nav header:not(.scrolled) .btn-primary {
 .faq-list .faq-answer-text {
   color: var(--light);
   line-height: 1.75;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* ==============================================
@@ -4212,7 +4212,7 @@ footer {
 }
 
 .footer-inner {
-  max-width: 1280px;
+  max-max-width: 1280px; width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
@@ -4222,7 +4222,7 @@ footer {
 
 .footer-brand .logo-footer {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 800;
   margin-bottom: 16px;
 }
@@ -4232,7 +4232,7 @@ footer {
 }
 
 .footer-brand p {
-  font-size: 13px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: rgba(255, 255, 255, .5);
   line-height: 1.7;
   margin-bottom: 24px;
@@ -4240,7 +4240,7 @@ footer {
 }
 
 .footer-col h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -4254,7 +4254,7 @@ footer {
 }
 
 .footer-col ul li a {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: rgba(255, 255, 255, .55);
   transition: var(--trans);
 }
@@ -4274,7 +4274,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: rgba(255, 255, 255, .55);
   transition: var(--trans);
 }
@@ -4284,7 +4284,7 @@ footer {
 }
 
 .footer-contact a span.icon {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .footer-bottom {
@@ -4298,7 +4298,7 @@ footer {
 }
 
 .footer-bottom p {
-  font-size: 12px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: rgba(255, 255, 255, .3);
 }
 
@@ -4308,7 +4308,7 @@ footer {
 }
 
 .footer-bottom-links a {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, .3);
   transition: var(--trans);
 }
@@ -4342,7 +4342,7 @@ footer {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(32px, 5vw, 54px);
+  font-size: clamp(2rem, 5vw, 4.25rem);
   font-weight: 800;
   color: var(--white);
   margin-top: 150px;
@@ -4357,7 +4357,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: rgba(255, 255, 255, .5);
 }
 
@@ -4386,7 +4386,7 @@ footer {
 }
 
 .section-intro {
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--mid);
   line-height: 1.75;
   background: var(--bg);
@@ -4421,14 +4421,14 @@ footer {
 
 .value-title {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 10px;
 }
 
 .value-text {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--light);
   line-height: 1.7;
 }
@@ -4451,14 +4451,14 @@ footer {
 
 .stat-number-big {
   font-family: var(--font-serif);
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: 800;
   color: var(--red);
   margin-bottom: 8px;
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--light);
   font-weight: 600;
 }
@@ -4496,7 +4496,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
+  font-size: 2rem;
   background: linear-gradient(135deg, var(--red), var(--red-dark));
   font-weight: 700;
   color: var(--white);
@@ -4504,14 +4504,14 @@ footer {
 
 .team-name {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 4px;
 }
 
 .team-role {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--red);
   font-weight: 700;
   text-transform: uppercase;
@@ -4520,7 +4520,7 @@ footer {
 }
 
 .team-bio {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--light);
   line-height: 1.65;
 }
@@ -4542,14 +4542,14 @@ footer {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: var(--mid);
   box-shadow: var(--shadow-sm);
 }
 
 .cert-badge span {
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 
 /* ==============================================
@@ -4566,7 +4566,7 @@ footer {
 }
 
 .filter-container {
-  max-width: 1280px;
+  max-max-width: 1280px; width: 100%;
   margin: 0 auto;
   display: flex;
   gap: 10px;
@@ -4587,7 +4587,7 @@ footer {
   border-radius: 22px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 0.8125rem;
   white-space: nowrap;
   transition: var(--trans);
   flex-shrink: 0;
@@ -4721,11 +4721,11 @@ footer {
   }
 
   .slide-title {
-    font-size: clamp(24px, 6vw, 38px);
+    font-size: clamp(2rem, 5vw, 4.25rem);
   }
 
   .slide-description {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .slide-cta {
@@ -4737,13 +4737,13 @@ footer {
   .slide-cta .btn-white,
   .slide-cta .btn-outline-white {
     padding: 12px 22px;
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 
   .carousel-nav {
     width: 40px;
     height: 40px;
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .carousel-nav.prev {
@@ -4938,7 +4938,7 @@ footer {
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
   }
 
   .hero-section {
@@ -5050,7 +5050,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 8px;
   text-align: center;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--mid);
   background: #fff;
@@ -5161,7 +5161,7 @@ footer {
   background: transparent;
   color: var(--red);
   border: 2px solid var(--red);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--trans);
@@ -5232,7 +5232,7 @@ footer {
 
 .category-product-title {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 12px;
@@ -5240,7 +5240,7 @@ footer {
 }
 
 .category-product-apps {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--mid);
   margin-bottom: 20px;
   line-height: 1.6;
@@ -5256,7 +5256,7 @@ footer {
   border-top: 1px solid var(--border);
   color: var(--red);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .category-product-cta svg {
@@ -5325,7 +5325,7 @@ footer {
 
 .product-modal-title {
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--dark);
   margin: 12px 0 20px;
@@ -5333,7 +5333,7 @@ footer {
 }
 
 .product-modal-label {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -5344,7 +5344,7 @@ footer {
 .product-modal-description {
   color: var(--mid);
   line-height: 1.8;
-  font-size: 15px;
+  font-size: 0.9375rem;
   margin-bottom: 30px;
 }
 
@@ -5361,7 +5361,7 @@ footer {
 }
 
 .product-modal-meta-label {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 12px;
@@ -5379,7 +5379,7 @@ footer {
   color: #334155;
   padding: 6px 14px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   border: 1px solid #e2e8f0;
   transition: all 0.2s ease;
@@ -5450,7 +5450,7 @@ footer {
 
 .industry-client-logos-label {
   text-align: center;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -5517,7 +5517,7 @@ footer {
 }
 
 .clients-ticker .logo-name {
-  font-size: 9px;
+  font-size: 0.5625rem;
   font-weight: 700;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -5624,7 +5624,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--dark);
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -5680,7 +5680,7 @@ footer {
 
   .sectors-grid>.product-card {
     flex: 0 0 270px !important;
-    min-width: 270px !important;
+    min-max-width: 270px; width: 100% !important;
     scroll-snap-align: start;
     height: auto !important;
   }
@@ -5752,7 +5752,7 @@ footer {
 }
 
 .sectors-grid .sector-icon-box svg {
-  width: 56px;
+  max-width: 56px; width: 100%;
   height: 56px;
   color: var(--dark);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -5781,7 +5781,7 @@ footer {
 }
 
 .sectors-grid .product-name {
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 700;
   margin: 0 0 8px 0;
   color: var(--dark);
@@ -5789,7 +5789,7 @@ footer {
 
 .sectors-grid .product-description {
   color: var(--light);
-  font-size: 14px;
+  font-size: 0.875rem;
   margin: 0 0 12px 0;
 }
 
@@ -5804,7 +5804,7 @@ footer {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--mid);
   margin-bottom: 6px;
   line-height: 1.4;
@@ -5813,7 +5813,7 @@ footer {
 .sectors-grid .product-info li span {
   color: var(--primary);
   font-weight: 800;
-  font-size: 14px;
+  font-size: 0.875rem;
   flex-shrink: 0;
 }
 
@@ -5837,7 +5837,7 @@ footer {
 }
 
 .faq-grid {
-  max-width: 900px;
+  max-max-width: 900px; width: 100%;
   margin: 48px auto 0;
   display: flex;
   flex-direction: column;
@@ -5867,7 +5867,7 @@ footer {
 }
 
 .faq-grid .faq-question h3 {
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
   color: var(--dark);
   margin: 0;
@@ -5885,7 +5885,7 @@ footer {
 }
 
 .faq-grid .faq-icon {
-  width: 24px;
+  max-width: 24px; width: 100%;
   height: 24px;
   position: relative;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -5902,7 +5902,7 @@ footer {
 }
 
 .faq-grid .faq-icon::before {
-  width: 2px;
+  max-width: 2px; width: 100%;
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
@@ -5938,7 +5938,7 @@ footer {
 }
 
 .faq-grid .faq-answer p {
-  font-size: 15px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   line-height: 1.7;
   color: var(--mid);
   margin: 0;
@@ -5962,7 +5962,7 @@ footer {
   }
 
   .faq-grid .faq-question h3 {
-    font-size: 16px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
   }
 }
 
@@ -6087,7 +6087,7 @@ header.scrolled {
 
 .sp-mobile-cta-text {
   font-family: 'Barlow', sans-serif;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: #3d3d3d;
   flex: 1;
@@ -6095,7 +6095,7 @@ header.scrolled {
 
 .sp-mobile-cta-btn {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -6153,7 +6153,7 @@ header.scrolled {
 }
 
 .cookie-icon {
-  font-size: 28px;
+  font-size: 1.75rem;
   flex-shrink: 0;
 }
 
@@ -6164,14 +6164,14 @@ header.scrolled {
 
 .cookie-text h4 {
   margin: 0 0 4px;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--dark);
   font-weight: 700;
 }
 
 .cookie-text p {
   margin: 0;
-  font-size: 14px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: var(--mid);
   line-height: 1.5;
 }
@@ -6190,7 +6190,7 @@ header.scrolled {
 .cookie-btn {
   padding: 10px 24px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -6258,7 +6258,7 @@ header.scrolled {
 }
 
 .sector-category-title {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -6285,4 +6285,12 @@ header.scrolled {
   text-align: center;
   flex: 1;
   min-width: 100px;
+}
+
+@media (max-width: 768px) {
+  button, a, [role="button"] {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
