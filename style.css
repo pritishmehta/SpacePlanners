@@ -6534,3 +6534,199 @@ header.scrolled {
     overflow: hidden !important; /* Shorten description so it doesn't take too much vertical height */
   }
 }
+/* -- SECTOR MODAL NEW DESIGN -- */
+.sector-wrap {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.sector-wrap .banner {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: #d0d0d0;
+}
+.sector-wrap .banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.sector-wrap .banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.52) 100%);
+}
+.sector-wrap .banner-content {
+  position: absolute;
+  bottom: 28px;
+  left: 36px;
+  right: 36px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sector-wrap .banner-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 6px;
+}
+.sector-wrap .banner-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+}
+.sector-wrap .banner-badge {
+  background: #C41212;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sector-wrap .inner { padding: 32px 36px 36px; }
+
+.sector-wrap .sector-desc {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 580px;
+}
+
+.sector-wrap .tabs-wrap {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.sector-wrap .tabs-nav {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+  overflow-x: auto;
+  background: #fafafa;
+}
+.sector-wrap .tab-btn {
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888888;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sector-wrap .tab-btn:hover { color: #444444; }
+.sector-wrap .tab-btn.active {
+  color: #C41212;
+  border-bottom-color: #C41212;
+  background: #ffffff;
+}
+.sector-wrap .tab-count {
+  font-size: 11px;
+  font-weight: 400;
+  color: inherit;
+  opacity: 0.65;
+}
+
+.sector-wrap .tab-panel { display: none; padding: 20px 20px; }
+.sector-wrap .tab-panel.active { display: block; }
+
+.sector-wrap .product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.sector-wrap .product-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #f8f8f8;
+  border: 1px solid #eeeeee;
+  font-size: 13px;
+  color: #333333;
+  transition: border-color 0.15s, background 0.15s;
+  cursor: default;
+}
+.sector-wrap .product-item:hover {
+  background: #fff0f0;
+  border-color: #C41212;
+  color: #C41212;
+}
+.sector-wrap .product-item .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #C41212;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.sector-wrap .trusted-section { margin-bottom: 28px; }
+.sector-wrap .trusted-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+}
+
+.sector-wrap .cta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+.sector-wrap .cta-text { font-size: 14px; color: #555555; line-height: 1.5; }
+.sector-wrap .cta-text strong { color: #111111; }
+.sector-wrap .cta-btn {
+  padding: 11px 24px;
+  background: #C41212;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sector-wrap .cta-btn:hover { background: #a50f0f; }
+
+@media (max-width: 600px) {
+  .sector-wrap .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .sector-wrap .banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sector-wrap .cta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
