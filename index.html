@@ -1463,7 +1463,7 @@
                     "Compactors": ["Stainless Steel Compactor", "Perforated Compactor", "Drawer Compactor", "File Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor"],
                     "Racks": ["Stainless Steel Rack"],
                     "Lockers": ["Staff Locker", "Stainless Steel Lockers", "Mobile Lockers", "Changing Room Lockers"],
-                    "Cabinets": ["Perforated Drawer Cabinet"]
+                    "Drawer Cabinets": ["Perforated Drawer Cabinet"]
                 }
             },
             hospital: {
@@ -1474,7 +1474,7 @@
                     "Compactors": ["Stainless Steel Compactor", "Perforated Compactor", "Drawer Compactor", "File Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor"],
                     "Racks": ["Stainless Steel Rack"],
                     "Lockers": ["Staff Locker", "Stainless Steel Lockers", "Mobile Lockers", "Changing Room Lockers"],
-                    "Cabinets": ["Perforated Drawer Cabinet", "Stainless Steel Drawer Cabinet"],
+                    "Drawer Cabinets": ["Perforated Drawer Cabinet", "Stainless Steel Drawer Cabinet"],
                     "Cupboards": ["Glass Cupboards", "Storewell Cupboard"]
                 }
             },
@@ -1534,7 +1534,7 @@
                     "Compactors": ["File Storage Compactor", "Pigeon Hole Compactor", "Heavy Duty Compactor", "Perforated Compactor", "Drawer Compactor", "Stainless Steel Compactor"],
                     "Racks": ["Decking Panel Systems", "Pallet Racking Systems", "Slotted Angle Racks", "Sectional Panel Heavy Duty Racks", "Multi-Tier Racking System", "Mezzanine Floor Systems"],
                     "Lockers": ["Gym Lockers", "Staff Lockers", "School Lockers", "Mobile Lockers", "Tower Lockers", "Stainless Steel Lockers"],
-                    "Cabinets": ["Perforated Drawer Cabinets", "Drawer Cabinets", "Filing Cabinets"],
+                    "Drawer Cabinets": ["Perforated Drawer Cabinets", "Drawer Cabinets", "Filing Cabinets"],
                     "Cupboards": ["Storewell Cupboards", "Glass Door Cupboards", "Pigeon Hole Cupboard", "Sliding Door Cupboard"]
                 }
             },
@@ -1546,7 +1546,7 @@
                     "Compactors": ["File Storage Compactor", "Heavy Duty Compactor", "Perforated Compactor", "Drawer Compactor", "Stainless Steel Compactor"],
                     "Racks": ["Slotted Angle Racks", "Sectional Panel Heavy Duty Racks"],
                     "Lockers": ["Staff Lockers", "Mobile Lockers"],
-                    "Cabinets": ["Poster Storage Drawer Cabinet", "Perforated Drawer Cabinet", "Filing Cabinet"],
+                    "Drawer Cabinets": ["Poster Storage Drawer Cabinet", "Perforated Drawer Cabinet", "Filing Cabinet"],
                     "Cupboards": ["Glass Door Cupboards", "Sliding Door Cupboard"]
                 }
             }
@@ -1580,8 +1580,17 @@
                 `;
 
                 let productsHtml = '';
+                const categoryPageMap = {
+                    "Compactors": "compactor-storage.html",
+                    "Racks": "industrial-racks.html",
+                    "Lockers": "storage-lockers.html",
+                    "Drawer Cabinets": "filing-cabinets.html",
+                    "Cupboards": "filing-cabinets.html"
+                };
+                const targetPage = categoryPageMap[category] || "#";
                 data.products[category].forEach(product => {
-                    productsHtml += `<div class="product-item"><span class="dot"></span>${product}</div>`;
+                    const encodedProduct = encodeURIComponent(product);
+                    productsHtml += `<a href="${targetPage}?highlight=${encodedProduct}" class="product-item" style="color: inherit; text-decoration: none; display: flex; align-items: center;"><span class="dot"></span>${product}</a>`;
                 });
 
                 tabsPanelsHtml += `
@@ -1602,7 +1611,7 @@
                 education: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=80",
                 government: "https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?w=900&q=80",
                 fmcg: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=900&q=80",
-                museum: "https://images.unsplash.com/photo-1518998053401-b5398384281f?w=900&q=80"
+                museum: "Museums_Archives.png"
             };
             const bannerImg = bannerImages[id] || bannerImages.corporate;
 

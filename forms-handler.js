@@ -149,81 +149,63 @@ async function submitFormToBackend(formElement, formName) {
 
         // Map form name + current page to a descriptive label
         const PAGE_LABELS = {
-            'index':             { general_inquiry: 'Home Page — General Inquiry', site_assessment: 'Home Page — Free Assessment', product_finder: 'Home Page — Product Finder', floating_inquiry: 'Quick Inquiry (Popup)' },
-            'compactor-storage': { general_inquiry: 'Compactor Storage — Inquiry',  floating_inquiry: 'Compactor Storage — Quick Inquiry' },
-            'industrial-racks':  { general_inquiry: 'Industrial Racks — Inquiry',   floating_inquiry: 'Industrial Racks — Quick Inquiry' },
-            'storage-lockers':   { general_inquiry: 'Storage Lockers — Inquiry',    floating_inquiry: 'Storage Lockers — Quick Inquiry' },
-            'filing-cabinets':   { general_inquiry: 'Filing Cabinets — Inquiry',    floating_inquiry: 'Filing Cabinets — Quick Inquiry' },
-            'contact':           { general_inquiry: 'Contact Page — Inquiry',       floating_inquiry: 'Contact Page — Quick Inquiry' },
-            'about':             { general_inquiry: 'About Page — Inquiry',         floating_inquiry: 'About Page — Quick Inquiry' },
-            'projects':          { general_inquiry: 'Projects Page — Inquiry',      floating_inquiry: 'Projects Page — Quick Inquiry' },
+            'index': { general_inquiry: 'Home Page — General Inquiry', site_assessment: 'Home Page — Free Assessment', product_finder: 'Home Page — Product Finder', floating_inquiry: 'Quick Inquiry (Popup)' },
+            'compactor-storage': { general_inquiry: 'Compactor Storage — Inquiry', floating_inquiry: 'Compactor Storage — Quick Inquiry' },
+            'industrial-racks': { general_inquiry: 'Industrial Racks — Inquiry', floating_inquiry: 'Industrial Racks — Quick Inquiry' },
+            'storage-lockers': { general_inquiry: 'Storage Lockers — Inquiry', floating_inquiry: 'Storage Lockers — Quick Inquiry' },
+            'filing-cabinets': { general_inquiry: 'Filing Cabinets — Inquiry', floating_inquiry: 'Filing Cabinets — Quick Inquiry' },
+            'contact': { general_inquiry: 'Contact Page — Inquiry', floating_inquiry: 'Contact Page — Quick Inquiry' },
+            'about': { general_inquiry: 'About Page — Inquiry', floating_inquiry: 'About Page — Quick Inquiry' },
+            'projects': { general_inquiry: 'Projects Page — Inquiry', floating_inquiry: 'Projects Page — Quick Inquiry' },
         };
 
-        const pagePath    = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-        const pageMap     = PAGE_LABELS[pagePath] || {};
-        const formLabel   = pageMap[formName] || formName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-        const subject     = `[Space Planners] ${formLabel} — ${fields['name'] || 'Website Visitor'}`;
+        const pagePath = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        const pageMap = PAGE_LABELS[pagePath] || {};
+        const formLabel = pageMap[formName] || formName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        const subject = `[Space Planners] ${formLabel} — ${fields['name'] || 'Website Visitor'}`;
         const submittedAt = new Date().toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
 
         const FIELD_LABELS = {
-            name:             'Full Name',
-            phone:            'Phone Number',
-            email:            'Email Address',
-            product:          'Product Interest',
+            name: 'Full Name',
+            phone: 'Phone Number',
+            email: 'Email Address',
+            product: 'Product Interest',
             product_interest: 'Product Interest',
             specific_product: 'Specific Product',
-            message:          'Message',
-            company:          'Company',
-            city:             'City',
-            requirement:      'Requirement',
-            category:         'Category',
-            space_size:       'Space Size',
-            budget:           'Budget',
-            timeline:         'Timeline',
+            message: 'Message',
+            company: 'Company',
+            city: 'City',
+            requirement: 'Requirement',
+            category: 'Category',
+            space_size: 'Space Size',
+            budget: 'Budget',
+            timeline: 'Timeline',
         };
 
-        // Build aligned field lines
-        const PAD      = 20;
-        const DIVIDER  = '  ' + '─'.repeat(50);
-
-        const fieldLines = Object.entries(fields)
-            .map(([key, value]) => {
-                const label = (FIELD_LABELS[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())).padEnd(PAD);
-                return `  ${label}  ${value}`;
-            })
-            .join('\n');
-
-        const message = [
-            '',
-            '  SPACE PLANNERS INDIA',
-            '  New Website Enquiry',
-            DIVIDER,
-            `  Form        ${formLabel}`,
-            `  Received    ${submittedAt}`,
-            DIVIDER,
-            '  SUBMISSION DETAILS',
-            DIVIDER,
-            fieldLines,
-            DIVIDER,
-            '  spaceplannersindia.in  |  Automated Notification',
-            '',
-        ].join('\n');
+        const finalFields = {
+            "Source Form": formLabel,
+            "Submitted At": submittedAt
+        };
+        for (const [key, value] of Object.entries(fields)) {
+            const label = FIELD_LABELS[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            finalFields[label] = value;
+        }
 
         const payload = {
             access_key: WEB3FORMS_CONFIG.ACCESS_KEY,
-            subject:    subject,
-            from_name:  fields['name'] || 'Website Visitor',
-            message:    message,
-            botcheck:   '',
+            subject: subject,
+            from_name: fields['name'] || 'Website Visitor',
+            botcheck: '',
+            ...finalFields
         };
 
         if (fields['email']) payload.replyto = fields['email'];
 
         console.log('[Web3Forms] Sending submission...');
         const response = await fetch('https://api.web3forms.com/submit', {
-            method:  'POST',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body:    JSON.stringify(payload),
+            body: JSON.stringify(payload),
         });
 
         const result = await response.json();

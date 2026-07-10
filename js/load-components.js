@@ -263,4 +263,35 @@ document.addEventListener('DOMContentLoaded', () => {
             closeMobileNav();
         }
     });
+
+    // Handle product highlight from URL parameters
+    setTimeout(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const highlightProduct = urlParams.get('highlight');
+        if (highlightProduct) {
+            const cards = document.querySelectorAll('.product-card');
+            for (let card of cards) {
+                const nameEl = card.querySelector('.product-name');
+                if (nameEl) {
+                    const nameText = nameEl.textContent.trim().toLowerCase();
+                    const highlightText = highlightProduct.trim().toLowerCase();
+                    const baseName = nameText.replace(/s$/, '');
+                    const baseHighlight = highlightText.replace(/s$/, '');
+                    
+                    if (baseName === baseHighlight || nameText.includes(baseHighlight) || highlightText.includes(baseName)) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        card.style.boxShadow = '0 0 20px rgba(229, 57, 53, 0.8)';
+                        card.style.transform = 'scale(1.02)';
+                        card.style.transition = 'all 0.5s ease';
+                        // Revert after a few seconds
+                        setTimeout(() => {
+                            card.style.boxShadow = '0 4px 20px rgba(0,0,0,0.07)';
+                            card.style.transform = '';
+                        }, 3000);
+                        break;
+                    }
+                }
+            }
+        }
+    }, 600); // Slight delay to ensure products are rendered by JS
 });
