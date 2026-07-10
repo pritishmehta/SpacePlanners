@@ -3,7 +3,7 @@
    ============================================================ */
 
 const WEB3FORMS_CONFIG = {
-    ACCESS_KEY: '36ae91c0-6e7e-4cbe-9332-99573a05cb19'
+    ACCESS_KEY: '9074db13-d4be-4e83-ab19-0ff4e500784e'
 };
 
 const Validators = {
