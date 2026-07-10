@@ -4,6 +4,7 @@
 
 const WEB3FORMS_CONFIG = {
     ACCESS_KEY: '9074db13-d4be-4e83-ab19-0ff4e500784e'
+
 };
 
 const Validators = {
@@ -146,167 +147,83 @@ async function submitFormToBackend(formElement, formName) {
             }
         }
 
-        // Map form name + current page → a descriptive label
+        // Map form name + current page to a descriptive label
         const PAGE_LABELS = {
-            'index': { general_inquiry: 'Home Page — General Inquiry', site_assessment: 'Home Page — Free Assessment', product_finder: 'Home Page — Product Finder', floating_inquiry: 'Quick Inquiry (Popup)' },
-            'compactor-storage': { general_inquiry: 'Compactor Storage — Inquiry', floating_inquiry: 'Compactor Storage — Quick Inquiry' },
-            'industrial-racks': { general_inquiry: 'Industrial Racks — Inquiry', floating_inquiry: 'Industrial Racks — Quick Inquiry' },
-            'storage-lockers': { general_inquiry: 'Storage Lockers — Inquiry', floating_inquiry: 'Storage Lockers — Quick Inquiry' },
-            'filing-cabinets': { general_inquiry: 'Filing Cabinets — Inquiry', floating_inquiry: 'Filing Cabinets — Quick Inquiry' },
-            'contact': { general_inquiry: 'Contact Page — Inquiry', floating_inquiry: 'Contact Page — Quick Inquiry' },
-            'about': { general_inquiry: 'About Page — Inquiry', floating_inquiry: 'About Page — Quick Inquiry' },
-            'projects': { general_inquiry: 'Projects Page — Inquiry', floating_inquiry: 'Projects Page — Quick Inquiry' },
+            'index':             { general_inquiry: 'Home Page — General Inquiry', site_assessment: 'Home Page — Free Assessment', product_finder: 'Home Page — Product Finder', floating_inquiry: 'Quick Inquiry (Popup)' },
+            'compactor-storage': { general_inquiry: 'Compactor Storage — Inquiry',  floating_inquiry: 'Compactor Storage — Quick Inquiry' },
+            'industrial-racks':  { general_inquiry: 'Industrial Racks — Inquiry',   floating_inquiry: 'Industrial Racks — Quick Inquiry' },
+            'storage-lockers':   { general_inquiry: 'Storage Lockers — Inquiry',    floating_inquiry: 'Storage Lockers — Quick Inquiry' },
+            'filing-cabinets':   { general_inquiry: 'Filing Cabinets — Inquiry',    floating_inquiry: 'Filing Cabinets — Quick Inquiry' },
+            'contact':           { general_inquiry: 'Contact Page — Inquiry',       floating_inquiry: 'Contact Page — Quick Inquiry' },
+            'about':             { general_inquiry: 'About Page — Inquiry',         floating_inquiry: 'About Page — Quick Inquiry' },
+            'projects':          { general_inquiry: 'Projects Page — Inquiry',      floating_inquiry: 'Projects Page — Quick Inquiry' },
         };
 
-        const pagePath = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-        const pageMap = PAGE_LABELS[pagePath] || {};
-        const formLabel = pageMap[formName]
-            || formName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-
-        const subject = `[Space Planners] ${formLabel} — ${fields['name'] || 'Website Visitor'}`;
+        const pagePath    = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        const pageMap     = PAGE_LABELS[pagePath] || {};
+        const formLabel   = pageMap[formName] || formName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        const subject     = `[Space Planners] ${formLabel} — ${fields['name'] || 'Website Visitor'}`;
         const submittedAt = new Date().toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
 
         const FIELD_LABELS = {
-            name: 'Full Name', phone: 'Phone Number', email: 'Email Address',
-            product: 'Product Interest', message: 'Message / Notes', company: 'Company',
-            city: 'City', requirement: 'Requirement', product_interest: 'Product Interest',
-            specific_product: 'Specific Product', category: 'Category',
-            space_size: 'Space Size', budget: 'Budget', timeline: 'Timeline'
+            name:             'Full Name',
+            phone:            'Phone Number',
+            email:            'Email Address',
+            product:          'Product Interest',
+            product_interest: 'Product Interest',
+            specific_product: 'Specific Product',
+            message:          'Message',
+            company:          'Company',
+            city:             'City',
+            requirement:      'Requirement',
+            category:         'Category',
+            space_size:       'Space Size',
+            budget:           'Budget',
+            timeline:         'Timeline',
         };
 
-        // Build field rows HTML
-        const fieldRowsHtml = Object.entries(fields).map(([key, value]) => {
-            const label = FIELD_LABELS[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-            const isMessage = key === 'message';
-            return `
-                <tr>
-                    <td style="padding:10px 16px;background:#f9f9f9;width:160px;vertical-align:top;">
-                        <span style="font-family:Arial,sans-serif;font-size:12px;font-weight:700;color:#888888;text-transform:uppercase;letter-spacing:0.5px;">${label}</span>
-                    </td>
-                    <td style="padding:10px 16px;border-left:3px solid #C41212;${isMessage ? 'white-space:pre-wrap;' : ''}">
-                        <span style="font-family:Arial,sans-serif;font-size:14px;color:#222222;">${value}</span>
-                    </td>
-                </tr>
-                <tr><td colspan="2" style="padding:0;height:1px;background:#eeeeee;"></td></tr>`;
-        }).join('');
+        // Build aligned field lines
+        const PAD      = 20;
+        const DIVIDER  = '  ' + '─'.repeat(50);
 
-        // Build reply buttons
-        const replyButton = fields['email']
-            ? `<a href="mailto:${fields['email']}?subject=Re: Your Enquiry — Space Planners India"
-                  style="display:inline-block;padding:12px 28px;background:#C41212;color:#ffffff;text-decoration:none;
-                         font-family:Arial,sans-serif;font-size:14px;font-weight:700;border-radius:4px;margin-right:12px;">
-                  Reply to ${fields['name'] || 'Lead'}
-               </a>`
-            : '';
+        const fieldLines = Object.entries(fields)
+            .map(([key, value]) => {
+                const label = (FIELD_LABELS[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())).padEnd(PAD);
+                return `  ${label}  ${value}`;
+            })
+            .join('\n');
 
-        const callButton = fields['phone']
-            ? `<a href="tel:${fields['phone']}"
-                  style="display:inline-block;padding:12px 28px;background:#ffffff;color:#C41212;text-decoration:none;
-                         font-family:Arial,sans-serif;font-size:14px;font-weight:700;border-radius:4px;
-                         border:2px solid #C41212;">
-                  Call ${fields['phone']}
-               </a>`
-            : '';
-
-        // Full HTML email template
-        const htmlMessage = `
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
-<body style="margin:0;padding:0;background:#f4f4f4;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;padding:32px 0;">
-    <tr>
-      <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:6px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-
-          <!-- Header -->
-          <tr>
-            <td style="background:#C41212;padding:24px 32px;">
-              <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td>
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#ffffff;letter-spacing:0.5px;">
-                      SPACE PLANNERS INDIA
-                    </p>
-                    <p style="margin:4px 0 0;font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.8);">
-                      New Website Enquiry
-                    </p>
-                  </td>
-                  <td align="right">
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
-                      ${submittedAt}
-                    </p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- Form Label Badge -->
-          <tr>
-            <td style="padding:16px 32px;background:#fafafa;border-bottom:1px solid #eeeeee;">
-              <span style="font-family:Arial,sans-serif;font-size:12px;font-weight:700;color:#C41212;text-transform:uppercase;letter-spacing:1px;">
-                📋 ${formLabel}
-              </span>
-            </td>
-          </tr>
-
-          <!-- Submission Details -->
-          <tr>
-            <td style="padding:24px 32px 8px;">
-              <p style="margin:0 0 16px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#aaaaaa;text-transform:uppercase;letter-spacing:1px;">
-                Submission Details
-              </p>
-              <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eeeeee;border-radius:4px;overflow:hidden;">
-                ${fieldRowsHtml}
-              </table>
-            </td>
-          </tr>
-
-          <!-- Action Buttons -->
-          ${(replyButton || callButton) ? `
-          <tr>
-            <td style="padding:24px 32px;">
-              ${replyButton}${callButton}
-            </td>
-          </tr>` : ''}
-
-          <!-- Footer -->
-          <tr>
-            <td style="padding:20px 32px;background:#f9f9f9;border-top:1px solid #eeeeee;">
-              <p style="margin:0;font-family:Arial,sans-serif;font-size:12px;color:#aaaaaa;">
-                This is an automated notification from
-                <a href="https://spaceplannersindia.in" style="color:#C41212;text-decoration:none;">spaceplannersindia.in</a>.
-                Do not reply to this email directly — use the button above.
-              </p>
-            </td>
-          </tr>
-
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>`;
+        const message = [
+            '',
+            '  SPACE PLANNERS INDIA',
+            '  New Website Enquiry',
+            DIVIDER,
+            `  Form        ${formLabel}`,
+            `  Received    ${submittedAt}`,
+            DIVIDER,
+            '  SUBMISSION DETAILS',
+            DIVIDER,
+            fieldLines,
+            DIVIDER,
+            '  spaceplannersindia.in  |  Automated Notification',
+            '',
+        ].join('\n');
 
         const payload = {
             access_key: WEB3FORMS_CONFIG.ACCESS_KEY,
-            subject: subject,
-            from_name: fields['name'] || 'Website Visitor',
-            html: htmlMessage,
-            botcheck: ''
+            subject:    subject,
+            from_name:  fields['name'] || 'Website Visitor',
+            message:    message,
+            botcheck:   '',
         };
 
-        // Only include replyto if the submitter provided an email
-        if (fields['email']) {
-            payload.replyto = fields['email'];
-        }
+        if (fields['email']) payload.replyto = fields['email'];
 
         console.log('[Web3Forms] Sending submission...');
         const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
+            method:  'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload)
+            body:    JSON.stringify(payload),
         });
 
         const result = await response.json();
@@ -317,6 +234,7 @@ async function submitFormToBackend(formElement, formName) {
             console.error('[Web3Forms] Failed — Status:', response.status, '| Response:', JSON.stringify(result));
             return { success: false };
         }
+
     } catch (error) {
         console.error('[Form] Submission error:', error.message || error);
         return { success: false };
