@@ -441,22 +441,22 @@
                 <script>
                     const slideContent = {
                         0: {
-                            title: "Your Space Is Full.<br> We Fix That.",
+                            title: "Your Space Is Full.<br>We Fix That.",
                         },
                         1: {
-                            title: "Heavy-Duty Racks <br>for Warehousing",
+                            title: "Heavy-Duty Racks<br>for Warehousing",
                         },
                         2: {
-                            title: "Built to Lock.<br> Built to Last",
+                            title: "Built to Lock.<br>Built to Last",
                         },
                         3: {
-                            title: " Filing Systems <br> Built for Order",
+                            title: "Filing Systems<br>Built for Order",
                         }
                     };
 
                     function updateSlideTitle(index) {
                         const content = slideContent[index % 4];
-                        document.getElementById('slideTitle').textContent = content.title;
+                        document.getElementById('slideTitle').innerHTML = content.title;
                         document.getElementById('slideDesc').textContent = content.description;
                         document.querySelector('.slide-eyebrow').textContent = content.eyebrow;
                     }
