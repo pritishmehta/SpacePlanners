@@ -360,8 +360,7 @@
                 const totalW = cw.reduce((a, b) => a + b, 0) + ls * (word.length - 1);
                 let x = W / 2 - totalW / 2;
                 word.forEach((l, i) => {
-                    const yOffset = Math.round(12 * SCALE); // proportional vertical offset
-                    ctx.fillText(l, x, (H / 2) + yOffset);
+                    ctx.fillText(l, x, H / 2);
                     x += cw[i] + (i < word.length - 1 ? ls : 0);
                 });
             }
@@ -377,6 +376,8 @@
                 const pp = easeOut(Math.min(Math.max((e - PLANNERS_DEL) / PLANNERS_DUR, 0), 1));
                 planners.style.maxWidth = lerp(0, PLANNERS_MAX_W, pp) + 'px';
                 planners.style.opacity = Math.min(pp * 2, 1);
+                planners.querySelector('span').style.fontSize = FONT_SZ + 'px';
+                planners.style.transform = 'translateY(0)';
 
                 prog.style.width = Math.min(e / TOTAL, 1) * 100 + '%';
 
@@ -517,8 +518,7 @@
                     <div class="stat-strip-num" data-target="500" data-suffix="+">500<span>+</span></div>
                     <div class="stat-strip-label">Happy Clients</div>
                 </div>
-                <div class="stat-strip-item" data-target="20" data-suffix="+ yrs" data-label="Years Experience"
-                    id="s-years">
+                <div class="stat-strip-item" data-target="20" data-suffix="+ yrs" data-label="Experience" id="s-years">
                     <div class="stat-strip-icon">
                         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -527,9 +527,9 @@
                         </svg>
                     </div>
                     <div class="stat-strip-num" data-target="20" data-suffix="+ yrs">20<span>yrs</span></div>
-                    <div class="stat-strip-label">Years Experience</div>
+                    <div class="stat-strip-label">Experience</div>
                 </div>
-                <div class="stat-strip-item" data-target="50" data-suffix="%" data-label="Avg Space Saved" id="s-space">
+                <div class="stat-strip-item" data-target="75" data-suffix="%" data-label="Avg Space Saved" id="s-space">
                     <div class="stat-strip-icon">
                         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -563,7 +563,7 @@
                         </svg>
                     </div>
                     <div class="stat-strip-num" data-target="100" data-suffix="%">100<span>%</span></div>
-                    <div class="stat-strip-label">Compliance Rate</div>
+                    <div class="stat-strip-label">Compliance</div>
                 </div>
             </div>
         </div>
@@ -1657,7 +1657,9 @@
                         </div>
 
                         <!-- CTA -->
-                            <button class="cta-btn" onclick="closeSectorModal(); openInquiryModal({category:'${data.title}', specificProduct:'Sector Inquiry'})">Get free quote &rarr;</button>
+                        <div class="modal-buttons" style="margin-top: 24px; padding: 16px 0;">
+                            <button class="cta-btn" style="width: 100%; margin: 0;" onclick="closeSectorModal(); openInquiryModal({category:'${data.title}', specificProduct:'Sector Inquiry'})">Get free quote &rarr;</button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -1721,9 +1723,9 @@
             }
         });
     </script>
-    <script src="js/data.js"></script>
+    <script src="js/data.js" defer></script>
     <script src="forms-handler.js"></script>
-    <script src="js/nav-scroll.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
 </body>
 
 

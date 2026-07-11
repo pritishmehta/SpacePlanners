@@ -54,4 +54,36 @@
 
     // Re-initialize when components are dynamically loaded
     document.addEventListener('componentsLoaded', initScrollBehaviour);
+
+    // Carousel Auto-Play and Swipe Support
+    document.addEventListener('DOMContentLoaded', () => {
+        // If carousel functions are defined, initialize timer
+        if (typeof resetTimer === 'function' && typeof updateSlide === 'function') {
+            updateSlide();
+            resetTimer();
+        }
+
+        // Swipe support for all carousel sections
+        const carouselSections = document.querySelectorAll('.carousel-section, .hero-section');
+        carouselSections.forEach(section => {
+            let touchstartX = 0;
+            let touchendX = 0;
+            
+            section.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            
+            section.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+            
+            function handleSwipe() {
+                if (typeof nextSlide === 'function' && typeof prevSlide === 'function' && typeof resetTimer === 'function') {
+                    if (touchendX < touchstartX - 50) { nextSlide(); resetTimer(); }
+                    if (touchendX > touchstartX + 50) { prevSlide(); resetTimer(); }
+                }
+            }
+        });
+    });
 })();

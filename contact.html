@@ -824,33 +824,31 @@
       if (!form) return;
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const name = document.getElementById('cf-name').value.trim();
-        const phone = document.getElementById('cf-phone').value.trim();
-        if (!name || !phone) {
-          showToast('Please enter your name and phone number.', 'error');
-          return;
+        if (typeof validateAll === 'function' && !validateAll(form)) return;
+        
+        const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
+        const originalText = btn ? btn.textContent : '';
+        if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
         }
-        const product = document.getElementById('cf-product').value || 'General inquiry';
-        const city = document.getElementById('cf-city').value.trim() || 'Not specified';
-        const msg = document.getElementById('cf-message').value.trim() || '';
-        const company = document.getElementById('cf-company').value.trim() || '';
-        const email = document.getElementById('cf-email').value.trim() || '';
-        const wa = 'Hello Space Planners India,%0AName: ' + encodeURIComponent(name)
-          + '%0APhone: ' + encodeURIComponent(phone)
-          + (email ? '%0AEmail: ' + encodeURIComponent(email) : '')
-          + (company ? '%0ACompany: ' + encodeURIComponent(company) : '')
-          + '%0ACity: ' + encodeURIComponent(city)
-          + '%0AProduct: ' + encodeURIComponent(product)
-          + (msg ? '%0AMessage: ' + encodeURIComponent(msg) : '');
-        form.style.display = 'none';
-        success.style.display = 'block';
-        setTimeout(function () {
-          window.open('https://wa.me/912240033385?text=' + wa, '_blank');
-        }, 800);
+
+        submitFormToBackend(form, 'general_inquiry').then(result => {
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = originalText;
+            }
+            if (result.success) {
+                form.style.display = 'none';
+                success.style.display = 'block';
+            } else {
+                if (typeof showToast === 'function') showToast('Failed to send. Please try again.', 'error');
+            }
+        });
       });
     })();
   </script>
-  <script src="js/nav-scroll.js"></script>
+  <script src="js/nav-scroll.js" defer></script>
 </body>
 
 </html>
