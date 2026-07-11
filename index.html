@@ -264,7 +264,7 @@
             <div class="main-row">
                 <canvas id="c"></canvas>
                 <div class="word-planners" id="planners" style="font-family: 'Overcame Demo', sans-serif;">
-                    <span>&nbsp;PL<span style="color: #c0392b;">A</span>NNERS</span>
+                    <span>&nbsp;PL<span style="color: #c0392b; font-size: inherit;">A</span>NNERS</span>
                 </div>
             </div>
             <div class="progress-track">
@@ -360,7 +360,7 @@
                 const totalW = cw.reduce((a, b) => a + b, 0) + ls * (word.length - 1);
                 let x = W / 2 - totalW / 2;
                 word.forEach((l, i) => {
-                    ctx.fillText(l, x, H / 2);
+                    ctx.fillText(l, x, H / 2 + 12);
                     x += cw[i] + (i < word.length - 1 ? ls : 0);
                 });
             }
@@ -376,8 +376,11 @@
                 const pp = easeOut(Math.min(Math.max((e - PLANNERS_DEL) / PLANNERS_DUR, 0), 1));
                 planners.style.maxWidth = lerp(0, PLANNERS_MAX_W, pp) + 'px';
                 planners.style.opacity = Math.min(pp * 2, 1);
-                planners.querySelector('span').style.fontSize = FONT_SZ + 'px';
-                planners.style.transform = 'translateY(0)';
+                // Overcame Demo is naturally smaller and has a different baseline than Astro Futuristic.
+                // We apply a multiplier to make it visually the same size, and a translateY to align the baselines.
+                const plannersSize = FONT_SZ * 1.5; // Scale up Overcame Demo
+                planners.querySelector('span').style.fontSize = plannersSize + 'px';
+                planners.style.transform = `translateY(${plannersSize * -0.2}px)`; // Shift up more significantly
 
                 prog.style.width = Math.min(e / TOTAL, 1) * 100 + '%';
 

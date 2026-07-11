@@ -156,7 +156,7 @@
 
     <!-- CASE DETAIL MODAL -->
     <div class="modal" id="caseModal" role="dialog" aria-modal="true">
-        <div class="modal-content product-modal-content">
+        <div class="modal-content">
             <button class="close-btn" onclick="closeCaseModal()">✕</button>
             <div id="caseDetailContent"></div>
         </div>
@@ -339,35 +339,56 @@
         function openCaseModal(indexOrObj) {
             const c = (typeof indexOrObj === 'number') ? window._caseData[indexOrObj] : indexOrObj;
             if (!c) return;
+            
+            // Format results as a list since most cases use them as bullet points
+            const resultsHtml = c.results && c.results.length > 0 ? `
+                <div style="background:var(--bg); border-radius:12px; padding:24px; margin:24px 0;">
+                    <h4 style="font-size:15px; font-weight:700; color:var(--dark); margin-bottom:16px; border-bottom:2px solid rgba(229,57,53,0.2); padding-bottom:8px; display:inline-block;">Key Outcomes</h4>
+                    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+                        ${c.results.map(r => `
+                            <li style="display:flex; gap:12px; align-items:flex-start;">
+                                <div style="color:var(--red); font-size:18px; line-height:1.2;">✓</div>
+                                <div>
+                                    ${r.metric ? `<strong style="color:var(--dark); display:block; margin-bottom:2px;">${r.metric}</strong>` : ''}
+                                    <span style="color:var(--mid); font-size:14px; line-height:1.6;">${r.label}</span>
+                                </div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            ` : '';
+
             document.getElementById('caseDetailContent').innerHTML = `
-    <div style="margin-bottom:24px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <span style="background:var(--red);color:white;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;">${c.industry}</span>
-        <span style="font-size:12px;color:var(--light);">${c.client}</span>
+    <div style="margin-bottom:24px; text-align:center;">
+      <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:16px;">
+        <span style="background:rgba(229,57,53,0.1); color:var(--red); padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">${c.industry}</span>
       </div>
-      <h2 class="modal-title" style="margin-bottom:4px;">${c.title}</h2>
-      <p class="case-study-subtitle" style="margin-bottom:0;">${c.subtitle}</p>
+      <h2 class="modal-title" style="margin-bottom:8px; font-size:1.75rem; line-height:1.3;">${c.title}</h2>
+      <p class="case-study-subtitle" style="margin-bottom:12px; font-size:15px; color:var(--dark); font-weight:600;">${c.client}</p>
+      ${c.subtitle ? `<p style="font-size:14px; color:var(--mid); margin:0;">${c.subtitle}</p>` : ''}
     </div>
 
-    <div class="product-detail-image"><img src="${c.img}" alt="${c.title}" onerror="this.parentElement.style.background='linear-gradient(135deg,#f093fb,#f5576c)'"></div>
-
-    <div style="background:linear-gradient(135deg,rgba(229,57,53,.1),rgba(229,57,53,.05));padding:20px;border-radius:12px;margin:20px 0;border-left:4px solid var(--red);">
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
-        ${c.results.map(r => `
-          <div style="text-align:center;">
-            <div style="font-family:var(--font-serif);font-size:26px;font-weight:800;color:var(--red);margin-bottom:4px;">${r.metric}</div>
-            <div style="font-size:13px;color:var(--mid);font-weight:600;">${r.label}</div>
-          </div>
-        `).join('')}
-      </div>
+    <div class="product-detail-image" style="box-shadow:0 8px 24px rgba(0,0,0,0.06); border-radius:12px; height:240px;">
+        <img src="${c.img}" alt="${c.title}" onerror="this.parentElement.style.background='linear-gradient(135deg,#f093fb,#f5576c)'" style="border-radius:12px;">
     </div>
 
-    <div class="case-study-section" style="margin:20px 0 12px"><p class="case-study-label">The Challenge</p><p class="case-study-text">${c.challenge}</p></div>
-    <div class="case-study-section" style="margin-bottom:12px"><p class="case-study-label">Our Solution</p><p class="case-study-text">${c.solution}</p></div>
+    <div style="margin-top:32px;">
+        <div class="case-study-section" style="margin-bottom:20px;">
+            <p class="case-study-label" style="color:var(--red); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">The Challenge</p>
+            <p class="case-study-text" style="color:var(--mid); line-height:1.7; font-size:15px;">${c.challenge}</p>
+        </div>
+        
+        <div class="case-study-section" style="margin-bottom:20px;">
+            <p class="case-study-label" style="color:var(--red); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Our Solution</p>
+            <p class="case-study-text" style="color:var(--dark); line-height:1.7; font-size:15px; font-weight:500;">${c.solution}</p>
+        </div>
+    </div>
 
-    <div class="modal-buttons">
-      <button class="modal-btn" onclick="closeCaseModal();openInquiryModal({specificProduct:'Similar Project Inquiry'})">Similar Project Inquiry</button>
-      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I want to discuss a similar project','_blank')">WhatsApp</button>
+    ${resultsHtml}
+
+    <div class="modal-buttons" style="margin-top:32px; border-top:1px solid #eee; padding-top:24px;">
+      <button class="modal-btn" onclick="closeCaseModal();openInquiryModal({specificProduct:'Similar Project Inquiry'})" style="flex:1;">Similar Project Inquiry</button>
+      <button class="modal-btn primary" onclick="window.open('https://wa.me/912240033385?text=I want to discuss a similar project','_blank')" style="flex:1;">WhatsApp</button>
     </div>`;
             document.getElementById('caseModal').classList.add('active');
             document.body.style.overflow = 'hidden';
