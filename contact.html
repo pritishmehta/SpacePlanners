@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Space Planners India | Get a Free Quote | Mumbai</title>
   <meta name="description"
-    content="Call +91-22-40033385 or fill the form for a free storage assessment. Space Planners India — Mumbai-based, pan-India delivery since 2004.">
+    content="Call +91-9987733903 or fill the form for a free storage assessment. Space Planners India — Mumbai-based, pan-India delivery since 2004.">
   <meta name="keywords"
     content="contact space planners india, storage solutions quote, mobile compactor inquiry, industrial racks Mumbai, free storage assessment">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -666,19 +666,21 @@
         <div class="contact-card-icon">&#128222;</div>
         <div class="contact-card-title">Call Us Directly</div>
         <div class="contact-card-sub">Speak with a storage expert.<br>Mon&ndash;Sat, 9 AM &ndash; 7 PM IST</div>
-        <a href="tel:+912240033385" class="contact-card-link">+91-22-40033385</a>
+        <a href="tel:+919987733903" class="contact-card-link">+91-9987733903</a>
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">&#9993;</div>
         <div class="contact-card-title">Email Our Team</div>
         <div class="contact-card-sub">We respond within 4 business hours.<br>Detailed quotes over email.</div>
-        <a href="mailto:sales@spaceplannersindia.in" class="contact-card-link">sales@spaceplannersindia.in</a>
+        <a href="mailto:marketing@spaceplannersindia.in" class="contact-card-link">marketing@spaceplannersindia.in</a>
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">&#128172;</div>
         <div class="contact-card-title">WhatsApp Us</div>
         <div class="contact-card-sub">Share photos of your space.<br>Get an instant preliminary quote.</div>
-        <a href="https://wa.me/912240033385" target="_blank" rel="noopener noreferrer" class="contact-card-link">Chat on WhatsApp
+        <a href="https://wa.me/+919987733903" target="_blank" rel="noopener noreferrer" class="contact-card-link">Chat
+          on
+          WhatsApp
           &rarr;</a>
       </div>
     </div>
@@ -696,21 +698,21 @@
           <div class="cf-row">
             <div class="cf-group">
               <label for="cf-name">Your Name *</label>
-              <input type="text" id="cf-name" name="name" placeholder="Rajesh Kumar" required>
+              <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Your Name" required>
             </div>
             <div class="cf-group">
               <label for="cf-phone">Phone Number *</label>
-              <input type="tel" id="cf-phone" name="phone" placeholder="+91 98765 43210" required>
+              <input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="Your Number" required>
             </div>
           </div>
           <div class="cf-row">
             <div class="cf-group">
               <label for="cf-email">Email Address</label>
-              <input type="email" id="cf-email" name="email" placeholder="rajesh@company.com">
+              <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="Your Email">
             </div>
             <div class="cf-group">
               <label for="cf-company">Company / Organisation</label>
-              <input type="text" id="cf-company" name="company" placeholder="XYZ Pvt Ltd">
+              <input type="text" id="cf-company" name="company" autocomplete="organization" placeholder="Your Company">
             </div>
           </div>
           <div class="cf-row">
@@ -728,7 +730,7 @@
             </div>
             <div class="cf-group">
               <label for="cf-city">City</label>
-              <input type="text" id="cf-city" name="city" placeholder="Mumbai, Delhi, Pune...">
+              <input type="text" id="cf-city" name="city" placeholder="Your City">
             </div>
           </div>
           <div class="cf-group">
@@ -764,14 +766,15 @@
           <div class="info-icon">&#128222;</div>
           <div>
             <div class="info-text-label">Sales &amp; Enquiries</div>
-            <div class="info-text-val"><a href="tel:+912240033385">+91-22-40033385</a></div>
+            <div class="info-text-val"><a href="tel:+919987733903">+91-9987733903</a></div>
           </div>
         </div>
         <div class="info-block">
           <div class="info-icon">&#9993;</div>
           <div>
             <div class="info-text-label">Email</div>
-            <div class="info-text-val"><a href="mailto:sales@spaceplannersindia.in">sales@spaceplannersindia.in</a>
+            <div class="info-text-val"><a
+                href="mailto:marketing@spaceplannersindia.in">marketing@spaceplannersindia.in</a>
             </div>
           </div>
         </div>
@@ -808,7 +811,8 @@
     <p>Get a free site assessment + 3D layout design &mdash; no obligation.</p>
     <div class="cta-strip-btns">
       <a href="tel:+912240033385" class="cta-btn-white">&#128222; Call Now</a>
-      <a href="https://wa.me/912240033385" target="_blank" rel="noopener noreferrer" class="cta-btn-outline">&#128172; WhatsApp</a>
+      <a href="https://wa.me/912240033385" target="_blank" rel="noopener noreferrer" class="cta-btn-outline">&#128172;
+        WhatsApp</a>
     </div>
   </section>
 
@@ -825,25 +829,25 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (typeof validateAll === 'function' && !validateAll(form)) return;
-        
+
         const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
         const originalText = btn ? btn.textContent : '';
         if (btn) {
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
         }
 
         submitFormToBackend(form, 'general_inquiry').then(result => {
-            if (btn) {
-                btn.disabled = false;
-                btn.textContent = originalText;
-            }
-            if (result.success) {
-                form.style.display = 'none';
-                success.style.display = 'block';
-            } else {
-                if (typeof showToast === 'function') showToast('Failed to send. Please try again.', 'error');
-            }
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }
+          if (result.success) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+          } else {
+            if (typeof showToast === 'function') showToast('Failed to send. Please try again.', 'error');
+          }
         });
       });
     })();
