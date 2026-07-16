@@ -29,6 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (el) {
+            // If the element already has content (e.g. inlined for performance), skip fetching
+            if (el.innerHTML.trim() !== "") {
+                loadedCount++;
+                if (comp.id === "header-placeholder" || comp.id === "mobile-nav-placeholder") {
+                    setActiveNavLink();
+                }
+                if (loadedCount === components.filter(c => document.getElementById(c.id)).length) {
+                    document.dispatchEvent(new CustomEvent('componentsLoaded'));
+                }
+                return; // Skip the fetch
+            }
+
             fetch(comp.url + cacheBust)
                 .then(response => {
                     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
