@@ -40,13 +40,13 @@ const cases = [
         subtitle: "HIGH-DENSITY LIBRARY STORAGE",
         img: "Library Project.png",
         industry: "Education",
-        client: "IIT Bombay (Powai Campus)",
-        challenge: "IIT Bombay had floated a tender for a mobile compactor storage system, with the original design proposed by another vendor. Space Planners reviewed the tender specifications and identified an opportunity to deliver significantly greater storage efficiency through an improved design.",
-        solution: "We engaged directly with the IIT Bombay authorities to understand their exact storage requirements, then leveraged our design expertise to propose an alternate configuration — one that increased storage capacity by nearly 40% over the original tender design.",
+        client: "Top reputed Technology Institute (Powai Campus)",
+        challenge: "Top reputed Technology Institute had floated a tender for a mobile compactor storage system, with the original design proposed by another vendor. Space Planners reviewed the tender specifications and identified an opportunity to deliver significantly greater storage efficiency through an improved design.",
+        solution: "We engaged directly with the Top reputed Technology Institute authorities to understand their exact storage requirements, then leveraged our design expertise to propose an alternate configuration — one that increased storage capacity by nearly 40% over the original tender design.",
         results: [
-            { metric: "", label: "IIT Bombay was impressed enough to cancel the original tender and issue a fresh one based on our proposed design and specifications" },
+            { metric: "", label: "Top reputed Technology Institute was impressed enough to cancel the original tender and issue a fresh one based on our proposed design and specifications" },
             { metric: "", label: "Space Planners won the re-tendered contract, competing against Godrej and six other vendors — eight participants in total" },
-            { metric: "", label: "The relationship led to repeat business, including additional projects for IIT Bombay as well as IIT Kanpur" }
+            { metric: "", label: "The relationship led to repeat business, including additional projects for Top reputed Technology Institute as well as IIT Kanpur" }
         ]
     },
     {
@@ -55,7 +55,7 @@ const cases = [
         img: "Airpott Project.png",
         industry: "Airport",
         client: "GVK Mumbai International Airport Limited, Santacruz",
-        challenge: "GVK was experiencing persistent movement issues with a mobile compactor system that had been supplied by another reputed vendor. The malfunctioning system was affecting their ability to reliably access stored records.",
+        challenge: "A big corporate company maintaining airports was experiencing persistent movement issues with a mobile compactor system that had been supplied by another reputed vendor. The malfunctioning system was affecting their ability to reliably access stored records.",
         solution: "Our team carried out a thorough on-site inspection and diagnosed the root cause: the base trolleys — the core mechanism of the system — were not adequately designed to handle the load of the stored records. Rather than recommending a costly full replacement, we proposed replacing only the base trolleys with a newly engineered design, while retaining the client's existing superstructure where the files were stored.",
         results: [
             { metric: "", label: "Permanent resolution of the recurring movement issues" },
