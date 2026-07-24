@@ -286,9 +286,8 @@ function submitContactPage(e) {
     handleSubmission(form, 'general_inquiry', () => {
         const successMsg = document.getElementById('cfSuccess');
         if (successMsg) successMsg.style.display = 'block';
-        form.reset();
-        const btn = form.querySelector('button[type="submit"]');
-        if (btn) btn.style.display = 'none';
+        form.style.display = 'none';
+        if (typeof showToast === 'function') showToast('Thank you! Message sent successfully.', 'success');
     });
 }
 

@@ -833,37 +833,7 @@
     <div id="footer-placeholder"></div>
   </footer>
 
-  <script>
-    (function () {
-      const form = document.getElementById('contactPageForm');
-      const success = document.getElementById('cfSuccess');
-      if (!form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (typeof validateAll === 'function' && !validateAll(form)) return;
-
-        const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
-        const originalText = btn ? btn.textContent : '';
-        if (btn) {
-          btn.disabled = true;
-          btn.textContent = 'Sending...';
-        }
-
-        submitFormToBackend(form, 'general_inquiry').then(result => {
-          if (btn) {
-            btn.disabled = false;
-            btn.textContent = originalText;
-          }
-          if (result.success) {
-            form.style.display = 'none';
-            success.style.display = 'block';
-          } else {
-            if (typeof showToast === 'function') showToast('Failed to send. Please try again.', 'error');
-          }
-        });
-      });
-    })();
-  </script>
+  <script src="forms-handler.js"></script>
   <script src="js/nav-scroll.js" defer></script>
 </body>
 

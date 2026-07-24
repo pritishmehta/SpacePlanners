@@ -1,4 +1,5 @@
-# SPACE PLANNERS INDIA - SECURITY HEADERS
+# SPACE PLANNERS INDIA - ERROR DOCUMENTS & SECURITY HEADERS
+ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
 # Prevent clickjacking
