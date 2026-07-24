@@ -1,29 +1,40 @@
-# robots.txt for Space Planners India
-# ===== SEARCH ENGINE CRAWLING CONFIGURATION =====
-
-# Standard crawling rules for all bots
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-# Google-specific optimization
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
-# Bing
 User-agent: Bingbot
 Allow: /
 
-# Primary sitemap for organic discovery
-Sitemap: https://spaceplannersindia.in/sitemap.xml
+User-agent: ClaudeBot
+Allow: /
 
-# Mobile optimization signals
-# Note: Add mobile-specific sitemap if deploying separate mobile version
+User-agent: Google-Extended
+Allow: /
 
-# Social media crawlers (allow for preview optimization)
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
 User-agent: facebookexternalhit
+Allow: /
+
 User-agent: Twitterbot
+Allow: /
+
 User-agent: LinkedInBot
 Allow: /
+
+Sitemap: https://spaceplannersindia.in/sitemap.xml

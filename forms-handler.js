@@ -46,7 +46,8 @@ function initAllForms() {
         { id: 'multiStepForm', handler: submitInquiry },
         { id: 'product-finder-form', handler: submitProductFinder },
         { id: 'assessmentForm', handler: submitAssessment },
-        { id: 'floatInquiryForm', handler: submitPopupInquiry }
+        { id: 'floatInquiryForm', handler: submitPopupInquiry },
+        { id: 'contactPageForm', handler: submitContactPage }
     ];
 
     forms.forEach(f => {
@@ -274,6 +275,20 @@ function submitPopupInquiry(e) {
         const popup = document.getElementById('floatPopup');
         if (popup) popup.classList.remove('show');
         form.reset();
+    });
+}
+
+function submitContactPage(e) {
+    e.preventDefault();
+    const form = e.target;
+    if (!validateAll(form)) return;
+
+    handleSubmission(form, 'general_inquiry', () => {
+        const successMsg = document.getElementById('cfSuccess');
+        if (successMsg) successMsg.style.display = 'block';
+        form.reset();
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.style.display = 'none';
     });
 }
 
