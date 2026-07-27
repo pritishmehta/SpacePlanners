@@ -79,7 +79,7 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
     </noscript>
-    <link rel="preload" href="Compactors/Document Storage.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="Compactors/document-storage.webp" as="image" fetchpriority="high">
     <link rel="preload" as="style" href="style.css">
     <link rel="stylesheet" href="style.css">
     <script src="js/load-components.js?v=2" defer></script>
@@ -98,15 +98,26 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://spaceplannersindia.in/#organization",
       "name": "Space Planners India",
-      "url": "https://spaceplannersindia.in",
-      "image": "https://spaceplannersindia.in/logo.png",
-      "description": "India's leading manufacturer of mobile compactors, industrial racks, and premium storage solutions since 2004",
+      "legalName": "Space Planners India",
+      "url": "https://spaceplannersindia.in/",
+      "logo": "https://spaceplannersindia.in/space-planners-logo-black-bg.png",
+      "image": [
+        "https://spaceplannersindia.in/space-planners-logo-black-bg.png",
+        "https://spaceplannersindia.in/Compactors/document-storage.webp"
+      ],
+      "description": "India's leading manufacturer of mobile compactors, industrial racks, storage lockers, and filing cabinets since 2004",
       "foundingDate": "2004",
+      "telephone": "022 4003 3385/86",
+      "email": "sales@spaceplannersindia.in",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Mumbai, Maharashtra",
+        "streetAddress": "307, 3rd Floor, Commercial Wing, Dattani Prism 2, SV Rd, opp. Fire Station, Malad West",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400064",
         "addressCountry": "IN"
       },
       "contactPoint": [
@@ -120,29 +131,10 @@
         }
       ],
       "sameAs": [
-        "https://www.linkedin.com/company/space-planners-india",
-        "https://www.facebook.com/space-planners-india",
-        "https://www.youtube.com/@spaceplannersindia"
-      ]
-    }
-    </script>
-
-    <!-- LocalBusiness Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Space Planners India",
-      "@id": "https://spaceplannersindia.in",
-      "url": "https://spaceplannersindia.in",
-      "telephone": "022 4003 3385/86",
-      "email": "sales@spaceplannersindia.in",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Mumbai, Maharashtra",
-        "postalCode": "400000",
-        "addressCountry": "IN"
-      },
+        "https://www.linkedin.com/company/spaceplannersindia",
+        "https://www.facebook.com/spaceplannersindia"
+      ],
+      "priceRange": "₹₹₹",
       "areaServed": [
         { "@type": "City", "name": "Mumbai" },
         { "@type": "City", "name": "Delhi NCR" },
@@ -152,40 +144,6 @@
         { "@type": "City", "name": "Hyderabad" },
         { "@type": "City", "name": "Ahmedabad" },
         { "@type": "Country", "name": "India" }
-      ],
-      "priceRange": "₹₹₹",
-      "image": "https://spaceplannersindia.in/office-image.jpg",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Monday",
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Tuesday",
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Wednesday",
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Thursday",
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Friday",
-          "opens": "09:00",
-          "closes": "18:00"
-        }
       ]
     }
     </script>

@@ -66,7 +66,41 @@
 <body>
 
     <div id="mobile-nav-placeholder"></div>
-    <header id="header-placeholder"></header>
+    <header id="header-placeholder">
+      <div class="header-main">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Space Planners India">
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li class="has-dropdown">
+              <a href="index.html#products">PRODUCTS <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg></a>
+              <ul class="nav-dropdown">
+                <li><a href="compactor-storage.html">Compactor Storage System</a></li>
+                <li><a href="industrial-racks.html">Industrial Racks</a></li>
+                <li><a href="storage-lockers.html">Storage Lockers</a></li>
+                <li><a href="filing-cabinets.html">Storage Cabinets & Cupboards</a></li>
+              </ul>
+            </li>
+            <li><a href="index.html#sectors">INDUSTRIAL APPLICATIONS</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="contact.html" class="btn-call">Contact Us</a>
+          <button class="btn-primary" onclick="openInquiryModal()">Get Free Quote</button>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Menu Toggle" aria-expanded="false"
+            onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
     <div id="floating-buttons-placeholder"></div>
     <div id="modals-placeholder"></div>
     <div id="toast-container"></div>
@@ -103,7 +137,49 @@
         </div>
     </main>
 
-    <footer id="footer-placeholder"></footer>
+  <footer id="footer-placeholder">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-footer" style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="space-planners-logo-black-bg.png" alt="Space Planners India" style="width: 50%;height: 50%;">
+        </div>
+        <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across every major city.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="compactor-storage.html">Compactor Storage System</a></li>
+          <li><a href="industrial-racks.html">Industrial Racks</a></li>
+          <li><a href="storage-lockers.html">Storage Lockers</a></li>
+          <li><a href="filing-cabinets.html">Storage Cabinets & Cupboards</a></li>
+          <li><a href="industrial-racks.html">Mezzanine Systems</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Case Studies & Projects</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Legal Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>📍 307, 3rd Floor, Commercial Wing, Dattani Prism 2, SV Rd, opp. Fire Station, Malad West, Mumbai, Maharashtra 400064</li>
+          <li>📞 <a href="tel:02240033385">022 4003 3385</a> / <a href="tel:02240033386">86</a></li>
+          <li>📱 <a href="tel:+919821034444">+91 98210 34444</a></li>
+          <li>✉️ <a href="mailto:sales@spaceplannersindia.in">sales@spaceplannersindia.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Space Planners India. All Rights Reserved.</p>
+    </div>
+  </footer>
     <script src="forms-handler.js"></script>
     <script src="js/nav-scroll.js" defer></script>
 </body>

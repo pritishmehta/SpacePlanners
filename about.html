@@ -69,24 +69,29 @@
     </script>
 
     <!-- ===== STRUCTURED DATA (JSON-LD SCHEMA) ===== -->
-    <!-- Organization Schema with Company Details -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://spaceplannersindia.in/#organization",
       "name": "Space Planners India",
-      "url": "https://spaceplannersindia.in",
-      "image": "https://spaceplannersindia.in/logo.png",
-      "description": "India's leading manufacturer of mobile compactors and industrial storage solutions",
+      "legalName": "Space Planners India",
+      "url": "https://spaceplannersindia.in/",
+      "logo": "https://spaceplannersindia.in/space-planners-logo-black-bg.png",
+      "image": [
+        "https://spaceplannersindia.in/space-planners-logo-black-bg.png",
+        "https://spaceplannersindia.in/Compactors/document-storage.webp"
+      ],
+      "description": "India's leading manufacturer of mobile compactors, industrial racks, storage lockers, and filing cabinets since 2004",
       "foundingDate": "2004",
-      "foundingLocation": "Mumbai, India",
-      "numberOfEmployees": {
-        "@type": "QuantitativeValue",
-        "value": "100+"
-      },
+      "telephone": "022 4003 3385/86",
+      "email": "sales@spaceplannersindia.in",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Mumbai, Maharashtra",
+        "streetAddress": "307, 3rd Floor, Commercial Wing, Dattani Prism 2, SV Rd, opp. Fire Station, Malad West",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400064",
         "addressCountry": "IN"
       },
       "contactPoint": [
@@ -95,14 +100,15 @@
           "telephone": "022 4003 3385/86",
           "contactType": "Sales",
           "email": "sales@spaceplannersindia.in",
-          "areaServed": "IN"
+          "areaServed": "IN",
+          "availableLanguage": "en"
         }
       ],
       "sameAs": [
-        "https://www.linkedin.com/company/space-planners-india",
-        "https://www.facebook.com/space-planners-india",
-        "https://www.youtube.com/@spaceplannersindia"
+        "https://www.linkedin.com/company/spaceplannersindia",
+        "https://www.facebook.com/spaceplannersindia"
       ],
+      "priceRange": "₹₹₹",
       "award": [
         "ISO 9001:2015 Certified",
         "GMP Compliant Manufacturing",
@@ -111,34 +117,40 @@
     }
     </script>
 
-    <!-- LocalBusiness Schema with Client Testimonials -->
+    <!-- Person Schema (Leadership) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Space Planners India",
-      "@id": "https://spaceplannersindia.in",
-      "url": "https://spaceplannersindia.in",
-      "image": "https://spaceplannersindia.in/company-img.jpg",
-      "description": "20+ years manufacturing premium storage solutions. 2000+ installations, 500+ corporate clients",
-      "telephone": "022 4003 3385/86",
-      "email": "sales@spaceplannersindia.in",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Mumbai, Maharashtra",
-        "addressCountry": "IN"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://spaceplannersindia.in/about.html#pawan-sehgal",
+        "name": "Pawan Sehgal",
+        "jobTitle": "Founder & Managing Director",
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://spaceplannersindia.in/#organization"
+        },
+        "description": "Founder & Managing Director of Space Planners India with 20+ years expertise in industrial storage engineering and high-density mobile compactor manufacturing.",
+        "sameAs": [
+          "https://www.linkedin.com/company/spaceplannersindia"
+        ]
       },
-      "areaServed": {
-        "@type": "Country",
-        "name": "India"
-      },
-      "priceRange": "₹₹₹",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "150"
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://spaceplannersindia.in/about.html#mukesh-sehgal",
+        "name": "Mukesh Sehgal",
+        "jobTitle": "Technical Director",
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://spaceplannersindia.in/#organization"
+        },
+        "description": "Technical Director at Space Planners India, leading engineering design, quality control, and ISO 9001 / GMP compliance for industrial racking and compactors.",
+        "sameAs": [
+          "https://www.linkedin.com/company/spaceplannersindia"
+        ]
       }
-    }
+    ]
     </script>
 
     <!-- BreadcrumbList Schema -->
@@ -271,7 +283,41 @@
 <body>
 
     <div id="mobile-nav-placeholder"></div>
-    <header id="header-placeholder"></header>
+    <header id="header-placeholder">
+      <div class="header-main">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Space Planners India">
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li class="has-dropdown">
+              <a href="index.html#products">PRODUCTS <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg></a>
+              <ul class="nav-dropdown">
+                <li><a href="compactor-storage.html">Compactor Storage System</a></li>
+                <li><a href="industrial-racks.html">Industrial Racks</a></li>
+                <li><a href="storage-lockers.html">Storage Lockers</a></li>
+                <li><a href="filing-cabinets.html">Storage Cabinets & Cupboards</a></li>
+              </ul>
+            </li>
+            <li><a href="index.html#sectors">INDUSTRIAL APPLICATIONS</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="contact.html" class="btn-call">Contact Us</a>
+          <button class="btn-primary" onclick="openInquiryModal()">Get Free Quote</button>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Menu Toggle" aria-expanded="false"
+            onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
     <div id="floating-buttons-placeholder"></div>
     <div id="modals-placeholder"></div>
 
@@ -491,16 +537,27 @@
                             <div class="accent-line"></div>
                         </div>
                         <div class="team-grid">
-                            <div class="team-card reveal">
-                                <div class="team-avatar">PS</div>
-                                <div class="team-name">Pawan Sehgal</div>
-                                <div class="team-role">Founder &amp; Managing Director</div>
+                            <div class="team-card reveal" style="padding: 28px; text-align: left; background: #fff; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
+                                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                                    <div class="team-avatar" style="width: 54px; height: 54px; border-radius: 50%; background: var(--red); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px;">PS</div>
+                                    <div>
+                                        <div class="team-name" style="font-size: 20px; font-weight: 700; color: var(--dark);">Pawan Sehgal</div>
+                                        <div class="team-role" style="color: var(--red); font-weight: 600; font-size: 14px;">Founder &amp; Managing Director</div>
+                                    </div>
+                                </div>
+                                <p style="color: var(--mid); font-size: 14px; line-height: 1.6; margin: 0 0 16px;">Pawan Sehgal founded Space Planners India in 2004 with a vision to revolutionize high-density storage and industrial space management. With over 20+ years of operational leadership, he has spearheaded 2,000+ custom installations across India's premier enterprise, healthcare, and government organizations.</p>
+                                <a href="https://www.linkedin.com/company/spaceplannersindia" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #0077b5; font-weight: 600; text-decoration: none;">View Profile on LinkedIn &rarr;</a>
                             </div>
-                            <div class="team-card reveal delay-1">
-                                <div class="team-avatar">MS</div>
-                                <div class="team-name">Mukesh Sehgal</div>
-                                <div class="team-role">Technical Director</div>
-
+                            <div class="team-card reveal delay-1" style="padding: 28px; text-align: left; background: #fff; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
+                                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                                    <div class="team-avatar" style="width: 54px; height: 54px; border-radius: 50%; background: var(--red); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px;">MS</div>
+                                    <div>
+                                        <div class="team-name" style="font-size: 20px; font-weight: 700; color: var(--dark);">Mukesh Sehgal</div>
+                                        <div class="team-role" style="color: var(--red); font-weight: 600; font-size: 14px;">Technical Director</div>
+                                    </div>
+                                </div>
+                                <p style="color: var(--mid); font-size: 14px; line-height: 1.6; margin: 0 0 16px;">Mukesh Sehgal oversees product engineering, manufacturing precision, and quality control at Space Planners India. He leads the design of ISO 9001:2015 certified mobile compactors and heavy-duty structural racking systems, ensuring compliance with NABH and GMP standards.</p>
+                                <a href="https://www.linkedin.com/company/spaceplannersindia" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #0077b5; font-weight: 600; text-decoration: none;">View Profile on LinkedIn &rarr;</a>
                             </div>
                         </div>
                     </div><!-- /section-team -->
@@ -584,7 +641,49 @@
         </script>
     </section>
 
-    <footer id="footer-placeholder"></footer>
+  <footer id="footer-placeholder">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-footer" style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="space-planners-logo-black-bg.png" alt="Space Planners India" style="width: 50%;height: 50%;">
+        </div>
+        <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across every major city.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="compactor-storage.html">Compactor Storage System</a></li>
+          <li><a href="industrial-racks.html">Industrial Racks</a></li>
+          <li><a href="storage-lockers.html">Storage Lockers</a></li>
+          <li><a href="filing-cabinets.html">Storage Cabinets & Cupboards</a></li>
+          <li><a href="industrial-racks.html">Mezzanine Systems</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Case Studies & Projects</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Legal Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>📍 307, 3rd Floor, Commercial Wing, Dattani Prism 2, SV Rd, opp. Fire Station, Malad West, Mumbai, Maharashtra 400064</li>
+          <li>📞 <a href="tel:02240033385">022 4003 3385</a> / <a href="tel:02240033386">86</a></li>
+          <li>📱 <a href="tel:+919821034444">+91 98210 34444</a></li>
+          <li>✉️ <a href="mailto:sales@spaceplannersindia.in">sales@spaceplannersindia.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Space Planners India. All Rights Reserved.</p>
+    </div>
+  </footer>
 
     <script src="forms-handler.js"></script>
     <script>
