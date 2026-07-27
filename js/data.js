@@ -24,7 +24,7 @@ const cases = [
     {
         title: " Heavy-Duty Compactor Storage for a Leading FMCG Manufacturer",
         subtitle: "SECURE RAW MATERIAL STORAGE",
-        img: "FMCG Project.webp",
+        img: "fmcg-project.webp",
         industry: "Heavy-Duty Compactor Storage System",
         client: "A reputed multinational FMCG company",
         challenge: "The client stored raw materials for soap manufacturing in 50 kg gunny bags on regular fixed racks. This conventional storage method consumed excessive floor space and limited how much material could be held in the warehouse at any given time.",
@@ -38,7 +38,7 @@ const cases = [
     {
         title: "Mobile Compactor Storage System for India's Leading Engineering Institute's Library",
         subtitle: "HIGH-DENSITY LIBRARY STORAGE",
-        img: "Library Project.webp",
+        img: "library-project.webp",
         industry: "Education",
         client: "Top reputed Technology Institute (Powai Campus)",
         challenge: "Top reputed Technology Institute had floated a tender for a mobile compactor storage system, with the original design proposed by another vendor. Space Planners reviewed the tender specifications and identified an opportunity to deliver significantly greater storage efficiency through an improved design.",
@@ -52,7 +52,7 @@ const cases = [
     {
         title: "Mobile Compactor Modification for one of the Largest Airport in India",
         subtitle: "RESOLVING MOVEMENT ISSUES IN AN EXISTING SYSTEM",
-        img: "Airpott Project.webp",
+        img: "airport-project.webp",
         industry: "Airport",
         client: "GVK Mumbai International Airport Limited, Santacruz",
         challenge: "A big corporate company maintaining airports was experiencing persistent movement issues with a mobile compactor system that had been supplied by another reputed vendor. The malfunctioning system was affecting their ability to reliably access stored records.",
