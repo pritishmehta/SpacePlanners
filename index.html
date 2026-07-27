@@ -397,22 +397,28 @@
                 animId = requestAnimationFrame(tick);
             }
 
+            function hidePreloader() {
+                if (loader && !loader.classList.contains('hidden')) {
+                    loader.classList.add('hidden');
+                    document.body.classList.remove('preloader-active');
+                }
+            }
+
             // Handle preloader fade-out
             window.addEventListener('load', function () {
                 if (loader) {
-                    // Start the animation and fade-out after it finishes
                     Promise.race([
                         document.fonts.ready,
-                        new Promise(resolve => setTimeout(resolve, 3000))
+                        new Promise(resolve => setTimeout(resolve, 1500))
                     ]).then(() => {
                         start();
-                        setTimeout(() => {
-                            loader.classList.add('hidden');
-                            document.body.classList.remove('preloader-active');
-                        }, TOTAL + 400); // Wait for animation + small delay
+                        setTimeout(hidePreloader, TOTAL + 400);
                     });
                 }
             });
+
+            // Guaranteed safety fallback: Force hide preloader after 2.5 seconds under all conditions
+            setTimeout(hidePreloader, 2500);
         })();
     </script>
     <header id="header-placeholder">
