@@ -6807,3 +6807,45 @@ header.scrolled {
   display: inline-block;
   min-width: 80px;
 }
+
+/* ==============================================
+   MOBILE-ONLY CORE WEB VITALS (CLS & SI) FIXES
+   Strictly scoped to screens <= 768px
+============================================== */
+@media (max-width: 768px) {
+  #header-placeholder {
+    min-height: 70px;
+    display: block;
+    contain: layout style;
+  }
+
+  .carousel-container,
+  .hero-section {
+    min-height: 280px;
+    max-height: 60vh;
+    aspect-ratio: 4 / 3;
+    contain: layout style;
+  }
+
+  .carousel-slide img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Mobile Speed Index Paint Acceleration */
+  .why-us-section,
+  .sectors-section,
+  .results-highlight-section,
+  .testimonials-section,
+  #footer-placeholder {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
