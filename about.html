@@ -107,7 +107,7 @@
       ],
       "sameAs": [
         "https://www.linkedin.com/company/spaceplannersindia",
-        "https://www.facebook.com/spaceplannersindia"
+        "https://www.instagram.com/spaceplanners.india/"
       ],
       "priceRange": "₹₹₹",
       "award": [
@@ -283,7 +283,34 @@
 
 <body>
 
-    <div id="mobile-nav-placeholder"></div>
+    <div id="mobile-nav-placeholder">
+        <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="logo"><img src="logo.png" alt="Space Planners" style="height: 50px; display: block;"></a>
+                <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+            </div>
+            <ul style="text-transform: uppercase;">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li>
+                    <a href="index.html#products" style="justify-content:space-between">PRODUCTS <span>▾</span></a>
+                    <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0; text-transform: none;">
+                        <li><a href="compactor-storage.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Compactor storage system</a></li>
+                        <li><a href="industrial-racks.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Industrial racks</a></li>
+                        <li><a href="storage-lockers.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Storage lockers</a></li>
+                        <li><a href="filing-cabinets.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Storage cabinets & cupboards</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#sectors">INDUSTRIAL APPLICATIONS</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="tel:02240033385" class="btn-call">📞 022 4003 3385/86</a>
+                <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
+            </div>
+        </div>
+    </div>
     <header id="header-placeholder">
       <div class="header-main">
         <a href="index.html" class="logo">

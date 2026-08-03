@@ -117,7 +117,7 @@
     ],
     "sameAs": [
       "https://www.linkedin.com/company/spaceplannersindia",
-      "https://www.facebook.com/spaceplannersindia"
+      "https://www.instagram.com/spaceplanners.india/"
     ],
     "priceRange": "₹₹₹",
     "areaServed": [
@@ -190,46 +190,57 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What products does Space Planners India offer?",
+          "name": "What filing cabinet styles and locking options are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We offer a comprehensive range including mobile compactors, industrial racks, pallet racks, slotted angle racks, storage lockers, filing cabinets, storage cupboards, and mezzanine floor systems — all manufactured in-house."
+            "text": "We manufacture vertical drawer filing cabinets, lateral drawer units, sliding door cupboards, glass door cabinets, and Storewell cupboards equipped with centralized key locking systems."
           }
         },
         {
           "@type": "Question",
-          "name": "Are your products suitable for industrial and heavy-duty use?",
+          "name": "Are your filing cupboards suitable for heavy document archival?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. All our racks and storage systems are engineered for industrial applications with load capacities up to 10 tons. They use galvanized, rust-resistant steel and comply with relevant safety standards."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide installation services across India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. We have installation teams covering all major cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and Ahmedabad. Installation includes safety compliance checks."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can your storage solutions be customized to our space?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes — customization is our strength. We offer free on-site space assessments, 3D layout designs, and fully tailored systems to match your dimensions, compliance needs, and budget."
+            "text": "Yes. Built from prime cold-rolled steel with reinforced internal framing and anti-tilt drawer mechanisms, our cabinets support high-density legal and architectural document filing."
           }
         }
       ]
     }
-    </script>
+  </script>
 </head>
 
 <body>
 
 
 
-  <div id="mobile-nav-placeholder"></div>
+  <div id="mobile-nav-placeholder">
+    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-header">
+        <a href="index.html" class="logo"><img src="logo.png" alt="Space Planners" style="height: 50px; display: block;"></a>
+        <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+      </div>
+      <ul style="text-transform: uppercase;">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li>
+          <a href="index.html#products" style="justify-content:space-between">PRODUCTS <span>▾</span></a>
+          <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0; text-transform: none;">
+            <li><a href="compactor-storage.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Compactor storage system</a></li>
+            <li><a href="industrial-racks.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Industrial racks</a></li>
+            <li><a href="storage-lockers.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Storage lockers</a></li>
+            <li><a href="filing-cabinets.html" style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Storage cabinets & cupboards</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#sectors">INDUSTRIAL APPLICATIONS</a></li>
+        <li><a href="projects.html">PROJECTS</a></li>
+      </ul>
+      <div class="mobile-nav-footer">
+        <a href="tel:02240033385" class="btn-call">📞 022 4003 3385/86</a>
+        <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
+      </div>
+    </div>
+  </div>
 
   <header id="header-placeholder">
     <div class="header-main">
@@ -612,6 +623,41 @@
 
     <!-- 4. CLIENT LOGOS -->
     <div id="client-logos-placeholder"></div>
+
+    <!-- SPECIFICATIONS TABLE SECTION -->
+    <section class="section" style="background:#fff; padding:60px 20px;">
+      <div style="max-width:1200px; margin:0 auto;">
+        <h2 style="font-size:28px; margin-bottom:20px; text-align:center;">Cabinet Specifications</h2>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; background:#fdfdfd; border:1px solid #e0e0e0; font-size:15px;">
+            <thead>
+              <tr style="background:#1a1a1a; color:#fff; text-align:left;">
+                <th style="padding:14px 18px; border:1px solid #333;">Cabinet Style</th>
+                <th style="padding:14px 18px; border:1px solid #333;">Filing Capacity / Drawers</th>
+                <th style="padding:14px 18px; border:1px solid #333;">Material & Security</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0; font-weight:600;">Vertical Office Filing Cabinet</td>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0;">2, 3, or 4 Drawers (Foolscap / A4)</td>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0;">Anti-Tilt Mechanism / Central Lock</td>
+              </tr>
+              <tr style="background:#f9f9f9;">
+                <td style="padding:12px 18px; border:1px solid #e0e0e0; font-weight:600;">Sliding & Glass Door Storewell</td>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0;">4 to 5 Adjustable Steel Shelves</td>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0;">Prime CRCA Steel / 3-Point Lock</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0; font-weight:600;">Pigeon Hole & Poster Drawers</td>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0;">12 to 24 Modular Compartments</td>
+                <td style="padding:12px 18px; border:1px solid #e0e0e0;">Heavy Gauge Steel / Powder Coated</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
     <!-- ══════════════════════════════════════════════
          FAQ SECTION
