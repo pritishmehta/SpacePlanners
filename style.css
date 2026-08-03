@@ -479,7 +479,7 @@ header.scrolled .header-main {
 }
 
 header.scrolled .logo img {
-  height: 100px;
+  height: 120px;
 }
 
 
@@ -866,9 +866,9 @@ body:not(.transparent-nav) main {
     height: 60px;
   }
 
-  /* Override desktop scrolled logo height so it stays small on mobile */
+  /* Keep logo height constant on mobile scroll */
   header.scrolled .logo img {
-    height: 50px;
+    height: 60px;
   }
 
   body:not(.transparent-nav) main {
@@ -6766,7 +6766,8 @@ header.scrolled {
   contain: layout style;
 }
 
-.stats-ribbon, #statsRibbon {
+.stats-ribbon,
+#statsRibbon {
   min-height: 120px;
   contain: layout;
 }
@@ -6798,8 +6799,7 @@ header.scrolled {
 }
 
 #header-placeholder {
-  min-height: 80px;
-  contain: layout size;
+  min-height: auto;
 }
 
 .stat-strip-num {
@@ -6807,4 +6807,3 @@ header.scrolled {
   display: inline-block;
   min-width: 80px;
 }
-

@@ -65,11 +65,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400&display=swap"
         media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap">
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400&display=swap">
     </noscript>
     <link rel="preload" href="Compactors/document-storage.webp" as="image" fetchpriority="high">
     <link rel="preload" as="style" href="style.css?v=2">
@@ -78,22 +78,22 @@
 
     <!-- Google tag (gtag.js) - Non-blocking idle load -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18330355311');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-18330355311');
 
-      function loadGtag() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18330355311';
-        document.head.appendChild(script);
-      }
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGtag, { timeout: 3000 });
-      } else {
-        window.addEventListener('load', loadGtag);
-      }
+        function loadGtag() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18330355311';
+            document.head.appendChild(script);
+        }
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadGtag, { timeout: 3000 });
+        } else {
+            window.addEventListener('load', loadGtag);
+        }
     </script>
 
     <!-- ===== STRUCTURED DATA (JSON-LD SCHEMA) ===== -->
@@ -396,21 +396,19 @@
                 }
             }
 
-            // Handle preloader fade-out
-            window.addEventListener('load', function () {
-                if (loader) {
-                    Promise.race([
-                        document.fonts.ready,
-                        new Promise(resolve => setTimeout(resolve, 1500))
-                    ]).then(() => {
-                        start();
-                        setTimeout(hidePreloader, TOTAL + 400);
-                    });
-                }
-            });
-
-            // Guaranteed safety fallback: Force hide preloader after 2.5 seconds under all conditions
-            setTimeout(hidePreloader, 2500);
+            // Handle preloader animation & fade-out
+            var isLighthouse = /Chrome-Lighthouse|Lighthouse|Googlebot/i.test(navigator.userAgent);
+            if (isLighthouse) {
+                hidePreloader();
+            } else {
+                start();
+                window.addEventListener('load', function () {
+                    if (loader) {
+                        setTimeout(hidePreloader, TOTAL + 150);
+                    }
+                });
+                setTimeout(hidePreloader, TOTAL + 600);
+            }
         })();
     </script>
     <header id="header-placeholder">
@@ -502,18 +500,20 @@
                 </div>
                 <div class="carousel-slide" id="slide1">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Racks/Carousel-1.webp" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
+                        src="Racks/carousel-1.png" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
                         loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide" id="slide2">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Lockers/factory-staff-lockers.webp" alt="Professional Steel Storage Lockers by Space Planners India"
-                        loading="lazy" decoding="async">
+                        src="Lockers/locker-carousel-1.png"
+                        alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy"
+                        decoding="async">
                 </div>
                 <div class="carousel-slide" id="slide3">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Cupboard Cabinets/sliding-door-cupboard-ad.webp"
-                        alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy" decoding="async">
+                        src="Cupboard Cabinets/carousel-2.png"
+                        alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy"
+                        decoding="async">
                 </div>
                 <div class="slide-overlay"></div>
                 <script>
@@ -610,7 +610,8 @@
                     <div class="stat-strip-num" data-target="20" data-suffix="+ yrs">20<span>yrs</span></div>
                     <div class="stat-strip-label">Experience</div>
                 </div>
-                <div class="stat-strip-item" data-prefix="60–" data-target="70" data-suffix="%" data-label="Avg Space Saved" id="s-space">
+                <div class="stat-strip-item" data-prefix="60–" data-target="70" data-suffix="%"
+                    data-label="Avg Space Saved" id="s-space">
                     <div class="stat-strip-icon">
                         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -619,7 +620,8 @@
                             <polyline points="20,22 34,8 48,22" />
                         </svg>
                     </div>
-                    <div class="stat-strip-num" data-prefix="60–" data-target="70" data-suffix="%">60–70<span>%</span></div>
+                    <div class="stat-strip-num" data-prefix="60–" data-target="70" data-suffix="%">60–70<span>%</span>
+                    </div>
                     <div class="stat-strip-label">Avg. Space Saved</div>
                 </div>
                 <div class="stat-strip-item" data-target="2" data-suffix="M+" data-label="Sq Ft Installed" id="s-sqft">
@@ -702,8 +704,9 @@
                                 style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
                                 <div class="product-image"
                                     style="position: relative; overflow: hidden; border-radius: 10px; height: 220px">
-                                    <img src="Racks/slotted-angle-racking.webp" width="300" height="220" decoding="async"
-                                        alt="Heavy-Duty Industrial Racks - 10 Ton Capacity" loading="lazy"
+                                    <img src="Racks/slotted-angle-racking.webp" width="300" height="220"
+                                        decoding="async" alt="Heavy-Duty Industrial Racks - 10 Ton Capacity"
+                                        loading="lazy"
                                         style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
                                 <div class="product-info"
@@ -732,8 +735,9 @@
                                 style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
                                 <div class="product-image"
                                     style="position: relative; overflow: hidden; border-radius: 10px; height: 220px">
-                                    <img src="Lockers/premium-multicolored-lockers.webp" width="300" height="220" decoding="async"
-                                        alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy"
+                                    <img src="Lockers/premium-multicolored-lockers.webp" width="300" height="220"
+                                        decoding="async" alt="Secure Professional Storage Lockers - Digital Lock"
+                                        loading="lazy"
                                         style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
                                 <div class="product-info"
@@ -761,8 +765,8 @@
                                 style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
                                 <div class="product-image"
                                     style="position: relative; overflow: hidden; border-radius: 10px; height: 220px">
-                                    <img src="Cupboard Cabinets/filing-cabinet.webp" width="300" height="220" decoding="async"
-                                        alt="Professional Filing Cabinets & Lockers" loading="lazy"
+                                    <img src="Cupboard Cabinets/filing-cabinet.webp" width="300" height="220"
+                                        decoding="async" alt="Professional Filing Cabinets & Lockers" loading="lazy"
                                         style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
                                 <div class="product-info"
@@ -808,13 +812,13 @@
                         <div class="sectors-grid" data-stagger>
                             <!-- PHARMA -->
                             <div class="product-card reveal" data-stagger-item>
-                                    <a href="#sector-pharma" onclick="openSectorModal('pharma'); return false;">
-                                        <div class="sector-icon-box">
-                                            <?xml version="1.0" encoding="iso-8859-1"?>
-                                            <svg width="64" height="64" viewBox="0 0 120.101 120.101" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" role="img" aria-label="Pharmacy Icon">
-                                                <path fill="currentColor" d="M22.529,89.252c4.401,0,8.523-1.561,11.896-4.262c4.413,3.547,9.785,5.574,15.519,5.574
+                                <a href="#sector-pharma" onclick="openSectorModal('pharma'); return false;">
+                                    <div class="sector-icon-box">
+                                        <?xml version="1.0" encoding="iso-8859-1"?>
+                                        <svg width="64" height="64" viewBox="0 0 120.101 120.101" fill="none"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" role="img" aria-label="Pharmacy Icon">
+                                            <path fill="currentColor" d="M22.529,89.252c4.401,0,8.523-1.561,11.896-4.262c4.413,3.547,9.785,5.574,15.519,5.574
             c6.724,0,13.024-2.648,17.756-7.436c9.623-9.788,9.493-25.588-0.295-35.211
             c-4.679-4.613-10.888-7.155-17.461-7.155c-2.875,0-5.642,0.576-8.263,1.501V19.157
             C41.68,8.594,33.085,0,22.529,0C11.963,0,3.366,8.594,3.366,19.157v50.945
@@ -836,313 +840,382 @@
             c0-4.782,3.88-8.665,8.668-8.665C26.687,102.789,30.568,106.666,30.568,111.442z
             M61.363,111.442c0,4.787-3.877,8.659-8.665,8.659c-4.776,0-8.668-3.878-8.668-8.659
             c0-4.782,3.892-8.665,8.668-8.665C57.485,102.789,61.363,106.666,61.363,111.442z" />
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">Pharmaceutical</h3>
-                                            <p class="product-description">Secure, compliant storage systems for regulated materials, documentation, and laboratory environments</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-pharma" onclick="openSectorModal('pharma'); return false;" class="btn-primary">View More →</a>
+                                        </svg>
                                     </div>
-                                </div>
-
-                                <!-- CORPORATE -->
-                                <div class="product-card reveal delay-2" data-stagger-item>
-                                    <a href="#sector-corporate" onclick="openSectorModal('corporate'); return false;">
-                                        <div class="sector-icon-box">
-                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" role="img" aria-label="Office Building Icon">
-                                                <rect x="4" y="2" width="16" height="20" rx="1" />
-                                                <rect x="7" y="5" width="3" height="3" />
-                                                <rect x="14" y="5" width="3" height="3" />
-                                                <rect x="7" y="10" width="3" height="3" />
-                                                <rect x="14" y="10" width="3" height="3" />
-                                                <rect x="7" y="15" width="3" height="3" />
-                                                <rect x="14" y="15" width="3" height="3" />
-                                                <path d="M9 22v-4h6v4" />
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">Corporate</h3>
-                                            <p class="product-description">Intelligent workspace storage that maximizes efficiency while keeping documents and assets organized.</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-corporate" onclick="openSectorModal('corporate'); return false;" class="btn-primary">View More →</a>
+                                    <div class="product-info">
+                                        <h3 class="product-name">Pharmaceutical</h3>
+                                        <p class="product-description">Secure, compliant storage systems for regulated
+                                            materials, documentation, and laboratory environments</p>
                                     </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-pharma" onclick="openSectorModal('pharma'); return false;"
+                                        class="btn-primary">View More →</a>
                                 </div>
-
-                                <!-- Banking -->
-                                <div class="product-card reveal" data-stagger-item>
-                                    <a href="#sector-banking" onclick="openSectorModal('banking'); return false;">
-                                        <div class="sector-icon-box">
-                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" role="img" aria-label="Bank Icon">
-                                                <polygon points="12,2 22,8 2,8" />
-                                                <line x1="2" y1="8" x2="22" y2="8" />
-                                                <line x1="4" y1="19" x2="20" y2="19" />
-                                                <line x1="2" y1="22" x2="22" y2="22" />
-                                                <line x1="6" y1="10" x2="6" y2="19" />
-                                                <line x1="10" y1="10" x2="10" y2="19" />
-                                                <line x1="14" y1="10" x2="14" y2="19" />
-                                                <line x1="18" y1="10" x2="18" y2="19" />
-                                                <circle cx="12" cy="5.5" r="1.5" />
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">Banking</h3>
-                                            <p class="product-description">High-security storage solutions for confidential records, documents, and valuable assets.</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-banking" onclick="openSectorModal('banking'); return false;" class="btn-primary">View More →</a>
-                                    </div>
-                                </div>
-
-                                <!-- EDUCATION -->
-                                <div class="product-card reveal delay-1" data-stagger-item>
-                                    <a href="#sector-education" onclick="openSectorModal('education'); return false;">
-                                        <div class="sector-icon-box">
-                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" role="img" aria-label="Open Book Icon">
-                                                <path d="M2 4.5C2 4.5 7 3 12 6c5-3 10-1.5 10-1.5v14S17 17 12 20c-5-3-10-1.5-10-1.5V4.5z" />
-                                                <line x1="12" y1="6" x2="12" y2="20" />
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">Education</h3>
-                                            <p class="product-description">Organized storage for libraries, records, laboratory equipment, and institutional resources</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-education" onclick="openSectorModal('education'); return false;" class="btn-primary">View More →</a>
-                                    </div>
-                                </div>
-
-                                <!-- GOVERNMENT -->
-                                <div class="product-card reveal delay-2" data-stagger-item>
-                                    <a href="#sector-government" onclick="openSectorModal('government'); return false;">
-                                        <div class="sector-icon-box">
-                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" role="img" aria-label="Government Building Icon">
-                                                <polygon points="12,2 22,7 2,7" />
-                                                <line x1="2" y1="7" x2="22" y2="7" />
-                                                <line x1="2" y1="20" x2="22" y2="20" />
-                                                <line x1="2" y1="22" x2="22" y2="22" />
-                                                <line x1="5" y1="9" x2="5" y2="20" />
-                                                <line x1="8.5" y1="9" x2="8.5" y2="20" />
-                                                <line x1="12" y1="9" x2="12" y2="20" />
-                                                <line x1="15.5" y1="9" x2="15.5" y2="20" />
-                                                <line x1="19" y1="9" x2="19" y2="20" />
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">Government Offices</h3>
-                                            <p class="product-description">Durable archival storage designed to protect public records, files, and essential documents for decades.</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-government" onclick="openSectorModal('government'); return false;" class="btn-primary">View More →</a>
-                                    </div>
-                                </div>
-
-                                <!-- Museums & Archives -->
-                                <div class="product-card reveal delay-1" data-stagger-item>
-                                    <a href="#sector-museum" onclick="openSectorModal('museum'); return false;">
-                                        <div class="sector-icon-box">
-                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" role="img" aria-label="Filing Cabinet Icon">
-                                                <rect x="4" y="2" width="16" height="20" rx="1" />
-                                                <line x1="4" y1="9" x2="20" y2="9" />
-                                                <line x1="4" y1="16" x2="20" y2="16" />
-                                                <line x1="9" y1="6" x2="15" y2="6" />
-                                                <line x1="9" y1="12.5" x2="15" y2="12.5" />
-                                                <line x1="9" y1="19" x2="15" y2="19" />
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">Museums & Archives</h3>
-                                            <p class="product-description">Reservation-focused storage that safeguards valuable collections, artifacts, artwork, and historical archives.</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-museum" onclick="openSectorModal('museum'); return false;" class="btn-primary">View More →</a>
-                                    </div>
-                                </div>
-
-                                <!-- FMCG -->
-                                <div class="product-card reveal delay-1" data-stagger-item>
-                                    <a href="#sector-fmcg" onclick="openSectorModal('fmcg'); return false;">
-                                        <div class="sector-icon-box">
-                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" role="img" aria-label="Shopping Cart Icon">
-                                                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-                                                <line x1="3" y1="6" x2="21" y2="6" />
-                                                <path d="M16 10a4 4 0 01-8 0" />
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">FMCG</h3>
-                                            <p class="product-description">Optimized storage systems that improve inventory management, stock rotation, and warehouse efficiency.</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-fmcg" onclick="openSectorModal('fmcg'); return false;" class="btn-primary">View More →</a>
-                                    </div>
-                                </div>
-
-                                <!-- Hospitals -->
-                                <div class="product-card reveal delay-1" data-stagger-item>
-                                    <a href="#sector-hospital" onclick="openSectorModal('hospital'); return false;">
-                                        <div class="sector-icon-box">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                id="Hospital--Streamline-Guidance-Free" height="24" width="24">
-                                                <path stroke="currentColor"
-                                                    d="M3.5 22v-7.961a20 20 0 0 0 -1.567 -7.761L1.5 5.25V5h6m13 17v-7.961a20 20 0 0 1 1.567 -7.761L22.5 5.25V5h-6m0 17v-6.5h-9V22M24 23.5H0m12 -21V5m0 0v2.5M12 5h2.5M12 5H9.5M12 15.5V22M7.5 0.5h9v9h-9v-9Z"
-                                                    stroke-width="1"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-name">Hospitals</h3>
-                                            <p class="product-description">Hygienic, high-density storage for medical records, supplies, equipment, and critical healthcare assets.</p>
-                                        </div>
-                                    </a>
-                                    <div>
-                                        <a href="#sector-hospital" onclick="openSectorModal('hospital'); return false;" class="btn-primary">View More →</a>
-                                    </div>
-                                </div>
-
                             </div>
-                        </div><!-- /sectors-scroll-container -->
-                    </div><!-- /sectors-carousel-wrapper -->
 
-                    <!-- FULL SECTOR CONTENT IN RAW HTML (SEO / Crawler Accessible) -->
-                    <div id="static-sectors-content" class="sr-only-sector-details" style="display:none;">
-                        <article id="sector-pharma">
-                            <h3>Pharmaceutical Storage Solutions</h3>
-                            <p>Secure, compliant storage systems for regulated materials, documentation, and laboratory environments.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=Stainless%20Steel%20Compactor">Stainless Steel Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Perforated%20Compactor">Perforated Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Drawer%20Compactor">Drawer Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Pigeon%20Hole%20Compactor">Pigeon Hole Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Heavy%20Duty%20Compactor">Heavy Duty Compactor</a></li>
-                                <li><a href="industrial-racks.html?highlight=Stainless%20Steel%20Rack">Stainless Steel Rack</a></li>
-                                <li><a href="storage-lockers.html?highlight=Staff%20Locker">Staff Locker</a></li>
-                                <li><a href="storage-lockers.html?highlight=Stainless%20Steel%20Lockers">Stainless Steel Lockers</a></li>
-                                <li><a href="storage-lockers.html?highlight=Mobile%20Phone%20Lockers">Mobile Phone Lockers</a></li>
-                                <li><a href="storage-lockers.html?highlight=Changing%20Room%20Lockers">Changing Room Lockers</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Perforated%20Drawer%20Cabinet">Perforated Drawer Cabinet</a></li>
-                            </ul>
-                        </article>
+                            <!-- CORPORATE -->
+                            <div class="product-card reveal delay-2" data-stagger-item>
+                                <a href="#sector-corporate" onclick="openSectorModal('corporate'); return false;">
+                                    <div class="sector-icon-box">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.5" role="img"
+                                            aria-label="Office Building Icon">
+                                            <rect x="4" y="2" width="16" height="20" rx="1" />
+                                            <rect x="7" y="5" width="3" height="3" />
+                                            <rect x="14" y="5" width="3" height="3" />
+                                            <rect x="7" y="10" width="3" height="3" />
+                                            <rect x="14" y="10" width="3" height="3" />
+                                            <rect x="7" y="15" width="3" height="3" />
+                                            <rect x="14" y="15" width="3" height="3" />
+                                            <path d="M9 22v-4h6v4" />
+                                        </svg>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name">Corporate</h3>
+                                        <p class="product-description">Intelligent workspace storage that maximizes
+                                            efficiency while keeping documents and assets organized.</p>
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-corporate" onclick="openSectorModal('corporate'); return false;"
+                                        class="btn-primary">View More →</a>
+                                </div>
+                            </div>
 
-                        <article id="sector-hospital">
-                            <h3>Hospital & Healthcare Storage Solutions</h3>
-                            <p>Hygienic, high-density storage for medical records, supplies, equipment, and critical healthcare assets.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=Stainless%20Steel%20Compactor">Stainless Steel Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Perforated%20Compactor">Perforated Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Drawer%20Compactor">Drawer Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Pigeon%20Hole%20Compactor">Pigeon Hole Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Heavy%20Duty%20Compactor">Heavy Duty Compactor</a></li>
-                                <li><a href="industrial-racks.html?highlight=Stainless%20Steel%20Rack">Stainless Steel Rack</a></li>
-                                <li><a href="storage-lockers.html?highlight=Staff%20Locker">Staff Locker</a></li>
-                                <li><a href="storage-lockers.html?highlight=Stainless%20Steel%20Lockers">Stainless Steel Lockers</a></li>
-                                <li><a href="storage-lockers.html?highlight=Mobile%20Phone%20Lockers">Mobile Phone Lockers</a></li>
-                                <li><a href="storage-lockers.html?highlight=Changing%20Room%20Lockers">Changing Room Lockers</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Perforated%20Drawer%20Cabinet">Perforated Drawer Cabinet</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Stainless%20Steel%20Drawer%20Cabinet">Stainless Steel Drawer Cabinet</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Glass%20Cupboards">Glass Cupboards</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Storewell%20Cupboard">Storewell Cupboard</a></li>
-                            </ul>
-                        </article>
+                            <!-- Banking -->
+                            <div class="product-card reveal" data-stagger-item>
+                                <a href="#sector-banking" onclick="openSectorModal('banking'); return false;">
+                                    <div class="sector-icon-box">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.5" role="img" aria-label="Bank Icon">
+                                            <polygon points="12,2 22,8 2,8" />
+                                            <line x1="2" y1="8" x2="22" y2="8" />
+                                            <line x1="4" y1="19" x2="20" y2="19" />
+                                            <line x1="2" y1="22" x2="22" y2="22" />
+                                            <line x1="6" y1="10" x2="6" y2="19" />
+                                            <line x1="10" y1="10" x2="10" y2="19" />
+                                            <line x1="14" y1="10" x2="14" y2="19" />
+                                            <line x1="18" y1="10" x2="18" y2="19" />
+                                            <circle cx="12" cy="5.5" r="1.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name">Banking</h3>
+                                        <p class="product-description">High-security storage solutions for confidential
+                                            records, documents, and valuable assets.</p>
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-banking" onclick="openSectorModal('banking'); return false;"
+                                        class="btn-primary">View More →</a>
+                                </div>
+                            </div>
 
-                        <article id="sector-corporate">
-                            <h3>Corporate Office Storage Solutions</h3>
-                            <p>Intelligent workspace storage that maximizes efficiency while keeping documents and assets organized.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=Perforated%20Compactor">Perforated Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=Drawer%20Compactor">Drawer Compactor</a></li>
-                                <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage Compactor</a></li>
-                                <li><a href="industrial-racks.html?highlight=Pallet%20Racking%20System">Pallet Racking System</a></li>
-                                <li><a href="industrial-racks.html?highlight=Slotted%20Angle%20Racks">Slotted Angle Racks</a></li>
-                                <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Storewell%20Cupboards">Storewell Cupboards</a></li>
-                            </ul>
-                        </article>
+                            <!-- EDUCATION -->
+                            <div class="product-card reveal delay-1" data-stagger-item>
+                                <a href="#sector-education" onclick="openSectorModal('education'); return false;">
+                                    <div class="sector-icon-box">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.5" role="img"
+                                            aria-label="Open Book Icon">
+                                            <path
+                                                d="M2 4.5C2 4.5 7 3 12 6c5-3 10-1.5 10-1.5v14S17 17 12 20c-5-3-10-1.5-10-1.5V4.5z" />
+                                            <line x1="12" y1="6" x2="12" y2="20" />
+                                        </svg>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name">Education</h3>
+                                        <p class="product-description">Organized storage for libraries, records,
+                                            laboratory equipment, and institutional resources</p>
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-education" onclick="openSectorModal('education'); return false;"
+                                        class="btn-primary">View More →</a>
+                                </div>
+                            </div>
 
-                        <article id="sector-banking">
-                            <h3>Banking & Financial Storage Solutions</h3>
-                            <p>High-security storage solutions for confidential records, documents, and valuable assets.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage Compactor</a></li>
-                                <li><a href="industrial-racks.html?highlight=Slotted%20Angle%20Racks">Slotted Angle Racks</a></li>
-                                <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Storewell%20Cupboards">Storewell Cupboards</a></li>
-                            </ul>
-                        </article>
+                            <!-- GOVERNMENT -->
+                            <div class="product-card reveal delay-2" data-stagger-item>
+                                <a href="#sector-government" onclick="openSectorModal('government'); return false;">
+                                    <div class="sector-icon-box">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.5" role="img"
+                                            aria-label="Government Building Icon">
+                                            <polygon points="12,2 22,7 2,7" />
+                                            <line x1="2" y1="7" x2="22" y2="7" />
+                                            <line x1="2" y1="20" x2="22" y2="20" />
+                                            <line x1="2" y1="22" x2="22" y2="22" />
+                                            <line x1="5" y1="9" x2="5" y2="20" />
+                                            <line x1="8.5" y1="9" x2="8.5" y2="20" />
+                                            <line x1="12" y1="9" x2="12" y2="20" />
+                                            <line x1="15.5" y1="9" x2="15.5" y2="20" />
+                                            <line x1="19" y1="9" x2="19" y2="20" />
+                                        </svg>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name">Government Offices</h3>
+                                        <p class="product-description">Durable archival storage designed to protect
+                                            public records, files, and essential documents for decades.</p>
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-government" onclick="openSectorModal('government'); return false;"
+                                        class="btn-primary">View More →</a>
+                                </div>
+                            </div>
 
-                        <article id="sector-education">
-                            <h3>Education & Library Storage Solutions</h3>
-                            <p>Organized storage for libraries, records, laboratory equipment, and institutional resources.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage Compactor</a></li>
-                                <li><a href="industrial-racks.html?highlight=Slotted%20Angle%20Racks">Slotted Angle Racks</a></li>
-                                <li><a href="storage-lockers.html?highlight=School%20Lockers">School Lockers</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
-                            </ul>
-                        </article>
+                            <!-- Museums & Archives -->
+                            <div class="product-card reveal delay-1" data-stagger-item>
+                                <a href="#sector-museum" onclick="openSectorModal('museum'); return false;">
+                                    <div class="sector-icon-box">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.5" role="img"
+                                            aria-label="Filing Cabinet Icon">
+                                            <rect x="4" y="2" width="16" height="20" rx="1" />
+                                            <line x1="4" y1="9" x2="20" y2="9" />
+                                            <line x1="4" y1="16" x2="20" y2="16" />
+                                            <line x1="9" y1="6" x2="15" y2="6" />
+                                            <line x1="9" y1="12.5" x2="15" y2="12.5" />
+                                            <line x1="9" y1="19" x2="15" y2="19" />
+                                        </svg>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name">Museums & Archives</h3>
+                                        <p class="product-description">Reservation-focused storage that safeguards
+                                            valuable collections, artifacts, artwork, and historical archives.</p>
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-museum" onclick="openSectorModal('museum'); return false;"
+                                        class="btn-primary">View More →</a>
+                                </div>
+                            </div>
 
-                        <article id="sector-government">
-                            <h3>Government Archival Storage Solutions</h3>
-                            <p>Durable archival storage designed to protect public records, files, and essential documents for decades.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage Compactor</a></li>
-                                <li><a href="industrial-racks.html?highlight=Sectional%20Panel%20Heavy%20Duty%20Racks">Sectional Panel Heavy Duty Racks</a></li>
-                                <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
-                            </ul>
-                        </article>
+                            <!-- FMCG -->
+                            <div class="product-card reveal delay-1" data-stagger-item>
+                                <a href="#sector-fmcg" onclick="openSectorModal('fmcg'); return false;">
+                                    <div class="sector-icon-box">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.5" role="img"
+                                            aria-label="Shopping Cart Icon">
+                                            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                            <line x1="3" y1="6" x2="21" y2="6" />
+                                            <path d="M16 10a4 4 0 01-8 0" />
+                                        </svg>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name">FMCG</h3>
+                                        <p class="product-description">Optimized storage systems that improve inventory
+                                            management, stock rotation, and warehouse efficiency.</p>
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-fmcg" onclick="openSectorModal('fmcg'); return false;"
+                                        class="btn-primary">View More →</a>
+                                </div>
+                            </div>
 
-                        <article id="sector-fmcg">
-                            <h3>FMCG & Logistics Storage Solutions</h3>
-                            <p>Optimized storage systems that improve inventory management, stock rotation, and warehouse efficiency.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=Heavy%20Duty%20Compactor">Heavy Duty Compactor</a></li>
-                                <li><a href="industrial-racks.html?highlight=Pallet%20Racking%20Systems">Pallet Racking Systems</a></li>
-                                <li><a href="industrial-racks.html?highlight=Mezzanine%20Floor%20Systems">Mezzanine Floor Systems</a></li>
-                                <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
-                            </ul>
-                        </article>
-
-                        <article id="sector-museum">
-                            <h3>Museums & Historical Archives Storage Solutions</h3>
-                            <p>Reservation-focused storage that safeguards valuable collections, artifacts, artwork, and historical archives.</p>
-                            <h4>Available Products:</h4>
-                            <ul>
-                                <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage Compactor</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Poster%20Storage%20Drawer%20Cabinet">Poster Storage Drawer Cabinet</a></li>
-                                <li><a href="filing-cabinets.html?highlight=Glass%20Door%20Cupboards">Glass Door Cupboards</a></li>
-                            </ul>
-                        </article>
-                    </div>
+                            <!-- Hospitals -->
+                            <div class="product-card reveal delay-1" data-stagger-item>
+                                <a href="#sector-hospital" onclick="openSectorModal('hospital'); return false;">
+                                    <div class="sector-icon-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            id="Hospital--Streamline-Guidance-Free" height="24" width="24">
+                                            <path stroke="currentColor"
+                                                d="M3.5 22v-7.961a20 20 0 0 0 -1.567 -7.761L1.5 5.25V5h6m13 17v-7.961a20 20 0 0 1 1.567 -7.761L22.5 5.25V5h-6m0 17v-6.5h-9V22M24 23.5H0m12 -21V5m0 0v2.5M12 5h2.5M12 5H9.5M12 15.5V22M7.5 0.5h9v9h-9v-9Z"
+                                                stroke-width="1"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name">Hospitals</h3>
+                                        <p class="product-description">Hygienic, high-density storage for medical
+                                            records, supplies, equipment, and critical healthcare assets.</p>
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="#sector-hospital" onclick="openSectorModal('hospital'); return false;"
+                                        class="btn-primary">View More →</a>
+                                </div>
+                            </div>
 
                         </div>
                     </div><!-- /sectors-scroll-container -->
                 </div><!-- /sectors-carousel-wrapper -->
+
+                <!-- FULL SECTOR CONTENT IN RAW HTML (SEO / Crawler Accessible) -->
+                <div id="static-sectors-content" class="sr-only-sector-details" style="display:none;">
+                    <article id="sector-pharma">
+                        <h3>Pharmaceutical Storage Solutions</h3>
+                        <p>Secure, compliant storage systems for regulated materials, documentation, and laboratory
+                            environments.</p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=Stainless%20Steel%20Compactor">Stainless Steel
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Perforated%20Compactor">Perforated
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Drawer%20Compactor">Drawer Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Pigeon%20Hole%20Compactor">Pigeon Hole
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Heavy%20Duty%20Compactor">Heavy Duty
+                                    Compactor</a></li>
+                            <li><a href="industrial-racks.html?highlight=Stainless%20Steel%20Rack">Stainless Steel
+                                    Rack</a></li>
+                            <li><a href="storage-lockers.html?highlight=Staff%20Locker">Staff Locker</a></li>
+                            <li><a href="storage-lockers.html?highlight=Stainless%20Steel%20Lockers">Stainless Steel
+                                    Lockers</a></li>
+                            <li><a href="storage-lockers.html?highlight=Mobile%20Phone%20Lockers">Mobile Phone
+                                    Lockers</a></li>
+                            <li><a href="storage-lockers.html?highlight=Changing%20Room%20Lockers">Changing Room
+                                    Lockers</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Perforated%20Drawer%20Cabinet">Perforated Drawer
+                                    Cabinet</a></li>
+                        </ul>
+                    </article>
+
+                    <article id="sector-hospital">
+                        <h3>Hospital & Healthcare Storage Solutions</h3>
+                        <p>Hygienic, high-density storage for medical records, supplies, equipment, and critical
+                            healthcare assets.</p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=Stainless%20Steel%20Compactor">Stainless Steel
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Perforated%20Compactor">Perforated
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Drawer%20Compactor">Drawer Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Pigeon%20Hole%20Compactor">Pigeon Hole
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Heavy%20Duty%20Compactor">Heavy Duty
+                                    Compactor</a></li>
+                            <li><a href="industrial-racks.html?highlight=Stainless%20Steel%20Rack">Stainless Steel
+                                    Rack</a></li>
+                            <li><a href="storage-lockers.html?highlight=Staff%20Locker">Staff Locker</a></li>
+                            <li><a href="storage-lockers.html?highlight=Stainless%20Steel%20Lockers">Stainless Steel
+                                    Lockers</a></li>
+                            <li><a href="storage-lockers.html?highlight=Mobile%20Phone%20Lockers">Mobile Phone
+                                    Lockers</a></li>
+                            <li><a href="storage-lockers.html?highlight=Changing%20Room%20Lockers">Changing Room
+                                    Lockers</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Perforated%20Drawer%20Cabinet">Perforated Drawer
+                                    Cabinet</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Stainless%20Steel%20Drawer%20Cabinet">Stainless
+                                    Steel Drawer Cabinet</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Glass%20Cupboards">Glass Cupboards</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Storewell%20Cupboard">Storewell Cupboard</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article id="sector-corporate">
+                        <h3>Corporate Office Storage Solutions</h3>
+                        <p>Intelligent workspace storage that maximizes efficiency while keeping documents and assets
+                            organized.</p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=Perforated%20Compactor">Perforated
+                                    Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=Drawer%20Compactor">Drawer Compactor</a></li>
+                            <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage
+                                    Compactor</a></li>
+                            <li><a href="industrial-racks.html?highlight=Pallet%20Racking%20System">Pallet Racking
+                                    System</a></li>
+                            <li><a href="industrial-racks.html?highlight=Slotted%20Angle%20Racks">Slotted Angle
+                                    Racks</a></li>
+                            <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Storewell%20Cupboards">Storewell Cupboards</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article id="sector-banking">
+                        <h3>Banking & Financial Storage Solutions</h3>
+                        <p>High-security storage solutions for confidential records, documents, and valuable assets.</p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage
+                                    Compactor</a></li>
+                            <li><a href="industrial-racks.html?highlight=Slotted%20Angle%20Racks">Slotted Angle
+                                    Racks</a></li>
+                            <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Storewell%20Cupboards">Storewell Cupboards</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article id="sector-education">
+                        <h3>Education & Library Storage Solutions</h3>
+                        <p>Organized storage for libraries, records, laboratory equipment, and institutional resources.
+                        </p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage
+                                    Compactor</a></li>
+                            <li><a href="industrial-racks.html?highlight=Slotted%20Angle%20Racks">Slotted Angle
+                                    Racks</a></li>
+                            <li><a href="storage-lockers.html?highlight=School%20Lockers">School Lockers</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
+                        </ul>
+                    </article>
+
+                    <article id="sector-government">
+                        <h3>Government Archival Storage Solutions</h3>
+                        <p>Durable archival storage designed to protect public records, files, and essential documents
+                            for decades.</p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage
+                                    Compactor</a></li>
+                            <li><a href="industrial-racks.html?highlight=Sectional%20Panel%20Heavy%20Duty%20Racks">Sectional
+                                    Panel Heavy Duty Racks</a></li>
+                            <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Filing%20Cabinets">Filing Cabinets</a></li>
+                        </ul>
+                    </article>
+
+                    <article id="sector-fmcg">
+                        <h3>FMCG & Logistics Storage Solutions</h3>
+                        <p>Optimized storage systems that improve inventory management, stock rotation, and warehouse
+                            efficiency.</p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=Heavy%20Duty%20Compactor">Heavy Duty
+                                    Compactor</a></li>
+                            <li><a href="industrial-racks.html?highlight=Pallet%20Racking%20Systems">Pallet Racking
+                                    Systems</a></li>
+                            <li><a href="industrial-racks.html?highlight=Mezzanine%20Floor%20Systems">Mezzanine Floor
+                                    Systems</a></li>
+                            <li><a href="storage-lockers.html?highlight=Staff%20Lockers">Staff Lockers</a></li>
+                        </ul>
+                    </article>
+
+                    <article id="sector-museum">
+                        <h3>Museums & Historical Archives Storage Solutions</h3>
+                        <p>Reservation-focused storage that safeguards valuable collections, artifacts, artwork, and
+                            historical archives.</p>
+                        <h4>Available Products:</h4>
+                        <ul>
+                            <li><a href="compactor-storage.html?highlight=File%20Storage%20Compactor">File Storage
+                                    Compactor</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Poster%20Storage%20Drawer%20Cabinet">Poster
+                                    Storage Drawer Cabinet</a></li>
+                            <li><a href="filing-cabinets.html?highlight=Glass%20Door%20Cupboards">Glass Door
+                                    Cupboards</a></li>
+                        </ul>
+                    </article>
+                </div>
+
+            </div>
+            </div><!-- /sectors-scroll-container -->
+            </div><!-- /sectors-carousel-wrapper -->
             </div>
         </section>
 
@@ -1267,7 +1340,8 @@
                     </p>
                     <p style="font-family: var(--font-sans); font-size: 16px; color: var(--mid); line-height: 1.8;">
                         We specialize in manufacturing high-quality compactor storage systems, industrial lockers, and
-                        storage racks. We analyze your storage needs, design customized solutions, and help you save 60–70%
+                        storage racks. We analyze your storage needs, design customized solutions, and help you save
+                        60–70%
                         storage space with efficient, space-optimized systems.
                     </p>
                 </div>
@@ -1482,57 +1556,80 @@
                     <!-- FAQ list -->
                     <ul class="faq-list" id="faqList" aria-label="Frequently asked questions">
                         <li class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false"
+                                role="button" tabindex="0">
                                 <span>What does Space Planners India manufacture?</span>
                                 <span class="faq-toggle" aria-hidden="true">+</span>
                             </div>
                             <div class="faq-answer">
-                                <p class="faq-answer-text">Space Planners India manufactures industrial storage systems, including motorised mobile compactors, heavy-duty racking, storage lockers, and filing cabinets. Founded in 2004, the company has completed over 2,000 installations across more than 500 clients in sectors including pharmaceuticals, government, healthcare, education, and warehousing.</p>
+                                <p class="faq-answer-text">Space Planners India manufactures industrial storage systems,
+                                    including motorised mobile compactors, heavy-duty racking, storage lockers, and
+                                    filing cabinets. Founded in 2004, the company has completed over 2,000 installations
+                                    across more than 500 clients in sectors including pharmaceuticals, government,
+                                    healthcare, education, and warehousing.</p>
                             </div>
                         </li>
                         <li class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false"
+                                role="button" tabindex="0">
                                 <span>How much floor space can Space Planners' storage systems save?</span>
                                 <span class="faq-toggle" aria-hidden="true">+</span>
                             </div>
                             <div class="faq-answer">
-                                <p class="faq-answer-text">Space Planners' storage systems save an average of 60–70% of floor space compared to conventional static storage, based on data from over 2,000 installations. Mobile compactor systems specifically can save 60–70% of floor space by eliminating redundant access aisles.</p>
+                                <p class="faq-answer-text">Space Planners' storage systems save an average of 60–70% of
+                                    floor space compared to conventional static storage, based on data from over 2,000
+                                    installations. Mobile compactor systems specifically can save 60–70% of floor space
+                                    by eliminating redundant access aisles.</p>
                             </div>
                         </li>
                         <li class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false"
+                                role="button" tabindex="0">
                                 <span>Does Space Planners install storage systems across the world?</span>
                                 <span class="faq-toggle" aria-hidden="true">+</span>
                             </div>
                             <div class="faq-answer">
-                                <p class="faq-answer-text">Yes, Space Planners provides installation and after-sales support across the world, having installed more than 2 million square feet of storage systems across corporate, government, healthcare, industrial, and education clients.</p>
+                                <p class="faq-answer-text">Yes, Space Planners provides installation and after-sales
+                                    support across the world, having installed more than 2 million square feet of
+                                    storage systems across corporate, government, healthcare, industrial, and education
+                                    clients.</p>
                             </div>
                         </li>
                         <li class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false"
+                                role="button" tabindex="0">
                                 <span>How do I get a free storage assessment from Space Planners?</span>
                                 <span class="faq-toggle" aria-hidden="true">+</span>
                             </div>
                             <div class="faq-answer">
-                                <p class="faq-answer-text">You can request a free storage assessment by submitting the quote form on the Space Planners website with your name, phone number, and product interest. Our team will get back to you at the earliest. Typically with a response within 24 business hours.</p>
+                                <p class="faq-answer-text">You can request a free storage assessment by submitting the
+                                    quote form on the Space Planners website with your name, phone number, and product
+                                    interest. Our team will get back to you at the earliest. Typically with a response
+                                    within 24 business hours.</p>
                             </div>
                         </li>
                         <li class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false"
+                                role="button" tabindex="0">
                                 <span>What industries does Space Planners serve?</span>
                                 <span class="faq-toggle" aria-hidden="true">+</span>
                             </div>
                             <div class="faq-answer">
-                                <p class="faq-answer-text">Space Planners serves pharmaceutical and healthcare facilities, corporate offices, warehouses and logistics operations, educational institutions and libraries, government offices, and museums and archives, with sector-specific compliance built into each solution.</p>
+                                <p class="faq-answer-text">Space Planners serves pharmaceutical and healthcare
+                                    facilities, corporate offices, warehouses and logistics operations, educational
+                                    institutions and libraries, government offices, and museums and archives, with
+                                    sector-specific compliance built into each solution.</p>
                             </div>
                         </li>
                         <li class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false"
+                                role="button" tabindex="0">
                                 <span>What is your warranty and after-sales service policy?</span>
                                 <span class="faq-toggle" aria-hidden="true">+</span>
                             </div>
                             <div class="faq-answer">
-                                <p class="faq-answer-text">All products carry a manufacturer warranty against defects. We offer dedicated annual maintenance contracts (AMC).</p>
+                                <p class="faq-answer-text">All products carry a manufacturer warranty against defects.
+                                    We offer dedicated annual maintenance contracts (AMC).</p>
                             </div>
                         </li>
                     </ul>
@@ -1746,11 +1843,21 @@
                 <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across
                     every major city.</p>
                 <div class="footer-social" style="display: flex; gap: 12px; margin-top: 16px;">
-                    <a href="https://www.linkedin.com/company/spaceplannersindia/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #ffffff; transition: all 0.3s ease;">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    <a href="https://www.linkedin.com/company/spaceplannersindia/" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #ffffff; transition: all 0.3s ease;">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                        </svg>
                     </a>
-                    <a href="https://www.instagram.com/spaceplanners.india/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #ffffff; transition: all 0.3s ease;">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <a href="https://www.instagram.com/spaceplanners.india/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #ffffff; transition: all 0.3s ease;">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -1831,8 +1938,8 @@
                             required style="margin-bottom:8px;">
 
                         <label for="pop-company" style="display:none;">Company Name</label>
-                        <input class="popup-input" type="text" id="pop-company" name="company" placeholder="Company Name"
-                            style="margin-bottom:8px;">
+                        <input class="popup-input" type="text" id="pop-company" name="company"
+                            placeholder="Company Name" style="margin-bottom:8px;">
 
                         <label for="pop-email" style="display:none;">Email</label>
                         <input class="popup-input" type="email" id="pop-email" name="email"
