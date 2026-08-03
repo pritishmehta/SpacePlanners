@@ -1107,6 +1107,10 @@
                                     <input type="text" id="name" name="name" placeholder="Enter Name" required />
                                 </div>
                                 <div class="form-group">
+                                    <label for="company">Company Name</label>
+                                    <input type="text" id="company" name="company" placeholder="Enter Company Name" />
+                                </div>
+                                <div class="form-group">
                                     <label for="phone">Phone Number *</label>
                                     <input type="tel" id="phone" name="phone" placeholder="Enter Phone Number"
                                         required />
@@ -1660,6 +1664,10 @@
                         <input class="popup-input" type="text" id="pop-name" name="name" placeholder="Full Name *"
                             required style="margin-bottom:8px;">
 
+                        <label for="pop-company" style="display:none;">Company Name</label>
+                        <input class="popup-input" type="text" id="pop-company" name="company" placeholder="Company Name"
+                            style="margin-bottom:8px;">
+
                         <label for="pop-email" style="display:none;">Email</label>
                         <input class="popup-input" type="email" id="pop-email" name="email"
                             placeholder="Email Address *" required style="margin-bottom:8px;">
@@ -1710,6 +1718,11 @@
                             <label for="inq-name">Full Name *</label>
                             <input type="text" id="inq-name" name="name" placeholder="Your full name" required
                                 autocomplete="name" aria-required="true" aria-describedby="inq-name-help">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-company">Company Name</label>
+                            <input type="text" id="inq-company" name="company" placeholder="Your company name"
+                                autocomplete="organization">
                         </div>
                         <div class="form-group">
                             <label for="inq-email">Email Address *</label>
