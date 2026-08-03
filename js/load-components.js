@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (el) {
-            // If the element already has content (e.g. inlined for performance), skip fetching
-            if (el.innerHTML.trim() !== "") {
+            // If the element already has content (e.g. inlined for performance), skip fetching except for footer
+            if (el.innerHTML.trim() !== "" && comp.id !== "footer-placeholder") {
                 loadedCount++;
                 if (comp.id === "header-placeholder" || comp.id === "mobile-nav-placeholder") {
                     setActiveNavLink();

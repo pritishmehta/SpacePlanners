@@ -22,6 +22,7 @@ ErrorDocument 404 /404.html
     RewriteRule ^wp-content/.*$ /404.html [R=404,L]
     RewriteRule ^wp-admin/.*$ /404.html [R=404,L]
     RewriteRule ^index\.php$ / [R=301,L]
+    Redirect 301 /unleashing-the-potential-of-space-transforming-your-environment-with-space-planners-india/ https://spaceplannersindia.in/about.html
 
     # --- 2. Clean URLs (allow accessing /contact or /about without .html extension) ---
     RewriteCond %{REQUEST_FILENAME} !-d

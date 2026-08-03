@@ -320,6 +320,14 @@ async function handleSubmission(form, type, onSuccess) {
     }
 
     if (result.success) {
+        // Trigger Google Ads Form Submission Conversion Event
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-18330355311/form_submission',
+                'event_category': 'Form',
+                'event_label': type
+            });
+        }
         onSuccess();
     } else {
         showToast('Failed to send. Please check your connection.', 'error');
