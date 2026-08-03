@@ -52,14 +52,6 @@
     <meta name="theme-color" content="#e53935">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-    <!-- ===== SECURITY META TAGS (FOR STATIC HOSTING) ===== -->
-    <!-- Content-Security-Policy: restrict where resources can be loaded from -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-                   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google-analytics.com; 
-                   img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; 
-                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
-                   font-src 'self' https://fonts.gstatic.com; 
-                   connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://api.web3forms.com https://ad.doubleclick.net https://www.google-analytics.com https://www.google.com https://www.googletagmanager.com;">
     <!-- Referrer Policy: control how much referrer info is sent out -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <!-- Note: X-Frame-Options cannot be set via meta tag. Use server config for that. -->
@@ -114,7 +106,7 @@
       "email": "sales@spaceplannersindia.in",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "307, 3rd Floor, Commercial Wing, Dattani Prism 2, SV Rd, opp. Fire Station, Malad West",
+        "streetAddress": "112, Orbit Premises, Off Chincholi Link Road, Mindspace, Malad West",
         "addressLocality": "Mumbai",
         "addressRegion": "Maharashtra",
         "postalCode": "400064",
@@ -576,7 +568,7 @@
                     <div class="stat-strip-num" data-target="20" data-suffix="+ yrs">20<span>yrs</span></div>
                     <div class="stat-strip-label">Experience</div>
                 </div>
-                <div class="stat-strip-item" data-target="75" data-suffix="%" data-label="Avg Space Saved" id="s-space">
+                <div class="stat-strip-item" data-prefix="60–" data-target="70" data-suffix="%" data-label="Avg Space Saved" id="s-space">
                     <div class="stat-strip-icon">
                         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -585,7 +577,7 @@
                             <polyline points="20,22 34,8 48,22" />
                         </svg>
                     </div>
-                    <div class="stat-strip-num" data-target="75" data-suffix="%">75<span>%</span></div>
+                    <div class="stat-strip-num" data-prefix="60–" data-target="70" data-suffix="%">60–70<span>%</span></div>
                     <div class="stat-strip-label">Avg. Space Saved</div>
                 </div>
                 <div class="stat-strip-item" data-target="2" data-suffix="M+" data-label="Sq Ft Installed" id="s-sqft">
@@ -1166,8 +1158,8 @@
                     </p>
                     <p style="font-family: var(--font-sans); font-size: 16px; color: var(--mid); line-height: 1.8;">
                         We specialize in manufacturing high-quality compactor storage systems, industrial lockers, and
-                        storage racks. We analyze your storage needs, design customized solutions, and help you save up
-                        to 75% storage space with efficient, space-optimized systems.
+                        storage racks. We analyze your storage needs, design customized solutions, and help you save 60–70%
+                        storage space with efficient, space-optimized systems.
                     </p>
                 </div>
             </div>
@@ -1513,6 +1505,7 @@
 
                         strip.querySelectorAll('.stat-strip-num').forEach(el => {
                             const target = parseInt(el.dataset.target, 10);
+                            const prefix = el.dataset.prefix || '';
                             const suffix = el.dataset.suffix || '';
                             if (isNaN(target)) return;
                             const duration = 1600;
@@ -1521,7 +1514,7 @@
                                 const p = Math.min((now - start) / duration, 1);
                                 const ease = 1 - Math.pow(1 - p, 3);
                                 const val = Math.round(ease * target);
-                                el.innerHTML = (val >= 1000 ? val.toLocaleString() : val) + `<span>${suffix}</span>`;
+                                el.innerHTML = prefix + (val >= 1000 ? val.toLocaleString() : val) + `<span>${suffix}</span>`;
                                 if (p < 1) requestAnimationFrame(step);
                             })(performance.now());
                         });
