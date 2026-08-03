@@ -1,41 +1,19 @@
 # Space Planners India
 
-> Official AI Fact Sheet & Entity Record for Space Planners India.
+> Official AI Fact Sheet & Entity Record for Space Planners India. Leading manufacturer of mobile compactors, industrial racks, storage lockers, and filing cabinets since 2004.
 
-## Organization Identity
-- **Legal Name**: Space Planners India
-- **Website**: https://spaceplannersindia.in
-- **Founded**: 2004
-- **Headquarters**: 307, 3rd Floor, Commercial Wing, Dattani Prism 2, SV Rd, opp. Fire Station, Malad West, Mumbai, Maharashtra 400064, India
-- **Phone**: 022 4003 3385 / 86, +91 98210 34444
-- **Email**: sales@spaceplannersindia.in
-- **Business Type**: Manufacturer & Supplier of Mobile Compactor Storage Systems, Industrial Racking, Steel Storage Lockers, and Office Filing Cabinets.
+## Core Products & Services
 
-## Key Statistics & Achievements
-- **Experience**: 20+ years of manufacturing excellence (Since 2004)
-- **Installations**: 2,000+ completed installations across India
-- **Clients**: 500+ corporate, government, healthcare, and educational clients
-- **Space Efficiency**: Reduces floor space requirements by up to 75% compared to static storage
-- **Certifications**: ISO 9001:2015 Certified
+- [Mobile Compactor Storage Systems](https://spaceplannersindia.in/compactor-storage.html): High-density manual and motorized storage systems saving 60-70% floor space.
+- [Industrial Racks](https://spaceplannersindia.in/industrial-racks.html): Heavy-duty pallet racks, slotted angle racking, drive-in racking, and mezzanine floors.
+- [Storage Lockers](https://spaceplannersindia.in/storage-lockers.html): Steel staff lockers, industrial lockers, digital lock lockers, and personal storage units.
+- [Filing Cabinets & Cupboards](https://spaceplannersindia.in/filing-cabinets.html): Lockable office file cabinets, lateral drawer units, and storewell cupboards.
+- [About Space Planners India](https://spaceplannersindia.in/about.html): Company background, ISO 9001:2015 certification, and 20+ years manufacturing history.
+- [Contact & Free Storage Quote](https://spaceplannersindia.in/contact.html): Free site assessment, 3D space planning, and sales inquiry.
+- [Case Studies & Projects](https://spaceplannersindia.in/projects.html): Over 2,000 completed installations across India.
 
-## Core Product Lines
-1. **Mobile Compactor Storage Systems**
-   - High-density manual and motorized mobile storage systems.
-   - Saves 60-70% floor space by eliminating redundant access aisles.
-   - Applications: Office document storage, archives, pharmaceutical raw materials, library archives, hospital record rooms.
-2. **Industrial Racks & Mezzanine Systems**
-   - Heavy-duty pallet racks, slotted angle racks, drive-in racking, and multi-tier mezzanine floors.
-   - OSHA-compliant structural safety, high load capacity per beam level.
-3. **Storage Lockers**
-   - Metal staff lockers, industrial lockers, digital lock lockers, personal storage lockers.
-   - Rust-resistant powder-coated finish for offices, factories, gyms, and institutions.
-4. **Filing Cabinets & Storage Cupboards**
-   - Office file cabinets, lateral drawer units, locking steel cupboards for document management.
+## Optional & Legal References
 
-## Client Roster
-- Tata Consultancy Services (TCS), Reserve Bank of India (RBI), State Bank of India (SBI), Indian Army, IIT Powai, Indian Oil, Hindustan Unilever, Alkem Laboratories, Cipla, Dr. Reddy's, Glenmark, GVK Mumbai Airport.
-
-## Contact & Procurement
-- Website: https://spaceplannersindia.in/
-- Inquiry Page: https://spaceplannersindia.in/contact.html
-- GeM Portal Compliant Procurement for Government Tenders
+- [Privacy Policy](https://spaceplannersindia.in/privacy-policy.html): Data privacy policies and practices.
+- [Terms of Use](https://spaceplannersindia.in/terms-of-use.html): Website usage terms.
+- [Legal Disclaimer](https://spaceplannersindia.in/disclaimer.html): Legal disclosures and terms.

@@ -6782,4 +6782,29 @@ header.scrolled {
 .modal {
   will-change: transform;
   transform: translateZ(0);
-}
+}
+
+/* Zero CLS Layout Stability */
+.carousel-container {
+  aspect-ratio: 16 / 9;
+  min-height: 500px;
+  max-height: 95vh;
+  contain: layout style;
+}
+
+.carousel-slide img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+#header-placeholder {
+  min-height: 80px;
+  contain: layout size;
+}
+
+.stat-strip-num {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 80px;
+}
+
