@@ -9,8 +9,8 @@
     <!-- Primary keyword "mobile compactors India" in title + brand, action-oriented description context -->
 
     <meta name="description"
-        content="GMP-certified mobile compactors, industrial racks & storage lockers by Space Planners India. 2000+ installations since 2004. Get a free demo.">
-    <!-- Keywords: mobile compactors, industrial racks, storage solutions, GMP-compliant. Trust signals: since 2004, 2000+ installations, 500+ clients. CTA: free demo -->
+        content="Mobile compactors, industrial racks & storage lockers by Space Planners India. 2000+ installations since 2004. Get a free demo.">
+    <!-- Keywords: mobile compactors, industrial racks, storage solutions. Trust signals: since 2004, 2000+ installations, 500+ clients. CTA: free demo -->
 
     <meta name="keywords"
         content="mobile compactor storage India, industrial racks manufacturer, storage lockers supplier, filing cabinets India, mezzanine systems, warehouse storage solutions, space saving storage">
@@ -204,10 +204,10 @@
         },
         {
           "@type": "Question",
-          "name": "Are your products GMP and NABH compliant?",
+          "name": "Are your products compliant with industrial standards?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Our mobile compactors and storage systems can be manufactured to meet GMP (pharmaceutical), NABH (healthcare), and GeM portal specifications for government procurement."
+            "text": "Yes. Our mobile compactors and storage systems can be manufactured to meet pharmaceutical, healthcare, and GeM portal specifications for government procurement."
           }
         },
         {
@@ -517,7 +517,7 @@
                     <p class="slide-eyebrow">India's Storage Engineers · Since 2004</p>
                     <h1 class="slide-title" id="slideTitle">Your Space Is Full. We Fix That.</h1>
                     <p class="slide-description" id="slideDesc">Motorised compactors, heavy-duty racks and certified
-                        storage systems — engineered for India's most demanding facilities. GMP, NABH and GeM compliant.
+                        storage systems — engineered for India's most demanding facilities. GeM compliant.
                         Pan-India installation.</p>
                     <div class="slide-cta">
                         <button class="btn-white"
@@ -1495,13 +1495,13 @@
                     if (!list || typeof faqs === 'undefined') return;
                     if (list.children.length === 0) {
                         list.innerHTML = faqs.map((f, i) => `
-    <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <li class="faq-item">
       <div class="faq-question" onclick="toggleFAQ(this.parentElement)" aria-expanded="false" role="button" tabindex="0">
-        <span itemprop="name">${f.q}</span>
+        <span>${f.q}</span>
         <span class="faq-toggle" aria-hidden="true">+</span>
       </div>
-      <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p class="faq-answer-text" itemprop="text">${f.a}</p>
+      <div class="faq-answer">
+        <p class="faq-answer-text">${f.a}</p>
       </div>
     </li>`).join('');
                     }

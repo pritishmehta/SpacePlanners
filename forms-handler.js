@@ -59,6 +59,29 @@ function initAllForms() {
             }
         }
     });
+
+    // Attach click tracking for WhatsApp links and buttons
+    setupWhatsAppTracking();
+}
+
+function trackWhatsAppClick(label) {
+    if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-18330355311/whatsapp_click',
+            'event_category': 'Contact',
+            'event_label': label || 'WhatsApp Click'
+        });
+    }
+}
+
+function setupWhatsAppTracking() {
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('a[href*="wa.me"], .whatsapp-btn, button[onclick*="wa.me"]');
+        if (target) {
+            const label = target.getAttribute('aria-label') || target.innerText.trim() || 'WhatsApp Click';
+            trackWhatsAppClick(label);
+        }
+    });
 }
 
 
