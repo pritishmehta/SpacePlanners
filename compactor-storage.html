@@ -59,12 +59,13 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="Compactors/document-storage.webp" fetchpriority="high">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap"
     media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap">
   </noscript>
   <link rel="preload" as="style" href="style.css?v=2">
   <link rel="stylesheet" href="style.css?v=2">
@@ -289,8 +290,8 @@
     <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
     <div class="mobile-nav" id="mobileNav">
       <div class="mobile-nav-header">
-        <a href="index.html" class="logo"><img src="logo.png" alt="Space Planners"
-            style="height: 50px; display: block;"></a>
+        <a href="index.html" class="logo"><img src="logo.png" alt="Space Planners" width="180" height="50"
+            decoding="async" style="height: 50px; display: block;"></a>
         <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
       </div>
       <ul style="text-transform: uppercase;">
@@ -326,7 +327,7 @@
   <header id="header-placeholder">
     <div class="header-main">
       <a href="index.html" class="logo">
-        <img src="logo.png" alt="Space Planners India">
+        <img src="logo.png" alt="Space Planners India" width="220" height="60" decoding="async">
       </a>
       <nav class="main-nav" aria-label="Main navigation">
         <ul>
@@ -539,22 +540,22 @@
       <div class="carousel-slide active" id="slide0">
         <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
           src="Compactors/document-storage.webp" alt="Mobile Compactor Storage System by Space Planners India"
-          loading="eager" fetchpriority="high">
+          loading="eager" fetchpriority="high" decoding="async">
       </div>
       <div class="carousel-slide" id="slide1">
         <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
           src="Compactors/pigeon-hole-compactor-carousel-2.webp"
-          alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy">
+          alt="Industrial Pallet Racks in a warehouse by Space Planners India" loading="lazy" decoding="async">
       </div>
       <div class="carousel-slide" id="slide2">
         <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
           src="Compactors/heavy-duty-compactor-carousel-3.webp"
-          alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy">
+          alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy" decoding="async">
       </div>
       <div class="carousel-slide" id="slide3">
         <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
           src="Compactors/drawer-compactor-carousel-4.webp"
-          alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
+          alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy" decoding="async">
       </div>
       <div class="slide-overlay"></div>
       <script>
@@ -835,11 +836,9 @@
         </div>
       </div>
       <script>
-        document.querySelectorAll('.faq-question').forEach(q => {
-          q.addEventListener('click', () => {
-            const item = q.parentElement;
-            item.classList.toggle('active');
-          });
+        document.querySelector('.faq-grid')?.addEventListener('click', (e) => {
+          const q = e.target.closest('.faq-question');
+          if (q) q.parentElement.classList.toggle('active');
         });
       </script>
     </section>
@@ -848,7 +847,7 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <div class="logo-footer" style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-            <img src="space-planners-logo-black-bg.png" alt="Space Planners India" style="width: 50%;height: 50%;">
+            <img src="space-planners-logo-black-bg.png" alt="Space Planners India" width="200" height="60" loading="lazy" decoding="async" style="width: 50%;height: 50%;">
           </div>
           <p>India's trusted manufacturer of premium storage solutions since 2004. Serving 500+ clients across every
             major
@@ -908,7 +907,7 @@
       </div>
     </footer>
 
-    <script src="forms-handler.js"></script>
+    <script src="forms-handler.js" defer></script>
     <script>
 
       // ── CLIENTS SCROLL ──
@@ -1014,8 +1013,8 @@
     <div class="product-card reveal${i % 3 === 1 ? ' delay-1' : i % 3 === 2 ? ' delay-2' : ''}"
       style="text-decoration:none; cursor:pointer; display:flex; flex-direction:column;"
       onclick="handleCardClick(event, '${p.id}')">
-      <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0;">
-        <img src="${p.image}" alt="${p.name}" loading="lazy"
+      <div class="product-image" style="overflow:hidden; border-radius:12px 12px 0 0; aspect-ratio:3/2; height:200px;">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" width="300" height="200"
           style="width:100%; height:200px; object-fit:cover; object-position:${p.imageOffset || 'center'}; transform-origin:${p.imageOffset || 'center'}; --zoom: ${p.imageZoom || 1}; transform: scale(var(--zoom)); transition:transform 0.4s ease;"
           onerror="this.parentElement.style.background='linear-gradient(135deg,#e53935 0%,#b71c1c 100%)'; this.style.display='none';">
       </div>

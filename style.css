@@ -6753,3 +6753,33 @@ header.scrolled {
     align-items: flex-start;
   }
 }
+
+/* ==============================================
+   CORE WEB VITALS & LAYOUT SHIFT (CLS) FIXES
+============================================== */
+@font-face {
+  font-display: swap;
+}
+
+#productGrid {
+  min-height: 840px;
+  contain: layout style;
+}
+
+.stats-ribbon, #statsRibbon {
+  min-height: 120px;
+  contain: layout;
+}
+
+.product-card {
+  min-height: 380px;
+  contain: layout style;
+}
+
+.float-stack,
+#spMobileCtaBar,
+.float-inquiry-popup,
+.modal {
+  will-change: transform;
+  transform: translateZ(0);
+}

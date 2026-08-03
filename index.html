@@ -69,7 +69,7 @@
         media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap">
     </noscript>
     <link rel="preload" href="Compactors/document-storage.webp" as="image" fetchpriority="high">
     <link rel="preload" as="style" href="style.css">
@@ -488,22 +488,22 @@
                 <div class="carousel-slide active" id="slide0">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
                         src="Compactors/document-storage.webp" alt="Document Storage System by Space Planners India"
-                        loading="eager" fetchpriority="high">
+                        loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 <div class="carousel-slide" id="slide1">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Racks/carousel-2.png" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
-                        loading="lazy">
+                        src="Racks/Carousel-1.webp" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
+                        loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide" id="slide2">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Lockers/Carousel.png" alt="Professional Steel Storage Lockers by Space Planners India"
-                        loading="lazy">
+                        src="Lockers/factory-staff-lockers.webp" alt="Professional Steel Storage Lockers by Space Planners India"
+                        loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide" id="slide3">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Cupboard Cabinets/carousel-1.png"
-                        alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy">
+                        src="Cupboard Cabinets/sliding-door-cupboard-ad.webp"
+                        alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy" decoding="async">
                 </div>
                 <div class="slide-overlay"></div>
                 <script>
@@ -659,7 +659,7 @@
                                 style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
                                 <div class="product-image"
                                     style="position: relative; overflow: hidden; border-radius: 10px; height: 220px">
-                                    <img src="Compactors/perforated.webp"
+                                    <img src="Compactors/perforated.webp" width="300" height="220" decoding="async"
                                         alt="Mobile Compactor Storage System - Space Savings" loading="lazy"
                                         style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                     <div
@@ -692,7 +692,7 @@
                                 style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
                                 <div class="product-image"
                                     style="position: relative; overflow: hidden; border-radius: 10px; height: 220px">
-                                    <img src="Racks/slotted-angle-racking.webp"
+                                    <img src="Racks/slotted-angle-racking.webp" width="300" height="220" decoding="async"
                                         alt="Heavy-Duty Industrial Racks - 10 Ton Capacity" loading="lazy"
                                         style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
@@ -722,7 +722,7 @@
                                 style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
                                 <div class="product-image"
                                     style="position: relative; overflow: hidden; border-radius: 10px; height: 220px">
-                                    <img src="Lockers/premium-multicolored-lockers.webp"
+                                    <img src="Lockers/premium-multicolored-lockers.webp" width="300" height="220" decoding="async"
                                         alt="Secure Professional Storage Lockers - Digital Lock" loading="lazy"
                                         style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
@@ -751,7 +751,7 @@
                                 style="text-decoration: none; display: flex; flex-direction: column; flex: 1; cursor: pointer;">
                                 <div class="product-image"
                                     style="position: relative; overflow: hidden; border-radius: 10px; height: 220px">
-                                    <img src="Cupboard Cabinets/filing-cabinet.webp"
+                                    <img src="Cupboard Cabinets/filing-cabinet.webp" width="300" height="220" decoding="async"
                                         alt="Professional Filing Cabinets & Lockers" loading="lazy"
                                         style="width:100%; height:100%; object-fit:cover; transition: transform 0.3s ease;">
                                 </div>
@@ -2231,7 +2231,7 @@
         });
     </script>
     <script src="js/data.js" defer></script>
-    <script src="forms-handler.js"></script>
+    <script src="forms-handler.js" defer></script>
     <script src="js/nav-scroll.js" defer></script>
 </body>
 
