@@ -38,7 +38,7 @@
   <meta property="og:image" content="https://spaceplannersindia.in/og-image-1200x630.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="product">
   <meta property="og:locale" content="en_IN">
 
   <!-- Twitter Card -->
@@ -199,6 +199,10 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".faq-question h3", ".faq-answer p"]
+      },
       "mainEntity": [
         {
           "@type": "Question",
@@ -705,7 +709,38 @@
 
         <div id="productGrid"
           style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px;">
-          <!-- rendered by JS -->
+          <article class="product-card" style="background:#fff; border-radius:12px; overflow:hidden; border:1px solid #eee; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <div class="product-image" style="height:220px; overflow:hidden; background:#f4f4f4;">
+              <img src="Compactors/document-storage.webp" alt="Document Storage Mobile Compactor System" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+            </div>
+            <div class="product-info" style="padding:20px;">
+              <h3 class="product-name" style="font-family:var(--font-serif); font-size:20px; margin-bottom:8px;">Document Storage Compactor</h3>
+              <p class="product-desc" style="color:#666; font-size:14px; line-height:1.5; margin-bottom:16px;">High-density paper record and file compactor system with central locking mechanisms.</p>
+              <button class="btn-primary" onclick="openInquiryModal({category:'Compactor Storage System', specificProduct:'Document Storage Compactor'})" style="width:100%;">Get Free Quote</button>
+            </div>
+          </article>
+
+          <article class="product-card" style="background:#fff; border-radius:12px; overflow:hidden; border:1px solid #eee; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <div class="product-image" style="height:220px; overflow:hidden; background:#f4f4f4;">
+              <img src="Compactors/pigeon-hole-compactor-carousel-2.webp" alt="Pigeon Hole Compactor System" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+            </div>
+            <div class="product-info" style="padding:20px;">
+              <h3 class="product-name" style="font-family:var(--font-serif); font-size:20px; margin-bottom:8px;">Pigeon Hole Compactor</h3>
+              <p class="product-desc" style="color:#666; font-size:14px; line-height:1.5; margin-bottom:16px;">Multi-compartment pigeon hole mobile compactors for mailrooms, parts sorting, and office storage.</p>
+              <button class="btn-primary" onclick="openInquiryModal({category:'Compactor Storage System', specificProduct:'Pigeon Hole Compactor'})" style="width:100%;">Get Free Quote</button>
+            </div>
+          </article>
+
+          <article class="product-card" style="background:#fff; border-radius:12px; overflow:hidden; border:1px solid #eee; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <div class="product-image" style="height:220px; overflow:hidden; background:#f4f4f4;">
+              <img src="Compactors/heavy-duty-compactor-carousel-3.webp" alt="Heavy Duty Industrial Compactor" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+            </div>
+            <div class="product-info" style="padding:20px;">
+              <h3 class="product-name" style="font-family:var(--font-serif); font-size:20px; margin-bottom:8px;">Heavy Duty Industrial Compactor</h3>
+              <p class="product-desc" style="color:#666; font-size:14px; line-height:1.5; margin-bottom:16px;">Heavy-load mechanical and motorized compactor systems supporting up to 4,000 kg per bay.</p>
+              <button class="btn-primary" onclick="openInquiryModal({category:'Compactor Storage System', specificProduct:'Heavy Duty Compactor'})" style="width:100%;">Get Free Quote</button>
+            </div>
+          </article>
         </div>
       </div>
     </section>

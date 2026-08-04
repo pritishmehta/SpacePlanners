@@ -38,7 +38,7 @@
   <meta property="og:image" content="https://spaceplannersindia.in/og-image-1200x630.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="product">
   <meta property="og:locale" content="en_IN">
 
   <!-- Twitter Card -->
@@ -197,6 +197,10 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".faq-question h3", ".faq-answer p"]
+      },
       "mainEntity": [
         {
           "@type": "Question",

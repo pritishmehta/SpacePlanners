@@ -43,8 +43,121 @@
     <meta name="theme-color" content="#c41212">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-    <link rel="stylesheet" href="style.css">
     <script src="js/load-components.js?v=2" defer></script>
+
+    <!-- ===== STRUCTURED DATA (JSON-LD SCHEMA) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://spaceplannersindia.in/#organization",
+      "name": "Space Planners India",
+      "legalName": "Space Planners India",
+      "url": "https://spaceplannersindia.in/",
+      "logo": "https://spaceplannersindia.in/space-planners-logo-black-bg.png",
+      "image": [
+        "https://spaceplannersindia.in/space-planners-logo-black-bg.png",
+        "https://spaceplannersindia.in/Compactors/document-storage.webp"
+      ],
+      "description": "India's leading manufacturer of mobile compactors, industrial racks, storage lockers, and filing cabinets since 2004",
+      "foundingDate": "2004",
+      "telephone": "+91-9987733903",
+      "email": "sales@spaceplannersindia.in",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "112, Orbit Premises, Off Chincholi Link Road, Mindspace, Malad West",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400064",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/spaceplannersindia",
+        "https://www.instagram.com/spaceplanners.india/"
+      ],
+      "priceRange": "₹₹₹"
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://spaceplannersindia.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog & Technical Guides",
+          "item": "https://spaceplannersindia.in/blog.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Blog Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": "https://spaceplannersindia.in/blog.html#blog",
+      "name": "Space Planners India Technical Resource Hub",
+      "description": "In-depth technical guides, engineering considerations, space optimization principles, and buyer frameworks by Space Planners India.",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://spaceplannersindia.in/#organization",
+        "name": "Space Planners India"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "What is a Mobile Compactor Storage System? A Complete Guide (2026)",
+          "description": "Comprehensive technical guide on mobile compactor storage systems, capacity calculations, safety features, and buying criteria.",
+          "datePublished": "2026-08-03",
+          "dateModified": "2026-08-03",
+          "author": {
+            "@type": "Organization",
+            "name": "Space Planners Engineering Team"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Space Planners India",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://spaceplannersindia.in/space-planners-logo-black-bg.png"
+            }
+          },
+          "mainEntityOfPage": "https://spaceplannersindia.in/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "How to Choose the Right Industrial Storage Rack: A Complete Buyer's Guide",
+          "description": "Complete guide for evaluating beam load capacities, aisle clearance math, structural safety anchorings, and selecting industrial racking systems.",
+          "datePublished": "2026-08-03",
+          "dateModified": "2026-08-03",
+          "author": {
+            "@type": "Organization",
+            "name": "Industrial Storage Systems Specialist"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Space Planners India",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://spaceplannersindia.in/space-planners-logo-black-bg.png"
+            }
+          },
+          "mainEntityOfPage": "https://spaceplannersindia.in/blog.html"
+        }
+      ]
+    }
+    </script>
 
     <style>
         /* Dedicated Clean UI/UX Blog Page Styling */

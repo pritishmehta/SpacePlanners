@@ -62,5 +62,33 @@ const cases = [
             { metric: "", label: "Cost-effective fix — by reusing the existing structure and replacing only the faulty component, the client avoided the expense of a complete system overhaul" },
             { metric: "", label: "Demonstrated Space Planners' ability to diagnose and solve problems in systems we didn't originally supply" }
         ]
+    },
+    {
+        title: "Cleanroom Mobile Compactor Storage for Leading Pharmaceutical Manufacturer",
+        subtitle: "GMP & NABH COMPLIANT DOCUMENT ARCHIVE",
+        img: "sectors/pharma.webp",
+        industry: "Pharmaceutical",
+        client: "Top-tier multinational pharmaceutical enterprise in Mumbai",
+        challenge: "Strict GMP guidelines require pharmaceutical manufacturers to retain physical batch manufacturing records for years. Storing paper records in static shelving consumed premium air-conditioned cleanroom space.",
+        solution: "Space Planners engineered an anti-microbial, stainless-steel-finished mobile compactor system equipped with central gang locking, dust-sealing gaskets, and anti-tilt rail mechanisms.",
+        results: [
+            { metric: "65% Space Saved", label: "Freed up critical cleanroom floor area for production expansion" },
+            { metric: "100% Audit Compliance", label: "Fully compliant with US FDA, GMP, and NABH archival guidelines" },
+            { metric: "Under 3 Min Retrieval", label: "Index-tagged bays reduced file access time from 15 minutes to under 3 minutes" }
+        ]
+    },
+    {
+        title: "High-Density Archival Storage System for Government Ministry Records",
+        subtitle: "SECURE NATIONWIDE DOCUMENT STORAGE",
+        img: "sectors/govt.webp",
+        industry: "Government & Archives",
+        client: "Central Government Department & PSU Head Offices",
+        challenge: "Managing decades of historical land records, legal files, and audit documents across multiple departments caused severe space congestion and security vulnerabilities in static file cabinets.",
+        solution: "Space Planners designed and deployed a heavy-duty mechanical-geared compactor system with master key access control and GeM portal compliance, custom-fitted for fire-retardant storage.",
+        results: [
+            { metric: "70% Space Saved", label: "Consolidated archives from 3 separate facilities into one central archive room" },
+            { metric: "Zero File Damage", label: "Protected confidential physical records against pest infestation and moisture" },
+            { metric: "200% Capacity Increase", label: "Doubled total document holding capacity without civil construction" }
+        ]
     }
 ];
