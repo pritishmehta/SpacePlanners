@@ -40,9 +40,16 @@
     <meta name="twitter:image" content="https://spaceplannersindia.in/og-image-1200x630.png">
 
     <!-- Additional Metadata -->
-    <meta name="theme-color" content="#c41212">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <!-- Font Optimization -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap">
 
+    <link rel="preload" as="style" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=2">
     <script src="js/load-components.js?v=2" defer></script>
 
     <!-- ===== STRUCTURED DATA (JSON-LD SCHEMA) ===== -->
@@ -527,8 +534,82 @@
 <body>
 
     <!-- Dynamic Header -->
-    <header id="header-placeholder"></header>
-    <div id="mobile-nav-placeholder"></div>
+    <div id="mobile-nav-placeholder">
+        <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="logo"><img src="logo.png" alt="Space Planners" width="180" height="50"
+                        decoding="async" style="height: 50px; display: block;"></a>
+                <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+            </div>
+            <ul style="text-transform: uppercase;">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li>
+                    <a href="index.html#products" style="justify-content:space-between">PRODUCTS <span>▾</span></a>
+                    <ul class="mobile-dropdown" style="background:#fcfcfc; padding:0; text-transform: none;">
+                        <li><a href="compactor-storage.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Compactor
+                                storage system</a></li>
+                        <li><a href="industrial-racks.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Industrial
+                                racks</a></li>
+                        <li><a href="storage-lockers.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Storage
+                                lockers</a></li>
+                        <li><a href="filing-cabinets.html"
+                                style="padding-left:40px; padding-top:5px; padding-bottom:5px; font-size:16px; font-weight:bold; color:var(--red-dark);">Storage
+                                cabinets & cupboards</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#sectors">INDUSTRIAL APPLICATIONS</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="blog.html" class="active">BLOG</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="tel:02240033385" class="btn-call">📞 022 4003 3385/86</a>
+                <button class="btn-primary" onclick="closeMobileNav();openInquiryModal()">Get Free Quote</button>
+            </div>
+        </div>
+    </div>
+
+    <header id="header-placeholder">
+        <div class="header-main">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Space Planners India" width="220" height="60" decoding="async">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#products">PRODUCTS <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                class="nav-chevron">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg></a>
+                        <ul class="nav-dropdown">
+                            <li><a href="compactor-storage.html">Compactor Storage System</a></li>
+                            <li><a href="industrial-racks.html">Industrial Racks</a></li>
+                            <li><a href="storage-lockers.html">Storage Lockers</a></li>
+                            <li><a href="filing-cabinets.html">Storage Cabinets & Cupboards</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#sectors">INDUSTRIAL APPLICATIONS</a></li>
+                    <li><a href="projects.html">PROJECTS</a></li>
+                    <li><a href="blog.html" class="active">BLOG</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn-call">Contact Us</a>
+                <button class="btn-primary" onclick="openInquiryModal()">Get Free Quote</button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu Toggle" aria-expanded="false"
+                    onclick="toggleMobileNav()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <main>
         <!-- Hero Section -->
