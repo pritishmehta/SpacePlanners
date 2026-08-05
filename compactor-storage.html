@@ -51,7 +51,7 @@
   <!-- Additional Metadata -->
   <meta name="theme-color" content="#e53935">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- Font Optimization -->
@@ -590,9 +590,13 @@
 
         function updateSlideTitle(index) {
           const content = slideContent[index % 4];
-          document.getElementById('slideTitle').textContent = content.title;
-          document.getElementById('slideDesc').textContent = content.description;
-          document.querySelector('.slide-eyebrow').textContent = content.eyebrow;
+          if (!content) return;
+          const titleEl = document.getElementById('slideTitle');
+          const descEl = document.getElementById('slideDesc');
+          const eyebrowEl = document.querySelector('.slide-eyebrow');
+          if (titleEl && content.title) titleEl.textContent = content.title;
+          if (descEl && content.description) descEl.textContent = content.description;
+          if (eyebrowEl && content.eyebrow) eyebrowEl.textContent = content.eyebrow;
         }
       </script>
       <div class="slide-content">
