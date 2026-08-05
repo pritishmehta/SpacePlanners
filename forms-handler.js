@@ -64,6 +64,26 @@ function initAllForms() {
     setupWhatsAppTracking();
 }
 
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18330355311/84vrCKL42tIcEO-MzKRE',
+        'value': 1.0,
+        'currency': 'INR',
+        'event_callback': callback
+    });
+  } else {
+    callback();
+  }
+  return false;
+}
+window.gtag_report_conversion = gtag_report_conversion;
+
 function trackWhatsAppClick(label) {
     if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
@@ -344,13 +364,7 @@ async function handleSubmission(form, type, onSuccess) {
 
     if (result.success) {
         // Trigger Google Ads Form Submission Conversion Event
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {
-                'send_to': 'AW-18330355311/form_submission',
-                'event_category': 'Form',
-                'event_label': type
-            });
-        }
+        gtag_report_conversion();
         onSuccess();
     } else {
         showToast('Failed to send. Please check your connection.', 'error');
