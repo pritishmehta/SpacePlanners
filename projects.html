@@ -104,7 +104,7 @@
     </script>
 
   <!-- Case Studies Collection Schema (for SEO & featured snippets) -->
-  <script type="application/ld+json">
+  <script type="application/ld+json" id="caseStudiesSchema">
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -114,27 +114,33 @@
       "mainEntity": [
         {
           "@type": "Article",
-          "name": "Pharmaceutical Storage Case Study",
-          "description": "How we delivered compliant mobile compactor storage for a leading pharma company, achieving 60–70% space savings",
-          "headline": "Pharmaceutical Storage Solution"
+          "name": "Heavy-Duty Compactor Storage for a Leading FMCG Manufacturer",
+          "headline": "SECURE RAW MATERIAL STORAGE",
+          "description": "The client stored raw materials for soap manufacturing in 50 kg gunny bags on regular fixed racks. This conventional storage method consumed excessive floor space and limited how much material could be held in the warehouse at any given time."
         },
         {
           "@type": "Article",
-          "name": "Hospital Locker System Case Study",
-          "description": "Multi-specialty hospital implemented digital locker system for staff, improving security and organization",
-          "headline": "Hospital Digital Locker Implementation"
+          "name": "Mobile Compactor Storage System for India's Leading Engineering Institute's Library",
+          "headline": "HIGH-DENSITY LIBRARY STORAGE",
+          "description": "Top reputed Technology Institute had floated a tender for a mobile compactor storage system, with the original design proposed by another vendor. Space Planners reviewed the tender specifications and identified an opportunity to deliver significantly greater storage efficiency through an improved design."
         },
         {
           "@type": "Article",
-          "name": "Warehouse Optimization Case Study",
-          "description": "E-commerce warehouse achieved 60–70% space savings using pallet racks and mezzanine platforms",
-          "headline": "E-Commerce Warehouse Optimization"
+          "name": "Mobile Compactor Modification for one of the Largest Airport in India",
+          "headline": "RESOLVING MOVEMENT ISSUES IN AN EXISTING SYSTEM",
+          "description": "A big corporate company maintaining airports was experiencing persistent movement issues with a mobile compactor system that had been supplied by another reputed vendor. The malfunctioning system was affecting their ability to reliably access stored records."
         },
         {
           "@type": "Article",
-          "name": "Government Archive Case Study",
-          "description": "Government agency organized 50+ years of archived documents using mobile compactor systems",
-          "headline": "Government Archive Organization"
+          "name": "Cleanroom Mobile Compactor Storage for Leading Pharmaceutical Manufacturer",
+          "headline": "GMP & NABH COMPLIANT DOCUMENT ARCHIVE",
+          "description": "Strict GMP guidelines require pharmaceutical manufacturers to retain physical batch manufacturing records for years. Storing paper records in static shelving consumed premium air-conditioned cleanroom space."
+        },
+        {
+          "@type": "Article",
+          "name": "High-Density Archival Storage System for Government Ministry Records",
+          "headline": "SECURE NATIONWIDE DOCUMENT STORAGE",
+          "description": "Managing decades of historical land records, legal files, and audit documents across multiple departments caused severe space congestion and security vulnerabilities in static file cabinets."
         }
       ]
     }
@@ -682,6 +688,25 @@
 
     function renderCases() {
       window._caseData = cases;
+      if (typeof cases !== 'undefined' && Array.isArray(cases)) {
+        const schemaEl = document.getElementById('caseStudiesSchema');
+        if (schemaEl) {
+          const dynamicSchema = {
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            'name': 'Storage Solutions Case Studies',
+            'description': 'Real-world case studies from 2000+ installations across India',
+            'url': 'https://spaceplannersindia.in/projects.html',
+            'mainEntity': cases.map(c => ({
+              '@type': 'Article',
+              'name': c.title ? c.title.trim() : '',
+              'headline': c.subtitle ? c.subtitle.trim() : (c.title ? c.title.trim() : ''),
+              'description': c.challenge ? c.challenge.trim() : ''
+            }))
+          };
+          schemaEl.textContent = JSON.stringify(dynamicSchema, null, 2);
+        }
+      }
       document.getElementById('casesGrid').innerHTML = cases.map((c, i) => `
     <div class="case-study-card" style="flex:unset;" onclick="openCaseModal(${i})"  role="button" tabindex="0">
       <div class="case-study-image"><img src="${c.img}" alt="${c.title} case study" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'case-study-image-placeholder\\'></div>'"></div>
