@@ -10,7 +10,21 @@
 - [Filing Cabinets & Cupboards](https://spaceplannersindia.in/filing-cabinets.html): Lockable office file cabinets, lateral drawer units, and storewell cupboards.
 - [About Space Planners India](https://spaceplannersindia.in/about.html): Company background, ISO 9001:2015 certification, and 20+ years manufacturing history.
 - [Contact & Free Storage Quote](https://spaceplannersindia.in/contact.html): Free site assessment, 3D space planning, and sales inquiry.
-- [Case Studies & Projects](https://spaceplannersindia.in/projects.html): Over 2,000 completed installations across India.
+
+## Case Studies & Projects
+
+- [Case Studies Overview](https://spaceplannersindia.in/projects.html): Over 2,000 completed installations across India.
+- [FMCG Heavy-Duty Compactor Storage](https://spaceplannersindia.in/projects/heavy-duty-compactor-storage-for-a-leading-fmcg-manufacturer.html): Raw material storage optimization saving 70% space for soap manufacturing.
+- [Engineering Institute Library Mobile Compactor](https://spaceplannersindia.in/projects/mobile-compactor-storage-system-for-indias-leading-engineering-institutes-library.html): High-density library storage system for Powai campus library.
+- [Airport Records Compactor Modification](https://spaceplannersindia.in/projects/mobile-compactor-modification-for-one-of-the-largest-airport-in-india.html): Trolley mechanism redesign and overhaul for airport records storage.
+- [Pharma GMP Cleanroom Compactor](https://spaceplannersindia.in/projects/stainless-steel-storage-compactors-for-a-major-pharmaceutical-facility.html): Perforated 304 SS mobile storage for sterile batch manufacturing document archives.
+- [Government Ministry Central Records](https://spaceplannersindia.in/projects/pan-india-centralized-records-compactor-system-for-government-ministry.html): Centralized public sector Secretariat archive storage meeting GeM tender standards.
+
+## Technical Guides & Blog
+
+- [Blog Overview & Technical Guides](https://spaceplannersindia.in/blog.html): Buyer guides for storage compactors and industrial racking systems.
+- [Mobile Compactor Storage System Complete Guide (2026)](https://spaceplannersindia.in/blog/what-is-a-mobile-compactor-storage-system-a-complete-guide-2026.html): Comprehensive guide covering types, benefits, components, and maintenance.
+- [Industrial Storage Rack Buyer Guide](https://spaceplannersindia.in/blog/how-to-choose-the-right-industrial-storage-rack-a-complete-buyers-guide.html): Guide to evaluating load capacity, warehouse dimensions, and racking types.
 
 ## Optional & Legal References
 

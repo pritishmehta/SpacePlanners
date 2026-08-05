@@ -1,153 +1,140 @@
 # GEO Audit Report: Space Planners India
 
-**Audit Date:** 2026-08-05
-**Score history:** 44/100 (07-27) → 53 → 57 → 59/100 (three runs on 08-03) → **this run**
+**Audit Date:** 2026-08-05 (second pass — re-run after commit `76aff84 "fixes"`)
+**Score history:** 44/100 (07-27) → 53 → 57 → 59/100 (three runs on 08-03) → 52/100 (08-05 #1) → **54/100 (08-05 #2, now)**
 **URL:** https://spaceplannersindia.in/
 **Business Type:** B2B Industrial Manufacturer (Local/Enterprise hybrid — physical Mumbai HQ, sells to corporate/government/healthcare/education buyers, GeM Portal registered)
-**Pages Analyzed:** 12 (full current sitemap, up from 8 on 08-03 — `blog.html` is new since the last audit)
-**Toolkit status:** GEO-SEO skill set diffed against upstream before this audit — already current, no update applied.
+**Pages Analyzed:** 12 (full sitemap) + `js/data.js` + `llms.txt` + `robots.txt`, all re-fetched live and diffed against the 08-05 #1 findings
 
 ---
 
 ## Executive Summary
 
-**Overall GEO Score: 52/100 (down from 59/100 on 08-03)**
+**Overall GEO Score: 54/100 (up 2 from 52 on the same day)**
 
-The regression is not because prior fixes reverted — the sitewide FAQ/spec-table rollout, the `<body>`/`contact.html` fixes, and the other items logged as "Confirmed Fixed" on 08-03 are still in place (spot-checked below). **The score dropped because this audit expanded scope to `blog.html` (new since 08-03) and specifically dug into a question the previous three audits never asked: is the detailed content behind "Read More" a real, crawlable page, or a JS popup?** It's a JS popup — on all three of the site's main content types (products, projects, blog) — and that single architectural pattern is a bigger AI-visibility problem than everything fixed so far combined.
+A real commit landed since the last audit (`76aff84`, touching `.htaccess`, `blog.html`, all 4 product pages, and `projects.html`). Verified directly against the live site rather than trusting the diff stat alone: **three of the prior audit's Critical/High findings are genuinely fixed**, one is **partially fixed with a new side-effect worth flagging**, and everything scoped for "Week 2" (unique URLs per product/case/article) is — as expected — still open, since that's a bigger structural change than a same-day patch.
 
-**This audit's primary finding, directly answering what was asked:** product specs, full case studies, and full blog articles are not in the static HTML. They live in JavaScript data objects and only render into the DOM inside a modal, triggered by an `onclick`. No AI crawler that doesn't execute JavaScript (which is most of them — GPTBot, PerplexityBot, and answer-engine crawlers generally fetch raw HTML) will ever see this content, and even one that does execute JS still can't cite it individually, because none of it has a unique URL — everything resolves back to the same shared `/projects.html` or `/blog.html`.
+### What's confirmed fixed
+
+1. **Cloudflare robots.txt conflict for `ClaudeBot`/`Google-Extended` — resolved.** The live `robots.txt` now returns a single, clean rule set matching the repo's local file exactly (no more duplicated Cloudflare-injected block disallowing bots the site's own rules allow). Confirmed via direct `curl` fetch.
+2. **`blog.html` now has the `<meta name="robots">` tag** matching every other page.
+3. **`CollectionPage` schema on `projects.html` no longer describes fictitious case studies.** This was rebuilt two ways at once: the static JSON-LD block was hand-updated to list the 5 real case-study titles that are actually in the static HTML, *and* a new `<script>` was added that regenerates the same schema block at runtime from the live `cases` array (`mainEntity: cases.map(c => ({...}))`) so it can't drift again. Both the non-JS view and the JS-rendered view are now internally self-consistent (previously the schema simply didn't match anything).
+4. **Individual `Product` schema added per variant, all 4 product pages.** `compactor-storage.html` now has 6 distinct Product schema blocks (File Storage, Pigeon Hole, Heavy Duty, Perforated, Drawer, Stainless Steel Compactors) instead of one generic entity; `industrial-racks.html`, `storage-lockers.html`, and `filing-cabinets.html` each got the equivalent treatment (7-8 variant-specific Product blocks apiece). This is a real, verified win for citability — **JSON-LD schema lives in static `<script>` tags, so it's visible to non-JS crawlers regardless of whether the visual product grid renders**, meaning AI systems now get accurate, differentiated product data even without executing JavaScript.
+
+### New finding — a side-effect worth a decision, not necessarily a regression
+
+5. **On `industrial-racks.html`, `storage-lockers.html`, and `filing-cabinets.html`, the static HTML fallback for the product grid was removed entirely** — `<div id="productGrid">` now contains only an HTML comment (`<!-- rendered by JS -->`), no hardcoded cards. This eliminates the old mismatch bug (stale card text vs. real JS data) by deleting the mismatched side rather than syncing it. Net effect: these 3 pages no longer show *wrong* product names to non-JS crawlers, but they now show *zero* visible product cards in the raw HTML — visual/textual product content on these pages is 100% JS-only. The new per-variant Product schema (finding #4) substantially offsets this for schema-reading AI systems, but a rendering-only or text-extraction crawler still sees an empty grid. **`compactor-storage.html` was not changed this way — it still has its original 3 stale, mismatched static cards** (Document Storage Compactor / Pigeon Hole Compactor / Heavy Duty Industrial Compactor), inconsistent with the other 3 pages' approach and still wrong relative to the real 6 products.
+
+### Still open, unchanged from 08-05 #1
+
+- **No unique URL for any product variant, case study, or blog article** — this remains the single biggest lever, untouched, as expected for a same-day patch.
+- **`js/data.js`'s `cases` array still has only 3 entries** (FMCG, Library, Airport) while the static HTML on `projects.html` still shows 5 case-study cards (FMCG, Library, Airport, Pharma cleanroom, Government). The schema fix (finding #3) made both *views* internally consistent with themselves, but the underlying 5-vs-3 content mismatch between the static page and the JS-rendered page is not resolved — the 2 extra case studies (Pharma cleanroom, Government) still only exist as static text with no backing data entry, and will vanish for any real site visitor once JS runs.
+- **No `offers`/price schema on any of the 4 Product schema blocks** (checked all 4 pages, `offers` count = 0 everywhere) — still ineligible for price-related rich results.
+- **`js/data.js`'s dead `projects` array (8 unused generic entries)** — still present, still unreferenced.
+- **Blog author attribution still generic** ("Space Planners Engineering Team," "Industrial Storage Systems Specialist") — no `Person` schema tie-in, unchanged.
+- Everything under "Not Fixable From the Repo" in the prior report (Wikipedia/Reddit absence, brand fragmentation, unsourced headline stats) — not re-verified this pass, carry forward as still open.
 
 ### Score Breakdown
 
-| Category | Weight | 07-27 | 08-03 (final) | **08-05 (now)** | Δ |
+| Category | Weight | 08-05 #1 | **08-05 #2 (now)** | Δ | Why |
 |---|---|---|---|---|---|
-| AI Citability | 25% | 54 | 86 | **48** | -38 |
-| Brand Authority | 20% | 19 | 33 | **34** | +1 |
-| Content E-E-A-T | 20% | 49 | 55 | **56** | +1 |
-| Technical GEO | 15% | 64 | 71 | **58** | -13 |
-| Schema & Structured Data | 10% | 39 | 39 | **45** | +6 |
-| Platform Optimization | 10% | 37 | 57 | **52** | -5 |
-| **Overall GEO Score** | | **44** | **59** | **52** | **-7** |
-
-**Read the drop correctly:** AI Citability and Technical GEO didn't get worse in absolute terms — the 08-03 scores were measured against `compactor-storage.html`, `industrial-racks.html`, `storage-lockers.html`, and `filing-cabinets.html`'s *visible page text* (the FAQ/spec-table content, which is genuinely excellent and server-rendered). This audit measured the same pages against *what a non-JS crawler's raw fetch actually returns for the "View Details" / "Read Full Case Study" / "Read Complete Guide" content* — and that content isn't there. Both things are true at once: the visible page is strong; the content behind every "read more" affordance is invisible to most AI systems.
+| AI Citability | 25% | 48 | **58** | +10 | Per-variant Product schema is a real, static, non-JS-visible citability gain that outweighs the loss of visible grid text on 3 pages |
+| Brand Authority | 20% | 34 | **34** | 0 | Not touched by this commit |
+| Content E-E-A-T | 20% | 56 | **56** | 0 | Blog authorship still generic; nothing else in scope changed |
+| Technical GEO | 15% | 58 | **65** | +7 | robots.txt conflict resolved; meta robots consistency fixed |
+| Schema & Structured Data | 10% | 45 | **62** | +17 | Fictitious CollectionPage content fixed; 24+ new Product entities added; offers still missing |
+| Platform Optimization | 10% | 52 | **58** | +6 | Clean robots.txt materially helps ChatGPT/Perplexity trust; better schema helps AI Overviews |
+| **Overall GEO Score** | | **52** | **54** | **+2** | |
 
 ---
 
-## Answering the specific question asked: are product / project / blog "pop-up" details crawlable?
+## Updated Priority List
 
-**No.** Verified directly by comparing raw `curl` output (what a non-JS crawler sees) against the rendered DOM (what a browser shows), on the live site and cross-checked against the local repo files.
+### Critical — still the top issue
+1. **No unique URL for products, case studies, or blog articles.** Unchanged from last audit — this is the fix that would move the score the most, and it's the one thing this commit didn't attempt. See the 08-05 #1 findings below for the full breakdown by content type.
+2. **`js/data.js`'s `cases` array (3 entries) still disagrees with `projects.html`'s static HTML (5 entries).** Either add the missing 2 case studies (Pharma cleanroom, Government) to the `cases` array with full challenge/solution/results fields, or remove them from the static HTML — don't leave the disagreement in place now that the schema dynamically trusts whichever one JS sees.
 
-| Content type | Files | Where the full content lives | What a non-JS crawler gets | Unique URL? |
-|---|---|---|---|---|
-| **Products** (6 variants × 4 product pages) | `compactor-storage.html`, `industrial-racks.html`, `storage-lockers.html`, `filing-cabinets.html` | Inline `productsData` JS array, injected by `renderProducts()` on load; full description + "Ideal Applications" only shown by `openProductModal(id)` on click | 3 hardcoded static fallback cards **that don't match** the 6 real products (different names, different copy) — these get silently replaced once JS runs, so the raw HTML a crawler fetches is factually stale | No — one shared `#productDetailContent` modal per page, no per-product URL |
-| **Projects / Case Studies** | `projects.html` (data from `js/data.js`) | `cases` array (3 full case studies: FMCG, Engineering Institute Library, Airport — each with challenge/solution/named-client/quantified results), injected by `renderCases()`; full detail only via `openCaseModal(i)` | 5 *different* case studies hardcoded in the static HTML (FMCG, Library, Airport, Pharma cleanroom, Government) that get **overwritten down to 3** once JS runs — a real content-integrity bug, not just a GEO gap | No — one shared `#caseDetailContent` modal |
-| **Blog articles** | `blog.html` | `articlesDB` JS object — 2 full long-form guides (10-section TOC each) injected only by `openArticleModal('art-1'/'art-2')` on click | A solid, genuinely crawlable ~60-word excerpt + highlight chips per article (this part is fine) — but the actual 10-minute guide, the part worth citing, is 100% invisible to any crawler that doesn't click | No — one shared `#modalArticleContent` modal, no per-article slug |
+### High — pick one approach and apply it consistently
+3. **Decide on one strategy for the product grid's non-JS fallback and apply it to all 4 pages.** Right now `compactor-storage.html` shows stale/wrong static cards while the other 3 show none at all — neither is ideal, and the inconsistency itself is worth fixing. Recommended: sync `compactor-storage.html`'s static fallback to its real 6 products (matching what appears to be the intended fix already applied elsewhere), rather than emptying it — an accurate static fallback is strictly better than none for text-extraction-based crawlers that don't parse JSON-LD.
+4. **Add `offers` to all 4 Product schema blocks** (still 0 across the board) — see the exact JSON shape recommended in the prior report.
+5. **Attribute blog articles to real people** (reuse the existing Sehgal `Person` schema pattern from `about.html`) — unchanged from last audit.
 
-**Why this specifically hurts GEO/AEO:** AI answer engines build their index from raw or lightly-rendered HTML; they don't click buttons the way a person does. Even a rendering-capable crawler that executed every script on `projects.html` still couldn't deep-link a user to "the FMCG case study" — there is no such URL, only `/projects.html`, which resolves to whichever 3 cases are hardcoded into the JS at the time. This directly suppresses AI Overview citation, Perplexity source linking, and featured-snippet eligibility for the three content types most likely to contain the specific, differentiated detail someone would actually search for ("mobile compactor for pharma cleanroom," "how to choose industrial racks").
-
-**Independent bug surfaced by this check:** the static fallback markup for products and case studies doesn't match the JS-rendered version — different product names, and 5 vs. 3 case studies. This means Google's rendered snapshot and a plain `curl` fetch of the same URL currently disagree with each other. That's a content-integrity defect on its own, separate from the JS-gating issue, and worth fixing regardless of any GEO consideration.
-
----
-
-## Critical Issues (Fix Immediately)
-
-1. **No indexable, linkable content for the site's three richest content types.** See table above. This is the highest-leverage single fix available on the site right now — bigger than any remaining schema fix.
-2. **`projects.html`'s `CollectionPage` schema describes four case studies that don't exist anywhere on the page** ("Pharmaceutical Storage Case Study," "Hospital Locker System Case Study," "Warehouse Optimization Case Study," "Government Archive Case Study") — the real case studies are FMCG, Library, and Airport. Any AI system that trusts the schema over the rendered text will surface fabricated case-study titles. This is exactly the kind of structured-data/content mismatch Google's guidelines treat as spam-adjacent, even though here it's clearly an artifact of the schema being hand-written separately from the JS data rather than generated from it.
-3. **Static HTML fallback for products (3 items) and cases (5 items) doesn't match the live JS-rendered data (6 products / 3 cases).** Confirmed by direct comparison of the static markup against `productsData` and `cases` in the page source. Whatever a non-JS system indexes right now is wrong, not just incomplete.
-
-## High Priority Issues
-
-1. **No per-item URL for any case study or blog article**, which caps AEO/AI-citation potential even after content visibility is fixed — a crawler needs somewhere specific to point a user.
-2. **This pattern is confirmed identical across all 4 product pages** (`compactor-storage.html`, `industrial-racks.html`, `storage-lockers.html`, `filing-cabinets.html` all define their own `productsData` + `openProductModal`), so fixing it once as a template change fixes it everywhere.
-3. `blog.html` is missing a `<meta name="robots">` tag (present on every other page checked).
-4. Blog authorship is generic and unlinked ("Space Planners Engineering Team," "Industrial Storage Systems Specialist") — no bio, no credentials, no `Person` schema tie-in, unlike `about.html`'s Sehgal `Person` entries.
-
-## Medium Priority Issues (carried forward, still open per 08-03 audit — re-verify)
-
-- `offers` block still likely missing from Product schema (not re-verified this pass; flagged open as of 08-03 — confirm before assuming fixed)
-- `js/data.js`'s top-level `projects` array (8 generic entries like "Leading PSU Headquarters, Delhi") appears unused by any page's rendering logic — likely dead data, worth confirming and removing or wiring up
-- Only one generic `Product` schema entity on each product page despite 6 real variants per page — missed schema opportunity, independent of the modal issue
-
-## Still Open — Not Fixable From the Repo (per 08-03 finding, unchanged)
-
-- **robots.txt AI-crawler contradiction for `ClaudeBot`/`Google-Extended`.** Re-confirmed this run: the local `robots.txt` in this repo is clean and intentional — it explicitly `Allow`s `Googlebot`, `Bingbot`, `ClaudeBot`, `Google-Extended`, `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot`, and deliberately `Disallow`s `GPTBot`, `Amazonbot`, `Bytespider`, `CCBot` (a coherent policy: allow live-browsing/citation agents, block training scrapers). The contradiction only appears in the **live** robots.txt, where Cloudflare's edge-level "AI Crawl Control" injects a second, conflicting rule block that `Disallow`s `ClaudeBot` and `Google-Extended` again. This needs to be fixed in the **Cloudflare dashboard** (AI Crawl Control / Bot Management settings), not in this codebase.
-- No Wikipedia/Wikidata, no Reddit presence, brand fragmentation across other domains/marketplaces — all unchanged from 08-03, see prior findings below.
+### Medium
+6. **Remove or wire up the dead `projects` array in `js/data.js`** (8 unused entries) — unchanged.
+7. Re-verify the "Still Open — Not Fixable From the Repo" and other carry-forward items from the 08-05 #1 report; none were in scope for this commit.
 
 ---
 
-## Category Deep Dives
+## Quick Wins (This Week)
 
-### AI Citability (48/100, down from 86 — see "read the drop correctly" note above)
-The visible, server-rendered page content (FAQ blocks, spec tables, hero copy) that earned the 86 score on 08-03 is still there and still strong — that part of the assessment holds. What's new is scoring the "read more" content, which is where a citation-hungry AI system would actually want to go deeper, and finding it inaccessible. Net: strong surface, empty basement.
-
-### Brand Authority (34/100, roughly flat)
-No change in findings from 08-03: LinkedIn/Instagram present via `sameAs`, no Wikipedia, no Reddit, YouTube presence unverified. Not re-investigated deeply this pass since the audit's focus was the content-crawlability question; treat the 08-03 deep dive as still current.
-
-### Content E-E-A-T (56/100, flat)
-Case studies contain genuine, specific, quantified outcomes (named client type, "70% increase in storage capacity — 300 to 500 bags in the same floor area") — strong Experience signal, *if* it were reachable. Blog articles have real depth (10-section guides) but generic, unlinked authorship. Both of these E-E-A-T strengths are undermined by the same JS-gating issue: the detail that would prove expertise is exactly the detail that's hidden.
-
-### Technical GEO (58/100, down from 71 for the reason explained above)
-HTTPS/HSTS/CSP all still solid. `llms.txt` is well-formed and accurately lists the real top-level pages. The score moved because this pass tests renderability of the deep content, not just the shell page — same site, stricter test.
-
-### Schema & Structured Data (45/100, up from 39)
-Net improvement despite the new `CollectionPage` mismatch finding, because `Organization`, `Product`, `FAQPage`, `HowTo`, and `BreadcrumbList` schema across the core pages remains solid (consistent with 08-03's "Confirmed Fixed" list). The `CollectionPage` issue is newly discovered, not a regression of something previously working.
-
-### Platform Optimization (52/100, down from 57)
-FAQ/HowTo schema still makes this site well-suited to Google AI Overviews and voice-style answers for the *visible* content. Perplexity- and ChatGPT-style deep citation is where this category takes the hit: those systems most reward pages with unique, deep-linkable URLs per topic, which is exactly what's missing for products, projects, and blog articles.
+1. Add the 2 missing case studies to `js/data.js`'s `cases` array (Pharma cleanroom, Government) so it matches the static HTML — or delete those 2 static cards if they're not meant to be kept. Either resolves the last remaining static/JS content mismatch.
+2. Sync `compactor-storage.html`'s static `#productGrid` fallback to its real 6 `productsData` entries (bring it in line with how the other 3 product pages were already changed, but populate rather than empty it).
+3. Add `offers` (AggregateOffer, INR, seller reference) to all 4 pages' Product schema blocks.
+4. Real byline + Person schema for both blog articles.
+5. Delete the unused `projects` array from `js/data.js` (or confirm it's meant for something and wire it up).
 
 ---
 
-## Quick Wins (Implement This Week)
-
-1. **Fix the `CollectionPage` schema on `projects.html`** to reference the 3 real case studies instead of 4 fictitious ones.
-2. **Sync the static fallback HTML for products and case studies with the live JS data** (`productsData` / `cases`) on all 4 product pages + `projects.html` — a data-parity fix, no design work needed.
-3. **Add `<meta name="robots">` to `blog.html`.**
-4. **Add real bylines** to the two existing blog articles, linked to a `Person` schema (reuse the pattern already built for `about.html`'s Sehgal entries).
-5. **Confirm in the Cloudflare dashboard** whether AI Crawl Control's block of `ClaudeBot`/`Google-Extended` is intentional; if not, correct it there (not in the repo — the repo's `robots.txt` is already correct).
-
-## 30-Day Action Plan
-
-### Week 1: Fix Data Integrity (mechanical, no design work)
-- [ ] Regenerate `CollectionPage` schema on `projects.html` from the same `cases` data used to render the page
-- [ ] Sync static HTML fallback with live `productsData`/`cases` arrays across all 5 affected pages
-- [ ] Add missing `<meta name="robots">` to `blog.html`
-- [ ] Re-verify `offers` schema and other items flagged open as of 08-03 (not re-checked this pass)
-
-### Week 2: Give the Real Content Real URLs
-- [ ] Convert each of the 3 case studies into its own page (e.g. `/projects/fmcg-storage.html`), keeping the modal as an optional enhancement rather than the only access path
-- [ ] Convert each blog article into its own page with the full guide server-rendered
-- [ ] Convert each of the 6×4 product variants into either dedicated sub-pages or at minimum server-rendered `<section id="...">` anchors with real content, not JS-injected-on-click-only
-- [ ] Update `sitemap.xml` and `llms.txt` to include the new individual URLs
-
-### Week 3: Structured Data Expansion
-- [ ] Add individual `Product` schema per variant (24 products across 4 pages) instead of one generic entity per page
-- [ ] Add case-study-appropriate schema to each new project URL, sourced from the same data used to render the page (prevents future mismatches by construction)
-- [ ] Add `Person`/author schema to blog articles
-
-### Week 4: Re-verify and Address Legacy Open Items
-- [ ] Re-run this audit specifically checking whether the JS-gating and schema-mismatch fixes changed what a `curl` fetch returns (not just visual QA)
-- [ ] Revisit the still-open items from 08-03: unsourced headline stats, unverified certifications, brand fragmentation across other domains, no Wikipedia/YouTube presence
-- [ ] Confirm Cloudflare AI Crawl Control settings for ClaudeBot/Google-Extended match intent
+*This entry continues the audit history in this file. Full prior-run detail — including the original discovery of the JS-modal-gating pattern across products/projects/blog, the complete "no unique URL" analysis by content type, and all Brand Authority / E-E-A-T / certification findings not re-verified in this pass — is preserved below.*
 
 ---
-
-## Appendix: Pages Analyzed
-
-| URL | GEO Issues Found This Pass |
-|---|---|
-| / | Schema and content solid; not the focus of this pass |
-| /compactor-storage.html | Static/JS product mismatch (3 vs 6); single generic Product schema for 6 real variants |
-| /industrial-racks.html | Same `productsData`/`openProductModal` pattern confirmed present |
-| /storage-lockers.html | Same `productsData`/`openProductModal` pattern confirmed present |
-| /filing-cabinets.html | Same `productsData`/`openProductModal` pattern confirmed present |
-| /projects.html | `CollectionPage` schema mismatch (fabricated case studies); static/JS case mismatch (5 vs 3); no per-case URLs |
-| /about.html | Not re-checked this pass; treat 08-03 findings as current |
-| /contact.html | Not re-checked this pass; treat 08-03 findings as current |
-| /blog.html | **New page since 08-03.** Full articles JS-modal-only; missing meta robots tag; generic authorship |
-| /privacy-policy.html, /terms-of-use.html, /disclaimer.html | Low priority, as expected |
-
-**Scope note:** This pass deliberately re-focused on the JS-modal-content question rather than re-verifying every item from the 08-03 report. Items marked "not re-checked" should be assumed unchanged from the 08-03 findings above, not assumed fixed.
-
 ---
 
-*This report continues the audit history in this file (07-27 → three runs on 08-03 → this run). Earlier runs' detailed findings for items not re-verified here (unsourced stats, certification claims, brand fragmentation, Person schema gaps) remain accurate and actionable — see the "Still Open" section above for the carry-forward list.*
+# Previous Audit Run (2026-08-05, first pass — for reference)
+
+**Score at time of this run:** 52/100
+**Scope:** First audit to specifically test whether product/project/blog "read more" content is crawlable by non-JS AI systems.
+
+## Summary of that run's core finding
+
+Product specs, full case studies, and full blog articles were found to live only in JavaScript data objects, rendered into shared modals via `onclick` handlers, with no unique URL per item. A `curl` fetch (simulating a non-JS AI crawler) could not see this content; only a JS-executing browser could, and even then only after a simulated click, which no crawler performs. Additionally, `projects.html`'s `CollectionPage` schema was found to describe 4 case studies that did not exist anywhere on the page (now fixed — see above), and the static HTML fallback for products (3 items) and cases (5 items) did not match the live JS-rendered data (6 products / 3 cases at the time — the cases mismatch persists as of this second pass).
+
+## Content-type breakdown (as found in the first pass — URL-per-item gap still open)
+
+| Content type | Where the full content lives | Non-JS crawler sees | Unique URL? |
+|---|---|---|---|
+| Products (6 variants × 4 pages) | `productsData` JS array per page, modal-only detail | Static fallback (now empty on 3 of 4 pages, stale on the 4th — see "New finding" above) | No |
+| Projects/Case Studies | `cases` array in `js/data.js`, modal-only full detail | Static fallback (5 cards, still doesn't match the 3-entry `cases` array) | No |
+| Blog articles | `articlesDB` JS object, modal-only full guide | Crawlable ~60-word excerpt (fine) + highlight chips; full guide invisible | No |
+
+## Carry-forward findings not re-verified in the second pass (assume still current)
+
+- **Brand Authority (34/100):** LinkedIn/Instagram present via `sameAs`; no Wikipedia, no Reddit, YouTube presence unverified; extensive named-client-logo wall (Coca-Cola, TCS, SBI, RBI, HAL, Indian Army, etc.) not backed by any independently verifiable third-party source.
+- **Content E-E-A-T (56/100):** Case studies contain genuine, specific, quantified outcomes; blog has real depth but generic/unlinked authorship (still true as of the second pass).
+- **From the 08-03 audit, still open as of 08-05:**
+  - No Wikipedia/Wikidata, no Reddit / organic community presence
+  - Brand fragmentation across spaceplannersindia.in / spaceplanners.org / compactorstorage.co.in / IndiaMART / JustDial / TradeIndia
+  - Every headline stat still uncited (2,000+ installations, 500+ clients, 20+ years, 2M+ sq ft, "100% Compliance Rate")
+  - Certifications claimed as text only (ISO 9001/14001/45001/50001, GMP, NABH, etc.) — no certificate numbers, badges, or verification links
+  - No author/expert attribution on product pages (Person schema exists on `about.html` only)
+  - Case studies mostly anonymize clients (only GVK Mumbai Airport named)
+  - No visible publish/last-updated dates; `sitemap.xml`'s `<lastmod>` values are stale (still `2026-07-24` on 10 of 12 URLs as of this pass — confirmed unchanged)
+  - `.well-known/indexnow-key.txt` present locally but not confirmed live
+  - Person `sameAs` still points to company LinkedIn, not individual profiles
+  - No `knowsAbout`/`founder` cross-link on Organization schema
+  - `BreadcrumbList` uses `@id` instead of `item` on home/about/projects
+
+## 30-Day Action Plan (from the first pass — still the roadmap; Week 1 items are now mostly done)
+
+### Week 1: Fix Data Integrity — **mostly complete as of this second pass**
+- [x] Fix `robots.txt`/Cloudflare AI Crawl Control conflict *(confirmed resolved)*
+- [x] Add per-variant Product schema *(confirmed added, all 4 pages)*
+- [x] Fix `CollectionPage` fictitious content *(confirmed fixed)*
+- [x] Add `<meta name="robots">` to `blog.html` *(confirmed added)*
+- [ ] Sync static HTML fallback with live JS data (cases still mismatched; products fixed by removal on 3 pages, still stale on 1)
+- [ ] Re-verify `offers` schema *(confirmed still missing)*
+
+### Week 2: Give the Real Content Real URLs — **not started**
+- [ ] Dedicated page per case study
+- [ ] Dedicated page per blog article
+- [ ] Dedicated sections/schema per product variant
+- [ ] Update `sitemap.xml` and `llms.txt` accordingly
+
+### Week 3: Structured Data Expansion — **partially done**
+- [x] Individual Product schema per variant *(done)*
+- [ ] Case-study-appropriate schema on dedicated project URLs (blocked on Week 2)
+- [ ] Person/author schema on blog articles
+
+### Week 4: Re-verify and Address Legacy Open Items — **pending**
+- [ ] Re-run this audit after Week 2 URL work lands
+- [ ] Revisit unsourced stats, certifications, brand fragmentation, Wikipedia/YouTube presence

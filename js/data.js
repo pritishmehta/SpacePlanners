@@ -54,7 +54,7 @@ const cases = [
         subtitle: "RESOLVING MOVEMENT ISSUES IN AN EXISTING SYSTEM",
         img: "airport-project.webp",
         industry: "Airport",
-        client: "GVK Mumbai International Airport Limited, Santacruz",
+        client: "One of the largest airports in India",
         challenge: "A big corporate company maintaining airports was experiencing persistent movement issues with a mobile compactor system that had been supplied by another reputed vendor. The malfunctioning system was affecting their ability to reliably access stored records.",
         solution: "Our team carried out a thorough on-site inspection and diagnosed the root cause: the base trolleys — the core mechanism of the system — were not adequately designed to handle the load of the stored records. Rather than recommending a costly full replacement, we proposed replacing only the base trolleys with a newly engineered design, while retaining the client's existing superstructure where the files were stored.",
         results: [
@@ -64,31 +64,31 @@ const cases = [
         ]
     },
     {
-        title: "Cleanroom Mobile Compactor Storage for Leading Pharmaceutical Manufacturer",
+        title: "Stainless Steel Storage Compactors for a Major Pharmaceutical Facility",
         subtitle: "GMP & NABH COMPLIANT DOCUMENT ARCHIVE",
-        img: "sectors/pharma.webp",
-        industry: "Pharmaceutical",
-        client: "Top-tier multinational pharmaceutical enterprise in Mumbai",
-        challenge: "Strict GMP guidelines require pharmaceutical manufacturers to retain physical batch manufacturing records for years. Storing paper records in static shelving consumed premium air-conditioned cleanroom space.",
-        solution: "Space Planners engineered an anti-microbial, stainless-steel-finished mobile compactor system equipped with central gang locking, dust-sealing gaskets, and anti-tilt rail mechanisms.",
+        img: "Compactors/perforated.webp",
+        industry: "Pharmaceutical & Healthcare",
+        client: "Leading Formulations & API Manufacturer, Gujarat",
+        challenge: "A leading pharmaceutical plant required a specialized archival storage system for batch manufacturing records, QC logs, and audit files inside a sterile, humidity-controlled environment requiring strict compliance with GMP and NABH standards.",
+        solution: "Space Planners engineered a custom 304 grade stainless steel and perforated panel mobile compactor system. The ventilated design promoted continuous laminar airflow to protect sensitive paper records from moisture build-up, while anti-microbial powder coatings and sealed roller bearings ensured cleanroom compatibility.",
         results: [
-            { metric: "65% Space Saved", label: "Freed up critical cleanroom floor area for production expansion" },
-            { metric: "100% Audit Compliance", label: "Fully compliant with US FDA, GMP, and NABH archival guidelines" },
-            { metric: "Under 3 Min Retrieval", label: "Index-tagged bays reduced file access time from 15 minutes to under 3 minutes" }
+            { metric: "100% Audit Compliance", label: "Full adherence to international GMP & NABH document storage regulations" },
+            { metric: "65% Space Saved", label: "Maximized storage capacity within the cleanroom footprint without requiring building expansion" },
+            { metric: "Enhanced Preservation", label: "Perforated ventilation airflow prevented moisture degradation of critical batch records" }
         ]
     },
     {
-        title: "High-Density Archival Storage System for Government Ministry Records",
+        title: "Pan-India Centralized Records Compactor System for Government Ministry",
         subtitle: "SECURE NATIONWIDE DOCUMENT STORAGE",
-        img: "sectors/govt.webp",
-        industry: "Government & Archives",
-        client: "Central Government Department & PSU Head Offices",
-        challenge: "Managing decades of historical land records, legal files, and audit documents across multiple departments caused severe space congestion and security vulnerabilities in static file cabinets.",
-        solution: "Space Planners designed and deployed a heavy-duty mechanical-geared compactor system with master key access control and GeM portal compliance, custom-fitted for fire-retardant storage.",
+        img: "Compactors/document compactor.webp",
+        industry: "Government & Public Sector",
+        client: "National Archives & Public Sector Secretariat, New Delhi",
+        challenge: "A major central government department needed to consolidate over 5 million historical records and confidential administrative files across multiple regional hubs into a single high-density, GeM-compliant storage facility.",
+        solution: "We designed and deployed a multi-bay mechanical mobile compactor network equipped with centralized gang-locking mechanisms, heavy-duty guide rails, anti-tilt floor anchorings, and role-based access security controls tailored to strict government procurement guidelines.",
         results: [
-            { metric: "70% Space Saved", label: "Consolidated archives from 3 separate facilities into one central archive room" },
-            { metric: "Zero File Damage", label: "Protected confidential physical records against pest infestation and moisture" },
-            { metric: "200% Capacity Increase", label: "Doubled total document holding capacity without civil construction" }
+            { metric: "200% Capacity Boost", label: "Increased document density by 200% while cutting floor space footprint by nearly 50%" },
+            { metric: "Rapid Retrieval", label: "Cut file access and retrieval turnarounds from 20 minutes down to under 3 minutes" },
+            { metric: "GeM Compliant", label: "Fully executed within stipulated tender deadlines under GeM procurement guidelines" }
         ]
     }
 ];

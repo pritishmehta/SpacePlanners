@@ -2,74 +2,284 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://spaceplannersindia.in/</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/compactor-storage.html</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/industrial-racks.html</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/storage-lockers.html</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/filing-cabinets.html</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/projects.html</loc>
-        <lastmod>2026-07-24</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/about.html</loc>
-        <lastmod>2026-07-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/contact.html</loc>
-        <lastmod>2026-07-24</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/blog.html</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/privacy-policy.html</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/terms-of-use.html</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://spaceplannersindia.in/disclaimer.html</loc>
-        <lastmod>2026-07-24</lastmod>
+        <lastmod>2026-08-05</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/compactors/file-storage-compactors.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/compactors/pigeon-hole-compactors.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/compactors/heavy-duty-compactors.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/compactors/perforated-compactors.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/compactors/drawer-compactors.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/compactors/stainless-steel-compactors.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/racks/decking-panel-racking-system.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/racks/pallet-racking-system.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/racks/slotted-angle-racks.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/racks/sectional-panel-heavy-duty-racks.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/racks/multi-tier-racking-system.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/racks/mezzanine-floor-systems.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/racks/stainless-steel-rack.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/lockers/gym-lockers.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/lockers/personal-staff-lockers.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/lockers/school-lockers.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/lockers/stainless-steel-lockers.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/lockers/mobile-phone-lockers.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/lockers/tower-lockers.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/lockers/changing-room-lockers.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/perforated-drawer-cabinet.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/drawer-cabinet.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/poster-storage-drawer-cabinet.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/filing-cabinet.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/storewell-cupboard.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/glass-door-cupboard.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/pigeon-hole-cupboard.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/cabinets/sliding-door-cupboard.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/projects/heavy-duty-compactor-storage-for-a-leading-fmcg-manufacturer.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/projects/mobile-compactor-storage-system-for-indias-leading-engineering-institutes-library.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/projects/mobile-compactor-modification-for-one-of-the-largest-airport-in-india.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/projects/stainless-steel-storage-compactors-for-a-major-pharmaceutical-facility.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/projects/pan-india-centralized-records-compactor-system-for-government-ministry.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/blog/what-is-a-mobile-compactor-storage-system-a-complete-guide-2026.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://spaceplannersindia.in/blog/how-to-choose-the-right-industrial-storage-rack-a-complete-buyers-guide.html</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 </urlset>

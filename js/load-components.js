@@ -38,10 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (loadedCount === components.filter(c => document.getElementById(c.id)).length) {
                     document.dispatchEvent(new CustomEvent('componentsLoaded'));
                 }
-                return; // Skip the fetch
             }
 
-            fetch(comp.url + cacheBust)
+            // Calculate relative depth for components directory
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            let prefix = '';
+            if (pathSegments.includes('pages')) {
+                const pagesIdx = pathSegments.indexOf('pages');
+                const relDepth = pathSegments.length - 1 - pagesIdx;
+                prefix = '../'.repeat(relDepth + 1);
+            }
+            const fetchUrl = prefix + comp.url + cacheBust;
+
+            fetch(fetchUrl)
                 .then(response => {
                     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                     return response.text();
