@@ -348,6 +348,11 @@ async function handleSubmission(form, type, onSuccess) {
     // 1. Validate Form Fields
     if (!validateAll(form)) return;
 
+    // Trigger Google Ads Form Submission Conversion Event immediately on valid submit
+    if (typeof window.gtag_report_conversion === 'function') {
+        window.gtag_report_conversion();
+    }
+
     const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalText = btn ? btn.textContent : '';
     if (btn) {
@@ -363,8 +368,6 @@ async function handleSubmission(form, type, onSuccess) {
     }
 
     if (result.success) {
-        // Trigger Google Ads Form Submission Conversion Event
-        gtag_report_conversion();
         onSuccess();
     } else {
         showToast('Failed to send. Please check your connection.', 'error');
