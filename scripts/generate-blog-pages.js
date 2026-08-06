@@ -298,7 +298,7 @@ function generateBlogHTML(a, relPath = '../') {
     "@id": "${canonicalUrl}#article",
     "headline": "${a.title.replace(/"/g, '\\"')}",
     "description": "${a.desc.substring(0, 155).replace(/"/g, '\\"')}",
-    "datePublished": "${a.date}",
+    "datePublished": "${new Date(a.date).toISOString().split('T')[0]}",
     "author": {
       "@type": "Organization",
       "name": "${a.author}"
