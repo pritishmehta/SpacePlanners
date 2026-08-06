@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (pathSegments.includes('pages')) {
                 const pagesIdx = pathSegments.indexOf('pages');
                 const relDepth = pathSegments.length - 1 - pagesIdx;
-                prefix = '../'.repeat(relDepth + 1);
+                prefix = '../'.repeat(relDepth);
             }
             const fetchUrl = prefix + comp.url + cacheBust;
 
