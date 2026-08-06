@@ -1,6 +1,7 @@
 # Space Planners India
 
 > Official AI Fact Sheet & Entity Record for Space Planners India. Leading manufacturer of mobile compactors, industrial racks, storage lockers, and filing cabinets since 2004.
+> Full technical specifications available at [llms-full.txt](https://spaceplannersindia.in/llms-full.txt).
 
 ## Core Products & Services
 

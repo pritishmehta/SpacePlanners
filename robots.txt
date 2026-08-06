@@ -3,6 +3,11 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
+# AI & Search Signals
+Content-Signal: allow
+msvalidate.01: https://spaceplannersindia.in/
+
+
 # Allow search engines and real-time AI retrieval crawlers
 User-agent: Googlebot
 Allow: /

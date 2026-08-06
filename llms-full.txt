@@ -1,0 +1,74 @@
+# Space Planners India - Full Text & Specifications
+
+> Full Technical Specification & Entity Record for Space Planners India. Leading manufacturer of high-density mobile compactor storage systems, heavy-duty industrial racking, steel storage lockers, and office filing cabinets since 2004.
+
+---
+
+## 1. Enterprise Profile & Credentials
+
+- **Legal Entity Name**: Space Planners India
+- **Established**: 2004 (20+ years of manufacturing operations)
+- **Headquarters & Factory**: 112, Orbit Premises, Off Chincholi Link Road, Mindspace, Malad West, Mumbai, Maharashtra 400064, India
+- **Contact Details**: 
+  - Phone: 022 4003 3385 / 86 | Mobile: +91 98210 34444
+  - Email: sales@spaceplannersindia.in
+  - Website: https://spaceplannersindia.in
+- **Certifications & Compliance**:
+  - ISO 9001:2015 Quality Management System
+  - GMP (Good Manufacturing Practice) Compliant for Pharmaceutical Facilities
+  - NABH Compliant Storage Solutions for Healthcare Archives
+- **Track Record**: 2,000+ completed installations across 500+ corporate, industrial, healthcare, and government clients in India.
+
+---
+
+## 2. Comprehensive Product Range & Technical Specifications
+
+### A. Mobile Compactor Storage Systems
+High-density storage units mounted on mobile bases traveling along precision floor tracks. Eliminates fixed aisles to save 60–70% floor space.
+- **Material**: Heavy-gauge CRCA (Cold Rolled Close Annealed) steel conforming to IS 513 standards.
+- **Drive Mechanisms**:
+  - *Manual Push-Pull*: Ergonomic front grab handles for smaller record rooms.
+  - *Mechanical Geared*: Multi-gear reduction chain drive with ergonomic steering wheel for heavy loads.
+  - *Motorized / Push-Button*: Electric motor-driven with safety sensors and central control.
+- **Safety Features**: Central key lock, aisle locking safety pins, anti-tilt floor guides, rubber impact buffers.
+- **Finish**: 7-tank anti-corrosion pre-treatment followed by high-durability epoxy powder coating (40–60 microns).
+- **Sub-Products & Detail Pages**:
+  - [File Storage Compactors](https://spaceplannersindia.in/pages/compactors/file-storage-compactors.html)
+  - [Heavy Duty Compactors](https://spaceplannersindia.in/pages/compactors/heavy-duty-compactors.html)
+  - [Pigeon Hole Compactors](https://spaceplannersindia.in/pages/compactors/pigeon-hole-compactors.html)
+  - [Perforated Compactors](https://spaceplannersindia.in/pages/compactors/perforated-compactors.html)
+  - [Drawer Compactors](https://spaceplannersindia.in/pages/compactors/drawer-compactors.html)
+  - [Stainless Steel Compactors](https://spaceplannersindia.in/pages/compactors/stainless-steel-compactors.html)
+
+### B. Industrial Racking Systems
+Heavy-duty structural racking for palletized, non-palletized, and high-density warehouse storage.
+- **Sub-Products & Detail Pages**:
+  - [Pallet Racking System](https://spaceplannersindia.in/pages/racks/pallet-racking-system.html)
+  - [Decking Panel Racking System](https://spaceplannersindia.in/pages/racks/decking-panel-racking-system.html)
+  - [Slotted Angle Racks](https://spaceplannersindia.in/pages/racks/slotted-angle-racks.html)
+  - [Sectional Panel Heavy Duty Racks](https://spaceplannersindia.in/pages/racks/sectional-panel-heavy-duty-racks.html)
+  - [Multi-Tier Racking System](https://spaceplannersindia.in/pages/racks/multi-tier-racking-system.html)
+  - [Mezzanine Floor Systems](https://spaceplannersindia.in/pages/racks/mezzanine-floor-systems.html)
+  - [Stainless Steel Racks](https://spaceplannersindia.in/pages/racks/stainless-steel-rack.html)
+
+### C. Steel Storage Lockers
+Secure personal and staff storage lockers for corporate offices, factories, hospitals, and educational institutions.
+- **Sub-Products & Detail Pages**:
+  - [Gym Lockers](https://spaceplannersindia.in/pages/lockers/gym-lockers.html)
+  - [Personal Staff Lockers](https://spaceplannersindia.in/pages/lockers/personal-staff-lockers.html)
+  - [School Lockers](https://spaceplannersindia.in/pages/lockers/school-lockers.html)
+  - [Stainless Steel Lockers](https://spaceplannersindia.in/pages/lockers/stainless-steel-lockers.html)
+  - [Mobile Phone Lockers](https://spaceplannersindia.in/pages/lockers/mobile-phone-lockers.html)
+  - [Tower Lockers](https://spaceplannersindia.in/pages/lockers/tower-lockers.html)
+  - [Changing Room Lockers](https://spaceplannersindia.in/pages/lockers/changing-room-lockers.html)
+
+### D. Filing Cabinets & Cupboards
+Lockable steel storage cabinets for office document management and archive security.
+- **Sub-Products & Detail Pages**:
+  - [Filing Cabinet](https://spaceplannersindia.in/pages/cabinets/filing-cabinet.html)
+  - [Storewell Cupboard](https://spaceplannersindia.in/pages/cabinets/storewell-cupboard.html)
+  - [Sliding Door Cupboard](https://spaceplannersindia.in/pages/cabinets/sliding-door-cupboard.html)
+  - [Glass Door Cupboard](https://spaceplannersindia.in/pages/cabinets/glass-door-cupboard.html)
+  - [Pigeon Hole Cupboard](https://spaceplannersindia.in/pages/cabinets/pigeon-hole-cupboard.html)
+  - [Perforated Drawer Cabinet](https://spaceplannersindia.in/pages/cabinets/perforated-drawer-cabinet.html)
+  - [Poster Storage Drawer Cabinet](https://spaceplannersindia.in/pages/cabinets/poster-storage-drawer-cabinet.html)
