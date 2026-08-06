@@ -3,6 +3,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
+# Allow search engines and real-time AI retrieval crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -33,6 +34,7 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
+# Disallow offline AI data scraping and training bots
 User-agent: Amazonbot
 Disallow: /
 
@@ -42,6 +44,7 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
+# Disallow OpenAI model training crawler (live retrieval via OAI-SearchBot and ChatGPT-User is allowed above)
 User-agent: GPTBot
 Disallow: /
 

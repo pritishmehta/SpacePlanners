@@ -1035,23 +1035,23 @@
                     <div class="toc-box">
                         <div class="toc-title">Quick Navigation (Table of Contents)</div>
                         <ul class="toc-list">
-                            ${data.toc.map(item => `<li><a href="#${item.id}" onclick="event.preventDefault(); document.getElementById('${item.id}').scrollIntoView({behavior:'smooth'});">${item.text}</a></li>`).join('')}
+                            \${data.toc.map(item => `<li><a href="#\${item.id}" onclick="event.preventDefault(); document.getElementById('\${item.id}').scrollIntoView({behavior:'smooth'});">\${item.text}</a></li>`).join('')}
                         </ul>
                     </div>
                 `;
             }
 
             container.innerHTML = `
-                <span class="article-tag-badge">${data.tag}</span>
-                <h2 style="margin-top:12px;">${data.title}</h2>
+                <span class="article-tag-badge">\${data.tag}</span>
+                <h2 style="margin-top:12px;">\${data.title}</h2>
                 <div class="modal-article-meta">
-                    <span>Date: ${data.date}</span> &nbsp;|&nbsp; 
-                    <span>Reading Time: ${data.readTime}</span> &nbsp;|&nbsp; 
-                    <span>Author: ${data.author}</span>
+                    <span>Date: \${data.date}</span> &nbsp;|&nbsp; 
+                    <span>Reading Time: \${data.readTime}</span> &nbsp;|&nbsp; 
+                    <span>Author: \${data.author}</span>
                 </div>
-                ${tocHTML}
+                \${tocHTML}
                 <div class="article-full-text">
-                    ${data.content}
+                    \${data.content}
                 </div>
                 <div class="blog-modal-cta">
                     <div>

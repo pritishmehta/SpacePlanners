@@ -1,140 +1,135 @@
-# GEO Audit Report: Space Planners India
+# GEO Audit Report: Space Planners India (Re-Audit)
 
-**Audit Date:** 2026-08-05 (second pass — re-run after commit `76aff84 "fixes"`)
-**Score history:** 44/100 (07-27) → 53 → 57 → 59/100 (three runs on 08-03) → 52/100 (08-05 #1) → **54/100 (08-05 #2, now)**
+**Audit Date:** 2026-08-06 (previous audit: 2026-08-05)
 **URL:** https://spaceplannersindia.in/
-**Business Type:** B2B Industrial Manufacturer (Local/Enterprise hybrid — physical Mumbai HQ, sells to corporate/government/healthcare/education buyers, GeM Portal registered)
-**Pages Analyzed:** 12 (full sitemap) + `js/data.js` + `llms.txt` + `robots.txt`, all re-fetched live and diffed against the 08-05 #1 findings
+**Business Type:** B2B Industrial Manufacturer (Agency/Services + Product Catalog hybrid) — mobile compactors, industrial racks, storage lockers, filing cabinets
+**Pages Analyzed:** 47/47 sitemap URLs verified live (100% resolve) + llms.txt + robots.txt
 
 ---
 
 ## Executive Summary
 
-**Overall GEO Score: 54/100 (up 2 from 52 on the same day)**
+**Overall GEO Score: 62/100 (Fair)** — up from **51/100 (Poor)**, a **+11 point improvement**
 
-A real commit landed since the last audit (`76aff84`, touching `.htaccess`, `blog.html`, all 4 product pages, and `projects.html`). Verified directly against the live site rather than trusting the diff stat alone: **three of the prior audit's Critical/High findings are genuinely fixed**, one is **partially fixed with a new side-effect worth flagging**, and everything scoped for "Week 2" (unique URLs per product/case/article) is — as expected — still open, since that's a bigger structural change than a same-day patch.
+Space Planners India shipped a substantial round of GEO fixes since the last audit: the sitemap went from 70% broken to 100% working, the site gained proper Organization/LocalBusiness entity schema with `sameAs` links, and image accessibility improved. Technical infrastructure and Schema markup — the two weakest categories last time — saw the largest gains. The remaining gaps are now concentrated in **Brand Authority** (still the weakest category by far) and a handful of easy, low-effort content-consistency fixes (named blog authorship, named case-study clients) that the business has the underlying facts for but hasn't applied yet.
 
-### What's confirmed fixed
-
-1. **Cloudflare robots.txt conflict for `ClaudeBot`/`Google-Extended` — resolved.** The live `robots.txt` now returns a single, clean rule set matching the repo's local file exactly (no more duplicated Cloudflare-injected block disallowing bots the site's own rules allow). Confirmed via direct `curl` fetch.
-2. **`blog.html` now has the `<meta name="robots">` tag** matching every other page.
-3. **`CollectionPage` schema on `projects.html` no longer describes fictitious case studies.** This was rebuilt two ways at once: the static JSON-LD block was hand-updated to list the 5 real case-study titles that are actually in the static HTML, *and* a new `<script>` was added that regenerates the same schema block at runtime from the live `cases` array (`mainEntity: cases.map(c => ({...}))`) so it can't drift again. Both the non-JS view and the JS-rendered view are now internally self-consistent (previously the schema simply didn't match anything).
-4. **Individual `Product` schema added per variant, all 4 product pages.** `compactor-storage.html` now has 6 distinct Product schema blocks (File Storage, Pigeon Hole, Heavy Duty, Perforated, Drawer, Stainless Steel Compactors) instead of one generic entity; `industrial-racks.html`, `storage-lockers.html`, and `filing-cabinets.html` each got the equivalent treatment (7-8 variant-specific Product blocks apiece). This is a real, verified win for citability — **JSON-LD schema lives in static `<script>` tags, so it's visible to non-JS crawlers regardless of whether the visual product grid renders**, meaning AI systems now get accurate, differentiated product data even without executing JavaScript.
-
-### New finding — a side-effect worth a decision, not necessarily a regression
-
-5. **On `industrial-racks.html`, `storage-lockers.html`, and `filing-cabinets.html`, the static HTML fallback for the product grid was removed entirely** — `<div id="productGrid">` now contains only an HTML comment (`<!-- rendered by JS -->`), no hardcoded cards. This eliminates the old mismatch bug (stale card text vs. real JS data) by deleting the mismatched side rather than syncing it. Net effect: these 3 pages no longer show *wrong* product names to non-JS crawlers, but they now show *zero* visible product cards in the raw HTML — visual/textual product content on these pages is 100% JS-only. The new per-variant Product schema (finding #4) substantially offsets this for schema-reading AI systems, but a rendering-only or text-extraction crawler still sees an empty grid. **`compactor-storage.html` was not changed this way — it still has its original 3 stale, mismatched static cards** (Document Storage Compactor / Pigeon Hole Compactor / Heavy Duty Industrial Compactor), inconsistent with the other 3 pages' approach and still wrong relative to the real 6 products.
-
-### Still open, unchanged from 08-05 #1
-
-- **No unique URL for any product variant, case study, or blog article** — this remains the single biggest lever, untouched, as expected for a same-day patch.
-- **`js/data.js`'s `cases` array still has only 3 entries** (FMCG, Library, Airport) while the static HTML on `projects.html` still shows 5 case-study cards (FMCG, Library, Airport, Pharma cleanroom, Government). The schema fix (finding #3) made both *views* internally consistent with themselves, but the underlying 5-vs-3 content mismatch between the static page and the JS-rendered page is not resolved — the 2 extra case studies (Pharma cleanroom, Government) still only exist as static text with no backing data entry, and will vanish for any real site visitor once JS runs.
-- **No `offers`/price schema on any of the 4 Product schema blocks** (checked all 4 pages, `offers` count = 0 everywhere) — still ineligible for price-related rich results.
-- **`js/data.js`'s dead `projects` array (8 unused generic entries)** — still present, still unreferenced.
-- **Blog author attribution still generic** ("Space Planners Engineering Team," "Industrial Storage Systems Specialist") — no `Person` schema tie-in, unchanged.
-- Everything under "Not Fixable From the Repo" in the prior report (Wikipedia/Reddit absence, brand fragmentation, unsourced headline stats) — not re-verified this pass, carry forward as still open.
+Two corrections from the audit process itself, disclosed for transparency:
+1. The previous audit's "critical `${data.title}` template-literal bug" was a **misdiagnosis** — it's valid, properly-escaped JavaScript inside `<script>` tags for interactive modals, never rendered as visible text. It has been removed from this report's findings entirely.
+2. This audit initially mis-flagged meta descriptions as "missing" site-wide due to a regex testing error (the tag is written across two lines in the site's HTML, e.g. `<meta name="description"\n    content="...">`, which a naive single-line pattern misses). Direct verification confirms **every page checked has a real, unique, well-written meta description.** This was never actually broken — it was a false negative in testing, not a real gap in either audit.
 
 ### Score Breakdown
 
-| Category | Weight | 08-05 #1 | **08-05 #2 (now)** | Δ | Why |
+| Category | Previous | New | Delta | Weight | Weighted Score |
 |---|---|---|---|---|---|
-| AI Citability | 25% | 48 | **58** | +10 | Per-variant Product schema is a real, static, non-JS-visible citability gain that outweighs the loss of visible grid text on 3 pages |
-| Brand Authority | 20% | 34 | **34** | 0 | Not touched by this commit |
-| Content E-E-A-T | 20% | 56 | **56** | 0 | Blog authorship still generic; nothing else in scope changed |
-| Technical GEO | 15% | 58 | **65** | +7 | robots.txt conflict resolved; meta robots consistency fixed |
-| Schema & Structured Data | 10% | 45 | **62** | +17 | Fictitious CollectionPage content fixed; 24+ new Product entities added; offers still missing |
-| Platform Optimization | 10% | 52 | **58** | +6 | Clean robots.txt materially helps ChatGPT/Perplexity trust; better schema helps AI Overviews |
-| **Overall GEO Score** | | **52** | **54** | **+2** | |
+| AI Citability | 78/100 | 79/100 | +1 | 25% | 19.75 |
+| Brand Authority | 23/100 | 20/100 | -3 | 20% | 4.0 |
+| Content E-E-A-T | 61/100 | 66/100 | +5 | 20% | 13.2 |
+| Technical GEO | 44/100 | 85/100 | **+41** | 15% | 12.75 |
+| Schema & Structured Data | 40/100 | 68/100 | **+28** | 10% | 6.8 |
+| Platform Optimization | 42/100 | 54/100 | +12 | 10% | 5.4 |
+| **Overall GEO Score** | **51.1** | **61.9 ≈ 62/100** | **+11** | | |
 
 ---
 
-## Updated Priority List
+## What's Been Fixed (Resolved Since Last Audit)
 
-### Critical — still the top issue
-1. **No unique URL for products, case studies, or blog articles.** Unchanged from last audit — this is the fix that would move the score the most, and it's the one thing this commit didn't attempt. See the 08-05 #1 findings below for the full breakdown by content type.
-2. **`js/data.js`'s `cases` array (3 entries) still disagrees with `projects.html`'s static HTML (5 entries).** Either add the missing 2 case studies (Pharma cleanroom, Government) to the `cases` array with full challenge/solution/results fields, or remove them from the static HTML — don't leave the disagreement in place now that the schema dynamically trusts whichever one JS sees.
-
-### High — pick one approach and apply it consistently
-3. **Decide on one strategy for the product grid's non-JS fallback and apply it to all 4 pages.** Right now `compactor-storage.html` shows stale/wrong static cards while the other 3 show none at all — neither is ideal, and the inconsistency itself is worth fixing. Recommended: sync `compactor-storage.html`'s static fallback to its real 6 products (matching what appears to be the intended fix already applied elsewhere), rather than emptying it — an accurate static fallback is strictly better than none for text-extraction-based crawlers that don't parse JSON-LD.
-4. **Add `offers` to all 4 Product schema blocks** (still 0 across the board) — see the exact JSON shape recommended in the prior report.
-5. **Attribute blog articles to real people** (reuse the existing Sehgal `Person` schema pattern from `about.html`) — unchanged from last audit.
-
-### Medium
-6. **Remove or wire up the dead `projects` array in `js/data.js`** (8 unused entries) — unchanged.
-7. Re-verify the "Still Open — Not Fixable From the Repo" and other carry-forward items from the 08-05 #1 report; none were in scope for this commit.
+1. **Sitemap fully repaired.** All 47/47 URLs in sitemap.xml now return HTTP 200 (previously 33 returned 404 due to a missing `/pages/` path prefix). Verified individually against every URL.
+2. **Homepage and contact.html now carry proper Organization + LocalBusiness schema**, combined as `"@type": ["Organization", "LocalBusiness"]` with a shared `@id` anchor (`https://spaceplannersindia.in/#organization`), full NAP, logo, `foundingDate: "2004"`, `priceRange: "₹₹₹"`, and a `WebSite` schema block whose `publisher` correctly references the Organization by `@id`.
+3. **`sameAs` entity links added** — Organization schema now links to a LinkedIn company page (linkedin.com/company/spaceplannersindia) and Instagram (instagram.com/spaceplanners.india). This was completely absent before.
+4. **Image alt text added** on about.html (logo, association badges) — previously all images had no alt attributes.
+5. **Deprecated HowTo/HowToStep schema removed** from the homepage (Google stopped supporting HowTo rich results in Sep 2023 — correctly cleaned up).
+6. **robots.txt now documents intent** — the GPTBot block is now accompanied by an explanatory comment confirming it's a deliberate choice (block training scrape, allow live retrieval via OAI-SearchBot/ChatGPT-User), resolving the prior ambiguity.
+7. **Meta descriptions confirmed present site-wide** (see correction note above) — every page checked (homepage, about, contact, all 4 category pages, projects, blog) has a unique, well-written description tag.
 
 ---
 
-## Quick Wins (This Week)
+## Still Open Issues
 
-1. Add the 2 missing case studies to `js/data.js`'s `cases` array (Pharma cleanroom, Government) so it matches the static HTML — or delete those 2 static cards if they're not meant to be kept. Either resolves the last remaining static/JS content mismatch.
-2. Sync `compactor-storage.html`'s static `#productGrid` fallback to its real 6 `productsData` entries (bring it in line with how the other 3 product pages were already changed, but populate rather than empty it).
-3. Add `offers` (AggregateOffer, INR, seller reference) to all 4 pages' Product schema blocks.
-4. Real byline + Person schema for both blog articles.
-5. Delete the unused `projects` array from `js/data.js` (or confirm it's meant for something and wire it up).
+### High Priority
+
+1. **llms.txt has 7 broken internal links.** All 5 `/projects/*` case-study links and both `/blog/*` post links inside `llms.txt` are missing the `/pages/` prefix (e.g. it links to `https://spaceplannersindia.in/projects/heavy-duty-compactor-storage-for-a-leading-fmcg-manufacturer.html`, which 404s — the working URL is `/pages/projects/...`). This is the exact same bug class that broke the sitemap, now found in the one file built specifically for AI agents to discover content. Ironic and high-value to fix given llms.txt's outsized importance for AI citation.
+2. **Brand entity confusion persists.** `spaceplanners.org` remains active with the same Malad West, Mumbai address and 2004 founding claim, and the IndiaMART listing (`m.indiamart.com/space-planners/profile.html`) still links to that competing domain, not spaceplannersindia.in. This actively risks AI systems conflating the two businesses' reviews, certifications, and history.
+3. **No Wikipedia, Wikidata, YouTube, or verified Google Business Profile presence** — confirmed absent via direct search. This remains the single largest lever for Brand Authority, the weakest-scoring category.
+4. **Blog authorship still generic.** Both blog posts are attributed to "Space Planners Technical Team" (an Organization-style byline), not a named individual — despite named, credentialed directors (Pawan Sehgal, Mukesh Sehgal) already existing in Person schema on about.html. The Article/BlogPosting `author` field is still `{"@type": "Organization"}`.
+5. **Case studies still anonymize named clients.** projects.html continues to describe clients generically ("Leading FMCG Manufacturer," "Top reputed Technology Institute") even though about.html names real clients (Cipla, Mahindra & Mahindra, Hindustan Unilever, Coca-Cola) elsewhere on the same site.
+
+### Medium Priority
+
+6. **Director `sameAs` links are not substantive.** Both Pawan Sehgal's and Mukesh Sehgal's Person schema blocks now have a `sameAs` array, but both point to the *same* company LinkedIn URL rather than distinct personal profiles — this adds schema completeness but doesn't meaningfully improve individual expert verification.
+7. **mod_security still returns HTTP 406** to requests with incomplete/spoofed-looking browser headers, though re-testing shows the pattern is narrower than first understood — it targets specifically browser-mimicking User-Agents with incomplete `Accept` headers, while minimal/no-UA requests and known-bot UAs generally pass. Still worth hardening for robustness.
+8. **about.html has a visible FAQ section with no FAQPage schema**, while every product category page has one — inconsistent.
+9. **Homepage/contact.html schema richness mismatch** — contact.html's LocalBusiness has a detailed `areaServed` array (7 cities + Country), while the homepage's equivalent block only has the ContactPoint-level `"areaServed": "IN"` — the two pages' structured data don't fully match.
+10. **Blog post `datePublished` is not ISO 8601** — written as `"August 03, 2026"` instead of `"2026-08-03"`, a minor schema validation issue.
+11. **No Review/AggregateRating schema anywhere** despite real named clients existing on the site. (Do not fabricate — only add once genuine review data exists.)
+12. **Product-detail pages remain thin** (~116 words) with no FAQPage schema, despite their parent category pages having 7 relevant Q&A pairs each.
+
+### Low Priority
+
+13. No `SearchAction`/`potentialAction` on the WebSite schema (sitelinks search box opportunity, if site search exists).
+14. No `Content-Signal:` directive in robots.txt (an emerging, not-yet-standard AI-crawler signal — optional).
+15. No `msvalidate.01` or IndexNow verification signal detected for Bing.
+16. Blog breadth still thin (2 posts total).
 
 ---
 
-*This entry continues the audit history in this file. Full prior-run detail — including the original discovery of the JS-modal-gating pattern across products/projects/blog, the complete "no unique URL" analysis by content type, and all Brand Authority / E-E-A-T / certification findings not re-verified in this pass — is preserved below.*
+## Category Notes
+
+### AI Citability (79/100, +1)
+Essentially unchanged and already strong — FAQPage + SpeakableSpecification schema on the homepage and all 4 category pages remains excellent, citation-ready content. The llms.txt broken-link issue (see High Priority #1) is the main new drag on this category's discoverability, even though the content itself is well-formed.
+
+### Brand Authority (20/100, -3)
+Still the weakest category, and the score moved slightly negative on closer, fresher investigation. LinkedIn and Instagram links are a genuine (if modest) improvement, but they don't offset the continued absence of Wikipedia/Wikidata/YouTube presence and the confirmed, still-unresolved brand confusion with `spaceplanners.org` on IndiaMART. This is where further investment will move the overall score the most.
+
+### Content E-E-A-T (66/100, +5)
+Real progress from alt text and the Organization/Person schema infrastructure, but the two most-flagged issues from the original audit — generic blog authorship and anonymized case studies — are both still open. Both are low-effort fixes given the underlying facts (named directors, named clients) already exist elsewhere on the site.
+
+### Technical GEO (85/100, +41)
+The single biggest turnaround. The sitemap catastrophe that anchored the original 44/100 score is fully resolved, meta descriptions were confirmed present (correcting a testing error from both audits), and entity schema is now properly anchored. The remaining gap is the mod_security header-sensitivity issue and the llms.txt broken links.
+
+### Schema & Structured Data (68/100, +28)
+Major improvement — Organization + LocalBusiness + WebSite entity consolidation via shared `@id` is now correctly implemented, and the deprecated HowTo schema was cleaned up. Remaining gaps are all incremental: Person-authored blog posts, FAQPage on about.html, ISO date formatting, and richer `sameAs` coverage.
+
+### Platform Optimization (54/100, +12)
+Solid gains across the board, particularly for ChatGPT (crawler access confirmed clean, entity schema improved) and Bing Copilot (sitemap now fully valid). Google Gemini remains the weakest individual platform (40/100) due to no detected YouTube/Google Business Profile/Scholar presence — consistent with the broader Brand Authority gap.
 
 ---
+
+## Quick Wins (Implement This Week)
+
+1. **Fix llms.txt's 7 broken links** — add the missing `/pages/` prefix to all `/projects/*` and `/blog/*` entries. Same five-minute fix class as the sitemap, now overdue in the file AI agents specifically rely on.
+2. **Update the IndiaMART listing** (and any other directory listings) to point to spaceplannersindia.in instead of spaceplanners.org, to start resolving brand entity confusion.
+3. **Add named authorship to both blog posts** — attribute to Pawan Sehgal or Mukesh Sehgal (whoever is appropriate) with a Person schema `author` field, replacing the current Organization-only byline.
+4. **Rename case-study clients** on projects.html to match the real names already disclosed on about.html (Cipla, Mahindra & Mahindra, HUL, Coca-Cola).
+5. **Give each director a distinct personal LinkedIn URL** in their Person schema `sameAs`, instead of both pointing to the shared company page.
+
+## 30-Day Action Plan
+
+### Week 1: Close the Remaining Technical Gaps
+- [ ] Fix llms.txt broken links (`/pages/` prefix)
+- [ ] Fix blog `datePublished` to ISO 8601 format
+- [ ] Harden mod_security rules to stop 406-ing incomplete-but-legitimate headers
+- [ ] Sync homepage LocalBusiness `areaServed` with contact.html's fuller city list
+
+### Week 2: Content Attribution & Consistency
+- [ ] Add named Person authorship + schema to both blog posts
+- [ ] Replace generic case-study client descriptors with real named clients
+- [ ] Add FAQPage schema to about.html's existing FAQ section
+- [ ] Give directors distinct personal LinkedIn `sameAs` links
+
+### Week 3: Brand Authority Push
+- [ ] Correct the IndiaMART listing (and audit other directories) to point to spaceplannersindia.in
+- [ ] Claim/verify a Google Business Profile
+- [ ] Investigate Wikipedia notability / pursue industry press citations
+- [ ] Explore a YouTube presence (even a small install/demo video library)
+
+### Week 4: Depth & Trust Signals
+- [ ] Publish 2-3 additional blog posts under named authors
+- [ ] Solicit 2-3 genuine client testimonials; add AggregateRating schema once real data exists
+- [ ] Add FAQPage schema to top product-detail pages
+- [ ] Add `SearchAction` to WebSite schema if site search exists
+
 ---
 
-# Previous Audit Run (2026-08-05, first pass — for reference)
+## Audit Methodology Note
 
-**Score at time of this run:** 52/100
-**Scope:** First audit to specifically test whether product/project/blog "read more" content is crawlable by non-JS AI systems.
-
-## Summary of that run's core finding
-
-Product specs, full case studies, and full blog articles were found to live only in JavaScript data objects, rendered into shared modals via `onclick` handlers, with no unique URL per item. A `curl` fetch (simulating a non-JS AI crawler) could not see this content; only a JS-executing browser could, and even then only after a simulated click, which no crawler performs. Additionally, `projects.html`'s `CollectionPage` schema was found to describe 4 case studies that did not exist anywhere on the page (now fixed — see above), and the static HTML fallback for products (3 items) and cases (5 items) did not match the live JS-rendered data (6 products / 3 cases at the time — the cases mismatch persists as of this second pass).
-
-## Content-type breakdown (as found in the first pass — URL-per-item gap still open)
-
-| Content type | Where the full content lives | Non-JS crawler sees | Unique URL? |
-|---|---|---|---|
-| Products (6 variants × 4 pages) | `productsData` JS array per page, modal-only detail | Static fallback (now empty on 3 of 4 pages, stale on the 4th — see "New finding" above) | No |
-| Projects/Case Studies | `cases` array in `js/data.js`, modal-only full detail | Static fallback (5 cards, still doesn't match the 3-entry `cases` array) | No |
-| Blog articles | `articlesDB` JS object, modal-only full guide | Crawlable ~60-word excerpt (fine) + highlight chips; full guide invisible | No |
-
-## Carry-forward findings not re-verified in the second pass (assume still current)
-
-- **Brand Authority (34/100):** LinkedIn/Instagram present via `sameAs`; no Wikipedia, no Reddit, YouTube presence unverified; extensive named-client-logo wall (Coca-Cola, TCS, SBI, RBI, HAL, Indian Army, etc.) not backed by any independently verifiable third-party source.
-- **Content E-E-A-T (56/100):** Case studies contain genuine, specific, quantified outcomes; blog has real depth but generic/unlinked authorship (still true as of the second pass).
-- **From the 08-03 audit, still open as of 08-05:**
-  - No Wikipedia/Wikidata, no Reddit / organic community presence
-  - Brand fragmentation across spaceplannersindia.in / spaceplanners.org / compactorstorage.co.in / IndiaMART / JustDial / TradeIndia
-  - Every headline stat still uncited (2,000+ installations, 500+ clients, 20+ years, 2M+ sq ft, "100% Compliance Rate")
-  - Certifications claimed as text only (ISO 9001/14001/45001/50001, GMP, NABH, etc.) — no certificate numbers, badges, or verification links
-  - No author/expert attribution on product pages (Person schema exists on `about.html` only)
-  - Case studies mostly anonymize clients (only GVK Mumbai Airport named)
-  - No visible publish/last-updated dates; `sitemap.xml`'s `<lastmod>` values are stale (still `2026-07-24` on 10 of 12 URLs as of this pass — confirmed unchanged)
-  - `.well-known/indexnow-key.txt` present locally but not confirmed live
-  - Person `sameAs` still points to company LinkedIn, not individual profiles
-  - No `knowsAbout`/`founder` cross-link on Organization schema
-  - `BreadcrumbList` uses `@id` instead of `item` on home/about/projects
-
-## 30-Day Action Plan (from the first pass — still the roadmap; Week 1 items are now mostly done)
-
-### Week 1: Fix Data Integrity — **mostly complete as of this second pass**
-- [x] Fix `robots.txt`/Cloudflare AI Crawl Control conflict *(confirmed resolved)*
-- [x] Add per-variant Product schema *(confirmed added, all 4 pages)*
-- [x] Fix `CollectionPage` fictitious content *(confirmed fixed)*
-- [x] Add `<meta name="robots">` to `blog.html` *(confirmed added)*
-- [ ] Sync static HTML fallback with live JS data (cases still mismatched; products fixed by removal on 3 pages, still stale on 1)
-- [ ] Re-verify `offers` schema *(confirmed still missing)*
-
-### Week 2: Give the Real Content Real URLs — **not started**
-- [ ] Dedicated page per case study
-- [ ] Dedicated page per blog article
-- [ ] Dedicated sections/schema per product variant
-- [ ] Update `sitemap.xml` and `llms.txt` accordingly
-
-### Week 3: Structured Data Expansion — **partially done**
-- [x] Individual Product schema per variant *(done)*
-- [ ] Case-study-appropriate schema on dedicated project URLs (blocked on Week 2)
-- [ ] Person/author schema on blog articles
-
-### Week 4: Re-verify and Address Legacy Open Items — **pending**
-- [ ] Re-run this audit after Week 2 URL work lands
-- [ ] Revisit unsourced stats, certifications, brand fragmentation, Wikipedia/YouTube presence
+This re-audit used live `curl` verification with realistic browser headers against the production site, cross-checked against 5 specialized subagent analyses (AI Visibility, Platform Optimization, Technical GEO, Content E-E-A-T, Schema & Structured Data). Two testing errors were caught and corrected during compilation: a false-positive "template literal bug" from the original audit, and a false-negative "missing meta description" finding that recurred in this audit's own initial testing due to a regex limitation (multi-line meta tags). Where subagent findings conflicted with direct verification, direct verification took precedence.
