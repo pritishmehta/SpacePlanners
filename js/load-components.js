@@ -121,19 +121,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function setActiveNavLink() {
-        const currentPath = window.location.pathname.split("/").pop() || "index.html";
+        const path = window.location.pathname.split("/").pop();
+        const currentPath = (!path || path === "/") ? "index.html" : path;
+        const currentHash = window.location.hash;
         const navLinks = document.querySelectorAll(".main-nav a, .mobile-nav a");
+
         navLinks.forEach(link => {
             const href = link.getAttribute("href");
             if (!href) return;
-            const cleanHref = href.split("?")[0].split("#")[0].split("/").pop();
-            if (cleanHref === currentPath || (currentPath === "" && cleanHref === "index.html")) {
+
+            const urlParts = href.split("?")[0].split("#");
+            const hrefFile = urlParts[0].split("/").pop() || "index.html";
+            const hrefHash = href.includes("#") ? "#" + href.split("#")[1] : "";
+
+            let isActive = false;
+
+            if (currentPath === "index.html") {
+                if (currentHash) {
+                    isActive = (hrefFile === "index.html" && hrefHash === currentHash);
+                } else {
+                    isActive = (hrefFile === "index.html" && !hrefHash);
+                }
+            } else {
+                isActive = (hrefFile === currentPath);
+            }
+
+            if (isActive) {
                 link.classList.add("active");
             } else {
                 link.classList.remove("active");
             }
         });
     }
+
+    window.addEventListener("hashchange", setActiveNavLink);
 });
 
 /**
