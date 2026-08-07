@@ -38,38 +38,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (loadedCount === components.filter(c => document.getElementById(c.id)).length) {
                     document.dispatchEvent(new CustomEvent('componentsLoaded'));
                 }
-            }
+            } else {
+                // Calculate relative depth for components directory
+                const pathSegments = window.location.pathname.split('/').filter(Boolean);
+                let prefix = '';
+                if (pathSegments.includes('pages')) {
+                    const pagesIdx = pathSegments.indexOf('pages');
+                    const relDepth = pathSegments.length - 1 - pagesIdx;
+                    prefix = '../'.repeat(relDepth);
+                }
+                const fetchUrl = prefix + comp.url + cacheBust;
 
-            // Calculate relative depth for components directory
-            const pathSegments = window.location.pathname.split('/').filter(Boolean);
-            let prefix = '';
-            if (pathSegments.includes('pages')) {
-                const pagesIdx = pathSegments.indexOf('pages');
-                const relDepth = pathSegments.length - 1 - pagesIdx;
-                prefix = '../'.repeat(relDepth);
+                fetch(fetchUrl)
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        return response.text();
+                    })
+                    .then(data => {
+                        el.innerHTML = data;
+                        loadedCount++;
+                        
+                        // Post-load initialization
+                        if (comp.id === "header-placeholder" || comp.id === "mobile-nav-placeholder") {
+                            setActiveNavLink();
+                        }
+                        
+                        // If everything is loaded, we can trigger any global re-scans if needed
+                        if (loadedCount === components.filter(c => document.getElementById(c.id)).length) {
+                            document.dispatchEvent(new CustomEvent('componentsLoaded'));
+                        }
+                    })
+                    .catch(err => console.error(`Error loading ${comp.url}:`, err));
             }
-            const fetchUrl = prefix + comp.url + cacheBust;
-
-            fetch(fetchUrl)
-                .then(response => {
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    return response.text();
-                })
-                .then(data => {
-                    el.innerHTML = data;
-                    loadedCount++;
-                    
-                    // Post-load initialization
-                    if (comp.id === "header-placeholder" || comp.id === "mobile-nav-placeholder") {
-                        setActiveNavLink();
-                    }
-                    
-                    // If everything is loaded, we can trigger any global re-scans if needed
-                    if (loadedCount === components.filter(c => document.getElementById(c.id)).length) {
-                        document.dispatchEvent(new CustomEvent('componentsLoaded'));
-                    }
-                })
-                .catch(err => console.error(`Error loading ${comp.url}:`, err));
         }
     });
 
@@ -135,7 +135,54 @@ function closeMobileNav() {
  * @param {string} [productInfo.specificProduct] - The specific product variant, e.g. "Document Storage Compactor".
  */
 function openInquiryModal(productInfo) {
-    const modal = document.getElementById('inquiryModal');
+    let modal = document.getElementById('inquiryModal');
+    if (!modal) {
+        // Fallback: If modal HTML hasn't been fetched/injected yet, inject minimal modal structure
+        const placeholder = document.getElementById('modals-placeholder') || document.body;
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = `
+        <div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">✕</button>
+                <h2 class="modal-title" id="inquiryTitle" style="margin-bottom:24px;">Get a Free Quote</h2>
+                <form id="multiStepForm" novalidate aria-label="Free Quote Inquiry Form">
+                    <input type="hidden" name="product_interest" id="hidden-product-interest" value="">
+                    <div class="form-step" id="step2">
+                        <div class="form-group">
+                            <label for="inq-name">Full Name *</label>
+                            <input type="text" id="inq-name" name="name" placeholder="Your full name" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-company">Company Name</label>
+                            <input type="text" id="inq-company" name="company" placeholder="Your company name" autocomplete="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-email">Email Address *</label>
+                            <input type="email" id="inq-email" name="email" placeholder="your@email.com" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-phone">Phone Number *</label>
+                            <input type="tel" id="inq-phone" name="phone" required autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-msg">Message (Optional)</label>
+                            <textarea id="inq-msg" name="message"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" id="finalSubmitBtn" class="btn-primary form-submit-btn">Submit Inquiry &rarr;</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>`.trim();
+        while (tempDiv.firstChild) {
+            placeholder.appendChild(tempDiv.firstChild);
+        }
+        modal = document.getElementById('inquiryModal');
+        if (typeof initAllForms === 'function') {
+            initAllForms();
+        }
+    }
     if (!modal) return;
 
     // --- Pre-fill hidden product_interest field ---

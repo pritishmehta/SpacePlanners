@@ -364,7 +364,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="theme-color" content="#e53935">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="stylesheet" href="${relPath}style.css?v=2">
-  <script src="${relPath}js/load-components.js?v=2" defer></script>
+  <script src="${relPath}js/load-components.js?v=3" defer></script>
   
   <script type="application/ld+json">
   {
@@ -445,22 +445,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </html>`;
 }
 
-// GENERATE PRODUCTS IN ROOT SUBFOLDERS AND PAGES/ SUBFOLDERS
+// GENERATE PRODUCTS ONLY IN PAGES/ SUBFOLDERS
 allProducts.forEach(p => {
   const pageSlug = slugify(p.name);
-  const htmlContentSub = generateProductHTML(p, true);
-
-  // 1. Root level folder (e.g., compactors/file-storage-compactors.html)
-  const rootSubfolder = path.join(process.cwd(), p.categorySlug);
-  if (!fs.existsSync(rootSubfolder)) fs.mkdirSync(rootSubfolder, { recursive: true });
-  fs.writeFileSync(path.join(rootSubfolder, `${pageSlug}.html`), htmlContentSub, 'utf8');
-
-  // 2. Pages subfolder (e.g., pages/compactors/file-storage-compactors.html)
   const pagesSubfolder = path.join(process.cwd(), 'pages', p.categorySlug);
   if (!fs.existsSync(pagesSubfolder)) fs.mkdirSync(pagesSubfolder, { recursive: true });
-  // For pages/compactors/..., relative links to assets at root require ../../
   const htmlContentPagesSub = generateProductHTML(p, true).replace(/href="\.\.\//g, 'href="../../').replace(/src="\.\.\//g, 'src="../../');
   fs.writeFileSync(path.join(pagesSubfolder, `${pageSlug}.html`), htmlContentPagesSub, 'utf8');
 });
 
-console.log('All 28 product variant pages generated in root & pages/ subfolders successfully.');
+console.log('All 28 product variant pages generated in pages/ subfolder successfully.');

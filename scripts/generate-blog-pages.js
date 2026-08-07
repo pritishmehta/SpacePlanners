@@ -296,7 +296,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="theme-color" content="#e53935">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="stylesheet" href="${relPath}style.css?v=2">
-  <script src="${relPath}js/load-components.js?v=2" defer></script>
+  <script src="${relPath}js/load-components.js?v=3" defer></script>
   
   <script type="application/ld+json">
   {
@@ -366,13 +366,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 articles.forEach(a => {
   const pageSlug = slugify(a.title);
-  const rootBlogDir = path.join(process.cwd(), 'blog');
-  if (!fs.existsSync(rootBlogDir)) fs.mkdirSync(rootBlogDir, { recursive: true });
-  fs.writeFileSync(path.join(rootBlogDir, `${pageSlug}.html`), generateBlogHTML(a, '../'), 'utf8');
-
   const pagesBlogDir = path.join(process.cwd(), 'pages', 'blog');
   if (!fs.existsSync(pagesBlogDir)) fs.mkdirSync(pagesBlogDir, { recursive: true });
   fs.writeFileSync(path.join(pagesBlogDir, `${pageSlug}.html`), generateBlogHTML(a, '../../'), 'utf8');
 });
 
-console.log('All 2 blog article pages generated in root blog/ and pages/blog/ successfully.');
+console.log(`All ${articles.length} blog article pages generated in pages/blog/ successfully.`);

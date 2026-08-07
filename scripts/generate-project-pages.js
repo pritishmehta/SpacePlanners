@@ -60,7 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="theme-color" content="#e53935">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="stylesheet" href="${relPath}style.css?v=2">
-  <script src="${relPath}js/load-components.js?v=2" defer></script>
+  <script src="${relPath}js/load-components.js?v=3" defer></script>
   
   <script type="application/ld+json">
   {
@@ -146,16 +146,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </html>`;
 }
 
-// Write project pages to root projects/ and pages/projects/
+// Write project pages ONLY to pages/projects/
 cases.forEach(c => {
   const pageSlug = slugify(c.title);
-  const rootProjectsDir = path.join(process.cwd(), 'projects');
-  if (!fs.existsSync(rootProjectsDir)) fs.mkdirSync(rootProjectsDir, { recursive: true });
-  fs.writeFileSync(path.join(rootProjectsDir, `${pageSlug}.html`), generateProjectHTML(c, '../'), 'utf8');
-
   const pagesProjectsDir = path.join(process.cwd(), 'pages', 'projects');
   if (!fs.existsSync(pagesProjectsDir)) fs.mkdirSync(pagesProjectsDir, { recursive: true });
   fs.writeFileSync(path.join(pagesProjectsDir, `${pageSlug}.html`), generateProjectHTML(c, '../../'), 'utf8');
 });
 
-console.log(`All ${cases.length} project case study pages generated in root projects/ and pages/projects/ successfully.`);
+console.log(`All ${cases.length} project case study pages generated in pages/projects/ successfully.`);
