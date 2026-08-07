@@ -18,6 +18,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cacheBust = `?v=${Date.now()}`;
 
+    // Calculate relative depth for components directory
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    let prefix = '';
+    if (pathSegments.includes('pages') || pathSegments.length > 1) {
+        prefix = '../';
+    }
+
+    function fixComponentPaths(html, pathPrefix) {
+        if (!pathPrefix) return html;
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+
+        const isAbsolute = (url) => {
+            if (!url) return true;
+            const u = url.trim();
+            return u.startsWith('http://') ||
+                   u.startsWith('https://') ||
+                   u.startsWith('//') ||
+                   u.startsWith('/') ||
+                   u.startsWith('#') ||
+                   u.startsWith('mailto:') ||
+                   u.startsWith('tel:') ||
+                   u.startsWith('javascript:') ||
+                   u.startsWith('data:');
+        };
+
+        tempDiv.querySelectorAll('[src]').forEach(el => {
+            const src = el.getAttribute('src');
+            if (src && !isAbsolute(src)) {
+                el.setAttribute('src', pathPrefix + src);
+            }
+        });
+
+        tempDiv.querySelectorAll('[href]').forEach(el => {
+            const href = el.getAttribute('href');
+            if (href && !isAbsolute(href)) {
+                el.setAttribute('href', pathPrefix + href);
+            }
+        });
+
+        tempDiv.querySelectorAll('*').forEach(el => {
+            if (el.hasAttribute('xlink:href')) {
+                const href = el.getAttribute('xlink:href');
+                if (href && !isAbsolute(href)) {
+                    el.setAttribute('xlink:href', pathPrefix + href);
+                }
+            }
+        });
+
+        return tempDiv.innerHTML;
+    }
+
     components.forEach(comp => {
         let el = document.getElementById(comp.id);
         
@@ -31,6 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (el) {
             // If the element already has content (e.g. inlined for performance), skip fetching except for footer
             if (el.innerHTML.trim() !== "" && comp.id !== "footer-placeholder") {
+                if (prefix) {
+                    el.innerHTML = fixComponentPaths(el.innerHTML, prefix);
+                }
                 loadedCount++;
                 if (comp.id === "header-placeholder" || comp.id === "mobile-nav-placeholder") {
                     setActiveNavLink();
@@ -39,14 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.dispatchEvent(new CustomEvent('componentsLoaded'));
                 }
             } else {
-                // Calculate relative depth for components directory
-                const pathSegments = window.location.pathname.split('/').filter(Boolean);
-                let prefix = '';
-                if (pathSegments.includes('pages')) {
-                    const pagesIdx = pathSegments.indexOf('pages');
-                    const relDepth = pathSegments.length - 1 - pagesIdx;
-                    prefix = '../'.repeat(relDepth);
-                }
                 const fetchUrl = prefix + comp.url + cacheBust;
 
                 fetch(fetchUrl)
@@ -55,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         return response.text();
                     })
                     .then(data => {
-                        el.innerHTML = data;
+                        el.innerHTML = fixComponentPaths(data, prefix);
                         loadedCount++;
                         
                         // Post-load initialization
@@ -78,7 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const navLinks = document.querySelectorAll(".main-nav a, .mobile-nav a");
         navLinks.forEach(link => {
             const href = link.getAttribute("href");
-            if (href === currentPath || (currentPath === "" && href === "index.html")) {
+            if (!href) return;
+            const cleanHref = href.split("?")[0].split("#")[0].split("/").pop();
+            if (cleanHref === currentPath || (currentPath === "" && cleanHref === "index.html")) {
                 link.classList.add("active");
             } else {
                 link.classList.remove("active");

@@ -26,6 +26,19 @@ ErrorDocument 404 /404.html
     Redirect 301 /heavy-duty-compactors-storage-system/ https://spaceplannersindia.in/compactor-storage.html
     Redirect 301 /unleashing-the-potential-of-space-transforming-your-environment-with-space-planners-india/ https://spaceplannersindia.in/about.html
 
+    # --- 1.1 301 Redirects for Old Nested Subfolder URLs to /pages/ ---
+    RewriteRule ^pages/compactors/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^pages/cabinets/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^pages/lockers/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^pages/racks/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^pages/projects/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^pages/blog/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^blog/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^compactors/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^cabinets/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^lockers/(.*)$ /pages/$1 [R=301,L]
+    RewriteRule ^racks/(.*)$ /pages/$1 [R=301,L]
+
     # --- 2. Clean URLs (allow accessing /contact or /about without .html extension) ---
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}\.html -f

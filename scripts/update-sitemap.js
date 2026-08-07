@@ -33,7 +33,7 @@ const compactorProducts = [
   'Perforated Compactors',
   'Drawer Compactors',
   'Stainless Steel Compactors'
-].map(name => `pages/compactors/${slugify(name)}.html`);
+].map(name => `pages/${slugify(name)}.html`);
 
 const rackProducts = [
   'Decking Panel Racking System',
@@ -43,7 +43,7 @@ const rackProducts = [
   'Multi-Tier Racking System',
   'Mezzanine Floor Systems',
   'Stainless Steel Rack'
-].map(name => `pages/racks/${slugify(name)}.html`);
+].map(name => `pages/${slugify(name)}.html`);
 
 const lockerProducts = [
   'Gym Lockers',
@@ -53,7 +53,7 @@ const lockerProducts = [
   'Mobile Phone Lockers',
   'Tower Lockers',
   'Changing Room Lockers'
-].map(name => `pages/lockers/${slugify(name)}.html`);
+].map(name => `pages/${slugify(name)}.html`);
 
 const cabinetProducts = [
   'Perforated Drawer Cabinet',
@@ -64,17 +64,17 @@ const cabinetProducts = [
   'Glass Door Cupboard',
   'Pigeon Hole Cupboard',
   'Sliding Door Cupboard'
-].map(name => `pages/cabinets/${slugify(name)}.html`);
+].map(name => `pages/${slugify(name)}.html`);
 
 const dataJsContent = fs.readFileSync(path.join(process.cwd(), 'js', 'data.js'), 'utf8');
 const casesMatch = dataJsContent.match(/const cases = (\[[\s\S]*?\]);/);
 const casesData = eval(casesMatch[1]);
-const projectPages = casesData.map(c => `pages/projects/${slugify(c.title)}.html`);
+const projectPages = casesData.map(c => `pages/${slugify(c.title)}.html`);
 
 const blogPages = [
   'What is a Mobile Compactor Storage System? A Complete Guide (2026)',
   'How to Choose the Right Industrial Storage Rack: A Complete Buyer\'s Guide'
-].map(name => `pages/blog/${slugify(name)}.html`);
+].map(name => `pages/${slugify(name)}.html`);
 
 const allRelativeUrls = [
   ...mainPages,
@@ -95,7 +95,7 @@ const sitemapEntries = allRelativeUrls.map(rel => {
   if (!rel) { priority = '1.0'; }
   else if (['compactor-storage.html', 'industrial-racks.html', 'storage-lockers.html', 'filing-cabinets.html'].includes(rel)) { priority = '0.9'; }
   else if (['privacy-policy.html', 'terms-of-use.html', 'disclaimer.html'].includes(rel)) { priority = '0.3'; changefreq = 'yearly'; }
-  else if (rel.startsWith('pages/projects/') || rel.startsWith('pages/blog/')) { priority = '0.7'; changefreq = 'monthly'; }
+  else if (rel.startsWith('pages/') || rel.startsWith('pages/')) { priority = '0.7'; changefreq = 'monthly'; }
 
   return `    <url>
         <loc>${loc}</loc>
