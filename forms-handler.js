@@ -47,7 +47,8 @@ function initAllForms() {
         { id: 'product-finder-form', handler: submitProductFinder },
         { id: 'assessmentForm', handler: submitAssessment },
         { id: 'floatInquiryForm', handler: submitPopupInquiry },
-        { id: 'contactPageForm', handler: submitContactPage }
+        { id: 'contactPageForm', handler: submitContactPage },
+        { id: 'exportEnquiryForm', handler: submitInquiry }
     ];
 
     forms.forEach(f => {
@@ -201,25 +202,30 @@ async function submitFormToBackend(formElement, formName) {
             'contact': { general_inquiry: 'Contact Page — Inquiry', floating_inquiry: 'Contact Page — Quick Inquiry' },
             'about': { general_inquiry: 'About Page — Inquiry', floating_inquiry: 'About Page — Quick Inquiry' },
             'projects': { general_inquiry: 'Projects Page — Inquiry', floating_inquiry: 'Projects Page — Quick Inquiry' },
+            'global-exports': { general_inquiry: 'Global Exports Hub — Export Inquiry' },
+            'mobile-shelving-compactor': { general_inquiry: 'Mobile Shelving Export — Inquiry' },
+            'heavy-duty-racks': { general_inquiry: 'Heavy Duty Racks Export — Inquiry' }
         };
 
         const pagePath = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
         const pageMap = PAGE_LABELS[pagePath] || {};
         const formLabel = pageMap[formName] || formName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-        const subject = `[Space Planners] ${formLabel} — ${fields['name'] || 'Website Visitor'}`;
+        const subject = `[Space Planners Export] ${formLabel} — ${fields['name'] || 'Website Visitor'}`;
         const submittedAt = new Date().toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
 
         const FIELD_LABELS = {
             name: 'Full Name',
             phone: 'Phone Number',
+            country: 'Country / Region',
+            dial_code: 'Dial Code',
             email: 'Email Address',
             product: 'Product Interest',
             product_interest: 'Product Interest',
             specific_product: 'Specific Product',
-            message: 'Message',
+            message: 'Message / Specs',
             company: 'Company Name',
             company_name: 'Company Name',
-            city: 'City',
+            city: 'City / Port of Destination',
             requirement: 'Requirement',
             category: 'Category',
             space_size: 'Space Size',
