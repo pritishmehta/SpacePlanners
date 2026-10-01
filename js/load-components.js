@@ -81,8 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (el) {
-            // If the element already has content (e.g. inlined for performance), skip fetching except for header, mobile-nav and footer
-            if (el.innerHTML.trim() !== "" && comp.id !== "footer-placeholder" && comp.id !== "header-placeholder" && comp.id !== "mobile-nav-placeholder") {
+            if (el.innerHTML.trim() !== "") {
                 if (prefix) {
                     el.innerHTML = fixComponentPaths(el.innerHTML, prefix);
                 }

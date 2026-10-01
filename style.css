@@ -399,66 +399,154 @@ ul {
    HEADER & NAVIGATION
 ============================================== */
 header {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: visible;
 }
 
-/* Blur layer behind header — kept on pseudo so it doesn't clip dropdowns */
-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.80);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  transition: background 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.5s ease;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Default padding for pages with fixed individual header */
-body:not(.transparent-nav) main,
-.main-content-wrapper,
-body:not(.transparent-nav) section:first-of-type {
-  padding-top: 110px;
-}
-
-/* transparent-nav pages: hero starts at top-of-page, header overlays */
-body.transparent-nav .hero-wrap {
-  margin-top: 0 !important;
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 header.scrolled::before {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* Base padding for main content on standard pages */
+main,
+.main-content-wrapper,
+body:not(.transparent-nav) main,
+body>section:first-of-type {
+  padding-top: 132px;
+}
+
+/* On pages with hero/carousel, header overlays transparently at top */
+body.home-page main,
+body.transparent-nav main {
+  padding-top: 0 !important;
+}
+
+/* ==============================================
+   TRANSPARENT HEADER (AT TOP / BEFORE SCROLL)
+============================================== */
+body.transparent-nav header:not(.scrolled),
+body.home-page header:not(.scrolled) {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-bottom-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Soft gradient backdrop so white text and logo remain perfectly visible */
+body.transparent-nav header:not(.scrolled)::before,
+body.home-page header:not(.scrolled)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 60%, rgba(0, 0, 0, 0) 100%);
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+body.transparent-nav header:not(.scrolled) .logo img,
+body.home-page header:not(.scrolled) .logo img {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+}
+
+body.transparent-nav header:not(.scrolled) .main-nav > ul > li > a,
+body.home-page header:not(.scrolled) .main-nav > ul > li > a {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.transparent-nav header:not(.scrolled) .main-nav > ul > li:hover > a,
+body.home-page header:not(.scrolled) .main-nav > ul > li:hover > a {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+body.transparent-nav header:not(.scrolled) .main-nav > ul > li > a.active,
+body.home-page header:not(.scrolled) .main-nav > ul > li > a.active {
+  color: #ffffff !important;
+}
+
+body.transparent-nav header:not(.scrolled) .nav-chevron,
+body.home-page header:not(.scrolled) .nav-chevron {
+  border-color: #ffffff !important;
+}
+
+body.transparent-nav header:not(.scrolled) .btn-call,
+body.home-page header:not(.scrolled) .btn-call {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(6px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.transparent-nav header:not(.scrolled) .btn-call:hover,
+body.home-page header:not(.scrolled) .btn-call:hover {
+  background: #ffffff !important;
+  color: var(--primary) !important;
+  border-color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+body.transparent-nav header:not(.scrolled) .btn-primary,
+body.home-page header:not(.scrolled) .btn-primary {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.transparent-nav header:not(.scrolled) .btn-primary:hover,
+body.home-page header:not(.scrolled) .btn-primary:hover {
+  background: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+body.transparent-nav header:not(.scrolled) .hamburger span,
+body.home-page header:not(.scrolled) .hamburger span {
+  background: #ffffff !important;
 }
 
 .header-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  gap: 20px;
+  min-height: 132px;
+  padding: 6px 36px;
+  gap: 18px;
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
   box-sizing: border-box;
-  transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.4s ease,
-    color 0.4s ease;
+  transition: min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
 }
 
 header.scrolled .header-main {
-  padding: 10px 40px;
+  min-height: 110px;
+  padding: 5px 36px;
 }
 
 .logo {
@@ -467,148 +555,102 @@ header.scrolled .header-main {
   gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
-  flex: 0 0 auto;
 }
 
 .logo img {
   height: 120px;
   width: auto;
-  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.4s ease;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
 }
 
 header.scrolled .logo img {
-  height: 120px;
-}
-
-
-/* Base transitions for other header elements */
-.main-nav a,
-.btn-primary,
-.btn-call,
-.hamburger span {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100px;
 }
 
 /* Desktop Nav */
 .main-nav {
-  flex: 1;
-  min-width: 0;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   overflow: visible;
 }
 
 .main-nav>ul {
   display: flex;
-  gap: 2px;
+  gap: 3px;
   align-items: center;
-  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   overflow: visible;
 }
 
-
-.main-nav li {
+.main-nav>ul>li {
   position: relative;
-  padding: 4px 6px;
-  /* Highlighting whole area includes this padding */
-  border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-  cursor: pointer;
+  list-style: none;
 }
 
-.main-nav li:hover {
-  background: rgba(196, 30, 58, 0.15);
-  backdrop-filter: blur(8px);
-}
-
-.main-nav li:hover a {
-  color: var(--red);
-}
-
-.main-nav a {
+.main-nav>ul>li>a {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.90rem;
   font-weight: 600;
-  color: var(--dark);
+  color: #1e293b;
   letter-spacing: 0.01em;
-  text-transform: capitalize;
+  text-transform: uppercase;
   white-space: nowrap;
-  position: relative;
-  padding: 0;
-  display: flex;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
-  transition: color 0.3s ease;
+  gap: 5px;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-.main-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--red);
-  transition: width .3s;
+.main-nav>ul>li:hover>a,
+.main-nav>ul>li>a:hover {
+  color: var(--primary);
+  background: rgba(196, 18, 18, 0.05);
 }
 
-.main-nav a:hover,
-.main-nav li:hover>a {
-  color: var(--red);
+.main-nav>ul>li>a.active {
+  color: var(--primary);
+  font-weight: 700;
 }
 
-.main-nav a:hover::after,
-.main-nav li:hover>a::after {
-  width: 100%;
-  height: 2px;
-}
-
-.main-nav a.active {
-  color: var(--red);
-}
-
-.main-nav a.active::after {
-  width: 100%;
-}
-
-.main-nav li:hover .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* DEFAULT: hidden */
+/* Dropdowns */
 .nav-dropdown {
   position: absolute;
-  top: 100%;
-  left: -20px;
-  background: var(--white);
-  box-shadow: var(--shadow-lg);
-  min-width: 280px;
-  border-radius: 12px;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+  min-width: 275px;
+  border-radius: 10px;
   padding: 8px 0;
-  margin-top: 5px;
+  margin: 0;
+  list-style: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
-  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
   z-index: 1100;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
 }
 
+/* Hover bridge so cursor doesn't fall through gap */
 .nav-dropdown::before {
   content: '';
   position: absolute;
-  top: -20px;
+  top: -12px;
   left: 0;
   width: 100%;
-  height: 20px;
+  height: 12px;
 }
 
-/* HOVER: show it */
 .main-nav li:hover .nav-dropdown {
   opacity: 1;
   visibility: visible;
@@ -617,115 +659,132 @@ header.scrolled .logo img {
 
 .nav-dropdown li {
   width: 100%;
+  list-style: none;
 }
 
 .nav-dropdown a {
-  padding: 4px 24px;
-
-  font-size: 1rem;
+  display: block;
+  padding: 11px 22px;
+  font-size: 0.94rem;
   font-weight: 500;
-  color: var(--dark);
-  border-radius: 0;
+  color: #2d3748 !important;
+  text-transform: none;
   white-space: nowrap;
-}
-
-.nav-dropdown a::after {
-  display: none;
-}
-
-.nav-chevron {
-  transition: transform 0.3s ease;
-  margin-left: 2px;
-  position: relative;
-  top: 1px;
-}
-
-.main-nav li:hover .nav-chevron {
-  transform: rotate(180deg);
-  stroke: var(--red);
+  transition: all 0.15s ease;
+  text-decoration: none;
 }
 
 .nav-dropdown a:hover {
-  background: rgba(229, 57, 53, .05);
-  color: var(--red);
+  background: rgba(196, 18, 18, 0.05);
+  color: var(--primary) !important;
   padding-left: 24px;
 }
 
+.nav-chevron {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+  margin-left: 4px;
+  margin-bottom: 2px;
+  vertical-align: middle;
+}
+
+.main-nav li:hover .nav-chevron {
+  transform: rotate(-135deg);
+  border-color: var(--primary);
+}
+
+/* Header Action Buttons */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   flex-shrink: 0;
-  flex: 0 0 auto;
 }
 
 .btn-call {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  border-radius: 0;
-  border: 3px solid var(--red);
-  color: var(--red);
-  background: var(--white);
-  font-size: 0.875rem;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+  font-size: 0.84rem;
   font-weight: 600;
-  transition: var(--trans);
+  text-decoration: none;
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 .btn-call:hover {
-  background: var(--red);
-  color: var(--white);
+  background: var(--primary);
+  color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(229, 57, 53, .3);
+  box-shadow: 0 4px 12px rgba(196, 18, 18, 0.2);
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 32px;
-  border-radius: 0;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 6px;
   background: var(--primary);
-  color: var(--white);
-  border: none;
-  font-size: 0.9375rem;
+  color: #ffffff;
+  border: 1.5px solid var(--primary);
+  font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
-  transition: var(--trans);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(196, 18, 18, 0.2);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(196, 18, 18, 0.32);
 }
 
 .btn-primary:active {
   transform: translateY(0);
-  background: var(--primary-dark);
 }
 
-/* Hamburger */
+/* Hamburger Menu Toggle */
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  background: none;
+  background: transparent;
   border: none;
   padding: 8px;
   cursor: pointer;
   z-index: 1001;
   flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .hamburger span {
   display: block;
-  width: 24px;
+  width: 22px;
   height: 2px;
   background: var(--dark);
   border-radius: 2px;
@@ -743,7 +802,6 @@ header.scrolled .logo img {
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
-
 
 /* Mobile Nav Drawer */
 .mobile-nav-overlay {
@@ -784,7 +842,7 @@ header.scrolled .logo img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
+  padding: 16px 20px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -794,8 +852,8 @@ header.scrolled .logo img {
   font-size: 1.75rem;
   color: var(--mid);
   cursor: pointer;
-  padding: 10px;
-  margin-right: -10px;
+  padding: 8px;
+  margin-right: -8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -808,19 +866,21 @@ header.scrolled .logo img {
 }
 
 .mobile-nav ul {
-  padding: 20px 0;
+  padding: 16px 0;
   flex: 1;
+  list-style: none;
 }
 
 .mobile-nav ul li a {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 24px;
-  font-size: 0.9375rem;
+  padding: 12px 20px;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--dark);
   text-transform: capitalize;
+  text-decoration: none;
   transition: var(--trans);
 }
 
@@ -828,23 +888,19 @@ header.scrolled .logo img {
 .mobile-nav ul li a.active {
   color: var(--red);
   background: rgba(229, 57, 53, .05);
-  padding-left: 28px;
+  padding-left: 24px;
 }
 
 .mobile-nav-footer {
-  padding: 20px 24px;
+  padding: 16px 20px;
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-body:not(.transparent-nav) main {
-  padding-top: 138px;
-}
-
-/* Responsive Navigation Breakpoint */
-@media (max-width: 1024px) {
+/* Responsive Navigation Breakpoints */
+@media (max-width: 1180px) {
   .main-nav {
     display: none !important;
   }
@@ -854,25 +910,29 @@ body:not(.transparent-nav) main {
   }
 
   .header-main {
-    padding: 16px 24px;
+    min-height: 76px;
+    padding: 8px 20px;
   }
 
-  /* Keep scrolled padding consistent on mobile — overrides the desktop 10px 40px */
   header.scrolled .header-main {
-    padding: 10px 24px;
+    min-height: 70px;
+    padding: 6px 20px;
   }
 
   .logo img {
     height: 60px;
   }
 
-  /* Keep logo height constant on mobile scroll */
   header.scrolled .logo img {
     height: 60px;
   }
 
-  body:not(.transparent-nav) main {
-    padding-top: 92px;
+  main,
+  .main-content-wrapper,
+  body:not(.transparent-nav) main,
+  body.transparent-nav main,
+  body.home-page main {
+    padding-top: 76px !important;
   }
 
   .logo-text {
@@ -881,85 +941,38 @@ body:not(.transparent-nav) main {
 }
 
 @media (max-width: 768px) {
-  .header-actions .btn-call {
-    display: none;
-    /* Hide phone number on smaller mobile to save space */
-  }
-
   .header-actions .btn-primary {
     padding: 8px 16px;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
   }
 }
 
-
-
-/* ==============================================
-   TRANSPARENT HEADER OVERRIDES
-============================================== */
-body.transparent-nav header:not(.scrolled) {
-  background: transparent !important;
-  box-shadow: none !important;
+@media (max-width: 480px) {
+  .header-actions .btn-call {
+    display: none;
+  }
 }
 
-body.transparent-nav header:not(.scrolled)::before {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom-color: transparent !important;
-  box-shadow: none !important;
-}
+@media (max-width: 480px) {
+  .header-main {
+    padding: 0 14px;
+  }
 
-/* Gradient overlay for transparent header legibility */
-body.transparent-nav header:not(.scrolled)::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 140px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
-  z-index: -1;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
+  .logo img {
+    height: 36px;
+  }
 
-body.transparent-nav header.scrolled::before {
-  opacity: 0;
-}
+  header.scrolled .logo img {
+    height: 32px;
+  }
 
-body.transparent-nav header:not(.scrolled) .logo img {
-  filter: brightness(0) invert(1);
-}
-
-body.transparent-nav header:not(.scrolled) .main-nav>ul>li>a {
-  color: var(--white) !important;
-}
-
-body.transparent-nav header:not(.scrolled) .nav-dropdown a {
-  color: var(--dark) !important;
-}
-
-body.transparent-nav header:not(.scrolled) .hamburger span {
-  background: var(--white) !important;
-}
-
-body.transparent-nav header:not(.scrolled) .btn-call {
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: var(--white) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  backdrop-filter: blur(4px);
-}
-
-body.transparent-nav header:not(.scrolled) .btn-call:hover {
-  background: var(--white) !important;
-  color: var(--primary) !important;
-  border-color: var(--white) !important;
-}
-
-body.transparent-nav header:not(.scrolled) .btn-primary {
-  background: var(--white) !important;
-  color: var(--primary) !important;
+  main,
+  .main-content-wrapper,
+  body:not(.transparent-nav) main,
+  body.transparent-nav main,
+  body.home-page main {
+    padding-top: 60px !important;
+  }
 }
 
 
