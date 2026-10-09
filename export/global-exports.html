@@ -14,7 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>Global Exports — Industrial Storage & Mobile Compactors | Space Planners India</title>
 
   <meta name="description"
-    content="Trusted global exporter of high-density mobile compactors, industrial pallet racking, and storage systems across 15+ countries in GCC, Africa, and South Asia.">
+    content="Trusted global exporter of high-density mobile compactors, industrial pallet racking, and storage systems worldwide from Space Planners India.">
   <meta name="keywords"
     content="storage systems exporter India, mobile compactor global export, industrial pallet racking export, pharma cold storage compactors export, Space Planners India export">
 
@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Social Sharing -->
   <meta property="og:title" content="Global Storage Solutions Exports | Space Planners India">
   <meta property="og:description"
-    content="Custom-engineered high-density storage and heavy-duty racking systems exported across 15+ countries. Compliant with ISO & GMP standards.">
+    content="Custom-engineered high-density storage and heavy-duty racking systems exported worldwide by Space Planners India.">
   <meta property="og:url" content="https://spaceplannersindia.in/export/global-exports.html">
   <meta property="og:image" content="https://spaceplannersindia.in/og-image-1200x630.png">
   <meta property="og:type" content="website">
@@ -44,8 +44,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../style.css?v=3">
-  <script src="../js/load-components.js?v=6" defer></script>
+  <link rel="stylesheet" href="../style.css?v=6">
+  <script src="../js/export-config.js" defer></script>
+  <script src="../js/load-components.js?v=10" defer></script>
   <script src="../forms-handler.js" defer></script>
 
   <!-- Google tag (gtag.js) -->
@@ -65,9 +66,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "name": "Space Planners India - Global Exports Division",
     "url": "https://spaceplannersindia.in/export/global-exports.html",
     "logo": "https://spaceplannersindia.in/logo.png",
-    "description": "Global exporter of mobile shelving compactor systems and heavy-duty industrial pallet racking.",
-    "areaServed": ["United Arab Emirates", "Saudi Arabia", "Oman", "Qatar", "Kuwait", "South Africa", "Kenya", "Uganda", "Sri Lanka", "Nepal", "Guinea"]
+    "description": "Global exporter of mobile shelving compactor systems and heavy-duty industrial pallet racking."
   }
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ page_section: 'export', export_page: 'global-exports' });
   </script>
 </head>
 
@@ -85,7 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span>🌐</span> Global Exports Division
         </div>
         <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #ffffff;">
-          Trusted Storage Solutions Exported Across 15+ Countries
+          Trusted Storage Solutions Exported Worldwide
         </h1>
         <p style="font-size: 17px; line-height: 1.6; color: #94a3b8; margin-bottom: 30px;">
           Space Planners India delivers heavy-duty pallet racking and mobile shelving compactor systems globally — engineered for <strong>Pharma & Life Sciences</strong>, <strong>Government Archival</strong>, and <strong>Industrial Warehousing</strong>.
@@ -114,17 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px 10px; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #94a3b8; text-transform: uppercase; text-align: center;">
       Key Export Destinations & Installation Markets
     </div>
-    <div class="badge-scroll-wrap">
-      <div class="country-pill"><span class="flag-icon">🇿🇦</span> South Africa</div>
-      <div class="country-pill"><span class="flag-icon">🇴🇲</span> Sultanate of Oman</div>
-      <div class="country-pill"><span class="flag-icon">🇱🇰</span> Sri Lanka</div>
-      <div class="country-pill"><span class="flag-icon">🌍</span> West Africa (Conakry, Guinea)</div>
-      <!-- Duplicate for seamless scroll loop -->
-      <div class="country-pill"><span class="flag-icon">🇿🇦</span> South Africa</div>
-      <div class="country-pill"><span class="flag-icon">🇴🇲</span> Sultanate of Oman</div>
-      <div class="country-pill"><span class="flag-icon">🇱🇰</span> Sri Lanka</div>
-      <div class="country-pill"><span class="flag-icon">🌍</span> West Africa (Conakry, Guinea)</div>
-    </div>
+    <div class="badge-scroll-wrap" data-export-countries="strip"></div>
   </div>
 
   <!-- TRUST STATS BAR -->
@@ -132,20 +126,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
       <div class="export-stats-bar">
         <div class="export-stat-card">
-          <div class="export-stat-num">15+</div>
-          <div class="export-stat-label">Countries Exported To</div>
+          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
+          <div class="export-stat-label">Years Exporting</div>
         </div>
         <div class="export-stat-card">
-          <div class="export-stat-num">150+</div>
+          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
           <div class="export-stat-label">International Installations</div>
         </div>
         <div class="export-stat-card">
-          <div class="export-stat-num">12+</div>
-          <div class="export-stat-label">Years Overseas Operations</div>
+          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
+          <div class="export-stat-label">Countries Exported To</div>
         </div>
         <div class="export-stat-card">
-          <div class="export-stat-num">100%</div>
-          <div class="export-stat-label">Seaworthy Export Packing</div>
+          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
+          <div class="export-stat-label">Export Packing Standard</div>
         </div>
       </div>
     </div>
@@ -161,39 +155,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div style="position: relative; width: 100%; text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 40px 20px;">
-          <!-- SVG Vector World Map Placeholder/Graphic -->
-          <svg viewBox="0 0 1000 500" style="width: 100%; height: auto; max-height: 380px; fill: #334155;">
-            <path d="M150,150 Q180,100 250,120 T350,200 T200,300 Z M450,120 Q550,80 650,140 T700,300 T500,350 Z M750,280 Q850,250 900,320 T800,420 Z M550,250 Q600,280 620,380 T520,400 Z" opacity="0.4" />
-            
-            <g transform="translate(580, 210)">
-              <circle r="8" fill="#c41212" />
-              <circle r="16" fill="none" stroke="#c41212" stroke-width="2" opacity="0.6">
-                <animate attributeName="r" values="8;22;8" dur="2s" repeatCount="indefinite" />
-              </circle>
-              <text x="14" y="4" fill="#ffffff" font-size="12" font-weight="700">GCC (UAE, KSA, Oman, Qatar)</text>
-            </g>
-
-            <g transform="translate(540, 310)">
-              <circle r="8" fill="#c41212" />
-              <circle r="16" fill="none" stroke="#c41212" stroke-width="2" opacity="0.6">
-                <animate attributeName="r" values="8;22;8" dur="2.5s" repeatCount="indefinite" />
-              </circle>
-              <text x="14" y="4" fill="#ffffff" font-size="12" font-weight="700">Africa (Kenya, Uganda, S.Africa)</text>
-            </g>
-
-            <g transform="translate(670, 230)">
-              <circle r="8" fill="#c41212" />
-              <circle r="16" fill="none" stroke="#c41212" stroke-width="2" opacity="0.6">
-                <animate attributeName="r" values="8;22;8" dur="1.8s" repeatCount="indefinite" />
-              </circle>
-              <text x="14" y="4" fill="#ffffff" font-size="12" font-weight="700">South Asia (Sri Lanka, Nepal)</text>
-            </g>
-
-            <g transform="translate(480, 270)">
-              <circle r="8" fill="#c41212" />
-              <text x="-120" y="4" fill="#ffffff" font-size="12" font-weight="700">West Africa (Guinea)</text>
-            </g>
-          </svg>
+          <!-- TODO: world map graphic pending; countries below are rendered from js/export-config.js -->
+          <div data-export-countries="list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 16px;"></div>
+          <div class="export-todo">[TODO-CLIENT: world map graphic pending final country list]</div>
 
           <div style="display: flex; justify-content: center; gap: 24px; margin-top: 20px; font-size: 13px; color: #cbd5e1; flex-wrap: wrap;">
             <span>📍 Direct Container Shipping from Port of Mumbai (JNPT)</span>
@@ -242,7 +206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Card 2: Heavy Duty & Pallet Racks -->
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
           <div style="position: relative; height: 220px; background: #1e293b;">
-            <img src="../airport-project.webp" alt="Heavy Duty Racks Export" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="../Racks/heavy-duty-pallet-racking.webp" alt="Heavy Duty Racks Export" style="width: 100%; height: 100%; object-fit: cover;">
             <div style="position: absolute; top: 16px; left: 16px; background: #0f172a; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; text-transform: uppercase;">
               Heavy Industrial
             </div>
@@ -251,10 +215,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div>
               <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 12px;">Heavy Duty & Pallet Racking Systems</h3>
               <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                Structural selective pallet racks, drive-in systems, and heavy-duty shelving. Engineered to international load standards (up to 4,000 kg per beam level) with durable powder coating.
+                Structural selective pallet racks, drive-in systems, and heavy-duty shelving. Technical load specifications to be confirmed.
               </p>
               <ul style="font-size: 14px; color: #334155; margin-bottom: 24px; line-height: 1.8;">
-                <li>✓ Load capacity tested to FEM/ANSI standards</li>
+                <li>✓ <span class="export-todo">[TODO-CLIENT: load capacity / standards pending]</span></li>
                 <li>✓ Knock-down modular container loading</li>
                 <li>✓ Anti-corrosive epoxy powder coat finishes</li>
               </ul>
@@ -305,7 +269,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="export-feature-icon">🔬</div>
           <div class="export-feature-content">
             <h4>GMP & Cleanroom Compliant Builds</h4>
-            <p>High-grade SS 304 / SS 316 cleanroom mobile compactors certified for pharmaceutical manufacturing, active ingredients, and cold storage units.</p>
+            <p>High-grade SS 304 / SS 316 cleanroom mobile compactors built for pharmaceutical manufacturing, active ingredients, and cold storage units.</p>
           </div>
         </div>
 
@@ -410,7 +374,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
           <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What warranty and spare parts support do you offer overseas clients?</summary>
           <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            All export products come with a 3-Year Structural Warranty. Essential fast-moving spares (gears, chains, locks, rollers) are included with primary shipments, and additional spare parts can be air-freighted within 72 hours.
+            <span class="export-todo">[TODO-CLIENT: export warranty and spare-parts terms pending]</span>
           </p>
         </details>
       </div>
@@ -454,7 +418,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <option value="Uganda">🇺🇬 Uganda</option>
               <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
               <option value="Nepal">🇳🇵 Nepal</option>
-              <option value="Guinea (West Africa)">🇬🇳 Guinea</option>
               <option value="Vietnam">🇻🇳 Vietnam</option>
               <option value="Other International Region">🌐 Other International Destination</option>
             </select>
@@ -482,7 +445,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           <div class="form-group" style="grid-column: span 2;">
             <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Project Details / Port of Destination / Specs</label>
-            <textarea name="message" rows="4" placeholder="Mention required storage capacity, layout dimensions, destination port (e.g. Jebel Ali, Durban, Sohar), or specific technical requirements..." style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;"></textarea>
+            <textarea name="message" rows="4" placeholder="Mention required storage capacity, layout dimensions, destination port , or specific technical requirements..." style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;"></textarea>
           </div>
 
           <div style="grid-column: span 2; text-align: center; margin-top: 10px;">

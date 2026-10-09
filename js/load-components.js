@@ -81,7 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (el) {
-            if (el.innerHTML.trim() !== "") {
+            // Inlined copies are only a pre-render/no-JS fallback; header, mobile nav and footer always load from components/ so every page stays in sync
+            const alwaysFetch = ["header-placeholder", "mobile-nav-placeholder", "footer-placeholder"].includes(comp.id);
+            if (el.innerHTML.trim() !== "" && !alwaysFetch) {
                 if (prefix) {
                     el.innerHTML = fixComponentPaths(el.innerHTML, prefix);
                 }

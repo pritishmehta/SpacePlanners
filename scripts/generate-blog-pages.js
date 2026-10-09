@@ -12,7 +12,7 @@ function slugify(text) {
 const article1Content = `
 <h3 id="sec-intro">Introduction</h3>
 <p>In today's fast-paced business environment, efficient space management is more important than ever. Whether you're managing a corporate office, warehouse, hospital, bank, library, government archive, or pharmaceutical facility, maximizing storage without expanding your floor area can significantly reduce costs and improve productivity.</p>
-<p>A Mobile Compactor Storage System is one of the most effective solutions for achieving this. Designed to eliminate wasted aisle space while maintaining easy access to stored items, these systems help organizations increase storage capacity by up to 80% compared to conventional shelving.</p>
+<p>A <a href="../compactor-storage.html">Mobile Compactor Storage System</a> is one of the most effective solutions for achieving this. Designed to eliminate wasted aisle space while maintaining easy access to stored items, these systems help organizations increase storage capacity by up to 80% compared to conventional shelving.</p>
 <p>In this guide, we'll explain what a mobile compactor storage system is, how it works, its benefits, applications, types, and how to choose the right solution for your organization.</p>
 
 <h3 id="sec-what">What is a Mobile Compactor Storage System?</h3>
@@ -64,7 +64,7 @@ const article1Content = `
 </ol>
 
 <h3 id="sec-apps">Applications Across Industries</h3>
-<p>Mobile compactor storage systems are suitable for a wide range of industries:</p>
+<p><a href="../compactor-storage.html">Mobile compactor storage systems</a> are suitable for a wide range of industries:</p>
 <ul>
     <li><strong>Corporate Offices:</strong> HR records, Finance files, Legal documents, Employee records</li>
     <li><strong>Hospitals:</strong> Patient files, Medical records, Pharmacy storage</li>
@@ -147,7 +147,7 @@ const article1Content = `
 
 const article2Content = `
 <h3 id="sec2-intro">Introduction</h3>
-<p>An efficient storage system is the backbone of any warehouse, factory, or industrial facility. The right industrial storage rack not only helps organize inventory but also improves workflow, maximizes available space, and enhances workplace safety.</p>
+<p>An efficient storage system is the backbone of any warehouse, factory, or industrial facility. The right <a href="../industrial-racks.html">industrial storage rack</a> not only helps organize inventory but also improves workflow, maximizes available space, and enhances workplace safety.</p>
 <p>However, with various types of storage racks available, selecting the right one can be challenging. Factors such as load capacity, available space, product dimensions, and future business growth all play an important role in the decision.</p>
 <p>In this guide, we'll walk you through the key considerations to help you choose the right industrial storage rack for your business.</p>
 
@@ -177,7 +177,7 @@ const article2Content = `
 
 <h4>2. Evaluate Load Capacity</h4>
 <p>Every storage rack is designed to support a specific load. Ensure that both the shelf and the entire rack can safely handle the expected weight. Overloading storage racks can reduce their lifespan and create safety risks.</p>
-<p>If your inventory includes heavy machinery parts or industrial equipment, opt for heavy-duty storage racks designed for higher load capacities.</p>
+<p>If your inventory includes heavy machinery parts or industrial equipment, opt for <a href="../industrial-racks.html">heavy-duty storage racks</a> designed for higher load capacities.</p>
 
 <h4>3. Measure Your Available Space</h4>
 <p>Before choosing a rack, assess your storage area. Take into account:</p>
@@ -198,11 +198,11 @@ const article2Content = `
 <h4>5. Choose the Right Rack Type</h4>
 <p>Different storage needs require different rack systems. Some common options include:</p>
 <ul>
-    <li><strong>Heavy Duty Storage Racks</strong> – Ideal for bulky and heavy items.</li>
+    <li><strong><a href="../industrial-racks.html">Heavy Duty Storage Racks</a></strong> – Ideal for bulky and heavy items.</li>
     <li><strong>Long Span Shelving</strong> – Suitable for cartons, tools, and medium-weight goods.</li>
-    <li><strong>Pallet Racking</strong> – Designed for palletized inventory and forklift access.</li>
-    <li><strong>Mobile Compactor Storage Systems</strong> – Perfect for maximizing storage where floor space is limited.</li>
-    <li><strong>Multi-Tier Storage Systems</strong> – Suitable for facilities with high ceilings and growing storage needs.</li>
+    <li><strong><a href="pallet-racking-system.html">Pallet Racking</a></strong> – Designed for palletized inventory and forklift access.</li>
+    <li><strong><a href="../compactor-storage.html">Mobile Compactor Storage Systems</a></strong> – Perfect for maximizing storage where floor space is limited.</li>
+    <li><strong><a href="multi-tier-racking-system.html">Multi-Tier Storage Systems</a></strong> – Suitable for facilities with high ceilings and growing storage needs.</li>
 </ul>
 <p>A storage specialist can help identify the most appropriate solution based on your inventory and operations.</p>
 
@@ -295,7 +295,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
   <meta name="theme-color" content="#e53935">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <link rel="stylesheet" href="${relPath}style.css?v=2">
+  <link rel="stylesheet" href="${relPath}style.css?v=4">
   <script src="${relPath}js/load-components.js?v=3" defer></script>
   
   <script type="application/ld+json">

@@ -44,8 +44,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../style.css?v=3">
-  <script src="../js/load-components.js?v=6" defer></script>
+  <link rel="stylesheet" href="../style.css?v=6">
+  <script src="../js/export-config.js" defer></script>
+  <script src="../js/load-components.js?v=10" defer></script>
   <script src="../forms-handler.js" defer></script>
 
   <!-- Google tag (gtag.js) -->
@@ -70,6 +71,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "name": "Space Planners India"
     }
   }
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ page_section: 'export', export_page: 'mobile-shelving-compactor' });
   </script>
 </head>
 
@@ -106,10 +111,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <div style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
         <!-- Pharma Stainless Steel Compactor Hero Image -->
-        <img src="../Compactors/document-storage.webp" alt="Pharma Stainless Steel Mobile Compactor System Export" style="width: 100%; height: 380px; object-fit: cover;">
+        <img src="../Compactors/pharmaceutical-gmp-compactor.webp" alt="Pharma Stainless Steel Mobile Compactor System Export" style="width: 100%; height: 380px; object-fit: cover;">
         <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.9), transparent); padding: 20px;">
-          <div style="font-size: 14px; font-weight: 700; color: #fff;">SS 304 Stainless Steel GMP Compactor Unit</div>
-          <div style="font-size: 12px; color: #cbd5e1;">Vibration-Free Operation | Suitable for Cold Rooms (-20°C)</div>
+          <div style="font-weight: 700; font-size: 15px;">Stainless Steel Mobile Compactor System</div>
+          <div style="font-size: 12px;"><span class="export-todo">[TODO-CLIENT: hero image and caption pending client]</span></div>
         </div>
       </div>
     </div>
@@ -117,17 +122,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- COUNTRY BADGE STRIP (SHARED COMPONENT) -->
   <div class="export-badge-strip">
-    <div class="badge-scroll-wrap">
-      <div class="country-pill"><span class="flag-icon">🇿🇦</span> South Africa</div>
-      <div class="country-pill"><span class="flag-icon">🇴🇲</span> Sultanate of Oman</div>
-      <div class="country-pill"><span class="flag-icon">🇱🇰</span> Sri Lanka</div>
-      <div class="country-pill"><span class="flag-icon">🌍</span> West Africa (Conakry, Guinea)</div>
-      <!-- Duplicate for seamless scroll loop -->
-      <div class="country-pill"><span class="flag-icon">🇿🇦</span> South Africa</div>
-      <div class="country-pill"><span class="flag-icon">🇴🇲</span> Sultanate of Oman</div>
-      <div class="country-pill"><span class="flag-icon">🇱🇰</span> Sri Lanka</div>
-      <div class="country-pill"><span class="flag-icon">🌍</span> West Africa (Conakry, Guinea)</div>
-    </div>
+    <div class="badge-scroll-wrap" data-export-countries="strip"></div>
   </div>
 
   <!-- PROMOTED FEATURE: GMP / PHARMA-GRADE CLEANROOM & COLD STORAGE CAPABILITY -->
@@ -233,45 +228,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Case Study 1 -->
         <div class="export-case-card">
           <div class="export-case-header">
-            <span style="font-weight: 700; font-size: 14px;">Cipla — Durban, South Africa</span>
+            <span style="font-weight: 700; font-size: 14px;">Leading Pharmaceutical Company, South Africa</span>
             <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">🇿🇦 South Africa</span>
           </div>
           <div class="export-case-body">
-            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Cold Storage & Cleanroom SS Compactor System</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
-              Exported high-density SS 304 motorized compactor storage units for Cipla's Durban facility operational inside temperature-controlled cleanroom environments.
-            </p>
-            <div style="font-size: 12px; color: var(--primary); font-weight: 700;">Result: +65% storage capacity gain within existing cold room.</div>
+            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Mobile Compactor System</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">Mobile compactor storage system supplied to a leading pharmaceutical company in South Africa.</p>
+            <div style="font-size: 12px; color: var(--primary); font-weight: 700;"><span class="export-todo">[TODO-CLIENT: project details / results pending client]</span></div>
           </div>
         </div>
 
         <!-- Case Study 2 -->
         <div class="export-case-card">
           <div class="export-case-header">
-            <span style="font-weight: 700; font-size: 14px;">Government Ministry Client</span>
-            <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">🇴🇲 Sultanate of Oman</span>
+            <span style="font-weight: 700; font-size: 14px;">Government Client</span>
+            <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">🇴🇲 Oman</span>
           </div>
           <div class="export-case-body">
-            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">2 Turnkey Government Archival Installations</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
-              High-density mechanical mobile shelving systems installed across two ministry archival facilities in Muscat with central security locking.
-            </p>
-            <div style="font-size: 12px; color: var(--primary); font-weight: 700;">Result: Secure storage for over 500,000 official records.</div>
+            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">2 Compactor Installations</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">Two mobile compactor installations for a government client in Oman.</p>
+            <div style="font-size: 12px; color: var(--primary); font-weight: 700;"><span class="export-todo">[TODO-CLIENT: project details / results pending client]</span></div>
           </div>
         </div>
 
         <!-- Case Study 3 -->
         <div class="export-case-card">
           <div class="export-case-header">
-            <span style="font-weight: 700; font-size: 14px;">National Archival Facility</span>
+            <span style="font-weight: 700; font-size: 14px;">National Archive (Government)</span>
             <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">🇱🇰 Sri Lanka</span>
           </div>
           <div class="export-case-body">
-            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Heavy-Duty Mechanical Archival Compactors</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
-              Supplied anti-tilt mechanical compactor racks designed to withstand high ambient humidity while doubling record density.
-            </p>
-            <div style="font-size: 12px; color: var(--primary); font-weight: 700;">Result: Zero corrosion after 5+ years of active operation.</div>
+            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Mobile Compactor System</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">Mobile compactor storage system supplied to the National Archive (Government) in Sri Lanka.</p>
+            <div style="font-size: 12px; color: var(--primary); font-weight: 700;"><span class="export-todo">[TODO-CLIENT: project details / results pending client]</span></div>
           </div>
         </div>
       </div>
@@ -305,6 +294,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What is your typical shipping and lead time for export compactors?</summary>
           <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
             Standard order dispatch is 2 to 3 weeks from receipt of CAD approval. Ocean shipping to GCC ports takes 5–10 days; African ports take 14–21 days.
+          </p>
+        </details>
+        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
+          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Do you provide on-site installation supervision for overseas orders?</summary>
+          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
+            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
+          </p>
+        </details>
+        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
+          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What are your payment terms for international orders?</summary>
+          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
+            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
+          </p>
+        </details>
+        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
+          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Can systems be configured for local voltage and climate conditions?</summary>
+          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
+            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
+          </p>
+        </details>
+        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
+          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What warranty and spare parts support do you offer overseas clients?</summary>
+          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
+            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
           </p>
         </details>
       </div>
@@ -350,7 +363,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <option value="Uganda">🇺🇬 Uganda</option>
               <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
               <option value="Nepal">🇳🇵 Nepal</option>
-              <option value="Guinea (West Africa)">🇬🇳 Guinea</option>
               <option value="Other International Region">🌐 Other International Destination</option>
             </select>
           </div>
