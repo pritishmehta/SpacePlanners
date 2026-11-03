@@ -45,8 +45,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="../style.css?v=6">
+  <style>#header-placeholder{contain:none!important;position:fixed!important;top:0;left:0;width:100%;z-index:1000;min-height:0!important}</style>
   <script src="../js/export-config.js" defer></script>
   <script src="../js/load-components.js?v=10" defer></script>
+  <script src="../js/nav-scroll.js" defer></script>
   <script src="../forms-handler.js" defer></script>
 
   <!-- Google tag (gtag.js) -->
@@ -78,10 +80,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
   <!-- Placeholders for dynamically loaded components -->
   <div id="mobile-nav-placeholder"></div>
-  <header id="header-placeholder" style="position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);"></header>
+  <header id="header-placeholder"></header>
 
   <!-- HERO SECTION -->
-  <section style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 75px 0 60px; position: relative; overflow: hidden;">
+  <section class="hero-wrap" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 150px 0 60px; position: relative; overflow: hidden;">
     <div style="position: absolute; right: -50px; top: -50px; width: 450px; height: 450px; background: rgba(196, 18, 18, 0.15); border-radius: 50%; blur: 80px; pointer-events: none;"></div>
     <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
       <div>
