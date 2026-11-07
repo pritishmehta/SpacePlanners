@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../style.css?v=6">
+  <link rel="stylesheet" href="../style.css?v=7">
   <script src="../js/export-config.js" defer></script>
   <script src="../js/load-components.js?v=10" defer></script>
   <script src="../js/nav-scroll.js" defer></script>
@@ -80,315 +80,197 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-  <!-- Placeholders for dynamically loaded components -->
   <div id="mobile-nav-placeholder"></div>
   <header id="header-placeholder"></header>
 
-  <!-- HERO SECTION (Dual Terminology: Compactor / Mobile Shelving + Pharma SS Image) -->
-  <section class="hero-wrap" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 150px 0 60px; position: relative; overflow: hidden;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;">
-      <div>
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196,18,18,0.2); border: 1px solid rgba(196,18,18,0.4); color: #f87171; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px;">
-          <span>📦</span> Direct Export Manufacturing
-        </div>
-        <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #ffffff;">
-          Mobile Shelving & Compactor Storage Systems — Global Export
-        </h1>
-        <p style="font-size: 17px; line-height: 1.6; color: #94a3b8; margin-bottom: 25px;">
-          Engineered for high-density document archives, healthcare records, and <strong>GMP pharma cleanrooms / cold storage</strong>. Maximizes available floor capacity by 60%–70%.
-        </p>
-
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px;">
-          <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 4px; font-size: 13px;">✓ Mechanical & Motorized</span>
-          <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 4px; font-size: 13px;">✓ SS 304 / 316 Cleanroom</span>
-          <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 4px; font-size: 13px;">✓ 220V–415V Dual Voltage</span>
-        </div>
-
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#exportFormSection" class="btn-primary" style="padding: 14px 28px; font-size: 15px; font-weight: 700; background: var(--primary); color: #fff; border-radius: 6px; text-decoration: none;">Request Mobile Shelving Quote</a>
-          <a href="#gmpSection" style="padding: 14px 28px; font-size: 15px; font-weight: 600; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; text-decoration: none;">Pharma & Cleanroom Specs &darr;</a>
-        </div>
-      </div>
-
-      <div style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
-        <!-- Pharma Stainless Steel Compactor Hero Image -->
-        <img src="../Compactors/pharmaceutical-gmp-compactor.webp" alt="Pharma Stainless Steel Mobile Compactor System Export" style="width: 100%; height: 380px; object-fit: cover;">
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.9), transparent); padding: 20px;">
-          <div style="font-weight: 700; font-size: 15px;">Stainless Steel Mobile Compactor System</div>
-          <div style="font-size: 12px;"><span class="export-todo">[TODO-CLIENT: hero image and caption pending client]</span></div>
-        </div>
-      </div>
+  <section class="hero-section ex-hero">
+    <h1 class="hero-title">Mobile Shelving &amp; Compactor Systems</h1>
+    <p class="ex-hero-sub">Export-grade compactor storage for document archives, healthcare records and GMP pharma cleanrooms and cold stores. Saves 60% to 70% of floor space.</p>
+    <div class="ex-hero-actions">
+      <a href="#exportFormSection" class="ex-btn">Request a Quote</a>
+      <a href="#gmpSection" class="ex-btn ex-btn-light">Pharma &amp; Cleanroom Specs</a>
     </div>
+    <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">/</span><a href="global-exports.html">Global Exports</a><span class="sep">/</span><span>Mobile Shelving &amp; Compactors</span>
+    </nav>
   </section>
 
-  <!-- COUNTRY BADGE STRIP (SHARED COMPONENT) -->
   <div class="export-badge-strip">
+    <div class="export-badge-label">Export destinations and installation markets</div>
     <div class="badge-scroll-wrap" data-export-countries="strip"></div>
   </div>
 
-  <!-- PROMOTED FEATURE: GMP / PHARMA-GRADE CLEANROOM & COLD STORAGE CAPABILITY -->
-  <section id="gmpSection" style="padding: 70px 0; background: #ffffff;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 2px solid var(--primary); border-radius: 16px; padding: 40px; position: relative;">
-        <div style="display: inline-block; background: var(--primary); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px;">
-          Promoted Headline Feature
+  <section class="ex-section" id="gmpSection">
+    <div class="ex-wrap">
+      <div class="ex-split">
+        <div>
+          <img src="../Compactors/pharmaceutical-gmp-compactor.webp" alt="Stainless steel mobile compactor system for pharma export">
+          <p class="ex-caption"><span class="export-todo">[TODO-CLIENT: hero image and caption pending client]</span></p>
         </div>
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 16px;">
-          GMP & Cleanroom Grade Stainless Steel Mobile Compactor Capability
-        </h2>
-        <p style="font-size: 16px; color: #475569; line-height: 1.7; max-width: 900px; margin-bottom: 30px;">
-          Specifically engineered for international pharmaceutical plants, active raw material warehousing, and biological archives requiring strict GMP (Good Manufacturing Practice) compliance, zero particulate shedding, and active temperature control.
-        </p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-          <div style="background: #ffffff; padding: 24px; border-radius: 10px; border: 1px solid #e2e8f0;">
-            <div style="font-size: 28px; margin-bottom: 10px;">✨</div>
-            <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">SS 304 / SS 316 Stainless Construction</h4>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.5;">Non-corrosive, non-magnetic, sanitization-friendly brushed stainless steel finish suitable for Class 100 to Class 10,000 cleanrooms.</p>
-          </div>
-
-          <div style="background: #ffffff; padding: 24px; border-radius: 10px; border: 1px solid #e2e8f0;">
-            <div style="font-size: 28px; margin-bottom: 10px;">❄️</div>
-            <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Cold Storage Rated (-20°C to +40°C)</h4>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.5;">Heavy-duty cold-resistant polyurethane wheels, sealed bearings, and low-temperature lubricants operational down to sub-zero temperatures.</p>
-          </div>
-
-          <div style="background: #ffffff; padding: 24px; border-radius: 10px; border: 1px solid #e2e8f0;">
-            <div style="font-size: 28px; margin-bottom: 10px;">⚙️</div>
-            <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Vibration-Free Motorized Drive</h4>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.5;">Soft-start and soft-stop frequency drives prevent liquid sample disturbance or vial breakage during rack movement.</p>
-          </div>
+        <div>
+          <span class="section-badge">Pharma &amp; Cleanroom</span>
+          <h2>GMP-Grade Stainless Steel Mobile Compactors</h2>
+          <div class="accent-line left" style="margin-bottom:18px;"></div>
+          <p>Built for overseas pharmaceutical plants, raw material stores and biological archives that need GMP compliance, no particle shedding and temperature-controlled operation.</p>
+          <ul class="ex-list">
+            <li><strong>SS 304 / SS 316 construction.</strong> Non-corrosive, non-magnetic brushed finish that is easy to sanitize. Suitable for Class 100 to Class 10,000 cleanrooms.</li>
+            <li><strong>Cold storage rated (-20&deg;C to +40&deg;C).</strong> Cold-resistant polyurethane wheels, sealed bearings and low-temperature lubricants.</li>
+            <li><strong>Vibration-free motorized drive.</strong> Soft-start and soft-stop drives protect liquid samples and vials during movement.</li>
+          </ul>
+          <a href="#exportFormSection" class="ex-btn">Request GMP Specifications</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT RANGE CARDS (6 REUSED DOMESTIC CATEGORIES) -->
-  <section style="padding: 60px 0; background: #f8fafc;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a;">Export Product Categories</h2>
-        <p style="font-size: 15px; color: #64748b;">Modular mobile shelving systems configured for seaworthy container shipping.</p>
+  <section class="ex-section alt">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">Export Range</span>
+        <h2 class="section-title">Export Product Categories</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Modular mobile shelving, packed for sea freight.</p>
       </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-        <!-- Category 1 -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
-          <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">File Storage Compactors</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Designed for high-volume office record management, banking files, and corporate archives. Central key lock for total security.</p>
-          <button class="btn-primary" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'File Storage Compactor (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px;">Get Specs & Quote</button>
-        </div>
-
-        <!-- Category 2 -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
-          <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Pigeon Hole Compactors</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Sub-divided compartments for postal, sorting, small-part storage, and organized cataloguing across logistics hubs.</p>
-          <button class="btn-primary" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Pigeon Hole Compactor (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px;">Get Specs & Quote</button>
-        </div>
-
-        <!-- Category 3 -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
-          <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Heavy Duty Mobile Racks</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Heavy industrial payload compactors capable of carrying up to 1,000 kg per shelf level on dual-rail guide tracks.</p>
-          <button class="btn-primary" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Heavy Duty Mobile Racks (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px;">Get Specs & Quote</button>
-        </div>
-
-        <!-- Category 4 -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
-          <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Perforated Mobile Compactors</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Enhanced airflow ventilation panels ideal for garment, textile, and moisture-sensitive archival preservation.</p>
-          <button class="btn-primary" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Perforated Mobile Compactor (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px;">Get Specs & Quote</button>
-        </div>
-
-        <!-- Category 5 -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
-          <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Drawer Mobile Compactors</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Integrated sliding pull-out drawers for high-density tool storage, valuable component storage, and specimen trays.</p>
-          <button class="btn-primary" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Drawer Mobile Compactor (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px;">Get Specs & Quote</button>
-        </div>
-
-        <!-- Category 6 -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; border-left: 4px solid var(--primary);">
-          <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Stainless Steel Compactors</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Full SS 304/316 construction for pharmaceutical cleanrooms, hospital operating theaters, and chemical research labs.</p>
-          <button class="btn-primary" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Stainless Steel Compactor (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px;">Get Specs & Quote</button>
-        </div>
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Compactors/document compactor.webp" alt="File Storage Compactors" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>File Storage Compactors</h3>
+            <p>For high-volume office records, bank files and corporate archives. Central key lock for security.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'File Storage Compactor (Export)'})">Get Specs &amp; Quote</button>
+          </div>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Compactors/pigeon-hole-compactor-carousel-2.webp" alt="Pigeon Hole Compactors" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Pigeon Hole Compactors</h3>
+            <p>Sub-divided compartments for postal sorting, small parts and organised cataloguing in logistics hubs.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Pigeon Hole Compactor (Export)'})">Get Specs &amp; Quote</button>
+          </div>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Compactors/heavy-duty-compactor-carousel-3.webp" alt="Heavy Duty Mobile Racks" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Heavy Duty Mobile Racks</h3>
+            <p>Industrial compactors carrying up to 1,000 kg per shelf level on dual-rail guide tracks.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Heavy Duty Mobile Racks (Export)'})">Get Specs &amp; Quote</button>
+          </div>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Compactors/perforated.webp" alt="Perforated Mobile Compactors" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Perforated Mobile Compactors</h3>
+            <p>Ventilated panels for garments, textiles and moisture-sensitive archives.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Perforated Mobile Compactor (Export)'})">Get Specs &amp; Quote</button>
+          </div>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Compactors/drawer-compactor-carousel-4.webp" alt="Drawer Mobile Compactors" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Drawer Mobile Compactors</h3>
+            <p>Pull-out drawers for high-density tool, component and specimen tray storage.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Drawer Mobile Compactor (Export)'})">Get Specs &amp; Quote</button>
+          </div>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Compactors/ss-compactor.webp" alt="Stainless Steel Compactors" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Stainless Steel Compactors</h3>
+            <p>Full SS 304 / 316 construction for pharma cleanrooms, operating theatres and research labs.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Mobile Compactor', specificProduct:'Stainless Steel Compactor (Export)'})">Get Specs &amp; Quote</button>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- EXPORT CASE STUDIES (PRODUCT-SPECIFIC) -->
-  <section style="padding: 60px 0; background: #ffffff;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a;">Overseas Project Track Record</h2>
-        <p style="font-size: 15px; color: #64748b;">Proven mobile shelving installations across international healthcare, government, and commercial sectors.</p>
+  <section class="ex-section">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">Track Record</span>
+        <h2 class="section-title">Overseas Projects</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Mobile shelving installed for healthcare, government and commercial clients abroad.</p>
       </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-        <!-- Case Study 1 -->
+      <div class="ex-grid">
         <div class="export-case-card">
-          <div class="export-case-header">
-            <span style="font-weight: 700; font-size: 14px;">Leading Pharmaceutical Company, South Africa</span>
-            <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">🇿🇦 South Africa</span>
-          </div>
-          <div class="export-case-body">
-            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Mobile Compactor System</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">Mobile compactor storage system supplied to a leading pharmaceutical company in South Africa.</p>
-            <div style="font-size: 12px; color: var(--primary); font-weight: 700;"><span class="export-todo">[TODO-CLIENT: project details / results pending client]</span></div>
-          </div>
+          <div class="ex-case-region">South Africa</div>
+          <h3>Leading Pharmaceutical Company</h3>
+          <p>Mobile compactor storage system supplied to a leading pharmaceutical company in South Africa.</p>
+          <span class="export-todo">[TODO-CLIENT: project details / results pending client]</span>
         </div>
-
-        <!-- Case Study 2 -->
         <div class="export-case-card">
-          <div class="export-case-header">
-            <span style="font-weight: 700; font-size: 14px;">Government Client</span>
-            <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">🇴🇲 Oman</span>
-          </div>
-          <div class="export-case-body">
-            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">2 Compactor Installations</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">Two mobile compactor installations for a government client in Oman.</p>
-            <div style="font-size: 12px; color: var(--primary); font-weight: 700;"><span class="export-todo">[TODO-CLIENT: project details / results pending client]</span></div>
-          </div>
+          <div class="ex-case-region">Oman</div>
+          <h3>Government Client, 2 Installations</h3>
+          <p>Two mobile compactor installations for a government client in Oman.</p>
+          <span class="export-todo">[TODO-CLIENT: project details / results pending client]</span>
         </div>
-
-        <!-- Case Study 3 -->
         <div class="export-case-card">
-          <div class="export-case-header">
-            <span style="font-weight: 700; font-size: 14px;">National Archive (Government)</span>
-            <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">🇱🇰 Sri Lanka</span>
-          </div>
-          <div class="export-case-body">
-            <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Mobile Compactor System</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">Mobile compactor storage system supplied to the National Archive (Government) in Sri Lanka.</p>
-            <div style="font-size: 12px; color: var(--primary); font-weight: 700;"><span class="export-todo">[TODO-CLIENT: project details / results pending client]</span></div>
-          </div>
+          <div class="ex-case-region">Sri Lanka</div>
+          <h3>National Archive</h3>
+          <p>Mobile compactor storage system supplied to the National Archive (Government) in Sri Lanka.</p>
+          <span class="export-todo">[TODO-CLIENT: project details / results pending client]</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT SPECIFIC FAQ -->
-  <section style="padding: 60px 0; background: #f8fafc;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 800; color: #0f172a;">Mobile Shelving & Compactor FAQs</h2>
-        <p style="font-size: 15px; color: #64748b;">Technical export questions answered.</p>
+  <section class="ex-section alt">
+    <div class="ex-wrap-narrow">
+      <div class="ex-head">
+        <span class="section-badge">FAQ</span>
+        <h2 class="section-title">Mobile Shelving &amp; Compactor Questions</h2>
+        <div class="accent-line"></div>
       </div>
-
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Can compactor systems be customized for GMP and pharma compliance?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Yes. We manufacture SS 304 and SS 316 grade compactors designed without sharp crevices or particle-trapping edges, ensuring seamless wash-down and conformity with global GMP cleanroom standards.
-          </p>
-        </details>
-
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Are systems suitable for cold storage or temperature-controlled environments?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Specifically engineered cold-room options feature specialized low-temperature lubricants, stainless steel tracks, sealed anti-friction bearings, and cold-resistant polyurethane drive wheels operational down to -20°C.
-          </p>
-        </details>
-
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What is your typical shipping and lead time for export compactors?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Standard order dispatch is 2 to 3 weeks from receipt of CAD approval. Ocean shipping to GCC ports takes 5–10 days; African ports take 14–21 days.
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Do you provide on-site installation supervision for overseas orders?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What are your payment terms for international orders?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Can systems be configured for local voltage and climate conditions?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What warranty and spare parts support do you offer overseas clients?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
+      <div class="ex-faq">
+        <details><summary>Can compactor systems be customized for GMP and pharma compliance?</summary><p>Yes. We make SS 304 and SS 316 compactors without sharp crevices or particle-trapping edges, so they wash down cleanly and meet GMP cleanroom requirements.</p></details>
+        <details><summary>Are systems suitable for cold storage or temperature-controlled environments?</summary><p>Yes. Cold-room versions use low-temperature lubricants, stainless steel tracks, sealed bearings and cold-resistant polyurethane wheels, and operate down to -20&deg;C.</p></details>
+        <details><summary>What is your typical shipping and lead time for export compactors?</summary><p>Orders dispatch in 2 to 3 weeks from CAD approval. Ocean transit to GCC ports takes 5 to 10 days and to African ports 14 to 21 days.</p></details>
+        <details><summary>Do you provide on-site installation supervision for overseas orders?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
+        <details><summary>What are your payment terms for international orders?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
+        <details><summary>Can systems be configured for local voltage and climate conditions?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
+        <details><summary>What warranty and spare parts support do you offer overseas clients?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
       </div>
     </div>
   </section>
 
-  <!-- EXPORT ENQUIRY FORM (SHARED COMPONENT) -->
-  <section id="exportFormSection" style="padding: 70px 0; background: #ffffff;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+  <section class="ex-section" id="exportFormSection">
+    <div class="ex-wrap-narrow">
       <div class="export-form-wrap">
-        <div style="text-align: center; margin-bottom: 30px;">
-          <div style="display: inline-block; background: rgba(196,18,18,0.08); color: var(--primary); font-weight: 700; padding: 4px 12px; border-radius: 20px; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">
-            Export Campaign Inquiry
-          </div>
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 10px;">Request Mobile Shelving Export Quotation</h2>
-          <p style="font-size: 15px; color: #64748b;">Get container packing layout and CIF pricing for your destination port.</p>
+        <div class="ex-head" style="margin-bottom:28px;">
+          <span class="section-badge">Export Enquiry</span>
+          <h2 class="section-title">Request a Mobile Shelving Export Quote</h2>
+          <div class="accent-line"></div>
+          <p class="section-subtitle">We will send a container packing layout and CIF pricing for your destination port.</p>
         </div>
-
-        <form id="exportEnquiryForm" novalidate style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <form id="exportEnquiryForm" class="ex-form" novalidate>
           <input type="hidden" name="product_interest" value="Mobile Shelving & Compactor Systems">
-          
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Full Name *</label>
-            <input type="text" name="name" placeholder="John Doe" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Work Email Address *</label>
-            <input type="email" name="email" placeholder="john@company.com" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Destination Country / Region *</label>
-            <select name="country" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff;">
-              <option value="" disabled selected>Select Destination Country</option>
-              <option value="United Arab Emirates (UAE)">🇦🇪 United Arab Emirates</option>
-              <option value="Saudi Arabia (KSA)">🇸🇦 Saudi Arabia</option>
-              <option value="Sultanate of Oman">🇴🇲 Sultanate of Oman</option>
-              <option value="State of Qatar">🇶🇦 State of Qatar</option>
-              <option value="Kuwait">🇰🇼 Kuwait</option>
-              <option value="South Africa">🇿🇦 South Africa</option>
-              <option value="Kenya">🇰🇪 Kenya</option>
-              <option value="Uganda">🇺🇬 Uganda</option>
-              <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
-              <option value="Nepal">🇳🇵 Nepal</option>
-              <option value="Other International Region">🌐 Other International Destination</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Phone Number (with Int'l Code) *</label>
-            <input type="tel" name="phone" placeholder="+971 50 123 4567" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 2;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Compactor Type & Requirements</label>
-            <textarea name="message" rows="4" placeholder="Mention preferred operation (Mechanical / Motorized / Stainless Steel GMP), room dimensions, or destination port..." style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;"></textarea>
-          </div>
-
-          <div style="grid-column: span 2; text-align: center;">
-            <button type="submit" class="btn-primary" style="padding: 14px 36px; font-size: 16px; font-weight: 700; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
-              Submit Mobile Shelving Export Inquiry &rarr;
-            </button>
-          </div>
+          <div><label>Full Name *</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div><label>Work Email *</label><input type="email" name="email" placeholder="you@company.com" required></div>
+          <div><label>Destination Country *</label>
+            <select name="country" required>
+              <option value="" disabled selected>Select destination country</option>
+              <option value="United Arab Emirates (UAE)">United Arab Emirates</option>
+              <option value="Saudi Arabia (KSA)">Saudi Arabia</option>
+              <option value="Sultanate of Oman">Oman</option>
+              <option value="State of Qatar">Qatar</option>
+              <option value="Kuwait">Kuwait</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Nepal">Nepal</option>
+              <option value="Other International Region">Other destination</option>
+            </select></div>
+          <div><label>Phone (with country code) *</label><input type="tel" name="phone" placeholder="+971 50 123 4567" required></div>
+          <div class="full"><label>Compactor type and requirements</label>
+            <textarea name="message" rows="4" placeholder="Mechanical, motorized or stainless steel GMP; room dimensions; destination port"></textarea></div>
+          <div class="full ex-submit"><button type="submit" class="ex-btn">Submit Export Inquiry</button></div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Placeholders for floating buttons, footer & modals -->
   <div id="floating-buttons-placeholder"></div>
   <footer id="footer-placeholder"></footer>
   <div id="modals-placeholder"></div>

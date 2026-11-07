@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../style.css?v=6">
+  <link rel="stylesheet" href="../style.css?v=7">
   <style>#header-placeholder{contain:none!important;position:fixed!important;top:0;left:0;width:100%;z-index:1000;min-height:0!important}</style>
   <script src="../js/export-config.js" defer></script>
   <script src="../js/load-components.js?v=10" defer></script>
@@ -78,390 +78,192 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-  <!-- Placeholders for dynamically loaded components -->
   <div id="mobile-nav-placeholder"></div>
   <header id="header-placeholder"></header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-wrap" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 150px 0 60px; position: relative; overflow: hidden;">
-    <div style="position: absolute; right: -50px; top: -50px; width: 450px; height: 450px; background: rgba(196, 18, 18, 0.15); border-radius: 50%; blur: 80px; pointer-events: none;"></div>
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
-      <div>
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196,18,18,0.2); border: 1px solid rgba(196,18,18,0.4); color: #f87171; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px;">
-          <span>🌐</span> Global Exports Division
-        </div>
-        <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #ffffff;">
-          Trusted Storage Solutions Exported Worldwide
-        </h1>
-        <p style="font-size: 17px; line-height: 1.6; color: #94a3b8; margin-bottom: 30px;">
-          Space Planners India delivers heavy-duty pallet racking and mobile shelving compactor systems globally — engineered for <strong>Pharma & Life Sciences</strong>, <strong>Government Archival</strong>, and <strong>Industrial Warehousing</strong>.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#exportFormSection" class="btn-primary" style="padding: 14px 28px; font-size: 15px; font-weight: 700; background: var(--primary); color: #fff; border-radius: 6px; text-decoration: none;">Request Global Export Quote</a>
-          <a href="#productCards" style="padding: 14px 28px; font-size: 15px; font-weight: 600; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; text-decoration: none;">Explore Export Range &darr;</a>
-        </div>
-      </div>
-
-      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; backdrop-filter: blur(10px);">
-        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #ffffff;">Quick Export Inquiry</h3>
-        <p style="font-size: 13px; color: #94a3b8; margin-bottom: 20px;">Direct response from our International Freight & Project Cell within 24 hours.</p>
-        
-        <form id="heroExportQuickForm" onsubmit="event.preventDefault(); document.getElementById('exportFormSection').scrollIntoView({behavior:'smooth'});" style="display: flex; flex-direction: column; gap: 12px;">
-          <input type="text" placeholder="Your Name" style="padding: 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; font-size: 14px;" required>
-          <input type="email" placeholder="Work Email" style="padding: 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; font-size: 14px;" required>
-          <button type="submit" class="btn-primary" style="padding: 12px; font-weight: 700; background: var(--primary); border: none; border-radius: 6px; color: #fff; cursor: pointer;">Get Custom Freight Quote &rarr;</button>
-        </form>
-      </div>
+  <section class="hero-section ex-hero">
+    <h1 class="hero-title">Global Exports</h1>
+    <p class="ex-hero-sub">Space Planners India supplies mobile shelving compactors and heavy-duty pallet racking to customers overseas, built for pharma and life sciences, government archives and industrial warehouses.</p>
+    <div class="ex-hero-actions">
+      <a href="#exportFormSection" class="ex-btn">Request an Export Quote</a>
+      <a href="#productCards" class="ex-btn ex-btn-light">View Export Range</a>
     </div>
+    <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">/</span><span>Global Exports</span>
+    </nav>
   </section>
 
-  <!-- COUNTRY BADGE STRIP (SHARED COMPONENT) -->
   <div class="export-badge-strip">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px 10px; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #94a3b8; text-transform: uppercase; text-align: center;">
-      Key Export Destinations & Installation Markets
-    </div>
+    <div class="export-badge-label">Export destinations and installation markets</div>
     <div class="badge-scroll-wrap" data-export-countries="strip"></div>
   </div>
 
-  <!-- TRUST STATS BAR -->
-  <section style="padding: 40px 0; background: #ffffff;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
+  <section class="ex-section alt">
+    <div class="ex-wrap">
       <div class="export-stats-bar">
-        <div class="export-stat-card">
-          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
-          <div class="export-stat-label">Years Exporting</div>
-        </div>
-        <div class="export-stat-card">
-          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
-          <div class="export-stat-label">International Installations</div>
-        </div>
-        <div class="export-stat-card">
-          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
-          <div class="export-stat-label">Countries Exported To</div>
-        </div>
-        <div class="export-stat-card">
-          <div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div>
-          <div class="export-stat-label">Export Packing Standard</div>
-        </div>
+        <div class="export-stat-card"><div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div><div class="export-stat-label">Years Exporting</div></div>
+        <div class="export-stat-card"><div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div><div class="export-stat-label">International Installations</div></div>
+        <div class="export-stat-card"><div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div><div class="export-stat-label">Countries Exported To</div></div>
+        <div class="export-stat-card"><div class="export-stat-num"><span class="export-todo" style="font-size:14px;">[TODO-CLIENT]</span></div><div class="export-stat-label">Export Packing Standard</div></div>
       </div>
     </div>
   </section>
 
-  <!-- WORLD MAP GRAPHIC SECTION -->
-  <section style="padding: 40px 0; background: #f8fafc;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div class="export-map-container">
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 800; margin-bottom: 10px;">Global Footprint & Supply Reach</h2>
-          <p style="font-size: 15px; color: #94a3b8;">Supplying custom heavy-duty storage racks and motorized mobile compactors directly to logistics hubs, pharma plants, and archival projects worldwide.</p>
-        </div>
-
-        <div style="position: relative; width: 100%; text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 40px 20px;">
-          <!-- TODO: world map graphic pending; countries below are rendered from js/export-config.js -->
-          <div data-export-countries="list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 16px;"></div>
-          <div class="export-todo">[TODO-CLIENT: world map graphic pending final country list]</div>
-
-          <div style="display: flex; justify-content: center; gap: 24px; margin-top: 20px; font-size: 13px; color: #cbd5e1; flex-wrap: wrap;">
-            <span>📍 Direct Container Shipping from Port of Mumbai (JNPT)</span>
-            <span>✈️ Air-Freight Available for Urgent Spare Parts & Hardware</span>
+  <section class="ex-section" id="productCards">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">Export Range</span>
+        <h2 class="section-title">Our Export Product Lines</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Configured for overseas power supplies, sea freight and local installation conditions.</p>
+      </div>
+      <div class="ex-grid" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr));">
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Compactors/document-storage.webp" alt="Mobile shelving compactor systems for export" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Mobile Shelving &amp; Compactor Systems</h3>
+            <p>Mechanical, motorized and stainless steel cleanroom compactors that save up to 70% of floor space. Used for pharma storage, archives and government records.</p>
+            <ul class="ex-list">
+              <li>Stainless steel 304 / 316 options for GMP areas</li>
+              <li>Vibration-free motorized movement</li>
+              <li>Anti-tilt and safety lock mechanisms</li>
+            </ul>
+            <a href="mobile-shelving-compactor.html" class="ex-btn">View Mobile Shelving Export Range</a>
           </div>
-        </div>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/heavy-duty-pallet-racking.webp" alt="Heavy duty pallet racking for export" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Heavy Duty &amp; Pallet Racking Systems</h3>
+            <p>Selective pallet racks, drive-in systems and heavy-duty shelving for warehouses and distribution centres. Technical load specifications to be confirmed.</p>
+            <ul class="ex-list">
+              <li><span class="export-todo">[TODO-CLIENT: load capacity / standards pending]</span></li>
+              <li>Knock-down modular parts for container loading</li>
+              <li>Epoxy powder-coated finish</li>
+            </ul>
+            <a href="heavy-duty-racks.html" class="ex-btn">View Heavy Duty Racks Export Range</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- TWO EXPORT PRODUCT CARDS -->
-  <section id="productCards" style="padding: 60px 0; background: #ffffff;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 45px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 800; color: #0f172a;">Our Export Product Portfolios</h2>
-        <p style="font-size: 16px; color: #64748b;">Specially configured for international logistics standards, custom voltage specifications, and ocean shipping efficiency.</p>
+  <section class="ex-section alt">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">Where We Supply</span>
+        <h2 class="section-title">Global Footprint</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Compactors and racking shipped directly to pharma plants, logistics hubs and archive projects overseas.</p>
       </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
-        <!-- Card 1: Mobile Shelving & Compactor Systems -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 220px; background: #1e293b;">
-            <img src="../Compactors/document-storage.webp" alt="Mobile Shelving Compactor Export" style="width: 100%; height: 100%; object-fit: cover;">
-            <div style="position: absolute; top: 16px; left: 16px; background: var(--primary); color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; text-transform: uppercase;">
-              GMP & Archival Grade
-            </div>
-          </div>
-          <div style="padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 12px;">Mobile Shelving & Compactor Systems</h3>
-              <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                Mechanical, motorized, and SS 304 cleanroom compactors designed to maximize storage density by up to 70%. Suitable for pharma cold storage, archives, and government records.
-              </p>
-              <ul style="font-size: 14px; color: #334155; margin-bottom: 24px; line-height: 1.8;">
-                <li>✓ Stainless Steel 304/316 GMP Options</li>
-                <li>✓ Vibration-free motorized motion</li>
-                <li>✓ Anti-tilt and safety lock mechanisms</li>
-              </ul>
-            </div>
-            <a href="mobile-shelving-compactor.html" class="btn-primary" style="display: block; text-align: center; padding: 12px; font-weight: 700; background: var(--primary); color: #fff; border-radius: 6px; text-decoration: none;">
-              Explore Mobile Shelving Export Range &rarr;
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 2: Heavy Duty & Pallet Racks -->
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 220px; background: #1e293b;">
-            <img src="../Racks/heavy-duty-pallet-racking.webp" alt="Heavy Duty Racks Export" style="width: 100%; height: 100%; object-fit: cover;">
-            <div style="position: absolute; top: 16px; left: 16px; background: #0f172a; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; text-transform: uppercase;">
-              Heavy Industrial
-            </div>
-          </div>
-          <div style="padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 12px;">Heavy Duty & Pallet Racking Systems</h3>
-              <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                Structural selective pallet racks, drive-in systems, and heavy-duty shelving. Technical load specifications to be confirmed.
-              </p>
-              <ul style="font-size: 14px; color: #334155; margin-bottom: 24px; line-height: 1.8;">
-                <li>✓ <span class="export-todo">[TODO-CLIENT: load capacity / standards pending]</span></li>
-                <li>✓ Knock-down modular container loading</li>
-                <li>✓ Anti-corrosive epoxy powder coat finishes</li>
-              </ul>
-            </div>
-            <a href="heavy-duty-racks.html" class="btn-primary" style="display: block; text-align: center; padding: 12px; font-weight: 700; background: #0f172a; color: #fff; border-radius: 6px; text-decoration: none;">
-              Explore Heavy Duty Racks Export Range &rarr;
-            </a>
-          </div>
-        </div>
-      </div>
+      <div class="ex-countries" data-export-countries="list"></div>
+      <p style="text-align:center;margin-top:20px;"><span class="export-todo">[TODO-CLIENT: world map graphic pending final country list]</span></p>
+      <p style="text-align:center;margin-top:18px;color:var(--mid);font-size:.92rem;">Container shipping from Nhava Sheva (JNPT), Mumbai. Air freight is available for urgent spares and hardware.</p>
     </div>
   </section>
 
-  <!-- WHY GLOBAL CLIENTS CHOOSE US (SHARED COMPONENT) -->
-  <section style="padding: 60px 0; background: #f8fafc;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a;">Why Overseas Buyers Partner With Us</h2>
-        <p style="font-size: 15px; color: #64748b;">Comprehensive export infrastructure designed to eliminate international sourcing risks.</p>
+  <section class="ex-section">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">Why Space Planners</span>
+        <h2 class="section-title">Why Overseas Buyers Choose Us</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Export packing, paperwork and installation support handled by one team.</p>
       </div>
-
       <div class="export-features-grid">
-        <div class="export-feature-item">
-          <div class="export-feature-icon">📦</div>
-          <div class="export-feature-content">
-            <h4>Export Packing & Container Optimization</h4>
-            <p>Seaworthy wooden crating, bubble wrap, and ISPM 15 heat-treated fumigated pallets designed for maximum 20ft/40ft container volume utilization.</p>
-          </div>
-        </div>
-
-        <div class="export-feature-item">
-          <div class="export-feature-icon">⚡</div>
-          <div class="export-feature-content">
-            <h4>Local Electrical & Voltage Customization</h4>
-            <p>Motorized compactor control panels pre-wired to client voltage specs (110V–415V, 50Hz/60Hz) matching GCC, African, or Asian power grids.</p>
-          </div>
-        </div>
-
-        <div class="export-feature-item">
-          <div class="export-feature-icon">📑</div>
-          <div class="export-feature-content">
-            <h4>Documentation & Customs Assistance</h4>
-            <p>Full support for Certificate of Origin (COO), Bill of Lading (B/L), Phytosanitary certificates, SGS/Intertek inspection reports, and HS code classification.</p>
-          </div>
-        </div>
-
-        <div class="export-feature-item">
-          <div class="export-feature-icon">🔬</div>
-          <div class="export-feature-content">
-            <h4>GMP & Cleanroom Compliant Builds</h4>
-            <p>High-grade SS 304 / SS 316 cleanroom mobile compactors built for pharmaceutical manufacturing, active ingredients, and cold storage units.</p>
-          </div>
-        </div>
-
-        <div class="export-feature-item">
-          <div class="export-feature-icon">💳</div>
-          <div class="export-feature-content">
-            <h4>Flexible International Payment Terms</h4>
-            <p>Support for Irrevocable Letter of Credit (LC at sight), Wire Transfer (T/T), and CAD terms backed by major international banking partners.</p>
-          </div>
-        </div>
-
-        <div class="export-feature-item">
-          <div class="export-feature-icon">🛠️</div>
-          <div class="export-feature-content">
-            <h4>On-Site Supervisor Deployment</h4>
-            <p>Experienced installation engineers dispatched for overseas project supervision, mechanical assembly, and local staff training.</p>
-          </div>
-        </div>
+        <div class="export-feature-item"><h4>Export Packing &amp; Container Loading</h4><p>Seaworthy wooden crating and ISPM 15 heat-treated fumigated pallets, planned to make full use of 20 ft and 40 ft containers.</p></div>
+        <div class="export-feature-item"><h4>Local Voltage Customization</h4><p>Motorized compactor panels are pre-wired to your supply (110V to 415V, 50Hz or 60Hz) for GCC, African and Asian grids.</p></div>
+        <div class="export-feature-item"><h4>Documentation &amp; Customs Support</h4><p>Certificate of Origin, Bill of Lading, phytosanitary certificates, SGS / Intertek inspection reports and HS code classification.</p></div>
+        <div class="export-feature-item"><h4>GMP &amp; Cleanroom Builds</h4><p>SS 304 / SS 316 mobile compactors for pharmaceutical manufacturing, active ingredients and cold storage rooms.</p></div>
+        <div class="export-feature-item"><h4>International Payment Terms</h4><p>Letter of Credit at sight, wire transfer (T/T) and CAD terms through established banking partners.</p></div>
+        <div class="export-feature-item"><h4>On-Site Supervision</h4><p>Installation engineers can be sent to supervise mechanical assembly and train your local staff.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 5-STEP EXPORT PROCESS (SHARED COMPONENT) -->
-  <section style="padding: 60px 0; background: #ffffff;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a;">Our 5-Step Export Workflow</h2>
-        <p style="font-size: 15px; color: #64748b;">From initial CAD layout drafting to final overseas installation.</p>
+  <section class="ex-section alt">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">How It Works</span>
+        <h2 class="section-title">Our 5-Step Export Process</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">From the first layout drawing to installation at your site.</p>
       </div>
-
       <div class="export-process-grid">
-        <div class="process-step-card">
-          <div class="step-num-badge">1</div>
-          <h4>Enquiry & CAD Layout</h4>
-          <p>Submit warehouse or floor plan dimensions. Our design team creates optimized 2D/3D CAD layouts tailored to your storage goals.</p>
-        </div>
-
-        <div class="process-step-card">
-          <div class="step-num-badge">2</div>
-          <h4>Custom Quote & Specs</h4>
-          <p>Receive itemized FOB/CIF quotation, structural load calculations, material gauge specifications, and container packing estimates.</p>
-        </div>
-
-        <div class="process-step-card">
-          <div class="step-num-badge">3</div>
-          <h4>Manufacturing & QC</h4>
-          <p>ISO 9001 certified precision manufacturing with rigorous stage-wise quality checks, powder coating thickness tests, and pre-dispatch assembly.</p>
-        </div>
-
-        <div class="process-step-card">
-          <div class="step-num-badge">4</div>
-          <h4>Seaworthy Packing & Logistics</h4>
-          <p>Heavy-duty protective packing, fumigation compliance, container loading, and seamless customs documentation clearance at JNPT Port.</p>
-        </div>
-
-        <div class="process-step-card">
-          <div class="step-num-badge">5</div>
-          <h4>Supervision & Support</h4>
-          <p>Detailed step-by-step installation manuals, video guidance, or deployment of our technical supervisor to your site overseas.</p>
-        </div>
+        <div class="process-step-card"><div class="step-num-badge">1</div><h4>Enquiry &amp; CAD Layout</h4><p>Send your floor plan or warehouse dimensions. Our design team prepares 2D / 3D layouts for your storage goals.</p></div>
+        <div class="process-step-card"><div class="step-num-badge">2</div><h4>Quote &amp; Specifications</h4><p>You receive an itemized FOB / CIF quotation, load calculations, material gauges and container packing estimate.</p></div>
+        <div class="process-step-card"><div class="step-num-badge">3</div><h4>Manufacturing &amp; QC</h4><p>ISO 9001 certified manufacturing with stage-wise quality checks, coating thickness tests and pre-dispatch assembly.</p></div>
+        <div class="process-step-card"><div class="step-num-badge">4</div><h4>Packing &amp; Shipping</h4><p>Protective export packing, fumigation compliance, container loading and customs clearance at JNPT.</p></div>
+        <div class="process-step-card"><div class="step-num-badge">5</div><h4>Installation Support</h4><p>Step-by-step installation manuals and video guidance, or a Space Planners supervisor at your site.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- GENERAL EXPORT FAQ SECTION -->
-  <section style="padding: 60px 0; background: #f8fafc;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 800; color: #0f172a;">Global Export Frequently Asked Questions</h2>
-        <p style="font-size: 15px; color: #64748b;">Essential answers for international procurement managers and project contractors.</p>
+  <section class="ex-section">
+    <div class="ex-wrap-narrow">
+      <div class="ex-head">
+        <span class="section-badge">Export FAQ</span>
+        <h2 class="section-title">Global Export Questions</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Answers for international procurement managers and contractors.</p>
       </div>
-
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What is your typical shipping and lead time for export orders?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Manufacturing lead time ranges between 2 to 4 weeks depending on order volume and custom specs. Transit times from JNPT Port (Mumbai) are typically 5–10 days to GCC ports (Jebel Ali, Sohar, Dammam), 14–21 days to East/South African ports (Durban, Mombasa), and 3–5 days to Sri Lanka.
-          </p>
-        </details>
-
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Do you provide on-site installation supervision for overseas orders?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Yes. We offer complete installation manuals, marked component assembly drawings, and video walkthroughs. For large turnkey projects, we dispatch expert Space Planners installation supervisors overseas to train local labor and oversee execution.
-          </p>
-        </details>
-
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What are your standard payment terms for international buyers?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Our standard export payment terms are 30% advance via T/T (Wire Transfer) upon order confirmation and 70% against irrevocable Letter of Credit (L/C at sight) or against scanned Bill of Lading copies.
-          </p>
-        </details>
-
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Can systems be customized for local voltage and environmental conditions?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Absolutely. Motorized compactor panels are configured to match local single-phase or three-phase voltages (220V/380V/415V, 50Hz/60Hz). Stainless steel variants (SS 304 / SS 316) and specialized epoxy powder coatings prevent corrosion in high-humidity or cold-storage environments (-20°C).
-          </p>
-        </details>
-
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What warranty and spare parts support do you offer overseas clients?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: export warranty and spare-parts terms pending]</span>
-          </p>
-        </details>
+      <div class="ex-faq">
+        <details><summary>What is your typical shipping and lead time for export orders?</summary><p>Manufacturing takes 2 to 4 weeks depending on order size and customization. Transit from JNPT (Mumbai) is typically 5 to 10 days to GCC ports (Jebel Ali, Sohar, Dammam), 14 to 21 days to East and South African ports (Durban, Mombasa) and 3 to 5 days to Sri Lanka.</p></details>
+        <details><summary>Do you provide on-site installation supervision for overseas orders?</summary><p>Yes. We supply installation manuals, marked assembly drawings and video walkthroughs. For larger turnkey projects we send Space Planners supervisors to train local labor and oversee the work.</p></details>
+        <details><summary>What are your standard payment terms for international buyers?</summary><p>Our standard terms are 30% advance by T/T on order confirmation and 70% against an irrevocable Letter of Credit (L/C at sight) or against scanned Bill of Lading copies.</p></details>
+        <details><summary>Can systems be customized for local voltage and environmental conditions?</summary><p>Yes. Motorized compactor panels are configured to local single-phase or three-phase supply (220V / 380V / 415V, 50Hz or 60Hz). Stainless steel variants (SS 304 / SS 316) and epoxy powder coatings protect against corrosion in humid or cold-storage conditions (down to -20&deg;C).</p></details>
+        <details><summary>What warranty and spare parts support do you offer overseas clients?</summary><p><span class="export-todo">[TODO-CLIENT: export warranty and spare-parts terms pending]</span></p></details>
       </div>
     </div>
   </section>
 
-  <!-- EXPORT ENQUIRY FORM (SHARED COMPONENT) -->
-  <section id="exportFormSection" style="padding: 70px 0; background: #ffffff;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+  <section class="ex-section alt" id="exportFormSection">
+    <div class="ex-wrap-narrow">
       <div class="export-form-wrap">
-        <div style="text-align: center; margin-bottom: 30px;">
-          <div style="display: inline-block; background: rgba(196,18,18,0.08); color: var(--primary); font-weight: 700; padding: 4px 12px; border-radius: 20px; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">
-            International Sales Desk
-          </div>
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 10px;">Get an Export Quote & Technical Drawing</h2>
-          <p style="font-size: 15px; color: #64748b;">Specify your port of destination and project requirement. Our export team will respond within 24 hours.</p>
+        <div class="ex-head" style="margin-bottom:28px;">
+          <span class="section-badge">International Sales Desk</span>
+          <h2 class="section-title">Get an Export Quote and Drawing</h2>
+          <div class="accent-line"></div>
+          <p class="section-subtitle">Tell us your destination port and requirement. Our export team replies within 24 hours.</p>
         </div>
-
-        <form id="exportEnquiryForm" novalidate style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Full Name *</label>
-            <input type="text" name="name" placeholder="John Doe" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Work Email Address *</label>
-            <input type="email" name="email" placeholder="john@company.com" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Destination Country / Region *</label>
-            <select name="country" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff;">
-              <option value="" disabled selected>Select Country</option>
-              <option value="United Arab Emirates (UAE)">🇦🇪 United Arab Emirates</option>
-              <option value="Saudi Arabia (KSA)">🇸🇦 Saudi Arabia</option>
-              <option value="Sultanate of Oman">🇴🇲 Sultanate of Oman</option>
-              <option value="State of Qatar">🇶🇦 State of Qatar</option>
-              <option value="Kuwait">🇰🇼 Kuwait</option>
-              <option value="South Africa">🇿🇦 South Africa</option>
-              <option value="Kenya">🇰🇪 Kenya</option>
-              <option value="Uganda">🇺🇬 Uganda</option>
-              <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
-              <option value="Nepal">🇳🇵 Nepal</option>
-              <option value="Vietnam">🇻🇳 Vietnam</option>
-              <option value="Other International Region">🌐 Other International Destination</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Phone Number (with Int'l Code) *</label>
-            <input type="tel" name="phone" placeholder="+971 50 123 4567" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Company / Organization</label>
-            <input type="text" name="company" placeholder="Company Name" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Product Requirement</label>
-            <select name="product_interest" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff;">
-              <option value="Mobile Shelving & Compactor Systems">Mobile Shelving & Compactors</option>
-              <option value="Heavy Duty & Pallet Racks">Heavy Duty & Pallet Racks</option>
-              <option value="GMP Stainless Steel Compactors">GMP Cleanroom Stainless Steel Compactors</option>
-              <option value="Combined Warehouse & Office Storage">Combined Project Requirement</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="grid-column: span 2;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Project Details / Port of Destination / Specs</label>
-            <textarea name="message" rows="4" placeholder="Mention required storage capacity, layout dimensions, destination port , or specific technical requirements..." style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;"></textarea>
-          </div>
-
-          <div style="grid-column: span 2; text-align: center; margin-top: 10px;">
-            <button type="submit" class="btn-primary" style="padding: 14px 36px; font-size: 16px; font-weight: 700; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
-              Submit Export Inquiry &rarr;
-            </button>
-            <p style="font-size: 12px; color: #94a3b8; margin-top: 12px;">🔒 Your project details are kept 100% confidential. No spam guaranteed.</p>
+        <form id="exportEnquiryForm" class="ex-form" novalidate>
+          <div><label>Full Name *</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div><label>Work Email *</label><input type="email" name="email" placeholder="you@company.com" required></div>
+          <div><label>Destination Country *</label>
+            <select name="country" required>
+          <option value="" disabled selected>Select destination country</option>
+          <option value="United Arab Emirates (UAE)">United Arab Emirates</option>
+          <option value="Saudi Arabia (KSA)">Saudi Arabia</option>
+          <option value="Sultanate of Oman">Oman</option>
+          <option value="State of Qatar">Qatar</option>
+          <option value="Kuwait">Kuwait</option>
+          <option value="South Africa">South Africa</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Uganda">Uganda</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+          <option value="Nepal">Nepal</option>
+          <option value="Other International Region">Other destination</option>
+            </select></div>
+          <div><label>Phone (with country code) *</label><input type="tel" name="phone" placeholder="+971 50 123 4567" required></div>
+          <div><label>Company / Organization</label><input type="text" name="company" placeholder="Company name"></div>
+          <div><label>Product Requirement</label>
+            <select name="product_interest">
+              <option value="Mobile Shelving & Compactor Systems">Mobile Shelving &amp; Compactors</option>
+              <option value="Heavy Duty & Pallet Racks">Heavy Duty &amp; Pallet Racks</option>
+              <option value="GMP Stainless Steel Compactors">GMP Stainless Steel Compactors</option>
+              <option value="Combined Warehouse & Office Storage">Combined project requirement</option>
+            </select></div>
+          <div class="full"><label>Project details, port of destination, specifications</label>
+            <textarea name="message" rows="4" placeholder="Storage capacity, room or warehouse dimensions, destination port, any technical requirements"></textarea></div>
+          <div class="full ex-submit">
+            <button type="submit" class="ex-btn">Submit Export Inquiry</button>
+            <p class="ex-note">Your project details are kept confidential.</p>
           </div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Placeholders for floating buttons, footer & modals -->
   <div id="floating-buttons-placeholder"></div>
   <footer id="footer-placeholder"></footer>
   <div id="modals-placeholder"></div>

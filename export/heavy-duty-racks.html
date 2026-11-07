@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../style.css?v=6">
+  <link rel="stylesheet" href="../style.css?v=7">
   <script src="../js/export-config.js" defer></script>
   <script src="../js/load-components.js?v=10" defer></script>
   <script src="../js/nav-scroll.js" defer></script>
@@ -80,284 +80,171 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-  <!-- Placeholders for dynamically loaded components -->
   <div id="mobile-nav-placeholder"></div>
   <header id="header-placeholder"></header>
 
-  <!-- HERO SECTION (Industrial Warehouse Racking Imagery) -->
-  <section class="hero-wrap" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 150px 0 60px; position: relative; overflow: hidden;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;">
-      <div>
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196,18,18,0.2); border: 1px solid rgba(196,18,18,0.4); color: #f87171; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px;">
-          <span>🏭</span> Structural Warehouse Exports
-        </div>
-        <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #ffffff;">
-          Heavy Duty & Pallet Racking Systems — Global Export
-        </h1>
-        <p style="font-size: 17px; line-height: 1.6; color: #94a3b8; margin-bottom: 25px;">
-          Engineered for international logistics hubs, industrial distribution centers, and <strong>pharmaceutical raw material warehouses</strong>.
-        </p>
-
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px;">
-          <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 4px; font-size: 13px;">✓ Heavy Duty Pallet Racking</span>
-          <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 4px; font-size: 13px;"><span class="export-todo">[TODO-CLIENT: load rating and certifications pending]</span></span>
-          <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 4px; font-size: 13px;">✓ Powder Coated Finish</span>
-        </div>
-
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#exportFormSection" class="btn-primary" style="padding: 14px 28px; font-size: 15px; font-weight: 700; background: var(--primary); color: #fff; border-radius: 6px; text-decoration: none;">Get Racking Freight Quote</a>
-          <a href="#specsSection" style="padding: 14px 28px; font-size: 15px; font-weight: 600; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; text-decoration: none;">Technical Specs & Load Tables &darr;</a>
-        </div>
-      </div>
-
-      <div style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
-        <!-- Industrial Racking Hero Image -->
-        <img src="../Racks/heavy-duty-pallet-racking.webp" alt="Heavy Duty Industrial Warehouse Pallet Racking Export" style="width: 100%; height: 380px; object-fit: cover;">
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.9), transparent); padding: 20px;">
-          <div style="font-weight: 700; font-size: 15px;">Heavy Duty Pallet Racking</div>
-          <div style="font-size: 12px;"><span class="export-todo">[TODO-CLIENT: hero image and caption pending client]</span></div>
-        </div>
-      </div>
+  <section class="hero-section ex-hero">
+    <h1 class="hero-title">Heavy Duty &amp; Pallet Racking</h1>
+    <p class="ex-hero-sub">Export racking for logistics hubs, distribution centres and pharmaceutical raw material warehouses. Powder-coated finish, supplied knocked-down for container shipping.</p>
+    <div class="ex-hero-actions">
+      <a href="#exportFormSection" class="ex-btn">Request a Quote</a>
+      <a href="#specsSection" class="ex-btn ex-btn-light">Specifications</a>
     </div>
+    <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">/</span><a href="global-exports.html">Global Exports</a><span class="sep">/</span><span>Heavy Duty &amp; Pallet Racks</span>
+    </nav>
   </section>
 
-  <!-- COUNTRY BADGE STRIP (SHARED COMPONENT) -->
   <div class="export-badge-strip">
+    <div class="export-badge-label">Export destinations and installation markets</div>
     <div class="badge-scroll-wrap" data-export-countries="strip"></div>
   </div>
 
-  <!-- PRODUCT RANGE CARDS (reused from domestic industrial-racks.html) -->
-  <section style="padding: 60px 0; background: #f8fafc;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a;">Export Racking Range</h2>
-        <p style="font-size: 15px; color: #64748b;">Heavy-duty racking systems for warehouse and industrial storage.</p>
+  <section class="ex-section alt">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">Export Range</span>
+        <h2 class="section-title">Export Racking Range</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Heavy-duty racking for warehouse and industrial storage.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <img src="../Racks/Decking.webp" alt="Decking Panel Racking System" loading="lazy" style="width: 100%; height: 180px; object-fit: cover;">
-          <div style="padding: 24px;">
-            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Decking Panel Racking System</h3>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Engineered for versatile, high-capacity storage of cartons, raw materials, and finished goods across industrial environments. Combining robust decking panels, modular construction, and easy accessibility for efficient warehouse operations.</p>
-            <button class="btn-primary" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Decking Panel Racking System (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px; cursor: pointer;">Get Specs &amp; Quote</button>
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/Decking.webp" alt="Decking Panel Racking System" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Decking Panel Racking System</h3>
+            <p>High-capacity storage for cartons, raw materials and finished goods, with decking panels and modular construction.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Decking Panel Racking System (Export)'})">Get Specs &amp; Quote</button>
           </div>
-        </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <img src="../Racks/Pallet Racking new.png" alt="Pallet Racking System" loading="lazy" style="width: 100%; height: 180px; object-fit: cover;">
-          <div style="padding: 24px;">
-            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Pallet Racking System</h3>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Heavy-duty pallet storage systems engineered to maximize warehouse capacity while ensuring safe and organized inventory management. Combining high load-bearing strength, modular configurations, and easy forklift access for efficient material handling.</p>
-            <button class="btn-primary" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Pallet Racking System (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px; cursor: pointer;">Get Specs &amp; Quote</button>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/Pallet Racking new.png" alt="Pallet Racking System" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Pallet Racking System</h3>
+            <p>Heavy-duty pallet storage with high load-bearing strength, modular layouts and easy forklift access.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Pallet Racking System (Export)'})">Get Specs &amp; Quote</button>
           </div>
-        </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <img src="../Racks/slotted-angle-racking.webp" alt="Slotted Angle Racks" loading="lazy" style="width: 100%; height: 180px; object-fit: cover;">
-          <div style="padding: 24px;">
-            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Slotted Angle Racks</h3>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Versatile shelving systems designed to organize light and medium-duty inventory across commercial and industrial spaces. Combining adjustable shelving, durable construction, and cost-effective design for everyday storage applications.</p>
-            <button class="btn-primary" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Slotted Angle Racks (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px; cursor: pointer;">Get Specs &amp; Quote</button>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/slotted-angle-racking.webp" alt="Slotted Angle Racks" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Slotted Angle Racks</h3>
+            <p>Adjustable, cost-effective shelving for light and medium-duty inventory in commercial and industrial spaces.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Slotted Angle Racks (Export)'})">Get Specs &amp; Quote</button>
           </div>
-        </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <img src="../Racks/high-capacity-pallet-racks.webp" alt="Sectional Panel Heavy Duty Racks" loading="lazy" style="width: 100%; height: 180px; object-fit: cover;">
-          <div style="padding: 24px;">
-            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Sectional Panel Heavy Duty Racks</h3>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Heavy-duty shelving systems engineered to support high-capacity storage without compromising accessibility or durability. Combining reinforced steel construction, adjustable shelves, and exceptional load-bearing performance for demanding environments.</p>
-            <button class="btn-primary" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Sectional Panel Heavy Duty Racks (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px; cursor: pointer;">Get Specs &amp; Quote</button>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/high-capacity-pallet-racks.webp" alt="Sectional Panel Heavy Duty Racks" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Sectional Panel Heavy Duty Racks</h3>
+            <p>Reinforced steel shelving with adjustable shelves for high-capacity storage in demanding environments.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Sectional Panel Heavy Duty Racks (Export)'})">Get Specs &amp; Quote</button>
           </div>
-        </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <img src="../Racks/mezzanine-floor-racking.webp" alt="Multi-Tier Racking System" loading="lazy" style="width: 100%; height: 180px; object-fit: cover;">
-          <div style="padding: 24px;">
-            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Multi-Tier Racking System</h3>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Maximize warehouse storage by utilizing vertical space with intelligently designed multi-level racking solutions. Combining structural strength, optimized accessibility, and scalable layouts to significantly increase storage capacity.</p>
-            <button class="btn-primary" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Multi-Tier Racking System (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px; cursor: pointer;">Get Specs &amp; Quote</button>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/mezzanine-floor-racking.webp" alt="Multi-Tier Racking System" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Multi-Tier Racking System</h3>
+            <p>Multi-level racking that uses vertical height to increase storage capacity, with scalable layouts.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Multi-Tier Racking System (Export)'})">Get Specs &amp; Quote</button>
           </div>
-        </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <img src="../Racks/multi-tier-storage-racks.webp" alt="Mezzanine Floor Systems" loading="lazy" style="width: 100%; height: 180px; object-fit: cover;">
-          <div style="padding: 24px;">
-            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Mezzanine Floor Systems</h3>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Create additional usable floor space by transforming unused vertical height into efficient storage or operational areas. Combining structural integrity, customized layouts, and seamless integration to maximize your facility's potential.</p>
-            <button class="btn-primary" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Mezzanine Floor Systems (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px; cursor: pointer;">Get Specs &amp; Quote</button>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/multi-tier-storage-racks.webp" alt="Mezzanine Floor Systems" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Mezzanine Floor Systems</h3>
+            <p>Adds usable floor area by turning unused height into storage or work space, with customised layouts.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Mezzanine Floor Systems (Export)'})">Get Specs &amp; Quote</button>
           </div>
-        </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <img src="../Racks/ss rack.webp" alt="Stainless Steel Rack" loading="lazy" style="width: 100%; height: 180px; object-fit: cover;">
-          <div style="padding: 24px;">
-            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Stainless Steel Rack</h3>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">Premium stainless steel shelving systems engineered for hygienic, corrosion-resistant storage in demanding industrial and clean environments. Combining exceptional durability, easy maintenance, and customizable configurations for reliable long-term performance.</p>
-            <button class="btn-primary" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Stainless Steel Rack (Export)'})" style="padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 4px; cursor: pointer;">Get Specs &amp; Quote</button>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card-img"><img src="../Racks/ss rack.webp" alt="Stainless Steel Rack" loading="lazy"></div>
+          <div class="ex-card-body">
+            <h3>Stainless Steel Rack</h3>
+            <p>Hygienic, corrosion-resistant stainless steel shelving for industrial and clean environments.</p>
+            <button class="ex-btn ex-btn-sm" onclick="openInquiryModal({category:'Industrial Racks', specificProduct:'Stainless Steel Rack (Export)'})">Get Specs &amp; Quote</button>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOAD CAPACITY & STRUCTURAL TECHNICAL HIGHLIGHTS -->
-  <section id="specsSection" style="padding: 70px 0; background: #ffffff;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 45px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 800; color: #0f172a;">Structural Specifications & Engineering Standards</h2>
-        <p style="font-size: 16px; color: #64748b;"><span class="export-todo">[TODO-CLIENT: technical specifications and load tables pending client]</span></p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px;">
-          <div style="color: var(--primary); font-size: 24px; font-weight: 800; margin-bottom: 8px;"><span class="export-todo">[TODO-CLIENT: TBC]</span></div>
-          <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Beam Pair Load Rating</h4>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6;"><span class="export-todo">[TODO-CLIENT: beam load rating pending]</span></p>
-        </div>
-
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px;">
-          <div style="color: var(--primary); font-size: 24px; font-weight: 800; margin-bottom: 8px;"><span class="export-todo">[TODO-CLIENT: TBC]</span></div>
-          <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Frame Upright Capacity</h4>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6;"><span class="export-todo">[TODO-CLIENT: upright capacity pending]</span></p>
-        </div>
-
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px;">
-          <div style="color: var(--primary); font-size: 24px; font-weight: 800; margin-bottom: 8px;"><span class="export-todo">[TODO-CLIENT: TBC]</span></div>
-          <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Powder Coating</h4>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6;"><span class="export-todo">[TODO-CLIENT: coating specification pending]</span></p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- TODO: heavy-duty racks export case study omitted until the client confirms the project location/country -->
-  <section style="padding: 40px 0; background: #f8fafc;">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px; text-align: center;">
-      <div class="export-todo">[TODO-CLIENT: heavy duty racks export case study pending client confirmation]</div>
+  <section class="ex-section" id="specsSection">
+    <div class="ex-wrap">
+      <div class="ex-head">
+        <span class="section-badge">Engineering</span>
+        <h2 class="section-title">Structural Specifications</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle"><span class="export-todo">[TODO-CLIENT: technical specifications and load tables pending client]</span></p>
+      </div>
+      <div class="ex-grid">
+        <div class="ex-spec"><span class="export-todo">[TODO-CLIENT: TBC]</span><h4>Beam Pair Load Rating</h4><p><span class="export-todo">[TODO-CLIENT: beam load rating pending]</span></p></div>
+        <div class="ex-spec"><span class="export-todo">[TODO-CLIENT: TBC]</span><h4>Frame Upright Capacity</h4><p><span class="export-todo">[TODO-CLIENT: upright capacity pending]</span></p></div>
+        <div class="ex-spec"><span class="export-todo">[TODO-CLIENT: TBC]</span><h4>Powder Coating</h4><p><span class="export-todo">[TODO-CLIENT: coating specification pending]</span></p></div>
+      </div>
+      <!-- TODO: heavy-duty racks export case study omitted until the client confirms the project location/country -->
+      <p style="text-align:center;margin-top:28px;"><span class="export-todo">[TODO-CLIENT: heavy duty racks export case study pending client confirmation]</span></p>
     </div>
   </section>
 
-    <!-- PRODUCT SPECIFIC FAQ -->
-  <section style="padding: 60px 0; background: #ffffff;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 800; color: #0f172a;">Heavy Duty & Pallet Racks Export FAQs</h2>
-        <p style="font-size: 15px; color: #64748b;">Technical questions on load capacities, seismic customization, and container freight.</p>
+  <section class="ex-section alt">
+    <div class="ex-wrap-narrow">
+      <div class="ex-head">
+        <span class="section-badge">FAQ</span>
+        <h2 class="section-title">Heavy Duty &amp; Pallet Racks Questions</h2>
+        <div class="accent-line"></div>
+        <p class="section-subtitle">Load capacity, local standards and container freight.</p>
       </div>
-
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What load capacities do your heavy duty racks support?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: load capacity details pending client]</span>
-          </p>
-        </details>
-
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Can racking systems be customized to local warehouse or seismic standards?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Yes. We supply custom base plates, heavy-duty expansion floor anchors, and seismic bracing configurations calculated to conform to local civil engineering codes across GCC, African, and Asian zones.
-          </p>
-        </details>
-
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">How are pallet racks packed for ocean container export?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            Beams and frames are bundled with protective corrugated paper and heavy plastic wrapping. Small components (base plates, safety pins, anchor bolts) are packed into fumigated wooden crates designed to maximize 40ft High Cube container payload.
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What is your typical shipping and lead time to my region?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Do you provide on-site installation supervision for overseas orders?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What are your payment terms for international orders?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">Can systems be configured for local voltage and climate conditions?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
-        <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 24px; cursor: pointer;">
-          <summary style="font-size: 16px; font-weight: 700; color: #0f172a; outline: none;">What warranty and spare parts support do you offer overseas clients?</summary>
-          <p style="margin-top: 12px; font-size: 14px; color: #475569; line-height: 1.6;">
-            <span class="export-todo">[TODO-CLIENT: answer pending client]</span>
-          </p>
-        </details>
+      <div class="ex-faq">
+        <details><summary>What load capacities do your heavy duty racks support?</summary><p><span class="export-todo">[TODO-CLIENT: load capacity details pending client]</span></p></details>
+        <details><summary>Can racking systems be customized to local warehouse or seismic standards?</summary><p>Yes. We supply custom base plates, heavy-duty expansion anchors and seismic bracing calculated to local civil engineering codes in GCC, African and Asian markets.</p></details>
+        <details><summary>How are pallet racks packed for ocean container export?</summary><p>Beams and frames are bundled with corrugated paper and heavy plastic wrap. Small parts (base plates, safety pins, anchor bolts) go into fumigated wooden crates, planned to maximise the payload of a 40 ft High Cube container.</p></details>
+        <details><summary>What is your typical shipping and lead time to my region?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
+        <details><summary>Do you provide on-site installation supervision for overseas orders?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
+        <details><summary>What are your payment terms for international orders?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
+        <details><summary>Can systems be configured for local voltage and climate conditions?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
+        <details><summary>What warranty and spare parts support do you offer overseas clients?</summary><p><span class="export-todo">[TODO-CLIENT: answer pending client]</span></p></details>
       </div>
     </div>
   </section>
 
-  <!-- EXPORT ENQUIRY FORM (SHARED COMPONENT) -->
-  <section id="exportFormSection" style="padding: 70px 0; background: #f8fafc;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+  <section class="ex-section" id="exportFormSection">
+    <div class="ex-wrap-narrow">
       <div class="export-form-wrap">
-        <div style="text-align: center; margin-bottom: 30px;">
-          <div style="display: inline-block; background: rgba(196,18,18,0.08); color: var(--primary); font-weight: 700; padding: 4px 12px; border-radius: 20px; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">
-            Racking Export Inquiry
-          </div>
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 10px;">Request Pallet Racking Export Quotation</h2>
-          <p style="font-size: 15px; color: #64748b;">Get structural layout drawings, container load estimates, and CIF pricing.</p>
+        <div class="ex-head" style="margin-bottom:28px;">
+          <span class="section-badge">Export Enquiry</span>
+          <h2 class="section-title">Request a Racking Export Quote</h2>
+          <div class="accent-line"></div>
+          <p class="section-subtitle">We will send layout drawings, container load estimates and CIF pricing.</p>
         </div>
-
-        <form id="exportEnquiryForm" novalidate style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <form id="exportEnquiryForm" class="ex-form" novalidate>
           <input type="hidden" name="product_interest" value="Heavy Duty & Pallet Racks">
-          
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Full Name *</label>
-            <input type="text" name="name" placeholder="John Doe" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Work Email Address *</label>
-            <input type="email" name="email" placeholder="john@company.com" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Destination Country / Region *</label>
-            <select name="country" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff;">
-              <option value="" disabled selected>Select Destination Country</option>
-              <option value="United Arab Emirates (UAE)">🇦🇪 United Arab Emirates</option>
-              <option value="Saudi Arabia (KSA)">🇸🇦 Saudi Arabia</option>
-              <option value="Sultanate of Oman">🇴🇲 Sultanate of Oman</option>
-              <option value="State of Qatar">🇶🇦 State of Qatar</option>
-              <option value="Kuwait">🇰🇼 Kuwait</option>
-              <option value="South Africa">🇿🇦 South Africa</option>
-              <option value="Kenya">🇰🇪 Kenya</option>
-              <option value="Uganda">🇺🇬 Uganda</option>
-              <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
-              <option value="Nepal">🇳🇵 Nepal</option>
-              <option value="Other International Region">🌐 Other International Destination</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="grid-column: span 1;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Phone Number (with Int'l Code) *</label>
-            <input type="tel" name="phone" placeholder="+971 50 123 4567" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;">
-          </div>
-
-          <div class="form-group" style="grid-column: span 2;">
-            <label style="display: block; font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px;">Racking Specs & Warehouse Requirements</label>
-            <textarea name="message" rows="4" placeholder="Mention pallet dimensions (WxDxH), weight per pallet (kg), clear ceiling height, total pallet positions needed, or destination port..." style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;"></textarea>
-          </div>
-
-          <div style="grid-column: span 2; text-align: center;">
-            <button type="submit" class="btn-primary" style="padding: 14px 36px; font-size: 16px; font-weight: 700; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
-              Submit Heavy Duty Racks Export Inquiry &rarr;
-            </button>
-          </div>
+          <div><label>Full Name *</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div><label>Work Email *</label><input type="email" name="email" placeholder="you@company.com" required></div>
+          <div><label>Destination Country *</label>
+            <select name="country" required>
+              <option value="" disabled selected>Select destination country</option>
+              <option value="United Arab Emirates (UAE)">United Arab Emirates</option>
+              <option value="Saudi Arabia (KSA)">Saudi Arabia</option>
+              <option value="Sultanate of Oman">Oman</option>
+              <option value="State of Qatar">Qatar</option>
+              <option value="Kuwait">Kuwait</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Nepal">Nepal</option>
+              <option value="Other International Region">Other destination</option>
+            </select></div>
+          <div><label>Phone (with country code) *</label><input type="tel" name="phone" placeholder="+971 50 123 4567" required></div>
+          <div class="full"><label>Racking specs and warehouse requirements</label>
+            <textarea name="message" rows="4" placeholder="Pallet size (WxDxH), weight per pallet (kg), clear ceiling height, pallet positions needed, destination port"></textarea></div>
+          <div class="full ex-submit"><button type="submit" class="ex-btn">Submit Export Inquiry</button></div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Placeholders for floating buttons, footer & modals -->
   <div id="floating-buttons-placeholder"></div>
   <footer id="footer-placeholder"></footer>
   <div id="modals-placeholder"></div>
