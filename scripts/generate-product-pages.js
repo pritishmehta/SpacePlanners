@@ -94,7 +94,7 @@ const rackProducts = [
   {
     "id": "r2",
     "name": "Pallet Racking System",
-    "image": "Racks/Pallet Racking new.png",
+    "image": "Racks/Pallet Racking new.webp",
     "category": "Industrial Racks",
     "categorySlug": "racks",
     "categoryPage": "industrial-racks.html",
@@ -287,7 +287,7 @@ const cabinetProducts = [
   {
     "id": "f5",
     "name": "Storewell Cupboard",
-    "image": "Cupboard Cabinets/indus sto.png",
+    "image": "Cupboard Cabinets/indus sto.webp",
     "category": "Storage Cabinets & Cupboards",
     "categorySlug": "cabinets",
     "categoryPage": "filing-cabinets.html",
@@ -298,7 +298,7 @@ const cabinetProducts = [
   {
     "id": "f6",
     "name": "Glass Door Cupboard",
-    "image": "Cupboard Cabinets/Glass door main.png",
+    "image": "Cupboard Cabinets/Glass door main.webp",
     "category": "Storage Cabinets & Cupboards",
     "categorySlug": "cabinets",
     "categoryPage": "filing-cabinets.html",

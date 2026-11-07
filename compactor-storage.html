@@ -74,8 +74,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&family=Josefin+Sans:wght@200;300;400&display=swap">
   </noscript>
-  <link rel="preload" as="style" href="style.css?v=6">
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="preload" as="style" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=8">
   <script src="js/load-components.js?v=10" defer></script>
 
   <!-- Google tag (gtag.js) -->
@@ -1365,7 +1365,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const target = parseInt(el.dataset.target, 10);
             const prefix = el.dataset.prefix || '';
             const suffix = el.dataset.suffix || '';
-            if (isNaN(target)) return;
+            if (isNaN(target) || el.dataset.prefix || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // range values (60–70%) and reduced-motion keep the final figure
             const start = performance.now();
             (function step(now) {
               const p = Math.min((now - start) / 1600, 1);

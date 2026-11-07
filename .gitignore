@@ -22,3 +22,7 @@ tmp/
 dist/
 build/
 .env
+
+# Local / tooling
+.claude/
+WhatsApp Image *.jpeg

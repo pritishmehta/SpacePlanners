@@ -81,8 +81,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </noscript>
     <link rel="preload" href="Compactors/document-storage.webp" as="image" media="(max-width: 768px)"
         fetchpriority="high">
-    <link rel="preload" as="style" href="style.css?v=6">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="preload" as="style" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=8">
     <script src="js/load-components.js?v=10" defer></script>
 
     <!-- Google tag (gtag.js) -->
@@ -359,19 +359,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 const ls = lerp(20 * SCALE, 4 * SCALE, progress);
                 ctx.font = `200 ${FONT_SZ}px 'Astro Futuristic', sans-serif`;
                 ctx.fillStyle = '#1a1a1a';
-                ctx.textBaseline = 'middle';
+                // Align by the real cap-height: put the middle of the capital letters on the canvas centre line
+                ctx.textBaseline = 'alphabetic';
+                const spaceCap = ctx.measureText('E').actualBoundingBoxAscent;
+                const baseY = H / 2 + spaceCap / 2;
 
                 const word = ['S', 'P', 'A', 'C', 'E'];
                 const cw = word.map(l => ctx.measureText(l).width);
                 const totalW = cw.reduce((a, b) => a + b, 0) + ls * (word.length - 1);
                 let x = W / 2 - totalW / 2;
                 word.forEach((l, i) => {
-                    ctx.fillText(l, x, H / 2 + 12);
+                    ctx.fillText(l, x, baseY);
                     x += cw[i] + (i < word.length - 1 ? ls : 0);
                 });
             }
 
-            let animId = null, startTs = null;
+            // Font-metric alignment of PLANNERS (DOM) with SPACE (canvas); re-run once the web fonts have loaded
+            function alignPlanners() {
+                const plannersSize = FONT_SZ * 1.5; // Scale up Overcame Demo
+                const pSpan = planners.querySelector('span');
+                pSpan.style.fontSize = plannersSize + 'px';
+                pSpan.style.lineHeight = '1';
+                // Centre PLANNERS' capital letters on the same centre line as SPACE (font-metric based, not a fixed offset)
+                ctx.font = `${plannersSize}px 'Overcame Demo', sans-serif`;
+                const pm = ctx.measureText('E');
+                const pAsc = pm.fontBoundingBoxAscent, pDesc = pm.fontBoundingBoxDescent, pCap = pm.actualBoundingBoxAscent;
+                if (pAsc && pCap) {
+                    const baselineFromTop = (plannersSize - (pAsc + pDesc)) / 2 + pAsc;   // line-height:1 box
+                    const capCentre = baselineFromTop - pCap / 2;
+                    planners.style.transform = `translateY(${plannersSize / 2 - capCentre}px)`;
+                }
+
+            }
+
+            let animId = null, startTs = null, finished = false;
 
             function tick(ts) {
                 if (!startTs) startTs = ts;
@@ -384,16 +405,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 planners.style.opacity = Math.min(pp * 2, 1);
                 // Overcame Demo is naturally smaller and has a different baseline than Astro Futuristic.
                 // We apply a multiplier to make it visually the same size, and a translateY to align the baselines.
-                const plannersSize = FONT_SZ * 1.5; // Scale up Overcame Demo
-                planners.querySelector('span').style.fontSize = plannersSize + 'px';
-                planners.style.transform = `translateY(${plannersSize * -0.2}px)`; // Shift up more significantly
+                alignPlanners();
 
                 prog.style.width = Math.min(e / TOTAL, 1) * 100 + '%';
 
-                if (e < TOTAL) animId = requestAnimationFrame(tick);
+                if (e < TOTAL) animId = requestAnimationFrame(tick); else finished = true;
+            }
+
+            if (document.fonts && document.fonts.load) {
+                Promise.all([
+                    document.fonts.load("20px 'Astro Futuristic'"),
+                    document.fonts.load("20px 'Overcame Demo'")
+                ]).then(function () {
+                    if (finished) { draw(1); alignPlanners(); }
+                }).catch(function () { });
             }
 
             function start() {
+                finished = false;
                 if (animId) cancelAnimationFrame(animId);
                 startTs = null;
                 planners.style.maxWidth = '0';
@@ -529,18 +558,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="carousel-slide" id="slide1">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Racks/carousel-1.png" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
+                        src="Racks/carousel-1.webp" alt="Industrial Pallet Racks in a warehouse by Space Planners India"
                         loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide" id="slide2">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Lockers/locker-carousel-1.png"
+                        src="Lockers/locker-carousel-1.webp"
                         alt="Professional Steel Storage Lockers by Space Planners India" loading="lazy"
                         decoding="async">
                 </div>
                 <div class="carousel-slide" id="slide3">
                     <img width="1200" height="1000" style="aspect-ratio:1/1;object-fit:cover;"
-                        src="Cupboard Cabinets/carousel-2.png"
+                        src="Cupboard Cabinets/carousel-2.webp"
                         alt="Archive Filing and Mobile Compactor Storage by Space Planners India" loading="lazy"
                         decoding="async">
                 </div>
@@ -1823,7 +1852,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             const target = parseInt(el.dataset.target, 10);
                             const prefix = el.dataset.prefix || '';
                             const suffix = el.dataset.suffix || '';
-                            if (isNaN(target)) return;
+                            if (isNaN(target) || el.dataset.prefix || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // range values (60–70%) and reduced-motion keep the final figure
                             const duration = 1600;
                             const start = performance.now();
                             (function step(now) {
